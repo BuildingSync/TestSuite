@@ -1,0 +1,72 @@
+<auc:BuildingSync xmlns:auc="http://buildingsync.net/schemas/bedes-auc/2019"
+	xsi:schemaLocation="http://buildingsync.net/schemas/bedes-auc/2019 https://raw.githubusercontent.com/BuildingSync/schema/1c73127d389b779c6b74029be72c6e9ff3187113/BuildingSync.xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<auc:Facilities>
+		<auc:Facility>
+			<auc:Sites>
+				<auc:Site>
+					<auc:Address>
+						<auc:City>Chicago</auc:City>
+						<auc:PostalCode>60606</auc:PostalCode>
+					</auc:Address>
+					<auc:ClimateZoneType>
+						<auc:ASHRAE>
+							<auc:ClimateZone>5A</auc:ClimateZone>
+						</auc:ASHRAE>
+					</auc:ClimateZoneType>
+					<auc:Longitude>87.63</auc:Longitude>
+					<auc:Latitude>41.88</auc:Latitude>
+					<auc:Buildings>
+						<auc:Building ID="Willis_Tower">
+							<auc:PremisesName>Willis Tower</auc:PremisesName>
+							<auc:BuildingClassification>Commercial</auc:BuildingClassification>
+							<auc:OccupancyClassification>Office</auc:OccupancyClassification>
+							<auc:FloorsAboveGrade>110</auc:FloorsAboveGrade>
+							<auc:FloorsBelowGrade>3</auc:FloorsBelowGrade>
+							<auc:FloorAreas>
+								<auc:FloorArea>
+									<auc:FloorAreaType>Gross</auc:FloorAreaType>
+									<auc:FloorAreaValue>4477800.0</auc:FloorAreaValue>
+								</auc:FloorArea>
+								<auc:FloorArea>
+									<auc:FloorAreaType>Conditioned</auc:FloorAreaType>
+									<auc:FloorAreaValue>4477800.0</auc:FloorAreaValue>
+								</auc:FloorArea>
+							</auc:FloorAreas>
+							<auc:YearOfConstruction>1973</auc:YearOfConstruction>
+							<auc:Sections>
+								<auc:Section ID="Default_Section">
+									<auc:OccupancyClassification>Office</auc:OccupancyClassification>
+									<auc:FloorAreas>
+										<auc:FloorArea>
+											<auc:FloorAreaType>Gross</auc:FloorAreaType>
+											<auc:FloorAreaValue>4477800</auc:FloorAreaValue>
+										</auc:FloorArea>
+										<auc:FloorArea>
+											<auc:FloorAreaType>Common</auc:FloorAreaType>
+											<auc:FloorAreaValue>0.0</auc:FloorAreaValue>
+										</auc:FloorArea>
+									</auc:FloorAreas>
+								</auc:Section>
+							</auc:Sections>
+						</auc:Building>
+					</auc:Buildings>
+				</auc:Site>
+			</auc:Sites>
+			<auc:Reports>
+				<auc:Report>
+					<auc:Scenarios>
+						<auc:Scenario ID="Baseline">
+							<auc:ScenarioName>Baseline</auc:ScenarioName>
+							<auc:ScenarioType>
+								<auc:PackageOfMeasures>
+									<auc:ReferenceCase IDref="Baseline"/>
+								</auc:PackageOfMeasures>
+							</auc:ScenarioType>
+						</auc:Scenario>
+					</auc:Scenarios>
+				</auc:Report>
+			</auc:Reports>
+		</auc:Facility>
+	</auc:Facilities>
+</auc:BuildingSync>

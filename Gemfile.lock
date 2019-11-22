@@ -1,0 +1,135 @@
+GIT
+  remote: git://github.com/BuildingSync/BuildingSync-gem.git
+  revision: 50edf2060dd5d86bebfde5663d3aac3ef3711b9e
+  branch: DA_Test
+  specs:
+    buildingsync (0.1.0)
+      multipart-post (= 2.1.1)
+      openstudio-model-articulation (~> 0.1.0)
+
+GIT
+  remote: git://github.com/NREL/OpenStudio-extension-gem.git
+  revision: 3e61f94a064d9ff45c92a6a09f2ed19e9d7e538e
+  branch: develop
+  specs:
+    openstudio-extension (0.1.3)
+      bundler (~> 1.9)
+      json_pure (= 2.2.0)
+      openstudio-workflow (~> 1.3.4)
+      openstudio_measure_tester (~> 0.1.7)
+      parallel (~> 1.12.0)
+
+GIT
+  remote: git://github.com/NREL/openstudio-common-measures-gem.git
+  revision: de87f8c453642aac53246d7ad5017fbea1ca5911
+  branch: develop
+  specs:
+    openstudio-common-measures (0.1.0)
+      openstudio-extension (~> 0.1.3)
+      openstudio-standards (~> 0.2.10)
+
+GIT
+  remote: git://github.com/NREL/openstudio-model-articulation-gem.git
+  revision: 2adec90118c057b03e604728279c8f15bf7d1427
+  branch: DA
+  specs:
+    openstudio-model-articulation (0.1.0)
+      openstudio-common-measures (~> 0.1.0)
+      openstudio-standards (~> 0.2.10)
+
+GIT
+  remote: git://github.com/NREL/simplecov.git
+  revision: 98c33ffcb40fe867857a44b4d1a308f015b32e27
+  specs:
+    simplecov (0.16.1)
+      docile (~> 1.1)
+      simplecov-html (~> 0.10.0)
+
+GEM
+  remote: http://rubygems.org/
+  specs:
+    ansi (1.5.0)
+    ast (2.4.0)
+    builder (3.2.3)
+    diff-lcs (1.3)
+    docile (1.3.2)
+    geocoder (1.5.2)
+    git (1.3.0)
+    json_pure (2.2.0)
+    mini_portile2 (2.4.0)
+    minitest (5.4.3)
+    minitest-reporters (1.2.0)
+      ansi
+      builder
+      minitest (>= 5.0)
+      ruby-progressbar
+    multipart-post (2.1.1)
+    nokogiri (1.9.1)
+      mini_portile2 (~> 2.4.0)
+    nokogiri_schematron_builder (0.1.1)
+      nokogiri
+    openstudio-standards (0.2.10)
+    openstudio-workflow (1.3.4)
+    openstudio_measure_tester (0.1.7)
+      git (= 1.3.0)
+      minitest (= 5.4.3)
+      minitest-reporters (= 1.2.0)
+      rake (= 12.3.1)
+      rubocop (= 0.54.0)
+      rubocop-checkstyle_formatter (= 0.4)
+      simplecov (= 0.16.1)
+    parallel (1.12.1)
+    parser (2.6.5.0)
+      ast (~> 2.4.0)
+    powerpack (0.1.2)
+    rainbow (3.0.0)
+    rake (12.3.1)
+    rexml (3.2.2)
+    rspec (3.9.0)
+      rspec-core (~> 3.9.0)
+      rspec-expectations (~> 3.9.0)
+      rspec-mocks (~> 3.9.0)
+    rspec-core (3.9.0)
+      rspec-support (~> 3.9.0)
+    rspec-expectations (3.9.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.9.0)
+    rspec-mocks (3.9.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.9.0)
+    rspec-support (3.9.0)
+    rubocop (0.54.0)
+      parallel (~> 1.10)
+      parser (>= 2.5)
+      powerpack (~> 0.1)
+      rainbow (>= 2.2.2, < 4.0)
+      ruby-progressbar (~> 1.7)
+      unicode-display_width (~> 1.0, >= 1.0.1)
+    rubocop-checkstyle_formatter (0.4.0)
+      rubocop (>= 0.35.1)
+    ruby-progressbar (1.10.1)
+    simplecov-html (0.10.2)
+    unicode-display_width (1.6.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  buildingsync!
+  geocoder
+  multipart-post (= 2.1.1)
+  nokogiri_schematron_builder
+  openstudio-common-measures!
+  openstudio-extension!
+  openstudio-model-articulation!
+  openstudio-standards (>= 0.2.9)
+  rake (= 12.3.1)
+  rexml (= 3.2.2)
+  rspec (~> 3.8)
+  simplecov!
+
+RUBY VERSION
+   ruby 2.2.4p230
+
+BUNDLED WITH
+   1.17.3
