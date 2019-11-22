@@ -15,4 +15,16 @@ The file name to write each of the above two files out can be changed in the scr
 
 # Tests
 
-The tests folder contains similar code used to generate schematron XML documents, based on the requirements of the different levels.  
+The tests folder contains similar code used to generate schematron XML documents, based on the requirements of the different levels.
+
+# Usage
+
+TODO: Run test for different levels
+```
+bundle exec rake L100_test
+```
+
+TODO: Generate schematron doc for given 'level'
+```
+bundle exec rake gen_sch L100
+```

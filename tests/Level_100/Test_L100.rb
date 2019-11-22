@@ -1,6 +1,8 @@
 require "nokogiri/xml/schematron/schema"
 
-file_out = "BuildingSync_schematron_L100.xml"
+dir = Dir.pwd + '/tests/Level_100/'
+puts dir
+file_out = dir + "BuildingSync_schematron_L100.xml"
 
 EX_ONCE = "is REQUIRED EXACTLY ONCE"
 RE = "is REQUIRED"
