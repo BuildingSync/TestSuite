@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 ruby '~>2.2'
 
-gem "nokogiri_schematron_builder"
+# gem "nokogiri_schematron_builder"
 
 gem 'rake', '12.3.1'
 gem 'rexml', '3.2.2'

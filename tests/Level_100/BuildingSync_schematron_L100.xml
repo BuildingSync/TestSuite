@@ -19,7 +19,13 @@
       <sch:assert test="count(auc:Site) = 1">element "auc:Site" is REQUIRED EXACTLY ONCE</sch:assert>
     </sch:rule>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site">
+      <sch:assert test="count(auc:ClimateZoneType) = 1">element "auc:ClimateZoneType" is REQUIRED</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site">
       <sch:assert test="count(auc:Buildings) = 1">element "auc:Buildings" is REQUIRED EXACTLY ONCE</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:ClimateZoneType">
+      <sch:assert test="count(//auc:ClimateZone) = 1">element "auc:ClimateZone" is REQUIRED EXACTLY ONCE</sch:assert>
     </sch:rule>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings">
       <sch:assert test="count(auc:Building) = 1">element "auc:Building" is REQUIRED EXACTLY ONCE</sch:assert>

@@ -5,6 +5,7 @@ root = Dir.pwd
 
 desc 'L100 test'
 task :L100_test do
+  puts root
   ruby "tests/tester.rb Level_100 #{root}"
 end
 
@@ -12,6 +13,8 @@ desc 'Generate schematron XML for level'
 task :gen_sch do
   if ARGV[1]
     level = ARGV[1]
+    puts level
+    puts level == "L100"
     if level == "L100"
       ruby "tests/Level_100/Test_L100.rb"
     else

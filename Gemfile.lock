@@ -56,7 +56,6 @@ GEM
     geocoder (1.5.2)
     git (1.3.0)
     json_pure (2.2.0)
-    mini_portile2 (2.4.0)
     minitest (5.4.3)
     minitest-reporters (1.2.0)
       ansi
@@ -64,10 +63,6 @@ GEM
       minitest (>= 5.0)
       ruby-progressbar
     multipart-post (2.1.1)
-    nokogiri (1.9.1)
-      mini_portile2 (~> 2.4.0)
-    nokogiri_schematron_builder (0.1.1)
-      nokogiri
     openstudio-standards (0.2.10)
     openstudio-workflow (1.3.4)
     openstudio_measure_tester (0.1.7)
@@ -118,7 +113,6 @@ DEPENDENCIES
   buildingsync!
   geocoder
   multipart-post (= 2.1.1)
-  nokogiri_schematron_builder
   openstudio-common-measures!
   openstudio-extension!
   openstudio-model-articulation!

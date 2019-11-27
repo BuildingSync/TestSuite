@@ -49,11 +49,22 @@ schema = Nokogiri::XML::Schematron::Schema.new(title: "Level 100 schema") do
       assert(test: "count(#{SI}) = 1", message: "element \"#{SI}\" #{EX_ONCE}")
     end
     rule(context: SI_CON) do
+      assert(test: "count(auc:ClimateZoneType) = 1", message: "element \"auc:ClimateZoneType\" #{RE}")
+    end
+    rule(context: SI_CON) do
       assert(test: "count(#{BU_PL}) = 1", message: "element \"#{BU_PL}\" #{EX_ONCE}")
+    end
+    rule(context: SI_CON + "/auc:ClimateZoneType") do
+      assert(test: "count(//auc:ClimateZone) = 1", message: "element \"auc:ClimateZone\" #{EX_ONCE}")
     end
     rule(context: BU_PL_CON) do
       assert(test: "count(#{BU}) = 1", message: "element \"#{BU}\" #{EX_ONCE}")
     end
+  # TODO:
+  # 1. check for measures, measure
+  # 2. check for reports/report/scenarios/scenario ID="Baseline"
+  # 3. check for bulding level things: BuildingClassification,
+  #     OccupancyClassification, FloorsAboveGrade, ...
   end
 end
 
