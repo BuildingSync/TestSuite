@@ -4,31 +4,42 @@
   <sch:ns prefix="auc" uri="http://buildingsync.net/schemas/bedes-auc/2019"/>
   <sch:pattern>
     <sch:rule context="/">
-      <sch:assert test="count(auc:BuildingSync) = 1">element "auc:BuildingSync" is REQUIRED EXACTLY ONCE</sch:assert>
+      <sch:assert test="count(auc:BuildingSync) = 1"
+        >element "auc:BuildingSync" is REQUIRED EXACTLY ONCE</sch:assert>
     </sch:rule>
     <sch:rule context="/auc:BuildingSync">
-      <sch:assert test="count(auc:Facilities) = 1">element "auc:Facilities" is REQUIRED EXACTLY ONCE</sch:assert>
+      <sch:assert test="count(auc:Facilities) = 1"
+        >element "auc:Facilities" is REQUIRED EXACTLY ONCE</sch:assert>
     </sch:rule>
     <sch:rule context="/auc:BuildingSync/auc:Facilities">
-      <sch:assert test="count(auc:Facility) = 1">element "auc:Facility" is REQUIRED EXACTLY ONCE</sch:assert>
+      <sch:assert test="count(auc:Facility) = 1"
+        >element "auc:Facility" is REQUIRED EXACTLY ONCE</sch:assert>
     </sch:rule>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility">
-      <sch:assert test="count(auc:Sites) = 1">element "auc:Sites" is REQUIRED EXACTLY ONCE</sch:assert>
+      <sch:assert test="count(auc:Sites) = 1"
+        >element "auc:Sites" is REQUIRED EXACTLY ONCE</sch:assert>
     </sch:rule>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites">
-      <sch:assert test="count(auc:Site) = 1">element "auc:Site" is REQUIRED EXACTLY ONCE</sch:assert>
+      <sch:assert test="count(auc:Site) = 1"
+        >element "auc:Site" is REQUIRED EXACTLY ONCE</sch:assert>
     </sch:rule>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site">
-      <sch:assert test="count(auc:ClimateZoneType) = 1">element "auc:ClimateZoneType" is REQUIRED</sch:assert>
+      <sch:assert test="count(auc:ClimateZoneType) = 1"
+        >element "auc:ClimateZoneType" is REQUIRED</sch:assert>
     </sch:rule>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site">
-      <sch:assert test="count(auc:Buildings) = 1">element "auc:Buildings" is REQUIRED EXACTLY ONCE</sch:assert>
+      <sch:assert test="count(auc:Buildings) = 1"
+        >element "auc:Buildings" is REQUIRED EXACTLY ONCE</sch:assert>
     </sch:rule>
-    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:ClimateZoneType">
-      <sch:assert test="count(//auc:ClimateZone) = 1">element "auc:ClimateZone" is REQUIRED EXACTLY ONCE</sch:assert>
+    <sch:rule
+      context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:ClimateZoneType">
+      <sch:assert test="count(//auc:ClimateZone) = 1"
+        >element "auc:ClimateZone" is REQUIRED EXACTLY ONCE</sch:assert>
     </sch:rule>
-    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings">
-      <sch:assert test="count(auc:Building) = 1">element "auc:Building" is REQUIRED EXACTLY ONCE</sch:assert>
+    <sch:rule
+      context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings">
+      <sch:assert test="count(auc:Building) = 1"
+        >element "auc:Building" is REQUIRED EXACTLY ONCE</sch:assert>
     </sch:rule>
   </sch:pattern>
 </sch:schema>
