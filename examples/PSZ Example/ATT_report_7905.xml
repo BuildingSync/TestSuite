@@ -28,12 +28,12 @@
               <auc:Address>
                 <auc:StreetAddressDetail>
                   <auc:Simplified>
-                    <auc:StreetAddress>523 68th Street</auc:StreetAddress>
+                    <auc:StreetAddress>233 S Wacker Dr</auc:StreetAddress>
                   </auc:Simplified>
                 </auc:StreetAddressDetail>
-                <auc:City>Downers Grove</auc:City>
+                <auc:City>Chicago</auc:City>
                 <auc:State>IL</auc:State>
-                <auc:PostalCode>60516</auc:PostalCode>
+                <auc:PostalCode>60606</auc:PostalCode>
               </auc:Address>
               <auc:ConditionedFloorsAboveGrade>1</auc:ConditionedFloorsAboveGrade>
               <auc:ConditionedFloorsBelowGrade>0</auc:ConditionedFloorsBelowGrade>
