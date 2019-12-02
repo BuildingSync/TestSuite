@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<auc:BuildingSync xmlns:auc="http://buildingsync.net/schemas/bedes-auc/2019"
+	xsi:schemaLocation="http://buildingsync.net/schemas/bedes-auc/2019 https://raw.githubusercontent.com/BuildingSync/schema/1c73127d389b779c6b74029be72c6e9ff3187113/BuildingSync.xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<auc:Facilities>
+		<auc:Facility ID="Facility-1">
+			<auc:Sites>
+				<auc:Site ID="Site-1">
+					<auc:Buildings>
+						<auc:Building ID="Building-1">
+
+							<auc:YearOfConstruction></auc:YearOfConstruction>
+							<auc:Address>
+								<auc:City/>
+							</auc:Address>
+						</auc:Building>
+					</auc:Buildings>
+				</auc:Site>
+			</auc:Sites>
+			<auc:Systems/>
+			<auc:Schedules>
+				<auc:Schedule/>
+			</auc:Schedules>
+		</auc:Facility>
+	</auc:Facilities>
+</auc:BuildingSync>
