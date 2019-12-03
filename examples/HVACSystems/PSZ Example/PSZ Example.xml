@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<auc:BuildingSync xmlns:auc="http://buildingsync.net/schemas/bedes-auc/2019"
+  xsi:schemaLocation="http://buildingsync.net/schemas/bedes-auc/2019 https://raw.githubusercontent.com/BuildingSync/schema/v2.0-pr2/BuildingSync.xsd"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <auc:Facilities>
+    <auc:Facility ID="Facility-1">
+      <auc:Sites>
+        <auc:Site ID="Site-1">
+          <auc:Address>
+            <auc:City>Chicago</auc:City>
+            <auc:State>IL</auc:State>
+            <auc:PostalCode>60606</auc:PostalCode>
+          </auc:Address>
+          <auc:ClimateZoneType>
+            <auc:ASHRAE>
+              <auc:ClimateZone>5A</auc:ClimateZone>
+            </auc:ASHRAE>
+          </auc:ClimateZoneType>
+          <auc:Buildings>
+            <auc:Building ID="Building-1">
+              <auc:PremisesName>PSZ Test 1</auc:PremisesName>
+              <auc:Address>
+                <auc:StreetAddressDetail>
+                  <auc:Simplified>
+                    <auc:StreetAddress>233 S Wacker Dr</auc:StreetAddress>
+                  </auc:Simplified>
+                </auc:StreetAddressDetail>
+              </auc:Address>
+              <auc:BuildingClassification>Commercial</auc:BuildingClassification>
+              <auc:ConditionedFloorsAboveGrade>1</auc:ConditionedFloorsAboveGrade>
+              <auc:ConditionedFloorsBelowGrade>0</auc:ConditionedFloorsBelowGrade>
+              <auc:FloorAreas>
+                <auc:FloorArea>
+                  <auc:FloorAreaType>Gross</auc:FloorAreaType>
+                  <auc:FloorAreaValue>24695.0</auc:FloorAreaValue>
+                </auc:FloorArea>
+                <auc:FloorArea>
+                  <auc:FloorAreaType>Heated and Cooled</auc:FloorAreaType>
+                  <auc:FloorAreaValue>24565.83</auc:FloorAreaValue>
+                </auc:FloorArea>
+              </auc:FloorAreas>
+              <auc:Sections>
+                <auc:Section ID="Section-WholeBuilding">
+                  <auc:SectionType>Whole building</auc:SectionType>
+                  <auc:FootprintShape>Rectangular</auc:FootprintShape>
+                </auc:Section>
+                <auc:Section ID="Section-Retail">
+                  <auc:SectionType>Space function</auc:SectionType>
+                  <auc:OccupancyClassification>Retail</auc:OccupancyClassification>
+                  <auc:FloorAreas>
+                    <auc:FloorArea>
+                      <auc:FloorAreaType>Gross</auc:FloorAreaType>
+                      <auc:FloorAreaValue>24695.0</auc:FloorAreaValue>
+                    </auc:FloorArea>
+                    <auc:FloorArea>
+                      <auc:FloorAreaType>Heated and Cooled</auc:FloorAreaType>
+                      <auc:FloorAreaValue>24566.0</auc:FloorAreaValue>
+                    </auc:FloorArea>
+                    <auc:FloorArea></auc:FloorArea>
+                  </auc:FloorAreas>
+                </auc:Section>
+              </auc:Sections>
+            </auc:Building>
+          </auc:Buildings>
+        </auc:Site>
+      </auc:Sites>
+      <auc:Systems>
+        <auc:HVACSystems>
+          <auc:HVACSystem ID="HVACSystem-Simple">
+            <auc:PrimaryHVACSystemType>Packaged Rooftop Air Conditioner</auc:PrimaryHVACSystemType>
+            <auc:PrimaryHVACSystemType>Warm Air Furnace</auc:PrimaryHVACSystemType>
+          </auc:HVACSystem>
+          <auc:HVACSystem ID="HVACSystem-Detailed">
+            <auc:HeatingAndCoolingSystems>
+              <auc:ZoningSystemType>Single zone</auc:ZoningSystemType>
+              <auc:HeatingSources>
+                <auc:HeatingSource ID="HeatingSource-1">
+                  <auc:HeatingSourceType>
+                    <auc:Furnace></auc:Furnace>
+                  </auc:HeatingSourceType>
+                  <auc:AnnualHeatingEfficiencyValue>80.0</auc:AnnualHeatingEfficiencyValue>
+                  <auc:AnnualHeatingEfficiencyUnits>AFUE</auc:AnnualHeatingEfficiencyUnits>
+                  <auc:OutputCapacity>223.0</auc:OutputCapacity>
+                  <auc:CapacityUnits>kBtu/hr</auc:CapacityUnits>
+                  <auc:PrimaryFuel>Natural gas</auc:PrimaryFuel>
+                  <auc:HeatingSourceCondition>Good</auc:HeatingSourceCondition>
+                  <auc:Controls>
+                    <auc:Control>
+                      <auc:Thermostat>
+                        <auc:ControlStrategy>Programmable</auc:ControlStrategy>
+                      </auc:Thermostat>
+                    </auc:Control>
+                  </auc:Controls>
+                  <auc:Location>Roof</auc:Location>
+                  <auc:YearInstalled>2016</auc:YearInstalled>
+                  <auc:Quantity>1</auc:Quantity>
+                </auc:HeatingSource>
+              </auc:HeatingSources>
+              <auc:CoolingSources>
+                <auc:CoolingSource ID="CoolingSource-1">
+                  <auc:CoolingSourceType>
+                    <auc:DX>
+                      <auc:DXSystemType>Packaged/unitary direct expansion/RTU</auc:DXSystemType>
+                    </auc:DX>
+                  </auc:CoolingSourceType>
+                  <auc:AnnualCoolingEfficiencyValue>3.80</auc:AnnualCoolingEfficiencyValue>
+                  <auc:AnnualCoolingEfficiencyUnits>COP</auc:AnnualCoolingEfficiencyUnits>
+                  <auc:Capacity>110</auc:Capacity>
+                  <auc:CapacityUnits>kBtu/hr</auc:CapacityUnits>
+                  <auc:PrimaryFuel>Electricity</auc:PrimaryFuel>
+                  <auc:CoolingSourceCondition>Good</auc:CoolingSourceCondition>
+                  <auc:Controls>
+                    <auc:Control>
+                      <auc:Thermostat>
+                        <auc:ControlStrategy>Programmable</auc:ControlStrategy>
+                      </auc:Thermostat>
+                    </auc:Control>
+                  </auc:Controls>
+                  <auc:Location>Roof</auc:Location>
+                  <auc:YearInstalled>2016</auc:YearInstalled>
+                  <auc:Quantity>1</auc:Quantity>
+                </auc:CoolingSource>
+              </auc:CoolingSources>
+              <auc:Deliveries>
+                <auc:Delivery ID="Delivery-CentralFan">
+                  <auc:DeliveryType>
+                    <auc:CentralAirDistribution>
+                      <auc:AirDeliveryType>Central fan</auc:AirDeliveryType>
+                      <auc:TerminalUnit>CAV terminal box no reheat</auc:TerminalUnit>
+                    </auc:CentralAirDistribution>
+                  </auc:DeliveryType>
+                  <auc:HeatingSourceID IDref="HeatingSource-1"/>
+                  <auc:CoolingSourceID IDref="CoolingSource-1"/>
+                </auc:Delivery>
+                <auc:Delivery>
+                  <auc:DeliveryType>
+                    <auc:ZoneEquipment>
+                      <auc:FanBased>
+                        <auc:AirSideEconomizer ID="AirSideEconomizer-1">
+                          <auc:AirSideEconomizerType>Dry bulb temperature</auc:AirSideEconomizerType>
+                        </auc:AirSideEconomizer>
+                        <auc:SupplyAirTemperatureResetControl>false</auc:SupplyAirTemperatureResetControl>
+                        <auc:StaticPressureResetControl>false</auc:StaticPressureResetControl>
+                      </auc:FanBased>
+                    </auc:ZoneEquipment>
+                  </auc:DeliveryType>
+                  <auc:HeatingSourceID IDref="HeatingSource-1"/>
+                  <auc:CoolingSourceID IDref="CoolingSource-1"/>
+                </auc:Delivery>
+              </auc:Deliveries>
+            </auc:HeatingAndCoolingSystems>
+            <auc:LinkedPremises>
+              <auc:Building>
+                <auc:LinkedBuildingID IDref="Building-1"></auc:LinkedBuildingID>
+              </auc:Building>
+              <auc:Section>
+                <auc:LinkedSectionID IDref=></auc:LinkedSectionID>
+              </auc:Section>
+            </auc:LinkedPremises>
+          </auc:HVACSystem>
+        </auc:HVACSystems>
+      </auc:Systems>
+      <auc:Schedules>
+        <auc:Schedule></auc:Schedule>
+      </auc:Schedules>
+    </auc:Facility>
+  </auc:Facilities>
+</auc:BuildingSync>
