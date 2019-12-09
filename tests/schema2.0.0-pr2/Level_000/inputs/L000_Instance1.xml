@@ -5,25 +5,22 @@
     <auc:Facility>
       <auc:Sites>
         <auc:Site>
-          <auc:ClimateZoneType>
-            <auc:ASHRAE>
-              <auc:ClimateZone>6A</auc:ClimateZone>
-            </auc:ASHRAE>
-          </auc:ClimateZoneType>
+          <auc:Address>
+            <auc:City>Chicago</auc:City>
+            <auc:State>IL</auc:State>
+          </auc:Address>
           <auc:Buildings>
-            <auc:Building ID="Office_Carolina">
-              <auc:PremisesName>Office Carolina</auc:PremisesName>
+            <auc:Building ID="Willis_Tower">
+              <auc:PremisesName>Willis Tower</auc:PremisesName>
               <auc:BuildingClassification>Commercial</auc:BuildingClassification>
               <auc:OccupancyClassification>Office</auc:OccupancyClassification>
-              <auc:FloorsAboveGrade>1</auc:FloorsAboveGrade>
-              <auc:FloorsBelowGrade>0</auc:FloorsBelowGrade>
               <auc:FloorAreas>
                 <auc:FloorArea>
                   <auc:FloorAreaType>Gross</auc:FloorAreaType>
-                  <auc:FloorAreaValue>31053</auc:FloorAreaValue>
+                  <auc:FloorAreaValue>4477800.0</auc:FloorAreaValue>
                 </auc:FloorArea>
               </auc:FloorAreas>
-              <auc:YearOfConstruction>1915</auc:YearOfConstruction>
+              <auc:YearOfConstruction>1973</auc:YearOfConstruction>
             </auc:Building>
           </auc:Buildings>
         </auc:Site>

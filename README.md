@@ -1,17 +1,31 @@
 # Overview
 
-`app.rb` is used to generate the `BuildingSync_schematron.rb` file.  It works by traversing an XSD file over all elements in the provided `TOP_LEVEL_ELEMENT`.  It permits all XSD elements specified:
-```
-bundle exec ruby ./app.rb XSD_FILE NAMESPACE_PREFIX TOP_LEVEL_ELEMENT
-bundle exec ruby ./app.rb BuildingSync.xsd auc BuildingSync
-``` 
+This repository hosts test files and examples for the BuildingSync schema.  As newer versions of the schema are released, this repository will be updated to include relevant changes.  Currently, all example files are based on [schema2.0.0-pr2](https://github.com/BuildingSync/schema/releases/tag/v2.0-pr2).
 
-In order to then generate an schematron XML document based on the given XSD:
-```
-bundle exec ruby ./BuildingSync_schematron.rb
-```
 
-The file name to write each of the above two files out can be changed in the scripts themselves.
+## HVAC System Examples
+
+| System Type | Level 000 | Level 100 | Level 200 |
+|------------------------------------|--------------------|--------------------|-----------|
+| PSZ System |  | [L100_Instance1.xml](./tests/schema2.0.0-pr2/Level_100/inputs/L100_Instance1.xml) |  |
+| VAV |  | [L100_Instance2.xml](./tests/schema2.0.0-pr2/Level_100/inputs/L100_Instance2.xml) |  |
+| Shared Boiler |  | TODO |  |
+| DOAS & Radiant |  | TODO |  |
+| Inferred from OpenStudio Standards | [L000_Instance1.xml](./tests/schema2.0.0-pr2/Level_000/inputs/L000_Instance1.xml) |  |  |
+|  | [L000_Instance2.xml](./tests/schema2.0.0-pr2/Level_000/inputs/L000_Instance2.xml) |  |  |
+
+## Lighting System Examples
+
+| System Type | Level 000 | Level 100 | Level 200 |
+|------------------------------------|--------------------|--------------------|-----------|
+
+## Premise Examples
+
+| System Type | Level 000 | Level 100 | Level 200 |
+|------------------------------------|--------------------|--------------------|-----------|
+
+
+
 
 # Tests
 
@@ -24,7 +38,3 @@ TODO: Run test for different levels
 bundle exec rake L100_test
 ```
 
-TODO: Generate schematron doc for given 'level'
-```
-bundle exec rake gen_sch L100
-```
