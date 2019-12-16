@@ -7,12 +7,12 @@ This repository hosts test files and examples for the BuildingSync schema.  As n
 
 | System Type | Level 000 | Level 100 | Level 200 |
 |------------------------------------|--------------------|--------------------|-----------|
-| PSZ System |  | [L100_Instance1.xml](./tests/schema2.0.0-pr2/Level_100/inputs/L100_Instance1.xml) |  |
-| VAV |  | [L100_Instance2.xml](./tests/schema2.0.0-pr2/Level_100/inputs/L100_Instance2.xml) |  |
+| PSZ System |  | [L100_Instance1.xml](https://github.com/BuildingSync/TestSuite/blob/master/tests/schema2.0.0-pr2/Level_100/inputs/L100_Instance1.xml) |  |
+| VAV |  | [L100_Instance2.xml](https://github.com/BuildingSync/TestSuite/blob/master/tests/schema2.0.0-pr2/Level_100/inputs/L100_Instance2.xml) |  |
 | Shared Boiler |  | TODO |  |
 | DOAS & Radiant |  | TODO |  |
-| Inferred from OpenStudio Standards | [L000_Instance1.xml](./tests/schema2.0.0-pr2/Level_000/inputs/L000_Instance1.xml) |  |  |
-|  | [L000_Instance2.xml](./tests/schema2.0.0-pr2/Level_000/inputs/L000_Instance2.xml) |  |  |
+| Inferred from OpenStudio Standards | [L000_Instance1.xml](https://github.com/BuildingSync/TestSuite/blob/master/tests/schema2.0.0-pr2/Level_000/inputs/L000_Instance1.xml) |  |  |
+|  | [L000_Instance2.xml](https://github.com/BuildingSync/TestSuite/blob/master/tests/schema2.0.0-pr2/Level_000/inputs/L000_Instance1.xml) |  |  |
 
 ## Lighting System Examples
 
