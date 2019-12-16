@@ -2,3 +2,4 @@
 .idea
 .bundle
 outputs/
+Gemfile.lock

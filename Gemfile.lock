@@ -1,32 +1,11 @@
 GIT
   remote: git://github.com/BuildingSync/BuildingSync-gem.git
-  revision: 50edf2060dd5d86bebfde5663d3aac3ef3711b9e
+  revision: 9c083bda2a77a6de9564ae7172719406fa438405
   branch: DA_Test
   specs:
     buildingsync (0.1.0)
       multipart-post (= 2.1.1)
       openstudio-model-articulation (~> 0.1.0)
-
-GIT
-  remote: git://github.com/NREL/OpenStudio-extension-gem.git
-  revision: 3e61f94a064d9ff45c92a6a09f2ed19e9d7e538e
-  branch: develop
-  specs:
-    openstudio-extension (0.1.3)
-      bundler (~> 1.9)
-      json_pure (= 2.2.0)
-      openstudio-workflow (~> 1.3.4)
-      openstudio_measure_tester (~> 0.1.7)
-      parallel (~> 1.12.0)
-
-GIT
-  remote: git://github.com/NREL/openstudio-common-measures-gem.git
-  revision: de87f8c453642aac53246d7ad5017fbea1ca5911
-  branch: develop
-  specs:
-    openstudio-common-measures (0.1.0)
-      openstudio-extension (~> 0.1.3)
-      openstudio-standards (~> 0.2.10)
 
 GIT
   remote: git://github.com/NREL/openstudio-model-articulation-gem.git
@@ -63,6 +42,15 @@ GEM
       minitest (>= 5.0)
       ruby-progressbar
     multipart-post (2.1.1)
+    openstudio-common-measures (0.1.0)
+      openstudio-extension (~> 0.1.3)
+      openstudio-standards (~> 0.2.10)
+    openstudio-extension (0.1.3)
+      bundler (~> 1.9)
+      json_pure (= 2.2.0)
+      openstudio-workflow (~> 1.3.4)
+      openstudio_measure_tester (~> 0.1.7)
+      parallel (~> 1.12.0)
     openstudio-standards (0.2.10)
     openstudio-workflow (1.3.4)
     openstudio_measure_tester (0.1.7)
@@ -113,10 +101,7 @@ DEPENDENCIES
   buildingsync!
   geocoder
   multipart-post (= 2.1.1)
-  openstudio-common-measures!
-  openstudio-extension!
   openstudio-model-articulation!
-  openstudio-standards (>= 0.2.9)
   rake (= 12.3.1)
   rexml (= 3.2.2)
   rspec (~> 3.8)

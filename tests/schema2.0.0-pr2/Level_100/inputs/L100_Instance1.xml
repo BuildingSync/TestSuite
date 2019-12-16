@@ -1,0 +1,1263 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<auc:BuildingSync xmlns:auc="http://buildingsync.net/schemas/bedes-auc/2019">
+  <auc:Facilities>
+    <auc:Facility ID="Facility-69916113180740">
+      <auc:Sites>
+        <auc:Site ID="SiteType-69916113179080">
+          <auc:Buildings>
+            <auc:Building ID="BuildingType-69916112909060">
+              <auc:PremisesName>PSZ Test 1</auc:PremisesName>
+              <auc:PremisesNotes>These is my notes</auc:PremisesNotes>
+              <auc:Address>
+                <auc:StreetAddressDetail>
+                  <auc:Simplified>
+                    <auc:StreetAddress>233 S Wacker Dr</auc:StreetAddress>
+                  </auc:Simplified>
+                </auc:StreetAddressDetail>
+                <auc:City>Chicago</auc:City>
+                <auc:State>IL</auc:State>
+                <auc:PostalCode>60606</auc:PostalCode>
+              </auc:Address>
+              <auc:ConditionedFloorsAboveGrade>1</auc:ConditionedFloorsAboveGrade>
+              <auc:ConditionedFloorsBelowGrade>0</auc:ConditionedFloorsBelowGrade>
+              <auc:BuildingAutomationSystem>false</auc:BuildingAutomationSystem>
+              <auc:HistoricalLandmark>false</auc:HistoricalLandmark>
+              <auc:FloorAreas>
+                <auc:FloorArea>
+                  <auc:FloorAreaType>Cooled only</auc:FloorAreaType>
+                  <auc:FloorAreaValue>0.0</auc:FloorAreaValue>
+                </auc:FloorArea>
+                <auc:FloorArea>
+                  <auc:FloorAreaType>Gross</auc:FloorAreaType>
+                  <auc:FloorAreaValue>24695.0</auc:FloorAreaValue>
+                </auc:FloorArea>
+                <auc:FloorArea>
+                  <auc:FloorAreaType>Heated and Cooled</auc:FloorAreaType>
+                  <auc:FloorAreaValue>24565.830078125</auc:FloorAreaValue>
+                </auc:FloorArea>
+                <auc:FloorArea>
+                  <auc:FloorAreaType>Heated only</auc:FloorAreaType>
+                  <auc:FloorAreaValue>129.1699981689453</auc:FloorAreaValue>
+                </auc:FloorArea>
+              </auc:FloorAreas>
+              <auc:TotalExteriorAboveGradeWallArea>11766.0</auc:TotalExteriorAboveGradeWallArea>
+              <auc:TotalExteriorBelowGradeWallArea>0.0</auc:TotalExteriorBelowGradeWallArea>
+              <auc:OverallWindowToWallRatio>0.07129999995231628</auc:OverallWindowToWallRatio>
+              <auc:YearOfConstruction>2016</auc:YearOfConstruction>
+              <auc:RetrocommissioningDate>2016-01-01</auc:RetrocommissioningDate>
+              <auc:PercentOccupiedByOwner>100.0</auc:PercentOccupiedByOwner>
+              <auc:PercentLeasedByOwner>0.0</auc:PercentLeasedByOwner>
+              <auc:Sections>
+                <auc:Section ID="Section-69916112335020">
+                  <auc:SectionType>Whole building</auc:SectionType>
+                  <auc:FootprintShape>Rectangular</auc:FootprintShape>
+                  <auc:Sides>
+                    <auc:Side>
+                      <auc:WallID IDref="WallSystemType-69916111170900"></auc:WallID>
+                    </auc:Side>
+                    <auc:Side>
+                      <auc:WindowID IDref="FenestrationSystemType-69916110952780"></auc:WindowID>
+                    </auc:Side>
+                  </auc:Sides>
+                  <auc:Roofs>
+                    <auc:Roof>
+                      <auc:RoofID IDref="RoofSystemType-69916111336040">
+                        <auc:RoofCondition>Good</auc:RoofCondition>
+                      </auc:RoofID>
+                    </auc:Roof>
+                    <auc:Roof>
+                      <auc:RoofID IDref="RoofSystemType-69916111217200">
+                        <auc:SkylightIDs>
+                          <auc:SkylightID IDref="FenestrationSystemType-69916111246140"></auc:SkylightID>
+                        </auc:SkylightIDs>
+                      </auc:RoofID>
+                    </auc:Roof>
+                  </auc:Roofs>
+                  <auc:Foundations>
+                    <auc:Foundation>
+                      <auc:FoundationID IDref="FoundationSystemType-69916111873780"></auc:FoundationID>
+                    </auc:Foundation>
+                    <auc:Foundation>
+                      <auc:FoundationID IDref="FoundationSystemType-69916111098020"></auc:FoundationID>
+                    </auc:Foundation>
+                  </auc:Foundations>
+                </auc:Section>
+                <auc:Section ID="Section-69916112250100">
+                  <auc:SectionType>Space function</auc:SectionType>
+                  <auc:OccupancyClassification>Retail</auc:OccupancyClassification>
+                  <auc:OccupancyLevels>
+                    <auc:OccupancyLevel>
+                      <auc:OccupantQuantityType>Peak total occupants</auc:OccupantQuantityType>
+                      <auc:OccupantQuantity>370</auc:OccupantQuantity>
+                    </auc:OccupancyLevel>
+                  </auc:OccupancyLevels>
+                  <auc:TypicalOccupantUsages>
+                    <auc:TypicalOccupantUsage>
+                      <auc:TypicalOccupantUsageValue>91.0</auc:TypicalOccupantUsageValue>
+                      <auc:TypicalOccupantUsageUnits>Hours per week</auc:TypicalOccupantUsageUnits>
+                    </auc:TypicalOccupantUsage>
+                    <auc:TypicalOccupantUsage>
+                      <auc:TypicalOccupantUsageValue>52.0</auc:TypicalOccupantUsageValue>
+                      <auc:TypicalOccupantUsageUnits>Weeks per year</auc:TypicalOccupantUsageUnits>
+                    </auc:TypicalOccupantUsage>
+                  </auc:TypicalOccupantUsages>
+                  <auc:FloorAreas>
+                    <auc:FloorArea>
+                      <auc:FloorAreaType>Gross</auc:FloorAreaType>
+                      <auc:FloorAreaValue>24695.0</auc:FloorAreaValue>
+                    </auc:FloorArea>
+                    <auc:FloorArea>
+                      <auc:FloorAreaType>Conditioned</auc:FloorAreaType>
+                      <auc:FloorAreaValue>24695.0</auc:FloorAreaValue>
+                    </auc:FloorArea>
+                  </auc:FloorAreas>
+                  <auc:ThermalZones>
+                    <auc:ThermalZone ID="ThermalZoneType-69916111742320">
+                      <auc:HVACScheduleIDs>
+                        <auc:HVACScheduleID IDref="ScheduleType-69916111764340"></auc:HVACScheduleID>
+                      </auc:HVACScheduleIDs>
+                      <auc:SetpointTemperatureHeating>70</auc:SetpointTemperatureHeating>
+                      <auc:SetpointTemperatureCooling>75</auc:SetpointTemperatureCooling>
+                    </auc:ThermalZone>
+                  </auc:ThermalZones>
+                </auc:Section>
+              </auc:Sections>
+            </auc:Building>
+          </auc:Buildings>
+        </auc:Site>
+      </auc:Sites>
+      <auc:Systems>
+        <auc:HVACSystems>
+          <auc:HVACSystem ID="HVACSystemType-69916109065300">
+            <auc:Plants>
+              <auc:HeatingPlants>
+                <auc:HeatingPlant ID="HeatingPlantType-69916109116080">
+                  <auc:DistrictHeating>
+                    <auc:DistrictHeatingType>Hot water</auc:DistrictHeatingType>
+                    <auc:CapacityUnits>kBtu/hr</auc:CapacityUnits>
+                  </auc:DistrictHeating>
+                  <auc:PrimaryFuel>District hot water</auc:PrimaryFuel>
+                  <auc:BuildingAutomationSystem>false</auc:BuildingAutomationSystem>
+                  <auc:ControlSystemTypes>
+                    <auc:ControlSystemType>
+                      <auc:Digital></auc:Digital>
+                    </auc:ControlSystemType>
+                  </auc:ControlSystemTypes>
+                  
+                </auc:HeatingPlant>
+              </auc:HeatingPlants>
+            </auc:Plants>
+            <auc:LinkedPremises>
+              <auc:Building>
+                <auc:LinkedBuildingID IDref="BuildingType-69916112909060"></auc:LinkedBuildingID>
+              </auc:Building>
+            </auc:LinkedPremises>
+          </auc:HVACSystem>
+          <auc:HVACSystem ID="HVACSystemType-69916108056780">
+            <auc:HeatingAndCoolingSystems>
+              <auc:ZoningSystemType>Single zone</auc:ZoningSystemType>
+              <auc:HeatingSources>
+                <auc:HeatingSource ID="HeatingSource-69916098730740">
+                  <auc:HeatingSourceType>
+                    <auc:Furnace></auc:Furnace>
+                  </auc:HeatingSourceType>
+                  <auc:AnnualHeatingEfficiencyValue>80.0</auc:AnnualHeatingEfficiencyValue>
+                  <auc:AnnualHeatingEfficiencyUnits>AFUE</auc:AnnualHeatingEfficiencyUnits>
+                  <auc:OutputCapacity>223.0</auc:OutputCapacity>
+                  <auc:CapacityUnits>kBtu/hr</auc:CapacityUnits>
+                  <auc:PrimaryFuel>Natural gas</auc:PrimaryFuel>
+                  <auc:HeatingSourceCondition>Good</auc:HeatingSourceCondition>
+                  <auc:Controls>
+                    <auc:Control>
+                      <auc:Thermostat>
+                        <auc:ControlStrategy>Programmable</auc:ControlStrategy>
+                      </auc:Thermostat>
+                    </auc:Control>
+                  </auc:Controls>
+                  <auc:Location>Roof</auc:Location>
+                  <auc:YearInstalled>2016</auc:YearInstalled>
+                  <auc:Quantity>1</auc:Quantity>
+                </auc:HeatingSource>
+              </auc:HeatingSources>
+              <auc:CoolingSources>
+                <auc:CoolingSource ID="CoolingSource-69916099726100">
+                  <auc:CoolingSourceType>
+                    <auc:DX>
+                      <auc:DXSystemType>Packaged terminal heat pump (PTHP)</auc:DXSystemType>
+                    </auc:DX>
+                  </auc:CoolingSourceType>
+                  <auc:AnnualCoolingEfficiencyValue>3.798830032348633</auc:AnnualCoolingEfficiencyValue>
+                  <auc:AnnualCoolingEfficiencyUnits>COP</auc:AnnualCoolingEfficiencyUnits>
+                  <auc:Capacity>109.19999694824219</auc:Capacity>
+                  <auc:CapacityUnits>kBtu/hr</auc:CapacityUnits>
+                  <auc:PrimaryFuel>Electricity</auc:PrimaryFuel>
+                  <auc:CoolingSourceCondition>Good</auc:CoolingSourceCondition>
+                  <auc:Controls>
+                    <auc:Control>
+                      <auc:Thermostat>
+                        <auc:ControlStrategy>Programmable</auc:ControlStrategy>
+                      </auc:Thermostat>
+                    </auc:Control>
+                  </auc:Controls>
+                  <auc:Location>Roof</auc:Location>
+                  <auc:YearInstalled>2016</auc:YearInstalled>
+                  
+                  <auc:Quantity>1</auc:Quantity>
+                </auc:CoolingSource>
+              </auc:CoolingSources>
+              <auc:Deliveries>
+                <auc:Delivery ID="Delivery-69916106897480">
+                  <auc:DeliveryType>
+                    <auc:CentralAirDistribution>
+                      <auc:AirDeliveryType>Central fan</auc:AirDeliveryType>
+                      <auc:TerminalUnit>CAV terminal box no reheat</auc:TerminalUnit>
+                      <auc:ReheatSource>Heating plant</auc:ReheatSource>
+                      <auc:ReheatPlantID IDref="HeatingPlantType-69916109116080"></auc:ReheatPlantID>
+                    </auc:CentralAirDistribution>
+                  </auc:DeliveryType>
+                  <auc:HeatingSourceID IDref="HeatingSource-69916098730740"></auc:HeatingSourceID>
+                  <auc:CoolingSourceID IDref="CoolingSource-69916099726100"></auc:CoolingSourceID>
+                </auc:Delivery>
+                <auc:Delivery ID="Delivery-69916106928940">
+                  <auc:DeliveryType>
+                    <auc:ZoneEquipment>
+                      <auc:FanBased>
+                        <auc:AirSideEconomizer ID="AirSideEconomizer-69916104521460">
+                          <auc:AirSideEconomizerType>Dry bulb temperature</auc:AirSideEconomizerType>
+                        </auc:AirSideEconomizer>
+                        <auc:SupplyAirTemperatureResetControl>false</auc:SupplyAirTemperatureResetControl>
+                        <auc:StaticPressureResetControl>false</auc:StaticPressureResetControl>
+                      </auc:FanBased>
+                    </auc:ZoneEquipment>
+                  </auc:DeliveryType>
+                  <auc:HeatingSourceID IDref="HeatingSource-69916098730740"></auc:HeatingSourceID>
+                  <auc:CoolingSourceID IDref="CoolingSource-69916099726100"></auc:CoolingSourceID>
+                </auc:Delivery>
+              </auc:Deliveries>
+            </auc:HeatingAndCoolingSystems>
+            <auc:OtherHVACSystems>
+              <auc:OtherHVACSystem ID="OtherHVACSystemType-69916104057660">
+                <auc:OtherHVACType>
+                  <auc:MechanicalVentilation>
+                    <auc:VentilationType>None</auc:VentilationType>
+                    <auc:DemandControlVentilation>false</auc:DemandControlVentilation>
+                  </auc:MechanicalVentilation>
+                </auc:OtherHVACType>
+                <auc:LinkedDeliveryIDs>
+                  <auc:LinkedDeliveryID IDref="Delivery-69916106897480"></auc:LinkedDeliveryID>
+                  <auc:LinkedDeliveryID IDref="Delivery-69916106928940"></auc:LinkedDeliveryID>
+                </auc:LinkedDeliveryIDs>
+              </auc:OtherHVACSystem>
+            </auc:OtherHVACSystems>
+            <auc:LinkedPremises>
+              <auc:Building>
+                <auc:LinkedBuildingID IDref="BuildingType-69916112909060"></auc:LinkedBuildingID>
+              </auc:Building>
+              <auc:Section>
+                <auc:LinkedSectionID IDref="Section-69916112250100">
+                  <auc:FloorAreas>
+                    <auc:FloorArea>
+                      <auc:FloorAreaType>Gross</auc:FloorAreaType>
+                      <auc:FloorAreaPercentage>16.5</auc:FloorAreaPercentage>
+                    </auc:FloorArea>
+                  </auc:FloorAreas>
+                </auc:LinkedSectionID>
+              </auc:Section>
+            </auc:LinkedPremises>
+          </auc:HVACSystem>
+          <auc:HVACSystem ID="HVACSystemType-69916096356260">
+            <auc:HeatingAndCoolingSystems>
+              <auc:ZoningSystemType>Single zone</auc:ZoningSystemType>
+              <auc:HeatingSources>
+                <auc:HeatingSource ID="HeatingSource-69916261778180">
+                  <auc:HeatingSourceType>
+                    <auc:Furnace></auc:Furnace>
+                  </auc:HeatingSourceType>
+                  <auc:AnnualHeatingEfficiencyValue>80.0</auc:AnnualHeatingEfficiencyValue>
+                  <auc:AnnualHeatingEfficiencyUnits>AFUE</auc:AnnualHeatingEfficiencyUnits>
+                  <auc:OutputCapacity>995.0</auc:OutputCapacity>
+                  <auc:CapacityUnits>kBtu/hr</auc:CapacityUnits>
+                  <auc:PrimaryFuel>Natural gas</auc:PrimaryFuel>
+                  <auc:HeatingSourceCondition>Good</auc:HeatingSourceCondition>
+                  <auc:Controls>
+                    <auc:Control>
+                      <auc:Thermostat>
+                        <auc:ControlStrategy>Programmable</auc:ControlStrategy>
+                      </auc:Thermostat>
+                    </auc:Control>
+                  </auc:Controls>
+                  <auc:Location>Roof</auc:Location>
+                  <auc:YearInstalled>2016</auc:YearInstalled>
+                  <auc:Quantity>1</auc:Quantity>
+                </auc:HeatingSource>
+              </auc:HeatingSources>
+              <auc:CoolingSources>
+                <auc:CoolingSource ID="CoolingSource-69916262489080">
+                  <auc:CoolingSourceType>
+                    <auc:DX>
+                      <auc:DXSystemType>Packaged terminal heat pump (PTHP)</auc:DXSystemType>
+                    </auc:DX>
+                  </auc:CoolingSourceType>
+                  <auc:AnnualCoolingEfficiencyValue>3.4000000953674316</auc:AnnualCoolingEfficiencyValue>
+                  <auc:AnnualCoolingEfficiencyUnits>COP</auc:AnnualCoolingEfficiencyUnits>
+                  <auc:Capacity>495.6000061035156</auc:Capacity>
+                  <auc:CapacityUnits>kBtu/hr</auc:CapacityUnits>
+                  <auc:PrimaryFuel>Electricity</auc:PrimaryFuel>
+                  <auc:CoolingSourceCondition>Good</auc:CoolingSourceCondition>
+                  <auc:Controls>
+                    <auc:Control>
+                      <auc:Thermostat>
+                        <auc:ControlStrategy>Programmable</auc:ControlStrategy>
+                      </auc:Thermostat>
+                    </auc:Control>
+                  </auc:Controls>
+                  <auc:Location>Roof</auc:Location>
+                  <auc:YearInstalled>2016</auc:YearInstalled>
+                  <auc:Quantity>1</auc:Quantity>
+                </auc:CoolingSource>
+              </auc:CoolingSources>
+              <auc:Deliveries>
+                <auc:Delivery ID="Delivery-69916096189640">
+                  <auc:DeliveryType>
+                    <auc:CentralAirDistribution>
+                      <auc:AirDeliveryType>Central fan</auc:AirDeliveryType>
+                      <auc:TerminalUnit>CAV terminal box no reheat</auc:TerminalUnit>
+                      <auc:ReheatSource>Heating plant</auc:ReheatSource>
+                      <auc:ReheatPlantID IDref="HeatingPlantType-69916109116080"></auc:ReheatPlantID>
+                    </auc:CentralAirDistribution>
+                  </auc:DeliveryType>
+                  <auc:HeatingSourceID IDref="HeatingSource-69916261778180"></auc:HeatingSourceID>
+                  <auc:CoolingSourceID IDref="CoolingSource-69916262489080"></auc:CoolingSourceID>
+                </auc:Delivery>
+                <auc:Delivery ID="Delivery-69916096126540">
+                  <auc:DeliveryType>
+                    <auc:ZoneEquipment>
+                      <auc:FanBased>
+                        <auc:AirSideEconomizer ID="AirSideEconomizer-69916096036700">
+                          <auc:AirSideEconomizerType>Dry bulb temperature</auc:AirSideEconomizerType>
+                        </auc:AirSideEconomizer>
+                        <auc:SupplyAirTemperatureResetControl>false</auc:SupplyAirTemperatureResetControl>
+                        <auc:StaticPressureResetControl>false</auc:StaticPressureResetControl>
+                      </auc:FanBased>
+                    </auc:ZoneEquipment>
+                  </auc:DeliveryType>
+                  <auc:HeatingSourceID IDref="HeatingSource-69916261778180"></auc:HeatingSourceID>
+                  <auc:CoolingSourceID IDref="CoolingSource-69916262489080"></auc:CoolingSourceID>
+                </auc:Delivery>
+              </auc:Deliveries>
+            </auc:HeatingAndCoolingSystems>
+            <auc:OtherHVACSystems>
+              <auc:OtherHVACSystem ID="OtherHVACSystemType-69916096067360">
+                <auc:OtherHVACType>
+                  <auc:MechanicalVentilation>
+                    <auc:VentilationType>None</auc:VentilationType>
+                    <auc:DemandControlVentilation>false</auc:DemandControlVentilation>
+                  </auc:MechanicalVentilation>
+                </auc:OtherHVACType>
+                <auc:LinkedDeliveryIDs>
+                  <auc:LinkedDeliveryID IDref="Delivery-69916096189640"></auc:LinkedDeliveryID>
+                  <auc:LinkedDeliveryID IDref="Delivery-69916096126540"></auc:LinkedDeliveryID>
+                </auc:LinkedDeliveryIDs>
+              </auc:OtherHVACSystem>
+            </auc:OtherHVACSystems>
+            <auc:LinkedPremises>
+              <auc:Building>
+                <auc:LinkedBuildingID IDref="BuildingType-69916112909060"></auc:LinkedBuildingID>
+              </auc:Building>
+              <auc:Section>
+                <auc:LinkedSectionID IDref="Section-69916112250100">
+                  <auc:FloorAreas>
+                    <auc:FloorArea>
+                      <auc:FloorAreaType>Gross</auc:FloorAreaType>
+                      <auc:FloorAreaPercentage>70.0</auc:FloorAreaPercentage>
+                    </auc:FloorArea>
+                  </auc:FloorAreas>
+                </auc:LinkedSectionID>
+              </auc:Section>
+            </auc:LinkedPremises>
+          </auc:HVACSystem>
+          <auc:HVACSystem ID="HVACSystemType-69916260361860">
+            <auc:HeatingAndCoolingSystems>
+              <auc:ZoningSystemType>Single zone</auc:ZoningSystemType>
+              <auc:HeatingSources>
+                <auc:HeatingSource ID="HeatingSource-69916258707020">
+                  <auc:HeatingSourceType>
+                    <auc:Furnace></auc:Furnace>
+                  </auc:HeatingSourceType>
+                  <auc:AnnualHeatingEfficiencyValue>80.0</auc:AnnualHeatingEfficiencyValue>
+                  <auc:AnnualHeatingEfficiencyUnits>AFUE</auc:AnnualHeatingEfficiencyUnits>
+                  <auc:OutputCapacity>190.0</auc:OutputCapacity>
+                  <auc:CapacityUnits>kBtu/hr</auc:CapacityUnits>
+                  <auc:PrimaryFuel>Natural gas</auc:PrimaryFuel>
+                  <auc:HeatingSourceCondition>Excellent</auc:HeatingSourceCondition>
+                  <auc:Controls>
+                    <auc:Control>
+                      <auc:Thermostat>
+                        <auc:ControlStrategy>Programmable</auc:ControlStrategy>
+                      </auc:Thermostat>
+                    </auc:Control>
+                  </auc:Controls>
+                  <auc:Location>Interior</auc:Location>
+                  <auc:YearInstalled>2016</auc:YearInstalled>
+                  <auc:Quantity>1</auc:Quantity>
+                </auc:HeatingSource>
+              </auc:HeatingSources>
+              <auc:CoolingSources>
+                <auc:CoolingSource ID="CoolingSource-69916259213800">
+                  <auc:CoolingSourceType>
+                    <auc:NoCooling></auc:NoCooling>
+                  </auc:CoolingSourceType>
+                  <auc:CapacityUnits>kBtu/hr</auc:CapacityUnits>
+                  <auc:Controls>
+                    <auc:Control>
+                      <auc:Thermostat>
+                        <auc:ControlStrategy>Programmable</auc:ControlStrategy>
+                      </auc:Thermostat>
+                    </auc:Control>
+                  </auc:Controls>
+                </auc:CoolingSource>
+              </auc:CoolingSources>
+              <auc:Deliveries>
+                <auc:Delivery ID="Delivery-69916260098500">
+                  <auc:DeliveryType>
+                    <auc:CentralAirDistribution>
+                      <auc:AirDeliveryType>Central fan</auc:AirDeliveryType>
+                      <auc:ReheatSource>Heating plant</auc:ReheatSource>
+                      <auc:ReheatPlantID IDref="HeatingPlantType-69916109116080"></auc:ReheatPlantID>
+                    </auc:CentralAirDistribution>
+                  </auc:DeliveryType>
+                  <auc:HeatingSourceID IDref="HeatingSource-69916258707020"></auc:HeatingSourceID>
+                  <auc:CoolingSourceID IDref="CoolingSource-69916259213800"></auc:CoolingSourceID>
+                </auc:Delivery>
+                <auc:Delivery ID="Delivery-69916260019960">
+                  <auc:DeliveryType>
+                    <auc:ZoneEquipment>
+                      <auc:FanBased>
+                        <auc:SupplyAirTemperatureResetControl>false</auc:SupplyAirTemperatureResetControl>
+                        <auc:StaticPressureResetControl>false</auc:StaticPressureResetControl>
+                      </auc:FanBased>
+                    </auc:ZoneEquipment>
+                  </auc:DeliveryType>
+                  <auc:HeatingSourceID IDref="HeatingSource-69916258707020"></auc:HeatingSourceID>
+                  <auc:CoolingSourceID IDref="CoolingSource-69916259213800"></auc:CoolingSourceID>
+                </auc:Delivery>
+              </auc:Deliveries>
+            </auc:HeatingAndCoolingSystems>
+            <auc:OtherHVACSystems>
+              <auc:OtherHVACSystem ID="OtherHVACSystemType-69916259818660">
+                <auc:OtherHVACType>
+                  <auc:MechanicalVentilation>
+                    <auc:DemandControlVentilation>false</auc:DemandControlVentilation>
+                  </auc:MechanicalVentilation>
+                </auc:OtherHVACType>
+                <auc:LinkedDeliveryIDs>
+                  <auc:LinkedDeliveryID IDref="Delivery-69916260098500"></auc:LinkedDeliveryID>
+                  <auc:LinkedDeliveryID IDref="Delivery-69916260019960"></auc:LinkedDeliveryID>
+                </auc:LinkedDeliveryIDs>
+              </auc:OtherHVACSystem>
+            </auc:OtherHVACSystems>
+            <auc:LinkedPremises>
+              <auc:Building>
+                <auc:LinkedBuildingID IDref="BuildingType-69916112909060"></auc:LinkedBuildingID>
+              </auc:Building>
+              <auc:Section>
+                <auc:LinkedSectionID IDref="Section-69916112250100">
+                  <auc:FloorAreas>
+                    <auc:FloorArea>
+                      <auc:FloorAreaType>Gross</auc:FloorAreaType>
+                      <auc:FloorAreaPercentage>1.0</auc:FloorAreaPercentage>
+                    </auc:FloorArea>
+                  </auc:FloorAreas>
+                </auc:LinkedSectionID>
+              </auc:Section>
+            </auc:LinkedPremises>
+          </auc:HVACSystem>
+          <auc:HVACSystem ID="HVACSystemType-69916254664040">
+            <auc:HeatingAndCoolingSystems>
+              <auc:ZoningSystemType>Single zone</auc:ZoningSystemType>
+              <auc:HeatingSources>
+                <auc:HeatingSource ID="HeatingSource-69916242882340">
+                  <auc:HeatingSourceType>
+                    <auc:Furnace></auc:Furnace>
+                  </auc:HeatingSourceType>
+                  <auc:AnnualHeatingEfficiencyValue>80.0</auc:AnnualHeatingEfficiencyValue>
+                  <auc:AnnualHeatingEfficiencyUnits>AFUE</auc:AnnualHeatingEfficiencyUnits>
+                  <auc:OutputCapacity>140.0</auc:OutputCapacity>
+                  <auc:CapacityUnits>kBtu/hr</auc:CapacityUnits>
+                  <auc:PrimaryFuel>Natural gas</auc:PrimaryFuel>
+                  <auc:HeatingSourceCondition>Average</auc:HeatingSourceCondition>
+                  <auc:Controls>
+                    <auc:Control>
+                      <auc:Thermostat>
+                        <auc:ControlStrategy>Programmable</auc:ControlStrategy>
+                      </auc:Thermostat>
+                    </auc:Control>
+                  </auc:Controls>
+                  <auc:Location>Roof</auc:Location>
+                  <auc:YearInstalled>2016</auc:YearInstalled>
+                  <auc:Quantity>1</auc:Quantity>
+                </auc:HeatingSource>
+              </auc:HeatingSources>
+              <auc:CoolingSources>
+                <auc:CoolingSource ID="CoolingSource-69916252056540">
+                  <auc:CoolingSourceType>
+                    <auc:DX>
+                      <auc:DXSystemType>Packaged terminal heat pump (PTHP)</auc:DXSystemType>
+                    </auc:DX>
+                  </auc:CoolingSourceType>
+                  <auc:AnnualCoolingEfficiencyValue>3.799999952316284</auc:AnnualCoolingEfficiencyValue>
+                  <auc:AnnualCoolingEfficiencyUnits>COP</auc:AnnualCoolingEfficiencyUnits>
+                  <auc:Capacity>68.4000015258789</auc:Capacity>
+                  <auc:CapacityUnits>kBtu/hr</auc:CapacityUnits>
+                  <auc:PrimaryFuel>Electricity</auc:PrimaryFuel>
+                  <auc:CoolingSourceCondition>Average</auc:CoolingSourceCondition>
+                  <auc:Controls>
+                    <auc:Control>
+                      <auc:Thermostat>
+                        <auc:ControlStrategy>Programmable</auc:ControlStrategy>
+                      </auc:Thermostat>
+                    </auc:Control>
+                  </auc:Controls>
+                  <auc:Location>Roof</auc:Location>
+                  <auc:YearInstalled>2016</auc:YearInstalled>
+                  <auc:Quantity>1</auc:Quantity>
+                </auc:CoolingSource>
+              </auc:CoolingSources>
+              <auc:Deliveries>
+                <auc:Delivery ID="Delivery-69916254392500">
+                  <auc:DeliveryType>
+                    <auc:CentralAirDistribution>
+                      <auc:AirDeliveryType>Central fan</auc:AirDeliveryType>
+                      <auc:TerminalUnit>CAV terminal box no reheat</auc:TerminalUnit>
+                      <auc:ReheatSource>Heating plant</auc:ReheatSource>
+                      <auc:ReheatPlantID IDref="HeatingPlantType-69916109116080"></auc:ReheatPlantID>
+                    </auc:CentralAirDistribution>
+                  </auc:DeliveryType>
+                  <auc:HeatingSourceID IDref="HeatingSource-69916242882340"></auc:HeatingSourceID>
+                  <auc:CoolingSourceID IDref="CoolingSource-69916252056540"></auc:CoolingSourceID>
+                </auc:Delivery>
+                <auc:Delivery ID="Delivery-69916254297980">
+                  <auc:DeliveryType>
+                    <auc:ZoneEquipment>
+                      <auc:FanBased>
+                        <auc:AirSideEconomizer ID="AirSideEconomizer-69916254238640">
+                          <auc:AirSideEconomizerType>Dry bulb temperature</auc:AirSideEconomizerType>
+                        </auc:AirSideEconomizer>
+                        <auc:SupplyAirTemperatureResetControl>false</auc:SupplyAirTemperatureResetControl>
+                        <auc:StaticPressureResetControl>false</auc:StaticPressureResetControl>
+                      </auc:FanBased>
+                    </auc:ZoneEquipment>
+                  </auc:DeliveryType>
+                  <auc:HeatingSourceID IDref="HeatingSource-69916242882340"></auc:HeatingSourceID>
+                  <auc:CoolingSourceID IDref="CoolingSource-69916252056540"></auc:CoolingSourceID>
+                </auc:Delivery>
+              </auc:Deliveries>
+            </auc:HeatingAndCoolingSystems>
+            <auc:OtherHVACSystems>
+              <auc:OtherHVACSystem ID="OtherHVACSystemType-69916254168220">
+                <auc:OtherHVACType>
+                  <auc:MechanicalVentilation>
+                    <auc:VentilationType>None</auc:VentilationType>
+                    <auc:DemandControlVentilation>false</auc:DemandControlVentilation>
+                  </auc:MechanicalVentilation>
+                </auc:OtherHVACType>
+                <auc:LinkedDeliveryIDs>
+                  <auc:LinkedDeliveryID IDref="Delivery-69916254392500"></auc:LinkedDeliveryID>
+                  <auc:LinkedDeliveryID IDref="Delivery-69916254297980"></auc:LinkedDeliveryID>
+                </auc:LinkedDeliveryIDs>
+              </auc:OtherHVACSystem>
+            </auc:OtherHVACSystems>
+            <auc:LinkedPremises>
+              <auc:Building>
+                <auc:LinkedBuildingID IDref="BuildingType-69916112909060"></auc:LinkedBuildingID>
+              </auc:Building>
+              <auc:Section>
+                <auc:LinkedSectionID IDref="Section-69916112250100">
+                  <auc:FloorAreas>
+                    <auc:FloorArea>
+                      <auc:FloorAreaType>Gross</auc:FloorAreaType>
+                      <auc:FloorAreaPercentage>6.25</auc:FloorAreaPercentage>
+                    </auc:FloorArea>
+                  </auc:FloorAreas>
+                </auc:LinkedSectionID>
+              </auc:Section>
+            </auc:LinkedPremises>
+          </auc:HVACSystem>
+          <auc:HVACSystem ID="HVACSystemType-69916077565220">
+            <auc:HeatingAndCoolingSystems>
+              <auc:ZoningSystemType>Single zone</auc:ZoningSystemType>
+              <auc:HeatingSources>
+                <auc:HeatingSource ID="HeatingSource-69916082313340">
+                  <auc:HeatingSourceType>
+                    <auc:Furnace></auc:Furnace>
+                  </auc:HeatingSourceType>
+                  <auc:AnnualHeatingEfficiencyValue>80.0</auc:AnnualHeatingEfficiencyValue>
+                  <auc:AnnualHeatingEfficiencyUnits>AFUE</auc:AnnualHeatingEfficiencyUnits>
+                  <auc:OutputCapacity>164.0</auc:OutputCapacity>
+                  <auc:CapacityUnits>kBtu/hr</auc:CapacityUnits>
+                  <auc:PrimaryFuel>Natural gas</auc:PrimaryFuel>
+                  <auc:HeatingSourceCondition>Good</auc:HeatingSourceCondition>
+                  <auc:Controls>
+                    <auc:Control>
+                      <auc:Thermostat>
+                        <auc:ControlStrategy>Programmable</auc:ControlStrategy>
+                      </auc:Thermostat>
+                    </auc:Control>
+                  </auc:Controls>
+                  <auc:Location>Roof</auc:Location>
+                  <auc:YearInstalled>2016</auc:YearInstalled>
+                  <auc:Quantity>1</auc:Quantity>
+                </auc:HeatingSource>
+              </auc:HeatingSources>
+              <auc:CoolingSources>
+                <auc:CoolingSource ID="CoolingSource-69916082983960">
+                  <auc:CoolingSourceType>
+                    <auc:DX>
+                      <auc:DXSystemType>Packaged terminal heat pump (PTHP)</auc:DXSystemType>
+                    </auc:DX>
+                  </auc:CoolingSourceType>
+                  <auc:AnnualCoolingEfficiencyValue>3.7899999618530273</auc:AnnualCoolingEfficiencyValue>
+                  <auc:AnnualCoolingEfficiencyUnits>COP</auc:AnnualCoolingEfficiencyUnits>
+                  <auc:Capacity>79.19999694824219</auc:Capacity>
+                  <auc:CapacityUnits>kBtu/hr</auc:CapacityUnits>
+                  <auc:PrimaryFuel>Electricity</auc:PrimaryFuel>
+                  <auc:CoolingSourceCondition>Good</auc:CoolingSourceCondition>
+                  <auc:Controls>
+                    <auc:Control>
+                      <auc:Thermostat>
+                        <auc:ControlStrategy>Programmable</auc:ControlStrategy>
+                      </auc:Thermostat>
+                    </auc:Control>
+                  </auc:Controls>
+                  <auc:Location>Roof</auc:Location>
+                  <auc:YearInstalled>2016</auc:YearInstalled>
+                  <auc:Quantity>1</auc:Quantity>
+                </auc:CoolingSource>
+              </auc:CoolingSources>
+              <auc:Deliveries>
+                <auc:Delivery ID="Delivery-69916085961980">
+                  <auc:DeliveryType>
+                    <auc:CentralAirDistribution>
+                      <auc:AirDeliveryType>Central fan</auc:AirDeliveryType>
+                      <auc:TerminalUnit>CAV terminal box no reheat</auc:TerminalUnit>
+                      <auc:ReheatSource>Heating plant</auc:ReheatSource>
+                      <auc:ReheatPlantID IDref="HeatingPlantType-69916109116080"></auc:ReheatPlantID>
+                    </auc:CentralAirDistribution>
+                  </auc:DeliveryType>
+                  <auc:HeatingSourceID IDref="HeatingSource-69916082313340"></auc:HeatingSourceID>
+                  <auc:CoolingSourceID IDref="CoolingSource-69916082983960"></auc:CoolingSourceID>
+                </auc:Delivery>
+                <auc:Delivery ID="Delivery-69916085778300">
+                  <auc:DeliveryType>
+                    <auc:ZoneEquipment>
+                      <auc:FanBased>
+                        <auc:AirSideEconomizer ID="AirSideEconomizer-69916085708720">
+                          <auc:AirSideEconomizerType>Dry bulb temperature</auc:AirSideEconomizerType>
+                        </auc:AirSideEconomizer>
+                        <auc:SupplyAirTemperatureResetControl>false</auc:SupplyAirTemperatureResetControl>
+                        <auc:StaticPressureResetControl>false</auc:StaticPressureResetControl>
+                      </auc:FanBased>
+                    </auc:ZoneEquipment>
+                  </auc:DeliveryType>
+                  <auc:HeatingSourceID IDref="HeatingSource-69916082313340"></auc:HeatingSourceID>
+                  <auc:CoolingSourceID IDref="CoolingSource-69916082983960"></auc:CoolingSourceID>
+                </auc:Delivery>
+              </auc:Deliveries>
+            </auc:HeatingAndCoolingSystems>
+            <auc:OtherHVACSystems>
+              <auc:OtherHVACSystem ID="OtherHVACSystemType-69916085065460">
+                <auc:OtherHVACType>
+                  <auc:MechanicalVentilation>
+                    <auc:VentilationType>None</auc:VentilationType>
+                    <auc:DemandControlVentilation>false</auc:DemandControlVentilation>
+                  </auc:MechanicalVentilation>
+                </auc:OtherHVACType>
+                <auc:LinkedDeliveryIDs>
+                  <auc:LinkedDeliveryID IDref="Delivery-69916085961980"></auc:LinkedDeliveryID>
+                  <auc:LinkedDeliveryID IDref="Delivery-69916085778300"></auc:LinkedDeliveryID>
+                </auc:LinkedDeliveryIDs>
+              </auc:OtherHVACSystem>
+            </auc:OtherHVACSystems>
+            <auc:LinkedPremises>
+              <auc:Building>
+                <auc:LinkedBuildingID IDref="BuildingType-69916112909060"></auc:LinkedBuildingID>
+              </auc:Building>
+              <auc:Section>
+                <auc:LinkedSectionID IDref="Section-69916112250100">
+                  <auc:FloorAreas>
+                    <auc:FloorArea>
+                      <auc:FloorAreaType>Gross</auc:FloorAreaType>
+                      <auc:FloorAreaPercentage>6.25</auc:FloorAreaPercentage>
+                    </auc:FloorArea>
+                  </auc:FloorAreas>
+                </auc:LinkedSectionID>
+              </auc:Section>
+            </auc:LinkedPremises>
+          </auc:HVACSystem>
+        </auc:HVACSystems>
+        <auc:LightingSystems>
+          <auc:LightingSystem ID="LightingSystemType-69916112002360">
+            <auc:LampType>
+              <auc:SolidStateLighting>
+                <auc:LampLabel>LED</auc:LampLabel>
+              </auc:SolidStateLighting>
+            </auc:LampType>
+            <auc:BallastType>No Ballast</auc:BallastType>
+            <auc:OutsideLighting>false</auc:OutsideLighting>
+            <auc:Controls>
+              <auc:Control>
+                <auc:Timer>
+                  <auc:ControlStrategy>Chronological</auc:ControlStrategy>
+                </auc:Timer>
+              </auc:Control>
+            </auc:Controls>
+            <auc:LinkedPremises>
+              <auc:Building>
+                <auc:LinkedBuildingID IDref="BuildingType-69916112909060"></auc:LinkedBuildingID>
+              </auc:Building>
+              <auc:Section>
+                <auc:LinkedSectionID IDref="Section-69916112250100"></auc:LinkedSectionID>
+              </auc:Section>
+            </auc:LinkedPremises>
+          </auc:LightingSystem>
+        </auc:LightingSystems>
+        <auc:DomesticHotWaterSystems>
+          <auc:DomesticHotWaterSystem ID="DomesticHotWaterSystemType-69916108951100">
+            <auc:DomesticHotWaterType>
+              <auc:StorageTank>
+                <auc:TankHeatingType>
+                  <auc:Direct>
+                    <auc:DirectTankHeatingSource>
+                      <auc:Combustion></auc:Combustion>
+                    </auc:DirectTankHeatingSource>
+                  </auc:Direct>
+                </auc:TankHeatingType>
+                <auc:StorageTankInsulationRValue>1.3600000143051147</auc:StorageTankInsulationRValue>
+                <auc:StorageTankInsulationThickness>4.0</auc:StorageTankInsulationThickness>
+              </auc:StorageTank>
+            </auc:DomesticHotWaterType>
+            <auc:WaterHeaterEfficiencyType>Thermal Efficiency</auc:WaterHeaterEfficiencyType>
+            <auc:WaterHeaterEfficiency>82.0</auc:WaterHeaterEfficiency>
+            <auc:YearInstalled>2016</auc:YearInstalled>
+            <auc:PrimaryFuel>Natural gas</auc:PrimaryFuel>
+            <auc:Location>Mechanical Room</auc:Location>
+            <auc:LinkedPremises>
+              <auc:Building>
+                <auc:LinkedBuildingID IDref="BuildingType-69916112909060"></auc:LinkedBuildingID>
+              </auc:Building>
+              <auc:Section>
+                <auc:LinkedSectionID IDref="Section-69916112250100">
+                  <auc:FloorAreas>
+                    <auc:FloorArea>
+                      <auc:FloorAreaType>Gross</auc:FloorAreaType>
+                      <auc:FloorAreaPercentage>100.0</auc:FloorAreaPercentage>
+                    </auc:FloorArea>
+                  </auc:FloorAreas>
+                </auc:LinkedSectionID>
+              </auc:Section>
+            </auc:LinkedPremises>
+          </auc:DomesticHotWaterSystem>
+        </auc:DomesticHotWaterSystems>
+        <auc:FanSystems>
+          <auc:FanSystem ID="FanSystemType-69916100184260">
+            <auc:FanEfficiency>58.20000076293945</auc:FanEfficiency>
+            <auc:FanControlType>Constant Volume</auc:FanControlType>
+            <auc:LinkedSystemIDs>
+              <auc:LinkedSystemID IDref="HVACSystemType-69916108056780"></auc:LinkedSystemID>
+            </auc:LinkedSystemIDs>
+          </auc:FanSystem>
+          <auc:FanSystem ID="FanSystemType-69916095085860">
+            <auc:FanEfficiency>60.099998474121094</auc:FanEfficiency>
+            <auc:FanControlType>Constant Volume</auc:FanControlType>
+            <auc:LinkedSystemIDs>
+              <auc:LinkedSystemID IDref="HVACSystemType-69916096356260"></auc:LinkedSystemID>
+            </auc:LinkedSystemIDs>
+          </auc:FanSystem>
+          <auc:FanSystem ID="FanSystemType-69916259385360">
+            <auc:FanEfficiency>56.20000076293945</auc:FanEfficiency>
+            <auc:FanControlType>Constant Volume</auc:FanControlType>
+            <auc:LinkedSystemIDs>
+              <auc:LinkedSystemID IDref="HVACSystemType-69916260361860"></auc:LinkedSystemID>
+            </auc:LinkedSystemIDs>
+          </auc:FanSystem>
+          <auc:FanSystem ID="FanSystemType-69916253157100">
+            <auc:FanEfficiency>56.20000076293945</auc:FanEfficiency>
+            <auc:FanControlType>Constant Volume</auc:FanControlType>
+            <auc:LinkedSystemIDs>
+              <auc:LinkedSystemID IDref="HVACSystemType-69916254664040"></auc:LinkedSystemID>
+            </auc:LinkedSystemIDs>
+          </auc:FanSystem>
+          <auc:FanSystem ID="FanSystemType-69916083164880">
+            <auc:FanEfficiency>56.20000076293945</auc:FanEfficiency>
+            <auc:FanControlType>Constant Volume</auc:FanControlType>
+            <auc:LinkedSystemIDs>
+              <auc:LinkedSystemID IDref="HVACSystemType-69916077565220"></auc:LinkedSystemID>
+            </auc:LinkedSystemIDs>
+          </auc:FanSystem>
+        </auc:FanSystems>
+        <auc:MotorSystems>
+          <auc:MotorSystem ID="MotorSystemType-69916100014540">
+            <auc:MotorEfficiency>89.5</auc:MotorEfficiency>
+            <auc:LinkedSystemIDs>
+              <auc:LinkedSystemID IDref="HVACSystemType-69916108056780"></auc:LinkedSystemID>
+            </auc:LinkedSystemIDs>
+          </auc:MotorSystem>
+          <auc:MotorSystem ID="MotorSystemType-69916095051660">
+            <auc:MotorEfficiency>92.4000015258789</auc:MotorEfficiency>
+            <auc:LinkedSystemIDs>
+              <auc:LinkedSystemID IDref="HVACSystemType-69916096356260"></auc:LinkedSystemID>
+            </auc:LinkedSystemIDs>
+          </auc:MotorSystem>
+          <auc:MotorSystem ID="MotorSystemType-69916259354520">
+            <auc:MotorEfficiency>86.5</auc:MotorEfficiency>
+            <auc:LinkedSystemIDs>
+              <auc:LinkedSystemID IDref="HVACSystemType-69916260361860"></auc:LinkedSystemID>
+            </auc:LinkedSystemIDs>
+          </auc:MotorSystem>
+          <auc:MotorSystem ID="MotorSystemType-69916252889640">
+            <auc:MotorEfficiency>86.5</auc:MotorEfficiency>
+            <auc:LinkedSystemIDs>
+              <auc:LinkedSystemID IDref="HVACSystemType-69916254664040"></auc:LinkedSystemID>
+            </auc:LinkedSystemIDs>
+          </auc:MotorSystem>
+          <auc:MotorSystem ID="MotorSystemType-69916083140440">
+            <auc:MotorEfficiency>86.5</auc:MotorEfficiency>
+            <auc:LinkedSystemIDs>
+              <auc:LinkedSystemID IDref="HVACSystemType-69916077565220"></auc:LinkedSystemID>
+            </auc:LinkedSystemIDs>
+          </auc:MotorSystem>
+        </auc:MotorSystems>
+        <auc:WallSystems>
+          <auc:WallSystem ID="WallSystemType-69916111170900">
+            <auc:ExteriorWallConstruction>Masonry</auc:ExteriorWallConstruction>
+            <auc:ExteriorWallFinish>Brick</auc:ExteriorWallFinish>
+            <auc:WallInsulations>
+              <auc:WallInsulation>
+                <auc:WallInsulationRValue>11.100000381469727</auc:WallInsulationRValue>
+              </auc:WallInsulation>
+            </auc:WallInsulations>
+          </auc:WallSystem>
+        </auc:WallSystems>
+        <auc:RoofSystems>
+          <auc:RoofSystem ID="RoofSystemType-69916111336040">
+            <auc:RoofConstruction>Built up</auc:RoofConstruction>
+            <auc:BlueRoof>false</auc:BlueRoof>
+            <auc:CoolRoof>false</auc:CoolRoof>
+            <auc:GreenRoof>false</auc:GreenRoof>
+            <auc:RoofInsulations>
+              <auc:RoofInsulation>
+                <auc:RoofInsulationRValue>31.25</auc:RoofInsulationRValue>
+              </auc:RoofInsulation>
+            </auc:RoofInsulations>
+            <auc:DeckType>Steel</auc:DeckType>
+          </auc:RoofSystem>
+          <auc:RoofSystem ID="RoofSystemType-69916111217200"></auc:RoofSystem>
+        </auc:RoofSystems>
+        <auc:FenestrationSystems>
+          <auc:FenestrationSystem ID="FenestrationSystemType-69916111246140">
+            <auc:FenestrationType>
+              <auc:Skylight></auc:Skylight>
+            </auc:FenestrationType>
+            <auc:GlassType>Other</auc:GlassType>
+            <auc:FenestrationUFactor>0.52</auc:FenestrationUFactor>
+            <auc:SolarHeatGainCoefficient>0.34</auc:SolarHeatGainCoefficient>
+            <auc:VisibleTransmittance>0.45</auc:VisibleTransmittance>
+          </auc:FenestrationSystem>
+          <auc:FenestrationSystem ID="FenestrationSystemType-69916110952780">
+            <auc:FenestrationType>
+              <auc:Window></auc:Window>
+            </auc:FenestrationType>
+            <auc:FenestrationFrameMaterial>Aluminum no thermal break</auc:FenestrationFrameMaterial>
+            <auc:FenestrationOperation>false</auc:FenestrationOperation>
+            <auc:GlassType>Clear uncoated</auc:GlassType>
+            <auc:FenestrationGlassLayers>Double pane</auc:FenestrationGlassLayers>
+            <auc:FenestrationUFactor>0.47</auc:FenestrationUFactor>
+            <auc:SolarHeatGainCoefficient>0.43</auc:SolarHeatGainCoefficient>
+            <auc:VisibleTransmittance>0.31</auc:VisibleTransmittance>
+          </auc:FenestrationSystem>
+        </auc:FenestrationSystems>
+        <auc:FoundationSystems>
+          <auc:FoundationSystem ID="FoundationSystemType-69916111873780">
+            <auc:GroundCouplings>
+              <auc:GroundCoupling>
+                <auc:SlabOnGrade>
+                  <auc:SlabInsulationThickness>0.0</auc:SlabInsulationThickness>
+                  <auc:SlabRValue>2.200000047683716</auc:SlabRValue>
+                </auc:SlabOnGrade>
+              </auc:GroundCoupling>
+            </auc:GroundCouplings>
+          </auc:FoundationSystem>
+          <auc:FoundationSystem ID="FoundationSystemType-69916111098020">
+          </auc:FoundationSystem>
+        </auc:FoundationSystems>
+        <auc:CriticalITSystems>
+          <auc:CriticalITSystem ID="CriticalITSystemType-69916111715940">
+            <auc:ITSystemType>Server</auc:ITSystemType>
+            <auc:LinkedPremises>
+              <auc:Building>
+                <auc:LinkedBuildingID IDref="BuildingType-69916112909060"></auc:LinkedBuildingID>
+              </auc:Building>
+            </auc:LinkedPremises>
+          </auc:CriticalITSystem>
+          <auc:CriticalITSystem ID="CriticalITSystemType-69916111686080">
+            <auc:ITSystemType>Other</auc:ITSystemType>
+            <auc:LinkedPremises>
+              <auc:Building>
+                <auc:LinkedBuildingID IDref="BuildingType-69916112909060"></auc:LinkedBuildingID>
+              </auc:Building>
+            </auc:LinkedPremises>
+          </auc:CriticalITSystem>
+          <auc:CriticalITSystem ID="CriticalITSystemType-69916111666700">
+            <auc:ITSystemType>Other</auc:ITSystemType>
+            <auc:LinkedPremises>
+              <auc:Building>
+                <auc:LinkedBuildingID IDref="BuildingType-69916112909060"></auc:LinkedBuildingID>
+              </auc:Building>
+            </auc:LinkedPremises>
+          </auc:CriticalITSystem>
+          <auc:CriticalITSystem ID="CriticalITSystemType-69916111651340">
+            <auc:ITSystemType>UPS</auc:ITSystemType>
+            <auc:LinkedPremises>
+              <auc:Building>
+                <auc:LinkedBuildingID IDref="BuildingType-69916112909060"></auc:LinkedBuildingID>
+              </auc:Building>
+            </auc:LinkedPremises>
+          </auc:CriticalITSystem>
+        </auc:CriticalITSystems>
+        <auc:PlugLoads>
+          <auc:PlugLoad ID="PlugElectricLoadType-69916111443900">
+            <auc:PlugLoadType>Broadcast Antenna</auc:PlugLoadType>
+            <auc:LinkedPremises>
+              <auc:Building>
+                <auc:LinkedBuildingID IDref="BuildingType-69916112909060"></auc:LinkedBuildingID>
+              </auc:Building>
+            </auc:LinkedPremises>
+          </auc:PlugLoad>
+          <auc:PlugLoad ID="PlugElectricLoadType-69916111427160">
+            <auc:PlugLoadType>Kitchen Equipment</auc:PlugLoadType>
+            <auc:LinkedPremises>
+              <auc:Building>
+                <auc:LinkedBuildingID IDref="BuildingType-69916112909060"></auc:LinkedBuildingID>
+              </auc:Building>
+            </auc:LinkedPremises>
+          </auc:PlugLoad>
+          <auc:PlugLoad ID="PlugElectricLoadType-69916111406460">
+            <auc:PlugLoadType>Other</auc:PlugLoadType>
+            <auc:LinkedPremises>
+              <auc:Building>
+                <auc:LinkedBuildingID IDref="BuildingType-69916112909060"></auc:LinkedBuildingID>
+              </auc:Building>
+            </auc:LinkedPremises>
+          </auc:PlugLoad>
+          <auc:PlugLoad ID="PlugElectricLoadType-69916111387440">
+            <auc:PlugLoadType>Signage Display</auc:PlugLoadType>
+            <auc:LinkedPremises>
+              <auc:Building>
+                <auc:LinkedBuildingID IDref="BuildingType-69916112909060"></auc:LinkedBuildingID>
+              </auc:Building>
+            </auc:LinkedPremises>
+          </auc:PlugLoad>
+        </auc:PlugLoads>
+        <auc:ProcessLoads>
+          <auc:ProcessLoad ID="ProcessGasElectricLoadType-69916111795120">
+            <auc:ProcessLoadType>Miscellaneous Gas Load</auc:ProcessLoadType>
+            <auc:WeightedAverageLoad>0.0</auc:WeightedAverageLoad>
+            <auc:LinkedPremises>
+              <auc:Section>
+                <auc:LinkedSectionID IDref="Section-69916112250100"></auc:LinkedSectionID>
+              </auc:Section>
+            </auc:LinkedPremises>
+          </auc:ProcessLoad>
+        </auc:ProcessLoads>
+        <auc:ConveyanceSystems>
+          <auc:ConveyanceSystem ID="ConveyanceSystemType-69916112131400">
+            <auc:ConveyanceSystemType>Elevator</auc:ConveyanceSystemType>
+            <auc:Quantity>1</auc:Quantity>
+            <auc:YearOfManufacture>2010</auc:YearOfManufacture>
+            <auc:LinkedPremises>
+              <auc:Building>
+                <auc:LinkedBuildingID IDref="BuildingType-69916112909060"></auc:LinkedBuildingID>
+              </auc:Building>
+              <auc:Section>
+                <auc:LinkedSectionID IDref="Section-69916112250100"></auc:LinkedSectionID>
+              </auc:Section>
+            </auc:LinkedPremises>
+          </auc:ConveyanceSystem>
+        </auc:ConveyanceSystems>
+        <auc:OnsiteStorageTransmissionGenerationSystems>
+          <auc:OnsiteStorageTransmissionGenerationSystem ID="OnsiteStorageTransmissionGenerationSystemType-69916111600520">
+            <auc:BackupGenerator>true</auc:BackupGenerator>
+            <auc:DemandReduction>false</auc:DemandReduction>
+            <auc:CapacityUnits>kBtu/hr</auc:CapacityUnits>
+            <auc:LinkedPremises>
+              <auc:Building>
+                <auc:LinkedBuildingID IDref="BuildingType-69916112909060"></auc:LinkedBuildingID>
+              </auc:Building>
+            </auc:LinkedPremises>
+          </auc:OnsiteStorageTransmissionGenerationSystem>
+          <auc:OnsiteStorageTransmissionGenerationSystem ID="OnsiteStorageTransmissionGenerationSystemType-69916111537760">
+            <auc:BackupGenerator>false</auc:BackupGenerator>
+            <auc:DemandReduction>false</auc:DemandReduction>
+            <auc:CapacityUnits>kBtu/hr</auc:CapacityUnits>
+            <auc:LinkedPremises>
+              <auc:Building>
+                <auc:LinkedBuildingID IDref="BuildingType-69916112909060"></auc:LinkedBuildingID>
+              </auc:Building>
+            </auc:LinkedPremises>
+          </auc:OnsiteStorageTransmissionGenerationSystem>
+        </auc:OnsiteStorageTransmissionGenerationSystems>
+      </auc:Systems>
+      <auc:Schedules>
+        <auc:Schedule ID="ScheduleType-69916111764340">
+          <auc:ScheduleDetails>
+            <auc:ScheduleDetail>
+              <auc:DayType>Saturday</auc:DayType>
+              <auc:DayStartTime>06:00:00</auc:DayStartTime>
+              <auc:DayEndTime>22:00:00</auc:DayEndTime>
+            </auc:ScheduleDetail>
+            <auc:ScheduleDetail>
+              <auc:DayType>Sunday</auc:DayType>
+              <auc:DayStartTime>00:00:00</auc:DayStartTime>
+              <auc:DayEndTime>00:30:00</auc:DayEndTime>
+            </auc:ScheduleDetail>
+            <auc:ScheduleDetail>
+              <auc:DayType>Weekday</auc:DayType>
+              <auc:DayStartTime>06:00:00</auc:DayStartTime>
+              <auc:DayEndTime>21:00:00</auc:DayEndTime>
+            </auc:ScheduleDetail>
+          </auc:ScheduleDetails>
+        </auc:Schedule>
+      </auc:Schedules>
+      <auc:Reports>
+        <auc:Report ID="ReportType-69916110806500">
+          <auc:Scenarios>
+            <auc:Scenario ID="ScenarioType-69916110315880">
+              <auc:ScenarioNotes>sdfowfe</auc:ScenarioNotes>
+              <auc:TemporalStatus>Current</auc:TemporalStatus>
+              <auc:ScenarioType>
+                <auc:Benchmark>
+                  <auc:BenchmarkType>
+                    <auc:StandardPractice>
+                      <auc:StandardPracticeDescription>DOE Building Performance Database</auc:StandardPracticeDescription>
+                    </auc:StandardPractice>
+                  </auc:BenchmarkType>
+                  <auc:BenchmarkYear>2016</auc:BenchmarkYear>
+                  <auc:BenchmarkValue></auc:BenchmarkValue>
+                </auc:Benchmark>
+              </auc:ScenarioType>
+              <auc:AllResourceTotals>
+                <auc:AllResourceTotal ID="AllResourceTotalType-69916110272740">
+                  <auc:EndUse>All end uses</auc:EndUse>
+                  <auc:ResourceBoundary>Site</auc:ResourceBoundary>
+                  <auc:SiteEnergyUseIntensity>51.189998626708984</auc:SiteEnergyUseIntensity>
+                  <auc:EnergyCost>124.0</auc:EnergyCost>
+                </auc:AllResourceTotal>
+              </auc:AllResourceTotals>
+              <auc:LinkedPremises>
+                <auc:Building>
+                  <auc:LinkedBuildingID IDref="BuildingType-69916112909060"></auc:LinkedBuildingID>
+                </auc:Building>
+              </auc:LinkedPremises>
+            </auc:Scenario>
+            <auc:Scenario ID="ScenarioType-69916110235660">
+              <auc:TemporalStatus>Current</auc:TemporalStatus>
+              <auc:ScenarioType>
+                <auc:CurrentBuilding></auc:CurrentBuilding>
+              </auc:ScenarioType>
+              <auc:ResourceUses>
+                <auc:ResourceUse ID="ResourceUseType-69916110225220">
+                  <auc:SharedResourceSystem>Unknown</auc:SharedResourceSystem>
+                </auc:ResourceUse>
+              </auc:ResourceUses>
+              <auc:LinkedPremises>
+                <auc:Building>
+                  <auc:LinkedBuildingID IDref="BuildingType-69916112909060"></auc:LinkedBuildingID>
+                </auc:Building>
+              </auc:LinkedPremises>
+            </auc:Scenario>
+            <auc:Scenario ID="ScenarioType-69916110202760">
+              <auc:TemporalStatus>Current</auc:TemporalStatus>
+              <auc:Normalization>Weather normalized</auc:Normalization>
+              <auc:ScenarioType>
+                <auc:CurrentBuilding></auc:CurrentBuilding>
+              </auc:ScenarioType>
+              <auc:AllResourceTotals>
+                <auc:AllResourceTotal ID="AllResourceTotalType-69916110195880">
+                  <auc:EndUse>All end uses</auc:EndUse>
+                  <auc:ResourceBoundary>Source</auc:ResourceBoundary>
+                </auc:AllResourceTotal>
+              </auc:AllResourceTotals>
+              <auc:LinkedPremises>
+                <auc:Building>
+                  <auc:LinkedBuildingID IDref="BuildingType-69916112909060"></auc:LinkedBuildingID>
+                </auc:Building>
+              </auc:LinkedPremises>
+            </auc:Scenario>
+            <auc:Scenario ID="ScenarioType-69916110183200">
+              <auc:TemporalStatus>Target</auc:TemporalStatus>
+              <auc:ScenarioType>
+                <auc:Target></auc:Target>
+              </auc:ScenarioType>
+              <auc:AllResourceTotals>
+                <auc:AllResourceTotal ID="AllResourceTotalType-69916110178080">
+                  <auc:EndUse>All end uses</auc:EndUse>
+                  <auc:ResourceBoundary>Site</auc:ResourceBoundary>
+                  <auc:SiteEnergyUseIntensity>71.0</auc:SiteEnergyUseIntensity>
+                  <auc:EnergyCost>140.0</auc:EnergyCost>
+                </auc:AllResourceTotal>
+              </auc:AllResourceTotals>
+              <auc:LinkedPremises>
+                <auc:Building>
+                  <auc:LinkedBuildingID IDref="BuildingType-69916112909060"></auc:LinkedBuildingID>
+                </auc:Building>
+              </auc:LinkedPremises>
+            </auc:Scenario>
+            <auc:Scenario ID="ScenarioType-69916109729020">
+              <auc:TemporalStatus>Current</auc:TemporalStatus>
+              <auc:ScenarioType>
+                <auc:Other></auc:Other>
+              </auc:ScenarioType>
+              <auc:ResourceUses>
+                <auc:ResourceUse ID="ResourceUseType-69916110066780">
+                  <auc:EnergyResource>Electricity</auc:EnergyResource>
+                  <auc:ResourceBoundary>Site</auc:ResourceBoundary>
+                  <auc:ResourceUnits>kWh</auc:ResourceUnits>
+                  <auc:SharedResourceSystem>Not shared</auc:SharedResourceSystem>
+                </auc:ResourceUse>
+              </auc:ResourceUses>
+              <auc:LinkedPremises>
+                <auc:Building>
+                  <auc:LinkedBuildingID IDref="BuildingType-69916112909060"></auc:LinkedBuildingID>
+                </auc:Building>
+              </auc:LinkedPremises>
+            </auc:Scenario>
+            <auc:Scenario ID="ScenarioType-69916109721840">
+              <auc:TemporalStatus>Current</auc:TemporalStatus>
+              <auc:ScenarioType>
+                <auc:Other></auc:Other>
+              </auc:ScenarioType>
+              <auc:ResourceUses>
+                <auc:ResourceUse ID="ResourceUseType-69916109819820">
+                  <auc:EnergyResource>Natural gas</auc:EnergyResource>
+                  <auc:ResourceBoundary>Site</auc:ResourceBoundary>
+                  <auc:ResourceUnits>therms</auc:ResourceUnits>
+                  <auc:SharedResourceSystem>Not shared</auc:SharedResourceSystem>
+                </auc:ResourceUse>
+              </auc:ResourceUses>
+              <auc:LinkedPremises>
+                <auc:Building>
+                  <auc:LinkedBuildingID IDref="BuildingType-69916112909060"></auc:LinkedBuildingID>
+                </auc:Building>
+              </auc:LinkedPremises>
+            </auc:Scenario>
+            <auc:Scenario ID="ScenarioType-69916109396200">
+              <auc:TemporalStatus>Current</auc:TemporalStatus>
+              <auc:ScenarioType>
+                <auc:Other></auc:Other>
+              </auc:ScenarioType>
+              <auc:ResourceUses>
+                <auc:ResourceUse ID="ResourceUseType-69916109345340">
+                  <auc:EnergyResource>Electricity</auc:EnergyResource>
+                  <auc:ResourceBoundary>Site</auc:ResourceBoundary>
+                  <auc:ResourceUnits>kWh</auc:ResourceUnits>
+                  <auc:EndUse>All end uses</auc:EndUse>
+                </auc:ResourceUse>
+                <auc:ResourceUse ID="ResourceUseType-69916109280960">
+                  <auc:EnergyResource>Natural gas</auc:EnergyResource>
+                  <auc:ResourceBoundary>Site</auc:ResourceBoundary>
+                  <auc:ResourceUnits>therms</auc:ResourceUnits>
+                  <auc:EndUse>All end uses</auc:EndUse>
+                </auc:ResourceUse>
+              </auc:ResourceUses>
+              <auc:LinkedPremises>
+                <auc:Building>
+                  <auc:LinkedBuildingID IDref="BuildingType-69916112909060"></auc:LinkedBuildingID>
+                </auc:Building>
+              </auc:LinkedPremises>
+            </auc:Scenario>
+          </auc:Scenarios>
+          <auc:AuditDates>
+            <auc:AuditDate>
+              <auc:Date>2019-11-15</auc:Date>
+              <auc:DateType>Custom</auc:DateType>
+              <auc:CustomDateType>Level 1: Walk-through</auc:CustomDateType>
+            </auc:AuditDate>
+            <auc:AuditDate>
+              <auc:Date>2019-11-15</auc:Date>
+              <auc:DateType>Custom</auc:DateType>
+              <auc:CustomDateType>Level 2: Energy Survey and Analysis</auc:CustomDateType>
+            </auc:AuditDate>
+          </auc:AuditDates>
+          <auc:Qualifications>
+            <auc:Qualification ID="Qualification-69916110503580">
+              <auc:AuditorQualification>Association of Energy Engineers Certified Energy Manager (CEM)</auc:AuditorQualification>
+              <auc:CertifiedAuditTeamMemberContactID IDref="ContactType-69916110581980"></auc:CertifiedAuditTeamMemberContactID>
+            </auc:Qualification>
+          </auc:Qualifications>
+          <auc:AuditorContactID IDref="ContactType-69916110581980"></auc:AuditorContactID>
+          <auc:LinkedPremisesOrSystem>
+            <auc:Building>
+              <auc:LinkedBuildingID IDref="BuildingType-69916112909060"></auc:LinkedBuildingID>
+            </auc:Building>
+          </auc:LinkedPremisesOrSystem>
+        </auc:Report>
+      </auc:Reports>
+      <auc:Contacts>
+        <auc:Contact ID="ContactType-69916110581980">
+          <auc:ContactRoles>
+            <auc:ContactRole>Energy Auditor</auc:ContactRole>
+          </auc:ContactRoles>
+          <auc:ContactName>Cory Mosiman</auc:ContactName>
+          <auc:ContactCompany>NREL</auc:ContactCompany>
+          <auc:Address>
+            <auc:StreetAddressDetail>
+              <auc:Simplified>
+                <auc:StreetAddress></auc:StreetAddress>
+              </auc:Simplified>
+            </auc:StreetAddressDetail>
+            <auc:City></auc:City>
+            <auc:State>CO</auc:State>
+            <auc:PostalCode>80305</auc:PostalCode>
+          </auc:Address>
+          <auc:ContactTelephoneNumbers>
+            <auc:ContactTelephoneNumber>
+              <auc:TelephoneNumber>(630) 234-5678</auc:TelephoneNumber>
+            </auc:ContactTelephoneNumber>
+          </auc:ContactTelephoneNumbers>
+          <auc:ContactEmailAddresses>
+            <auc:ContactEmailAddress>
+              <auc:EmailAddress>cory.mosiman@nrel.gov</auc:EmailAddress>
+            </auc:ContactEmailAddress>
+          </auc:ContactEmailAddresses>
+        </auc:Contact>
+        <auc:Contact ID="ContactType-69916110393100">
+          <auc:ContactRoles>
+            <auc:ContactRole>Owner</auc:ContactRole>
+          </auc:ContactRoles>
+          <auc:ContactName>Building Owner 1</auc:ContactName>
+          <auc:ContactCompany>Company A</auc:ContactCompany>
+          <auc:Address>
+            <auc:StreetAddressDetail>
+              <auc:Simplified>
+                <auc:StreetAddress></auc:StreetAddress>
+              </auc:Simplified>
+            </auc:StreetAddressDetail>
+            <auc:City></auc:City>
+            <auc:State>IL</auc:State>
+            <auc:PostalCode></auc:PostalCode>
+          </auc:Address>
+          <auc:ContactTelephoneNumbers>
+            <auc:ContactTelephoneNumber>
+              <auc:TelephoneNumber>(630) 123-4567</auc:TelephoneNumber>
+            </auc:ContactTelephoneNumber>
+          </auc:ContactTelephoneNumbers>
+          <auc:ContactEmailAddresses>
+            <auc:ContactEmailAddress>
+              <auc:EmailAddress></auc:EmailAddress>
+            </auc:ContactEmailAddress>
+          </auc:ContactEmailAddresses>
+        </auc:Contact>
+      </auc:Contacts>
+    </auc:Facility>
+  </auc:Facilities>
+</auc:BuildingSync>

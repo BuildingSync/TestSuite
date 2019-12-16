@@ -12,13 +12,6 @@ gem 'geocoder'
 
 allow_local = false
 
-if allow_local && File.exist?('../OpenStudio-extension-gem')
-  # gem 'openstudio-extension', github: 'NREL/OpenStudio-extension-gem', branch: 'develop'
-  gem 'openstudio-extension', path: '../OpenStudio-extension-gem'
-else
-  gem 'openstudio-extension', github: 'NREL/OpenStudio-extension-gem', branch: 'develop'
-end
-
 if allow_local && File.exist?('../openstudio-model-articulation-gem')
   # gem 'openstudio-model-articulation', github: 'NREL/openstudio-model-articulation-gem', branch: 'develop'
   gem 'openstudio-model-articulation', path: '../openstudio-model-articulation-gem'
@@ -26,22 +19,8 @@ else
   gem 'openstudio-model-articulation', github: 'NREL/openstudio-model-articulation-gem', branch: 'DA'
 end
 
-if allow_local && File.exist?('../openstudio-common-measures-gem')
-  # gem 'openstudio-model-articulation', github: 'NREL/openstudio-common-measures-gem', branch: 'develop'
-  gem 'openstudio-common-measures', path: '../openstudio-common-measures-gem'
-else
-  gem 'openstudio-common-measures', github: 'NREL/openstudio-common-measures-gem', branch: 'develop'
-end
-
-if allow_local && File.exist?('../openstudio-standards-gem')
-  gem 'openstudio-standards', '>=0.2.9'
-  # gem 'openstudio-standards', path: '../openstudio-standards'
-else
-  gem 'openstudio-standards', '>=0.2.9'
-end
 
 if allow_local && File.exists?('../BuildingSync-gem')
-  # gem 'buildingsync', github: 'BuildingSync/BuildingSync-gem', branch: 'DA'
   gem 'buildingsync', path: '../BuildingSync-gem'
 else
   gem 'buildingsync', github: 'BuildingSync/BuildingSync-gem', branch: 'DA_Test'
