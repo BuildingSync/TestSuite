@@ -171,154 +171,17 @@
           </auc:PlugLoad>
         </auc:PlugLoads>
       </auc:Systems>
-      
       <auc:Reports>
         <auc:Report ID="ReportType-69916110806500">
           <auc:Scenarios>
-            <auc:Scenario ID="ScenarioType-69916110315880">
-              <auc:ScenarioNotes>sdfowfe</auc:ScenarioNotes>
-              <auc:TemporalStatus>Current</auc:TemporalStatus>
-              <auc:ScenarioType>
-                <auc:Benchmark>
-                  <auc:BenchmarkType>
-                    <auc:StandardPractice>
-                      <auc:StandardPracticeDescription>DOE Building Performance Database</auc:StandardPracticeDescription>
-                    </auc:StandardPractice>
-                  </auc:BenchmarkType>
-                  <auc:BenchmarkYear>2016</auc:BenchmarkYear>
-                  <auc:BenchmarkValue/>
-                </auc:Benchmark>
-              </auc:ScenarioType>
-              <auc:AllResourceTotals>
-                <auc:AllResourceTotal ID="AllResourceTotalType-69916110272740">
-                  <auc:EndUse>All end uses</auc:EndUse>
-                  <auc:ResourceBoundary>Site</auc:ResourceBoundary>
-                  <auc:SiteEnergyUseIntensity>51.189998626708984</auc:SiteEnergyUseIntensity>
-                  <auc:EnergyCost>124.0</auc:EnergyCost>
-                </auc:AllResourceTotal>
-              </auc:AllResourceTotals>
-              <auc:LinkedPremises>
-                <auc:Building>
-                  <auc:LinkedBuildingID IDref="BuildingType-69916112909060"/>
-                </auc:Building>
-              </auc:LinkedPremises>
-            </auc:Scenario>
-            <auc:Scenario ID="ScenarioType-69916110235660">
-              <auc:TemporalStatus>Current</auc:TemporalStatus>
-              <auc:ScenarioType>
-                <auc:CurrentBuilding/>
-              </auc:ScenarioType>
-              <auc:ResourceUses>
-                <auc:ResourceUse ID="ResourceUseType-69916110225220">
-                  <auc:SharedResourceSystem>Unknown</auc:SharedResourceSystem>
-                </auc:ResourceUse>
-              </auc:ResourceUses>
-              <auc:LinkedPremises>
-                <auc:Building>
-                  <auc:LinkedBuildingID IDref="BuildingType-69916112909060"/>
-                </auc:Building>
-              </auc:LinkedPremises>
-            </auc:Scenario>
-            <auc:Scenario ID="ScenarioType-69916110202760">
-              <auc:TemporalStatus>Current</auc:TemporalStatus>
-              <auc:Normalization>Weather normalized</auc:Normalization>
-              <auc:ScenarioType>
-                <auc:CurrentBuilding/>
-              </auc:ScenarioType>
-              <auc:AllResourceTotals>
-                <auc:AllResourceTotal ID="AllResourceTotalType-69916110195880">
-                  <auc:EndUse>All end uses</auc:EndUse>
-                  <auc:ResourceBoundary>Source</auc:ResourceBoundary>
-                </auc:AllResourceTotal>
-              </auc:AllResourceTotals>
-              <auc:LinkedPremises>
-                <auc:Building>
-                  <auc:LinkedBuildingID IDref="BuildingType-69916112909060"/>
-                </auc:Building>
-              </auc:LinkedPremises>
-            </auc:Scenario>
-            <auc:Scenario ID="ScenarioType-69916110183200">
-              <auc:TemporalStatus>Target</auc:TemporalStatus>
-              <auc:ScenarioType>
-                <auc:Target/>
-              </auc:ScenarioType>
-              <auc:AllResourceTotals>
-                <auc:AllResourceTotal ID="AllResourceTotalType-69916110178080">
-                  <auc:EndUse>All end uses</auc:EndUse>
-                  <auc:ResourceBoundary>Site</auc:ResourceBoundary>
-                  <auc:SiteEnergyUseIntensity>71.0</auc:SiteEnergyUseIntensity>
-                  <auc:EnergyCost>140.0</auc:EnergyCost>
-                </auc:AllResourceTotal>
-              </auc:AllResourceTotals>
-              <auc:LinkedPremises>
-                <auc:Building>
-                  <auc:LinkedBuildingID IDref="BuildingType-69916112909060"/>
-                </auc:Building>
-              </auc:LinkedPremises>
-            </auc:Scenario>
-            <auc:Scenario ID="ScenarioType-69916109729020">
-              <auc:TemporalStatus>Current</auc:TemporalStatus>
-              <auc:ScenarioType>
-                <auc:Other/>
-              </auc:ScenarioType>
-              <auc:ResourceUses>
-                <auc:ResourceUse ID="ResourceUseType-69916110066780">
-                  <auc:EnergyResource>Electricity</auc:EnergyResource>
-                  <auc:ResourceBoundary>Site</auc:ResourceBoundary>
-                  <auc:ResourceUnits>kWh</auc:ResourceUnits>
-                  <auc:SharedResourceSystem>Not shared</auc:SharedResourceSystem>
-                </auc:ResourceUse>
-              </auc:ResourceUses>
-              <auc:LinkedPremises>
-                <auc:Building>
-                  <auc:LinkedBuildingID IDref="BuildingType-69916112909060"/>
-                </auc:Building>
-              </auc:LinkedPremises>
-            </auc:Scenario>
-            <auc:Scenario ID="ScenarioType-69916109721840">
-              <auc:TemporalStatus>Current</auc:TemporalStatus>
-              <auc:ScenarioType>
-                <auc:Other/>
-              </auc:ScenarioType>
-              <auc:ResourceUses>
-                <auc:ResourceUse ID="ResourceUseType-69916109819820">
-                  <auc:EnergyResource>Natural gas</auc:EnergyResource>
-                  <auc:ResourceBoundary>Site</auc:ResourceBoundary>
-                  <auc:ResourceUnits>therms</auc:ResourceUnits>
-                  <auc:SharedResourceSystem>Not shared</auc:SharedResourceSystem>
-                </auc:ResourceUse>
-              </auc:ResourceUses>
-              <auc:LinkedPremises>
-                <auc:Building>
-                  <auc:LinkedBuildingID IDref="BuildingType-69916112909060"/>
-                </auc:Building>
-              </auc:LinkedPremises>
-            </auc:Scenario>
-            <auc:Scenario ID="ScenarioType-69916109396200">
-              <auc:TemporalStatus>Current</auc:TemporalStatus>
-              <auc:ScenarioType>
-                <auc:Other/>
-              </auc:ScenarioType>
-              <auc:ResourceUses>
-                <auc:ResourceUse ID="ResourceUseType-69916109345340">
-                  <auc:EnergyResource>Electricity</auc:EnergyResource>
-                  <auc:ResourceBoundary>Site</auc:ResourceBoundary>
-                  <auc:ResourceUnits>kWh</auc:ResourceUnits>
-                  <auc:EndUse>All end uses</auc:EndUse>
-                </auc:ResourceUse>
-                <auc:ResourceUse ID="ResourceUseType-69916109280960">
-                  <auc:EnergyResource>Natural gas</auc:EnergyResource>
-                  <auc:ResourceBoundary>Site</auc:ResourceBoundary>
-                  <auc:ResourceUnits>therms</auc:ResourceUnits>
-                  <auc:EndUse>All end uses</auc:EndUse>
-                </auc:ResourceUse>
-              </auc:ResourceUses>
-              <auc:LinkedPremises>
-                <auc:Building>
-                  <auc:LinkedBuildingID IDref="BuildingType-69916112909060"/>
-                </auc:Building>
-              </auc:LinkedPremises>
-            </auc:Scenario>
+            <auc:Scenario ID="Baseline">
+            <auc:ScenarioName>Baseline</auc:ScenarioName>
+            <auc:ScenarioType>
+              <auc:PackageOfMeasures>
+                <auc:ReferenceCase IDref="Baseline"/>
+              </auc:PackageOfMeasures>
+            </auc:ScenarioType>
+          </auc:Scenario>
           </auc:Scenarios>
           <auc:AuditDates>
             <auc:AuditDate>
