@@ -10,11 +10,11 @@ gem 'rspec', '~> 3.8'
 gem 'multipart-post', '2.1.1'
 gem 'geocoder'
 
-allow_local = false
+allow_local = true
 
 if allow_local && File.exist?('../openstudio-model-articulation-gem')
-  # gem 'openstudio-model-articulation', github: 'NREL/openstudio-model-articulation-gem', branch: 'develop'
-  gem 'openstudio-model-articulation', path: '../openstudio-model-articulation-gem'
+  gem 'openstudio-model-articulation', github: 'NREL/openstudio-model-articulation-gem', branch: 'DA'
+  # gem 'openstudio-model-articulation', path: '../openstudio-model-articulation-gem'
 else
   gem 'openstudio-model-articulation', github: 'NREL/openstudio-model-articulation-gem', branch: 'DA'
 end

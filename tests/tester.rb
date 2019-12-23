@@ -23,20 +23,22 @@ output_path = File.join(sim_outputs_dir, File.basename(test_file, File.extname(t
 # tests/test_level/outputs/Simulation_Files/test_file_basename
 FileUtils.mkdir_p(output_path) unless File.exist?(output_path)
 
-# Define XML file to write out to
-output_xml = File.join(sim_outputs_dir, File.basename(test_file))
-
 # Instantiate translator
 translator = BuildingSync::Translator.new(test_file, output_path)
 
 # Write OSM and OSW files
-translator.write_osm
+result_from_write = translator.write_osm
+puts "result_from_write: #{result_from_write}"
 translator.write_osws
 
 # Run the OSW
 runner_opts = {:num_parallel => 1}
 translator.run_osws(runner_opts)
 
-# Gather and save results
-translator.gather_results(output_path) # saves results in memory
-translator.save_xml(output_xml) # writes results out to disk
+# osws = Dir.glob("#{output_path}/Baseline/in.osw")
+# osws = Dir.glob("#{output_path}/**/in.osw")
+# runner = OpenStudio::Extension::Runner.new
+# runner.run_osws(osws, 1)
+
+# Gather and save results to disk
+translator.gather_results_and_save_xml(output_path) # saves results in memory
