@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 ruby '~>2.2'
 
-# gem "nokogiri_schematron_builder"
+# gem "nokogiri_schematron_builder"i
 
 gem 'rake', '12.3.1'
 gem 'rexml', '3.2.2'
@@ -10,7 +10,7 @@ gem 'rspec', '~> 3.8'
 gem 'multipart-post', '2.1.1'
 gem 'geocoder'
 
-allow_local = true
+allow_local = false
 
 if allow_local && File.exist?('../openstudio-model-articulation-gem')
   gem 'openstudio-model-articulation', github: 'NREL/openstudio-model-articulation-gem', branch: 'DA'

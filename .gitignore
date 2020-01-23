@@ -3,3 +3,4 @@
 .bundle
 outputs/
 Gemfile.lock
+archive/ # store local info used during development, but no longer needed

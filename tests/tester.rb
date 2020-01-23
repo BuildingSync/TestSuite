@@ -41,4 +41,5 @@ translator.run_osws(runner_opts)
 # runner.run_osws(osws, 1)
 
 # Gather and save results to disk
-translator.gather_results_and_save_xml(output_path) # saves results in memory
+translator.gather_results_and_save_xml(output_path)
+translator.write_parameters_to_xml(File.join(output_path, 'results2.xml'))
