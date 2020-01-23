@@ -11,6 +11,7 @@ The Level 000 use case provides a high-level overview of a building and aligns w
 
 ## Level 100
 The Level 100 use case extends the Level 000 use case.  The primary additions for the Level 100 model definition are summarized below.  For every space type defined by a Level 1 audit (Level 100 use case), a corresponding BuildingSync Section element is created, with an associated HVACSystem element, LightingSystem element, and PlugLoad element.
+
 | DEFINED | ASSUMED |
 |--------------------------------------------------------------------------------|--------------------------------------|
 | Space types and information for all areas comprising > 20% of gross floor area | Envelope insulation levels and areas |
