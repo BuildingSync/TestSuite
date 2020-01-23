@@ -14,19 +14,21 @@ The formal definitions for the levels are defined using Schematron files, which 
 | Level 400 | Not Applicable | Not Applicable |
 | Level 500 | Not Applicable | Not Applicable |
 
-Narrative overviews for the different levels can be found in the [Level Definitions doc](https://github.com/BuildingSync/TestSuite/blob/master/docs/Level Definitions.md).
+Narrative overviews for the different levels can be found in the [Level Definitions doc](<https://github.com/BuildingSync/TestSuite/blob/master/docs/Level Definitions.md>).
 
 # Running Simulations (Rakefile)
 
 The Rakefile can be used to run the entire BuildingSync -> OpenStudio + Simulate -> BuildingSync workflow.  It makes use of the `tests/tester.rb` script.  The script will look for BSync XML files to simulate in the `tests/[schema_version]/[Level_XXX]/inputs` directory.  There are currently two tasks that can be run:
-    - L000_run_sim - Run a Level 000 simulation
-    - L100_run_sim - Run a Level 100 simulation using one of the test files in the 
+
+1. L000_run_sim - Run a Level 000 simulation
+1. L100_run_sim - Run a Level 100 simulation using one of the test files in the 
     
 Tasks can be run as follows from the TestSuite directory:
-    - Run the L000_Instance1.xml file for the schema2.0.0-pr2 schema version
-    ```
-    $ bundle exec rake L000_run_sim[schema2.0.0-pr2,L000_Instance1.xml]
-    ```
+- Run the L000_Instance1.xml file for the schema2.0.0-pr2 schema version
+
+```
+$ bundle exec rake L000_run_sim[schema2.0.0-pr2,L000_Instance1.xml]
+```
 
 ## Outputs
 An outputs directory will be created after running a task `tests/[schema_version]/[Level_XXX]/outputs` for each file instance run through the task runner.  Outputs are .gitignored so as not to clutter up the TestSuite repo.  The output directory  will mimic the traditional OSW structure.
