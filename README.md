@@ -20,8 +20,8 @@ Narrative overviews for the different levels can be found in the [Level Definiti
 
 The Rakefile can be used to run the entire BuildingSync -> OpenStudio + Simulate -> BuildingSync workflow.  It makes use of the `tests/tester.rb` script.  The script will look for BSync XML files to simulate in the `tests/[schema_version]/[Level_XXX]/inputs` directory.  There are currently two tasks that can be run:
 
-1. L000_run_sim - Run a Level 000 simulation
-1. L100_run_sim - Run a Level 100 simulation using one of the test files in the 
+1. L000_run_sim - Run a Level 000 simulation using the schema_version and file specified
+1. L100_run_sim - Run a Level 100 simulation using the schema_version and file specified
     
 Tasks can be run as follows from the TestSuite directory:
 - Run the L000_Instance1.xml file for the schema2.0.0-pr2 schema version
