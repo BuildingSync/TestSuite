@@ -9,7 +9,7 @@ In order to run the tests you must have a stable version of the following:
 * `Ruby v2.2.4` via an `rbenv` environment 
 * `Bundler v1.17.2`
 
-##Setup
+## Setup
 Place a file called `openstudio.rb` into the the directory of your `Ruby2.2.4` installation `/foo/bar/.rbenv/versions/2.2.4/lib/ruby/2.2.4`
 
 The `openstudio.rb` file should contain one line referencing the location of the Ruby folder of your OpenStudio installation:
