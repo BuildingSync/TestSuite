@@ -2,6 +2,27 @@
 
 This repository hosts test files and examples for the BuildingSync schema.  As newer versions of the schema are released, this repository will be updated to include relevant changes.  Currently, all example files are based on [schema2.0.0-pr2](https://github.com/BuildingSync/schema/releases/tag/v2.0-pr2).
 
+## System Requirements 
+
+In order to run the tests you must have a stable version of the following:
+* `OpenStudio>2.0` 
+* `Ruby v2.2.4` via an `rbenv` environment 
+* `Bundler v1.17.2`
+
+##Setup
+Place a file called `openstudio.rb` into the the directory of your `Ruby2.2.4` installation `/foo/bar/.rbenv/versions/2.2.4/lib/ruby/2.2.4`
+
+The `openstudio.rb` file should contain one line referencing the location of the Ruby folder of your OpenStudio installation:
+```
+require '/Applications/OpenStudio-2.9.1/Ruby/openstudio.rb'
+```
+___Note - your version of OpenStudio may be different___
+
+Now, 
+```
+bundle install
+```
+
 ## Level Definitions
 The formal definitions for the levels are defined using Schematron files, which are located at `tests/[schema_version]/[Level_XXX]/BuildingSync_schematron_LXXX.xml`.  The levels are in alignment with the ASHRAE Standard 211 levels as defined below:
 
