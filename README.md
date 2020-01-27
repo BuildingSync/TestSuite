@@ -18,9 +18,9 @@ require '/Applications/OpenStudio-2.9.1/Ruby/openstudio.rb'
 ```
 ___Note - your version of OpenStudio may be different___
 
-Now, 
+Now from the root of the project, 
 ```
-bundle install
+$ bundle install
 ```
 
 ## Level Definitions
