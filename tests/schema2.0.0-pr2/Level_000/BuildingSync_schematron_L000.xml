@@ -1,45 +1,100 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<sch:schema xmlns:sch="http://purl.oclc.org/dsdl/schematron">
+<sch:schema xmlns:sch="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt2">
   <sch:title>Level 100 schema</sch:title>
   <sch:ns prefix="auc" uri="http://buildingsync.net/schemas/bedes-auc/2019"/>
-  <sch:pattern>
+  
+<!--  Phase 1 -->
+  <sch:phase id="start">
+    <sch:active pattern="rootElements"/>
+    <sch:active pattern="minimumLocationRequirements"/>
+    <sch:active pattern="bldgFloorAreasHaveTypeAndValue"/>
+  </sch:phase>
+  
+  <!--    This pattern ensures there is only one facility, site, and building -->
+  <sch:pattern id="rootElements">
     <sch:rule context="/">
       <sch:assert test="count(auc:BuildingSync) = 1"
         >element "auc:BuildingSync" is REQUIRED EXACTLY ONCE</sch:assert>
     </sch:rule>
-    <sch:rule context="/auc:BuildingSync">
+    <sch:rule context="auc:BuildingSync">
       <sch:assert test="count(auc:Facilities) = 1"
         >element "auc:Facilities" is REQUIRED EXACTLY ONCE</sch:assert>
     </sch:rule>
-    <sch:rule context="/auc:BuildingSync/auc:Facilities">
+    <sch:rule context="auc:Facilities">
       <sch:assert test="count(auc:Facility) = 1"
         >element "auc:Facility" is REQUIRED EXACTLY ONCE</sch:assert>
     </sch:rule>
-    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility">
+    <sch:rule context="auc:Facility">
       <sch:assert test="count(auc:Sites) = 1"
         >element "auc:Sites" is REQUIRED EXACTLY ONCE</sch:assert>
     </sch:rule>
-    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites">
+    <sch:rule context="auc:Sites">
       <sch:assert test="count(auc:Site) = 1"
         >element "auc:Site" is REQUIRED EXACTLY ONCE</sch:assert>
     </sch:rule>
-    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site">
-      <sch:assert test="count(auc:ClimateZoneType) = 1"
-        >element "auc:ClimateZoneType" is REQUIRED</sch:assert>
-    </sch:rule>
-    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site">
+    <sch:rule context="auc:Site">
       <sch:assert test="count(auc:Buildings) = 1"
         >element "auc:Buildings" is REQUIRED EXACTLY ONCE</sch:assert>
     </sch:rule>
     <sch:rule
-      context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:ClimateZoneType">
-      <sch:assert test="count(//auc:ClimateZone) = 1"
-        >element "auc:ClimateZone" is REQUIRED EXACTLY ONCE</sch:assert>
-    </sch:rule>
-    <sch:rule
-      context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings">
+      context="auc:Buildings">
       <sch:assert test="count(auc:Building) = 1"
         >element "auc:Building" is REQUIRED EXACTLY ONCE</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  
+<!--  This pattern checks that:
+      - atleast 1 city and 1 state OR 1 climate zone are specified at the site OR building level.
+      - fringe cases:
+        - city / state specified at both site AND building level.  Which one to use?
+        - uncoordinated values of city/state at site and building level (i.e. don't match)
+        - climatezone doesn't match
+  -->
+  <sch:pattern id="minimumLocationRequirements">
+    <sch:let name="cityCount" value="count(//auc:Address/auc:City)"/>
+    <sch:let name="stateCount" value="count(//auc:Address/auc:State)"/>
+    <sch:let name="climateZoneCount" value="count(//auc:ClimateZoneType//auc:ClimateZone)"/>
+    <sch:rule context="auc:Site" role="info">
+      <sch:report test="true()">
+        cityCount: $cityCount
+        stateCount: $stateCount
+        $climateZoneCount: $climateZoneCount
+      </sch:report>
+    </sch:rule>
+    <sch:rule context="auc:Site">
+      <sch:assert test="($cityCount = 1 and $stateCount = 1) or ($climateZoneCount = 1)">
+        Must specify either: 1 city and 1 state OR 1 climate zone at the site OR building level.
+        cityCount: $cityCount
+        stateCount: $stateCount
+        $climateZoneCount: $climateZoneCount
+      </sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  
+  <sch:pattern id="bldgElements">
+    <sch:rule context="auc:Building">
+      <sch:assert test="auc:PremisesName">
+        auc:PremisesName must be specified for element: <sch:name/>
+      </sch:assert>
+      <sch:assert test="auc:BuildingClassification">
+        auc:BuildingClassification must be specified for element: <sch:name/>
+      </sch:assert>
+      <sch:assert test="auc:OccupancyClassification">
+        auc:OccupancyClassification must be specified for element: <sch:name/>
+      </sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  
+  <sch:pattern id="bldgFloorAreasHaveTypeAndValue" is-a="floorAreasHaveTypeAndValue">
+    <param name="$parentElement" value="auc:Building"/>
+  </sch:pattern>
+  
+<!--  Check that all auc:FloorArea elements have the auc:FloorAreaType and auc:FloorAreaValue -->
+  <sch:pattern id="floorAreasHaveTypeAndValue" abstract="true">
+    <sch:rule context="$parentElement">
+      <sch:assert test="auc:FloorArea/auc:FloorAreaType and auc:FloorArea/auc:FloorAreaValue">
+        auc:FloorArea elements must specify both a auc:FloorAreaType and auc:FloorAreaValue
+      </sch:assert>
     </sch:rule>
   </sch:pattern>
 </sch:schema>
