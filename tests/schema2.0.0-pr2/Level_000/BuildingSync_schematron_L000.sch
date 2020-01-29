@@ -6,7 +6,7 @@
   <include href="../../../lib/siteBuildingElements.sch#sbe.cityStateOrClimateZone"/>
   <include href="../../../lib/scenarioElements.sch#sc.baseline"/>
   <include href="../../../lib/buildingElements.sch#be.L000"/>
-  <include href="../../../lib/floorAreaTests.sch#fa.oneGrossType"/>
+  <include href="../../../lib/floorAreaTests.sch#fa.oneOfType"/>
   <include href="../../../lib/floorAreaTests.sch#fa.haveTypeAndValue"/>
   
 <!--  L000 -->
@@ -32,8 +32,10 @@
   <pattern id="be.fa.haveTypeAndValue" is-a="fa.haveTypeAndValue">
     <param name="parent" value="auc:Building/auc:FloorAreas"/>
   </pattern>
-  <pattern id="be.fa.oneGrossFloorArea" is-a="fa.oneGrossType">
+  <pattern id="be.fa.oneGrossFloorArea" is-a="fa.oneOfType">
     <param name="parent" value="auc:Building/auc:FloorAreas"/>
+    <param name="floorAreaType" value="'Gross'"/>
+    <param name="roller" value="error"/>
   </pattern>
 
 </schema>

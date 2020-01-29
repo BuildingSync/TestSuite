@@ -60,4 +60,11 @@
         >element "auc:Scenario" is REQUIRED AT LEAST ONCE</assert>
     </rule>
   </pattern>
+  
+  <pattern id="root.oneOfEachFacilityUntilContacts">
+    <rule context="auc:Facility">
+      <assert test="count(auc:Contacts) = 1"
+        >element "auc:Contacts" is REQUIRED EXACTLY ONCE</assert>
+    </rule>
+  </pattern>
 </schema>

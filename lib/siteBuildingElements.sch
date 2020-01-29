@@ -12,11 +12,13 @@
     A warning is issued if more than one of each element is specified.
   -->
   <pattern id="sbe.cityStateOrClimateZone">
-    <let name="cityCount" value="count(//auc:Address/auc:City)"/>
-    <let name="stateCount" value="count(//auc:Address/auc:State)"/>
-    <let name="climateZoneCount" value="count(//auc:ClimateZoneType//auc:ClimateZone)"/>
+    <let name="cityCount" value="count(//auc:Site//auc:Address/auc:City)"/>
+    <let name="stateCount" value="count(//auc:Site//auc:Address/auc:State)"/>
+    <let name="climateZoneCount" value="count(//auc:Site//auc:ClimateZoneType//auc:ClimateZone)"/>
     <rule context="auc:Site" role="warn">
       <report test="$cityCount > 1 or $stateCount > 1 or $climateZoneCount > 1">
+        You have more than one city, state, or climate zone defined.  It is expected that a Site and Building
+        will share the same City/State and Climate Zone.  
         cityCount: <value-of select="$cityCount"/>
         stateCount: <value-of select="$stateCount"/>
         climateZoneCount: <value-of select="$climateZoneCount"/>
