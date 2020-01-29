@@ -1,4 +1,8 @@
-# Test Suite Levels
+# Levels of Detail Definitions
+
+The formal definitions for the levels below are defined using Schematron files, which are located at `tests/[schema_version]/[Level_XXX]/BuildingSync_schematron_LXXX.xml` in the [BuildingSync TestSuite Repo](https://github.com/BuildingSync/TestSuite).  
+
+The levels are in alignment with the ASHRAE Standard 211 levels as defined below:
 
 | Level | Alignment to Std 211 | Std 211 Section |
 |-----------|----------------------|-----------------|

@@ -1,0 +1,19 @@
+site_name: BuildingSync<sup>&reg;</sup> Documentation
+
+theme:
+  name: 'material'
+  palette:
+    primary: 'blue-grey'
+    accent: 'teal'
+  logo:
+    icon: 'code'  
+  font:
+    text: 'Roboto'
+    code: 'Roboto Mono'
+  language: 'en'
+  favicon: 'assets/images/favicon.ico'
+  # feature:
+  #   tabs: true
+
+extra_css:
+  - 'stylesheets/extra.css'

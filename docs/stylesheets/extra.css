@@ -1,0 +1,24 @@
+body {
+	background-color: #eee;
+}
+
+.md-typeset table:not([class]) th {
+	background-color: #009688;
+}
+.md-typeset table:not([class]) td {
+	background-color: #fff;
+}
+
+[data-md-color-primary=blue-grey] .md-header, [data-md-color-primary=blue-grey] .md-hero {
+    background-color: #2e3842;
+}
+
+.md-typeset h1 {
+	color: #333;
+	text-transform: uppercase;
+	font-weight: 400;
+}
+
+.md-footer-nav {
+background-color: #2e3842;
+}
