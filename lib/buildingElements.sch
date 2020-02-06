@@ -22,7 +22,10 @@
     </rule>
   </pattern>
   
-
+<!--
+    Check the main details for the Building element as required by 211.
+    <param> parent - an auc:Section element
+-->
   <pattern id="be.mainDetails">
     <let name="numContacts" value="count(//auc:Contacts/auc:Contact)"/>
     <let name="numAuditors" value="count(//auc:Contacts/auc:Contact/auc:ContactRoles/auc:ContactRole[text()='Energy Auditor'])"/>
@@ -75,6 +78,12 @@
       <assert test="auc:FloorsBelowGrade or auc:UnconditionedFloorsBelowGrade">
         auc:FloorsBelowGrade or auc:UnconditionedFloorsBelowGrade must be specified for element: <name/>
       </assert>
+      <assert test="if (auc:ConditionedFloorsAboveGrade and auc:FloorsAboveGrade and auc:UnconditionedFloorsAboveGrade) then (auc:FloorsAboveGrade = auc:ConditionedFloorsAboveGrade + auc:UnconditionedFloorsAboveGrade) else (true())">
+        The following statement must be true: auc:FloorsAboveGrade = auc:ConditionedFloorsAboveGrade + auc:UnconditionedFloorsAboveGrade
+      </assert>
+      <assert test="if (auc:ConditionedFloorsBelowGrade and auc:FloorsBelowGrade and auc:UnconditionedFloorsBelowGrade) then (auc:FloorsBelowGrade = auc:ConditionedFloorsBelowGrade + auc:UnconditionedFloorsBelowGrade) else (true())">
+        The following statement must be true: auc:FloorsBelowGrade = auc:ConditionedFloorsBelowGrade + auc:UnconditionedFloorsBelowGrade
+      </assert>
     </rule>
 <!--    Warnings (i.e. Recommended items) -->
     <rule context="auc:Buildings/auc:Building" role="warn">
@@ -84,15 +93,20 @@
       <assert test="auc:RetrocommissioningDate">
         auc:RetrocommissioningDate is recommended for element: <name/>
       </assert>
+      <assert test="auc:YearOfLastMajorRemodel">
+        auc:YearOfLastMajorRemodel is recommended for element: <name/>
+      </assert>
     </rule>
   </pattern>
-  
-<!--  Doesn't handle complex address types -->
+
+<!--
+    Check the main details for the Building element as required by 211.
+    This function doesn't handle complex address types, i.e auc:StreetAddressDetail/auc:Complex
+-->
   <pattern id="be.simpleLocationDetails">
     <rule context="auc:Buildings/auc:Building">
-      <assert test="auc:Address/auc:City and auc:Address/auc:State and 
-                    (auc:Address/auc:PostalCode or auc:Address/auc:PostalCodePlus4)">
-        Standard 211 requires an auc:City, auc:State, and auc:PostalCode or auc:PostalCodePlus4 be defined for element: <name/>
+      <assert test="auc:Address/auc:City and auc:Address/auc:State and auc:Address/auc:PostalCode">
+        Standard 211 requires an auc:City, auc:State, and auc:PostalCode be defined for element: <name/>
       </assert>
       <assert test="auc:Address/auc:StreetAddressDetail/auc:Simplified/auc:StreetAddress">
         Standard 211 requires an auc:StreetAddress be defined for element: <name/>

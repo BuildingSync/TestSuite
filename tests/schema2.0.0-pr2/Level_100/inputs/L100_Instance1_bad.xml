@@ -21,8 +21,11 @@
               </auc:Address>
               <auc:BuildingClassification>Mixed use commercial</auc:BuildingClassification>
               <auc:OccupancyClassification>Retail</auc:OccupancyClassification>
+              <auc:FloorsAboveGrade>6</auc:FloorsAboveGrade>
+              <auc:FloorsBelowGrade>0</auc:FloorsBelowGrade>
               <auc:ConditionedFloorsAboveGrade>2</auc:ConditionedFloorsAboveGrade>
               <auc:ConditionedFloorsBelowGrade>0</auc:ConditionedFloorsBelowGrade>
+              <auc:UnconditionedFloorsAboveGrade>4</auc:UnconditionedFloorsAboveGrade>
               <auc:BuildingAutomationSystem>false</auc:BuildingAutomationSystem>
               <auc:HistoricalLandmark>false</auc:HistoricalLandmark>
               <auc:FloorAreas>
@@ -76,13 +79,18 @@
                     </auc:FloorArea>
                     <auc:FloorArea>
                       <auc:FloorAreaType>Conditioned</auc:FloorAreaType>
-                      <auc:FloorAreaPercentage>100</auc:FloorAreaPercentage>
+                      <auc:FloorAreaValue>1</auc:FloorAreaValue>
+                    </auc:FloorArea>
+                    <auc:FloorArea>
+                      <auc:FloorAreaType>Cooled only</auc:FloorAreaType>
+                      <auc:FloorAreaValue>24695</auc:FloorAreaValue>
                     </auc:FloorArea>
                   </auc:FloorAreas>
                 </auc:Section>
                 <auc:Section ID="Section-Office">
                   <auc:SectionType>Space function</auc:SectionType>
                   <auc:OccupancyClassification>Office</auc:OccupancyClassification>
+                  <auc:OriginalOccupancyClassification>Retail</auc:OriginalOccupancyClassification>
                   <auc:OccupancyLevels>
                     <auc:OccupancyLevel>
                       <auc:OccupantQuantityType>Peak total occupants</auc:OccupantQuantityType>
@@ -106,7 +114,11 @@
                     </auc:FloorArea>
                     <auc:FloorArea>
                       <auc:FloorAreaType>Conditioned</auc:FloorAreaType>
-                      <auc:FloorAreaPercentage>100</auc:FloorAreaPercentage>
+                      <auc:FloorAreaValue>24696</auc:FloorAreaValue>
+                    </auc:FloorArea>
+                    <auc:FloorArea>
+                      <auc:FloorAreaType>Cooled only</auc:FloorAreaType>
+                      <auc:FloorAreaValue>234</auc:FloorAreaValue>
                     </auc:FloorArea>
                   </auc:FloorAreas>
                 </auc:Section>
@@ -126,6 +138,14 @@
             </auc:LinkedPremises>
           </auc:HVACSystem>
           <auc:HVACSystem ID="HVAC-Office">
+            <auc:PrimaryHVACSystemType>Packaged Rooftop VAV with Electric Reheat</auc:PrimaryHVACSystemType>
+            <auc:LinkedPremises>
+              <auc:Section>
+                <auc:LinkedSectionID IDref="Section-Office"></auc:LinkedSectionID>
+              </auc:Section>
+            </auc:LinkedPremises>
+          </auc:HVACSystem>
+          <auc:HVACSystem ID="HVAC-Office2">
             <auc:PrimaryHVACSystemType>Packaged Rooftop VAV with Electric Reheat</auc:PrimaryHVACSystemType>
             <auc:LinkedPremises>
               <auc:Section>
@@ -184,6 +204,39 @@
               </auc:PackageOfMeasures>
             </auc:ScenarioType>
           </auc:Scenario>
+            <auc:Scenario ID="Declare-All-Resource-Uses">
+              <auc:ScenarioName>Declare-All-Resource-Uses</auc:ScenarioName>
+              <auc:ResourceUses>
+                <auc:ResourceUse>
+                  <auc:EnergyResource>Electricity</auc:EnergyResource>
+                  <auc:ResourceUnits>kWh</auc:ResourceUnits>
+                  <auc:UtilityIDs>
+                    <auc:UtilityID IDref="Xcel-ID"/>
+                  </auc:UtilityIDs>
+                </auc:ResourceUse>
+                <auc:ResourceUse>
+                  <auc:EnergyResource>Natural gas</auc:EnergyResource>
+                  <auc:ResourceUnits>therms</auc:ResourceUnits>
+                  <auc:UtilityIDs>
+                    <auc:UtilityID IDref="Xcel-ID"/>
+                  </auc:UtilityIDs>
+                </auc:ResourceUse>
+                <auc:ResourceUse>
+                  <auc:EnergyResource>District chilled water</auc:EnergyResource>
+                  <auc:ResourceUnits>Gallons</auc:ResourceUnits>
+                  <auc:UtilityIDs>
+                    <auc:UtilityID IDref="District-Utility-ID"/>
+                  </auc:UtilityIDs>
+                </auc:ResourceUse>
+                <auc:ResourceUse>
+                  <auc:EnergyResource>District hot water</auc:EnergyResource>
+                  <auc:ResourceUnits>Gallons</auc:ResourceUnits>
+                  <auc:UtilityIDs>
+                    <auc:UtilityID IDref="District-Utility-ID"/>
+                  </auc:UtilityIDs>
+                </auc:ResourceUse>
+              </auc:ResourceUses>
+            </auc:Scenario>
           </auc:Scenarios>
           <auc:AuditDates>
             <auc:AuditDate>
@@ -198,6 +251,16 @@
               <auc:CertifiedAuditTeamMemberContactID IDref="ContactType-69916110581980"/>
             </auc:Qualification>
           </auc:Qualifications>
+          <auc:Utilities>
+            <auc:Utility ID="Xcel-ID">
+              <auc:UtilityName>Xcel</auc:UtilityName>
+              <auc:UtilityAccountNumber>1234566</auc:UtilityAccountNumber>
+            </auc:Utility>
+            <auc:Utility ID="District-Utility-ID">
+              <auc:UtilityName>District-Utility</auc:UtilityName>
+              <auc:UtilityAccountNumber>7583839234</auc:UtilityAccountNumber>
+            </auc:Utility>
+          </auc:Utilities>
           <auc:AuditorContactID IDref="ContactType-69916110581980"/>
           <auc:LinkedPremisesOrSystem>
             <auc:Building>
@@ -248,11 +311,11 @@
             </auc:StreetAddressDetail>
             <auc:City/>
             <auc:State>IL</auc:State>
-            <auc:PostalCode/>
+            <auc:PostalCode>12345</auc:PostalCode>
           </auc:Address>
           <auc:ContactTelephoneNumbers>
             <auc:ContactTelephoneNumber>
-              <auc:TelephoneNumber>(630) 123-4567</auc:TelephoneNumber>
+              <auc:TelephoneNumber>123-123-4567</auc:TelephoneNumber>
             </auc:ContactTelephoneNumber>
           </auc:ContactTelephoneNumbers>
           <auc:ContactEmailAddresses>

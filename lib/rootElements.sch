@@ -61,10 +61,34 @@
     </rule>
   </pattern>
   
+  <!--    
+    This pattern ensures there is exactly one of every element inclusive of the Contacts element
+    It starts at the Facility element and walks the path: Facility/Contacts
+  -->
   <pattern id="root.oneOfEachFacilityUntilContacts">
     <rule context="auc:Facility">
       <assert test="count(auc:Contacts) = 1"
         >element "auc:Contacts" is REQUIRED EXACTLY ONCE</assert>
+    </rule>
+  </pattern>
+  
+  <!--    
+    This pattern ensures there is at least one Report in a Facility
+  -->
+  <pattern id="root.atleastOneReportInFacility">
+    <rule context="auc:Facility">
+      <assert test="auc:Reports/auc:Report"
+        >element auc:Report is REQUIRED AT LEAST ONCE</assert>
+    </rule>
+  </pattern>
+  
+  <!--    
+    This pattern ensures there is at least one Scenario in a Report
+  -->
+  <pattern id="root.atleastOneScenarioInReport">
+    <rule context="auc:Report">
+      <assert test="auc:Scenarios/auc:Scenario"
+        >element auc:Scenario is REQUIRED AT LEAST ONCE</assert>
     </rule>
   </pattern>
 </schema>

@@ -491,6 +491,14 @@
           <xs:documentation>Classification main utilization of the premises by building occupants.</xs:documentation>
         </xs:annotation>
       </xs:element>
+      <xs:element name="OriginalOccupancyClassification" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Origial intended utilization of the premises by building occupants.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="OccupancyClassification"/>
+        </xs:simpleType>
+      </xs:element>
       <xs:element ref="auc:OccupancyLevels" minOccurs="0"/>
       <xs:element ref="auc:TypicalOccupantUsages" minOccurs="0"/>
       <xs:element name="SpatialUnits" minOccurs="0">
@@ -15004,6 +15012,11 @@
         <xs:enumeration value="Unknown"/>
       </xs:restriction>
     </xs:simpleType>
+  </xs:element>
+  <xs:element name="OriginalOccupancyClassification" type="auc:OccupancyClassification">
+    <xs:annotation>
+      <xs:documentation>Type of energy resource fuel. This can be applied at the premises or individual system or equipment level.</xs:documentation>
+    </xs:annotation>
   </xs:element>
   <xs:element name="TypicalOccupantUsages">
     <xs:annotation>

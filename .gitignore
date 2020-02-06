@@ -6,3 +6,4 @@ Gemfile.lock
 
 # store local info used during development, but no longer needed
 archive/
+~$*.xlsx

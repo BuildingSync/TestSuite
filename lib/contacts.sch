@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schema xmlns="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt2">
-  <!--  
+<!--  
     For logic pertaining to Contact elements.  Parent passed should be an auc:Contact.
 -->
   
-  <!--  Check that the name, email, and phone number are specified -->
+<!--  
+    Check that the name, email, and phone number are specified for contacts.
+    <severity> error
+    <param> parent - an auc:Contact element
+-->
   <pattern abstract="true" id="con.nameEmailPhone">
     <rule context="$parent">
       <assert test="auc:ContactName">
