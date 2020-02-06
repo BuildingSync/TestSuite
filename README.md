@@ -35,7 +35,7 @@ The formal definitions for the levels are defined using Schematron files, which 
 | Level 400 | Not Applicable | Not Applicable |
 | Level 500 | Not Applicable | Not Applicable |
 
-Narrative overviews for the different levels can be found in the [Level Definitions doc](<https://github.com/BuildingSync/TestSuite/blob/master/docs/Level Definitions.md>).
+the [lib](lib) directory provides a library of general purpose Schematron functions used  within the individual Schematron xml documents.  These functions are designed to be used by others with use cases outside of the Levels defined above.  Narrative overviews for the different levels can be found in the [docs folder](<https://github.com/BuildingSync/TestSuite/blob/master/docs>).
 
 # Running Simulations (Rakefile)
 

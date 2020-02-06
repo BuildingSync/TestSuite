@@ -61,13 +61,13 @@ For all audit levels, the following FloorAreaType declarations (accompanied by F
 A warning will appear if the following FloorAreaType IS NOT declared, although the document will still successfully validate through Schematron
 - `Ventilated`
 
-A warning will appear if the following FloorAreaTypes ARE declared, since no validation is done for these FloorAreaTypes and they have [overlapping defintions](#floor-area-validation): (TODO)
+A warning will appear if the following FloorAreaTypes ARE declared, since no validation is done for these FloorAreaTypes and they have [overlapping defintions](#floor-area-validation):
 - `Heated`
 - `Cooled`
 
 ## Section Level: All - Space Functions
 ### Per Standard 211
-Based on the `All - Space Types` sheet of the Standard 211 document, the following FloorAreaType (with sibling FloorAreaValue element) MUST be defined at the Section level: (TODO in Schematron)
+Based on the `All - Space Types` sheet of the Standard 211 document, the following FloorAreaType (with sibling FloorAreaValue element) MUST be defined at the Section level:
 - `Gross`
 
 Additionally, a FloorArea element with a FloorAreaType=`Conditioned` MUST be defined for the section.  The conditioned area can be specified as either an `auc:FloorAreaValue` or an `auc:FloorAreaPercentage`.  The latter refers to the *percentage of the `Gross` FloorArea which is conditioned*.  For example, given the following:

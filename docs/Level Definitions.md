@@ -9,6 +9,7 @@
 | Level 400 | Not Applicable | Not Applicable |
 | Level 500 | Not Applicable | Not Applicable |
 
+
 ## Level 000
 The Level 000 use case provides a high-level overview of a building and aligns with a typical Preliminary Energy Analysis.  It defines the minimum set of elements required to successfully translate the building from a BuildingSync document to an OpenStudio model using significant inferencing of engineering values based on leading standards (e.g., ASHRAE 901., 62.1, etc.).  Information required to define models at this level can typically be found from tax assessor data, publicly available data, annual energy consumption information, and through a brief discussion with the building owner.  Since little information is known about the building, many assumptions are made when performing the translation of a Level 000 BuildingSync model to a physics-based energy model.
 
