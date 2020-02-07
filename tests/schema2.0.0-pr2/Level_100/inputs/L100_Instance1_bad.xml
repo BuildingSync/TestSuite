@@ -196,14 +196,53 @@
       <auc:Reports>
         <auc:Report ID="ReportType-69916110806500">
           <auc:Scenarios>
-            <auc:Scenario ID="Baseline">
-            <auc:ScenarioName>Baseline</auc:ScenarioName>
+            <auc:Scenario>
+              <auc:ScenarioType>
+                <auc:CurrentBuilding>
+                  <auc:AssetScore><auc:UseTypes><auc:UseType>
+                    <auc:AssetScoreData>
+                      <auc:Score></auc:Score>
+                    </auc:AssetScoreData>
+                    <auc:AssetScoreUseType></auc:AssetScoreUseType>
+                  </auc:UseType></auc:UseTypes></auc:AssetScore>
+                </auc:CurrentBuilding>
+              </auc:ScenarioType>
+            </auc:Scenario>
+            <auc:Scenario>
+              <auc:ScenarioType>
+                <auc:CurrentBuilding/>
+              </auc:ScenarioType>
+            </auc:Scenario>
+            <auc:Scenario ID="Measured">
+            <auc:ScenarioName>Measured Data</auc:ScenarioName>
             <auc:ScenarioType>
-              <auc:PackageOfMeasures>
-                <auc:ReferenceCase IDref="Baseline"/>
-              </auc:PackageOfMeasures>
+              <auc:CurrentBuilding>
+                <auc:CalculationMethod>
+                  <auc:Measured>
+                    <auc:MeasuredEnergySource>
+                      <
+                    </auc:MeasuredEnergySource>
+                  </auc:Measured>
+                </auc:CalculationMethod>
+              </auc:CurrentBuilding>
             </auc:ScenarioType>
           </auc:Scenario>
+            <auc:Scenario ID="Benchmark">
+              <auc:ScenarioName>Benchmark</auc:ScenarioName>
+              <auc:ScenarioType>
+                <auc:Benchmark>
+                  <auc:BenchmarkYear>2016</auc:BenchmarkYear>
+                  <auc:BenchmarkType>
+                  </auc:BenchmarkType>
+                  <auc:BenchmarkValue>[value]</auc:BenchmarkValue>
+                  <auc:LinkedPremises>
+                    <auc:Building>
+                      <auc:LinkedBuildingID IDref="BuildingID-of-interest"></auc:LinkedBuildingID>
+                    </auc:Building>
+                  </auc:LinkedPremises>
+                </auc:Benchmark>
+              </auc:ScenarioType>
+            </auc:Scenario>
             <auc:Scenario ID="Declare-All-Resource-Uses">
               <auc:ScenarioName>Declare-All-Resource-Uses</auc:ScenarioName>
               <auc:ResourceUses>
@@ -253,6 +292,14 @@
           </auc:Qualifications>
           <auc:Utilities>
             <auc:Utility ID="Xcel-ID">
+              <auc:RateSchedules>
+                <auc:RateSchedule>
+                  <auc:RateStructureName></auc:RateStructureName>
+                  <auc:TypeOfRateStructure>
+                    <auc:TieredRates><auc:TieredRate></auc:TieredRate></auc:TieredRates>
+                  </auc:TypeOfRateStructure>
+                </auc:RateSchedule>
+              </auc:RateSchedules>
               <auc:UtilityName>Xcel</auc:UtilityName>
               <auc:UtilityAccountNumber>1234566</auc:UtilityAccountNumber>
             </auc:Utility>

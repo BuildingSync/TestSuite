@@ -20,7 +20,7 @@ Within the context of the `auc:LightingSystem` element, the following elements a
 - Link to the `auc:Section` which this system is meant to describe using the following: `auc:PrimaryLightingSystemType/auc:LinkedPremises/auc:Section/auc:LinkedSectionID IDref="SectionID-of-interest"`
 
 ## L100 Plug Loads Definition
-Unlike the HVAC and Lighting examples above, the Plug Load definition is requires slightly more care for modeling to get the desired effect (although not much).  Within the context of the `auc:PlugLoad` element, the following elements are required:
+Unlike the HVAC and Lighting examples above, the Plug Load definition requires slightly more care for modeling to get the desired effect (although not much).  Within the context of the `auc:PlugLoad` element, the following elements are required:
 - `auc:PlugLoadType` with text value of: `Miscellaneous Electric Load`
 - `auc:WeightedAverageLoad`
 - Link to the `auc:Section` which this system is meant to describe using the following: `auc:PlugLoad/auc:LinkedPremises/auc:Section/auc:LinkedSectionID IDref="SectionID-of-interest"`
