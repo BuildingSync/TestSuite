@@ -66,7 +66,7 @@ As time series data is necessary for reporting, this is created as follows:
 ```
 When modeling time series data, the following notions should be observed:
 - If an `auc:ResourceUse` exists for the reading, the `auc:TimeSeries/auc:ResourceUseID/@IDref` attribute should point to the `ID` attribute of that Resource.
-- The units associated with the `auc:IntervalReading` are defined by the `auc:Resource/auc:ResourceUnits`, which is why the `auc:ResourceUnits` element is required
+- The units associated with the `auc:IntervalReading` are defined by the `auc:Resource/auc:ResourceUnits`, which is why the `auc:ResourceUnits` element is required for an `auc:Resource` element
 - Only two of the three following elements need be defined:
     - `auc:StartTimestamp`, `auc:EndTimestamp`, `auc:IntervalFrequency`
 - Given two of the three, the third can be inferred:
