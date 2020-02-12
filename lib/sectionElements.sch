@@ -38,7 +38,7 @@
       <let name="hvacIDrefs" value="$hvacSystems//auc:LinkedSectionID/@IDref"/>
       <let name="idFromIdref" value="idref(@ID)"/>
       <let name="count" value="count(data($hvacIDrefs) = data($sectionId))"/>
-      <let name="count2" value="count($hvacIDrefs = $sectionId)"/>
+      <let name="count2" value="count( $hvacIDrefs = $sectionId)"/>
       <assert test="false()">
         <name/> has id: <value-of select="$sectionId"/>
       </assert>

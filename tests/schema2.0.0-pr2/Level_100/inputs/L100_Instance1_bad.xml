@@ -228,13 +228,21 @@
             </auc:ScenarioType>
           </auc:Scenario>
             <auc:Scenario ID="Benchmark">
+              <auc:TimeSeriesData>
+                <auc:TimeSeries>
+                  <
+                </auc:TimeSeries>
+              </auc:TimeSeriesData>
               <auc:ScenarioName>Benchmark</auc:ScenarioName>
               <auc:ScenarioType>
                 <auc:Benchmark>
-                  <auc:BenchmarkYear>2016</auc:BenchmarkYear>
+                  <auc:BenchmarkYear>2018</auc:BenchmarkYear>
+                  <auc:BenchmarkValue>52</auc:BenchmarkValue>
                   <auc:BenchmarkType>
+                    <auc:CBECS>
+                      <auc:ClimateZone>5</auc:ClimateZone>
+                    </auc:CBECS>
                   </auc:BenchmarkType>
-                  <auc:BenchmarkValue>[value]</auc:BenchmarkValue>
                   <auc:LinkedPremises>
                     <auc:Building>
                       <auc:LinkedBuildingID IDref="BuildingID-of-interest"></auc:LinkedBuildingID>

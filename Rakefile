@@ -1,19 +1,25 @@
 require 'rspec/core/rake_task'
-RSpec::Core::RakeTask.new(:spec)
+
+task :default => :spec
+
+RSpec::Core::RakeTask.new(:spec) do |t|
+  t.pattern = Dir.glob('spec/**/*_spec.rb')
+  t.rspec_opts = '--format documentation'
+end
 
 root = Dir.pwd
 
 desc 'L000 run simulation'
 task :L000_run_sim, [:schema_version, :test_file] do |t, args|
   valid_schema_versions = ["schema2.0.0-pr2"]
-  valid_test_files = ['L000_Instance1.xml', 'L000_Instance2.xml', 'L000_Instance2_bad.xml']
+  valid_test_files = ['root_test_1.xml', 'L000_Instance2.xml', 'L000_Instance2_bad.xml']
   puts args
   if valid_schema_versions.include?(args[:schema_version]) && valid_test_files.include?(args[:test_file])
     ruby "tests/tester.rb Level_000 #{args[:schema_version]} #{args[:test_file]} #{root}"
   else
     puts "usage: bundle exec rake L000_run_sim[schema_version, file_to_run]"
     puts "[schema_version] is one of: 'schema2.0.0-pr2'"
-    puts "[file_to_run] is one of: 'L000_Instance1.xml', 'L000_Instance2.xml'"
+    puts "[file_to_run] is one of: 'root_test_1.xml', 'L000_Instance2.xml'"
   end
 end
 
