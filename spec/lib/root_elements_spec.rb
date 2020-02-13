@@ -43,10 +43,10 @@ describe "An IMPROPER oneOfEachUntilBuilding" do
     expect(errors.length).to eq(2)
 
     # Wants exactly one auc:Facility element
-    expect(errors[0][:message]).to eq("element 'auc:Facility' is REQUIRED EXACTLY ONCE for: 'auc:Facilities'")
+    expect(errors[0][:message]).to eq("[ERROR] element 'auc:Facility' is REQUIRED EXACTLY ONCE for: 'auc:Facilities'")
 
     # New auc:Facility element now expected to have a auc:Sites element
-    expect(errors[1][:message]).to eq("element 'auc:Sites' is REQUIRED EXACTLY ONCE for: 'auc:Facility'")
+    expect(errors[1][:message]).to eq("[ERROR] element 'auc:Sites' is REQUIRED EXACTLY ONCE for: 'auc:Facility'")
   end
 
   it "Will fail and issue two warnings when two auc:Site elements are specified" do
@@ -62,10 +62,10 @@ describe "An IMPROPER oneOfEachUntilBuilding" do
     expect(errors.length).to eq(2)
 
     # Wants exactly one auc:Site element
-    expect(errors[0][:message]).to eq("element 'auc:Site' is REQUIRED EXACTLY ONCE for: 'auc:Sites'")
+    expect(errors[0][:message]).to eq("[ERROR] element 'auc:Site' is REQUIRED EXACTLY ONCE for: 'auc:Sites'")
 
     # New auc:Site element now expected to have a auc:Buildings element
-    expect(errors[1][:message]).to eq("element 'auc:Buildings' is REQUIRED EXACTLY ONCE for: 'auc:Site'")
+    expect(errors[1][:message]).to eq("[ERROR] element 'auc:Buildings' is REQUIRED EXACTLY ONCE for: 'auc:Site'")
   end
 
   it "Will fail and issue one warning when two auc:Building elements are specified" do
@@ -81,7 +81,7 @@ describe "An IMPROPER oneOfEachUntilBuilding" do
     expect(errors.length).to eq(1)
 
     # Wants exactly one auc:Building element
-    expect(errors[0][:message]).to eq("element 'auc:Building' is REQUIRED EXACTLY ONCE for: 'auc:Buildings'")
+    expect(errors[0][:message]).to eq("[ERROR] element 'auc:Building' is REQUIRED EXACTLY ONCE for: 'auc:Buildings'")
   end
 end
 
@@ -166,7 +166,7 @@ describe "An IMPROPER oneOfEachFacilityUntilScenario" do
     # puts errors
     expect(count).to eq(1)
     expect(errors.length).to eq(count)
-    expect(errors[0][:message]).to eq("element 'auc:Report' is REQUIRED AT LEAST ONCE for: 'auc:Reports'")
+    expect(errors[0][:message]).to eq("[ERROR] element 'auc:Report' is REQUIRED AT LEAST ONCE for: 'auc:Reports'")
   end
 
   it "Will fail and issue one warning when no auc:Scenario element is specified" do
@@ -187,7 +187,7 @@ describe "An IMPROPER oneOfEachFacilityUntilScenario" do
     # puts errors
     expect(count).to eq(1)
     expect(errors.length).to eq(count)
-    expect(errors[0][:message]).to eq("element 'auc:Scenario' is REQUIRED AT LEAST ONCE for: 'auc:Scenarios'")
+    expect(errors[0][:message]).to eq("[ERROR] element 'auc:Scenario' is REQUIRED AT LEAST ONCE for: 'auc:Scenarios'")
   end
 end
 
@@ -242,7 +242,7 @@ describe "An IMPROPER oneOfEachFacilityUntilContacts" do
     # puts errors
     expect(count).to eq(1)
     expect(errors.length).to eq(count)
-    expect(errors[0][:message]).to eq("element 'auc:Contacts' is REQUIRED EXACTLY ONCE for: 'auc:Facility'")
+    expect(errors[0][:message]).to eq("[ERROR] element 'auc:Contacts' is REQUIRED EXACTLY ONCE for: 'auc:Facility'")
   end
 
   it "Will fail if more than one auc:Contacts element is specified" do
@@ -256,7 +256,7 @@ describe "An IMPROPER oneOfEachFacilityUntilContacts" do
     # puts "Schematron errors:"
     # puts errors
     expect(errors.length).to eq(1)
-    expect(errors[0][:message]).to eq("element 'auc:Contacts' is REQUIRED EXACTLY ONCE for: 'auc:Facility'")
+    expect(errors[0][:message]).to eq("[ERROR] element 'auc:Contacts' is REQUIRED EXACTLY ONCE for: 'auc:Facility'")
   end
 end
 
@@ -331,7 +331,7 @@ describe "An IMPROPER atleastOneReportInFacility" do
     # puts errors
     expect(count).to eq(1)
     expect(errors.length).to eq(count)
-    expect(errors[0][:message]).to eq("element 'auc:Report' is REQUIRED AT LEAST ONCE for: 'auc:Facility'")
+    expect(errors[0][:message]).to eq("[ERROR] element 'auc:Report' is REQUIRED AT LEAST ONCE for: 'auc:Facility'")
   end
 end
 
@@ -408,6 +408,6 @@ describe "An IMPROPER atleastOneScenarioInReport" do
     # puts errors
     expect(count).to eq(1)
     expect(errors.length).to eq(count)
-    expect(errors[0][:message]).to eq("element 'auc:Scenario' is REQUIRED AT LEAST ONCE for: 'auc:Report'")
+    expect(errors[0][:message]).to eq("[ERROR] element 'auc:Scenario' is REQUIRED AT LEAST ONCE for: 'auc:Report'")
   end
 end
