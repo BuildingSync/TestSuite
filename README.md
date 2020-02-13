@@ -90,3 +90,6 @@ $ BUNDLE_GEMFILE=Gemfile-sch bundle exec rake spec
 
 | System Type | Level 000 | Level 100 | Level 200 |
 |------------------------------------|--------------------|--------------------|-----------|
+
+# Contributing
+See [Contributions and Schematron](docs/Contributions%20and%20Schematron.md)
