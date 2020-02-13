@@ -9,7 +9,7 @@ In order to run the tests you must have a stable version of the following:
 * `Ruby v2.2.4` via an `rbenv` environment 
 * `Bundler v1.17.2`
 
-## Setup and Tests
+## Setup
 Place a file called `openstudio.rb` into the the directory of your `Ruby2.2.4` installation `/foo/bar/.rbenv/versions/2.2.4/lib/ruby/2.2.4`
 
 The `openstudio.rb` file should contain one line referencing the location of the Ruby folder of your OpenStudio installation:
@@ -20,7 +20,7 @@ ___Note - your version of OpenStudio may be different___
 
 Due to dependency issues, there are currently two Gemfiles available in the repo.  Refer to the linked sections for specifics on how to use.
 1. `Gemfile` - Use this for running Rake tasks for [running simulations](#running-simulations-rakefile)
-1. `Gemfile-sch` - Use this for running Rake tasks for [tests](#tests).
+1. `Gemfile-sch` - Use this for running Rake tasks for [tests](#tests)
 
 __Note - there is no need to `rm -rf .bundle/` when switching between the above two scenarios.  Just run the below commands and then proceed as described in the linked sections__
 ```
@@ -44,7 +44,7 @@ the [lib](lib) directory provides a library of general purpose Schematron functi
 
 # Running Simulations (Rakefile)
 
-The Rakefile can be used to run the entire BuildingSync -> OpenStudio + Simulate -> BuildingSync workflow.  It makes use of the `tests/tester.rb` script.  The script will look for BSync XML files to simulate in the `tests/[schema_version]/[Level_XXX]/inputs` directory.  There are currently two tasks that can be run:
+The Rakefile can be used to run the entire BuildingSync -> OpenStudio + Simulate -> BuildingSync workflow.  It makes use of the `tests/tester.rb` script (TODO - turn this into a test using RSpec).  The script will look for BSync XML files to simulate in the `tests/[schema_version]/[Level_XXX]/inputs` directory.  There are currently two tasks that can be run:
 
 1. L000_run_sim - Run a Level 000 simulation using the schema_version and file specified
 1. L100_run_sim - Run a Level 100 simulation using the schema_version and file specified
