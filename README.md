@@ -65,7 +65,6 @@ RSpec is used for running tests.  The tests are written around the following:
 1. Testing individual Schematron functions within `lib/` are working correctly. In Progress
 1. Testing that Schematron is working against Level Definition files.  TODO
 
-Make sure to remove the `.bundle/`
 ```
 $ bundle install --gemfile Gemfile-sch --path .bundle/install # if not previously run
 $ BUNDLE_GEMFILE=Gemfile-sch bundle exec rake spec
