@@ -6,18 +6,18 @@
 -->
   
 <!--
-    Check the main details for the Section element as required by 211.
-    <param> parent - an auc:Section element
+    Check the main details for the Section element as required by 211.  Although this function
+    can be run against any auc:Section element, it is typically restricted to 'Space function'
+    element types, i.e. auc:Section[auc:SectionType='Space function']
+    <param> parent - an auc:Section element.  
 -->
   <pattern abstract="true" id="sec.mainDetails">
-    <rule context="$parent" role="error">
+    <rule context="$parent">
       <assert test="auc:OccupancyClassification">
-        auc:OccupancyClassification must be specified for <name/>
+        [ERROR] element 'auc:OccupancyClassification' is REQUIRED EXACTLY ONCE for: '<name/>'
       </assert>
-    </rule>
-    <rule context="$parent" role="warn">
       <assert test="auc:OriginalOccupancyClassification">
-        auc:OriginalOccupancyClassification is recommended for element: <name/>
+        [WARNING] element 'auc:OriginalOccupancyClassification' is RECOMMENDED for: '<name/>'
       </assert>
     </rule>
   </pattern>
@@ -29,6 +29,7 @@
     2. auc:System/auc:LightingSystems/auc:LightingSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID
     3. auc:System/auc:PlugLoads/auc:PlugLoad/auc:LinkedPremises/auc:Section/auc:LinkedSectionID
     <param> parent - an auc:Section element
+    TODO: Change to work with XPath 1.0
 -->
   <pattern abstract="true" id="sec.primarySystems">
     <rule context="$parent" role="error">

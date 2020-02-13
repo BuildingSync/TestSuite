@@ -9,32 +9,32 @@
   <pattern id="root.oneOfEachUntilBuilding">
     <rule context="/">
       <assert test="count(auc:BuildingSync) = 1"
-        >element 'auc:BuildingSync' is REQUIRED EXACTLY ONCE for: '<name/>'</assert>
+        >[ERROR] element 'auc:BuildingSync' is REQUIRED EXACTLY ONCE for: '<name/>'</assert>
     </rule>
     <rule context="auc:BuildingSync">
       <assert test="count(auc:Facilities) = 1"
-        >element 'auc:Facilities' is REQUIRED EXACTLY ONCE for: '<name/>'</assert>
+        >[ERROR] element 'auc:Facilities' is REQUIRED EXACTLY ONCE for: '<name/>'</assert>
     </rule>
     <rule context="auc:Facilities">
       <assert test="count(auc:Facility) = 1"
-        >element 'auc:Facility' is REQUIRED EXACTLY ONCE for: '<name/>'</assert>
+        >[ERROR] element 'auc:Facility' is REQUIRED EXACTLY ONCE for: '<name/>'</assert>
     </rule>
     <rule context="auc:Facility">
       <assert test="count(auc:Sites) = 1"
-        >element 'auc:Sites' is REQUIRED EXACTLY ONCE for: '<name/>'</assert>
+        >[ERROR] element 'auc:Sites' is REQUIRED EXACTLY ONCE for: '<name/>'</assert>
     </rule>
     <rule context="auc:Sites">
       <assert test="count(auc:Site) = 1"
-        >element 'auc:Site' is REQUIRED EXACTLY ONCE for: '<name/>'</assert>
+        >[ERROR] element 'auc:Site' is REQUIRED EXACTLY ONCE for: '<name/>'</assert>
     </rule>
     <rule context="auc:Site">
       <assert test="count(auc:Buildings) = 1"
-        >element 'auc:Buildings' is REQUIRED EXACTLY ONCE for: '<name/>'</assert>
+        >[ERROR] element 'auc:Buildings' is REQUIRED EXACTLY ONCE for: '<name/>'</assert>
     </rule>
     <rule
       context="auc:Buildings">
       <assert test="count(auc:Building) = 1"
-        >element 'auc:Building' is REQUIRED EXACTLY ONCE for: '<name/>'</assert>
+        >[ERROR] element 'auc:Building' is REQUIRED EXACTLY ONCE for: '<name/>'</assert>
     </rule>
   </pattern>
   
@@ -45,19 +45,19 @@
   <pattern id="root.oneOfEachFacilityUntilScenario">
     <rule context="auc:Facility">
       <assert test="count(auc:Reports) = 1"
-        >element 'auc:Reports' is REQUIRED EXACTLY ONCE for: '<name/>'</assert>
+        >[ERROR] element 'auc:Reports' is REQUIRED EXACTLY ONCE for: '<name/>'</assert>
     </rule>
     <rule context="auc:Reports">
       <assert test="count(auc:Report) >= 1"
-        >element 'auc:Report' is REQUIRED AT LEAST ONCE for: '<name/>'</assert>
+        >[ERROR] element 'auc:Report' is REQUIRED AT LEAST ONCE for: '<name/>'</assert>
     </rule>
     <rule context="auc:Report">
       <assert test="count(auc:Scenarios) = 1"
-        >element 'auc:Scenarios' is REQUIRED EXACTLY ONCE for: '<name/>'</assert>
+        >[ERROR] element 'auc:Scenarios' is REQUIRED EXACTLY ONCE for: '<name/>'</assert>
     </rule>
     <rule context="auc:Scenarios">
       <assert test="count(auc:Scenario) >= 1"
-        >element 'auc:Scenario' is REQUIRED AT LEAST ONCE for: '<name/>'</assert>
+        >[ERROR] element 'auc:Scenario' is REQUIRED AT LEAST ONCE for: '<name/>'</assert>
     </rule>
   </pattern>
   
@@ -68,7 +68,7 @@
   <pattern id="root.oneOfEachFacilityUntilContacts">
     <rule context="auc:Facility">
       <assert test="count(auc:Contacts) = 1"
-        >element 'auc:Contacts' is REQUIRED EXACTLY ONCE for: '<name/>'</assert>
+        >[ERROR] element 'auc:Contacts' is REQUIRED EXACTLY ONCE for: '<name/>'</assert>
     </rule>
   </pattern>
   
@@ -78,7 +78,7 @@
   <pattern id="root.atleastOneReportInFacility">
     <rule context="auc:Facility">
       <assert test="auc:Reports/auc:Report"
-        >element 'auc:Report' is REQUIRED AT LEAST ONCE for: '<name/>'</assert>
+        >[ERROR] element 'auc:Report' is REQUIRED AT LEAST ONCE for: '<name/>'</assert>
     </rule>
   </pattern>
   
@@ -88,7 +88,7 @@
   <pattern id="root.atleastOneScenarioInReport">
     <rule context="auc:Report">
       <assert test="auc:Scenarios/auc:Scenario"
-        >element 'auc:Scenario' is REQUIRED AT LEAST ONCE for: '<name/>'</assert>
+        >[ERROR] element 'auc:Scenario' is REQUIRED AT LEAST ONCE for: '<name/>'</assert>
     </rule>
   </pattern>
 </schema>
