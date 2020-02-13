@@ -223,7 +223,7 @@
           </auc:Address>
           <auc:ContactTelephoneNumbers>
             <auc:ContactTelephoneNumber>
-              <auc:TelephoneNumber>(630) 234-5678</auc:TelephoneNumber>
+              <auc:TelephoneNumber>630-234-5678</auc:TelephoneNumber>
             </auc:ContactTelephoneNumber>
           </auc:ContactTelephoneNumbers>
           <auc:ContactEmailAddresses>
@@ -246,11 +246,11 @@
             </auc:StreetAddressDetail>
             <auc:City/>
             <auc:State>IL</auc:State>
-            <auc:PostalCode/>
+            <auc:PostalCode>12345</auc:PostalCode>
           </auc:Address>
           <auc:ContactTelephoneNumbers>
             <auc:ContactTelephoneNumber>
-              <auc:TelephoneNumber>(630) 123-4567</auc:TelephoneNumber>
+              <auc:TelephoneNumber>630-123-4567</auc:TelephoneNumber>
             </auc:ContactTelephoneNumber>
           </auc:ContactTelephoneNumbers>
           <auc:ContactEmailAddresses>
