@@ -51,6 +51,7 @@
                 <auc:Section ID="Section-Retail">
                   <auc:SectionType>Space function</auc:SectionType>
                   <auc:OccupancyClassification>Retail</auc:OccupancyClassification>
+                  <auc:OriginalOccupancyClassification>Retail</auc:OriginalOccupancyClassification>
                   <auc:OccupancyLevels>
                     <auc:OccupancyLevel>
                       <auc:OccupantQuantityType>Peak total occupants</auc:OccupantQuantityType>
@@ -81,6 +82,7 @@
                 <auc:Section ID="Section-Office">
                   <auc:SectionType>Space function</auc:SectionType>
                   <auc:OccupancyClassification>Office</auc:OccupancyClassification>
+                  <auc:OriginalOccupancyClassification>Office</auc:OriginalOccupancyClassification>
                   <auc:OccupancyLevels>
                     <auc:OccupancyLevel>
                       <auc:OccupantQuantityType>Peak total occupants</auc:OccupantQuantityType>

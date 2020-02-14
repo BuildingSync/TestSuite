@@ -5,6 +5,7 @@
   <!--    
     This pattern ensures there is exactly one of every element inclusive of the Building element
     It walks the path: BuildingSync/Facilities/Facility/Sites/Site/Buildings/Building
+    <severity> error
   -->
   <pattern id="root.oneOfEachUntilBuilding">
     <rule context="/">
@@ -41,6 +42,7 @@
   <!--    
     This pattern ensures there is exactly one of every element inclusive of the Scenario element
     It starts at the Facility element and walks the path: Reports/Report/Scenarios/Scenario
+    <severity> error
   -->
   <pattern id="root.oneOfEachFacilityUntilScenario">
     <rule context="auc:Facility">
@@ -64,6 +66,7 @@
   <!--    
     This pattern ensures there is exactly one of every element inclusive of the Contacts element
     It starts at the Facility element and walks the path: Facility/Contacts
+    <severity> error
   -->
   <pattern id="root.oneOfEachFacilityUntilContacts">
     <rule context="auc:Facility">
@@ -74,6 +77,7 @@
   
   <!--    
     This pattern ensures there is at least one Report in a Facility
+    <severity> error
   -->
   <pattern id="root.atleastOneReportInFacility">
     <rule context="auc:Facility">
@@ -84,6 +88,7 @@
   
   <!--    
     This pattern ensures there is at least one Scenario in a Report
+    <severity> error
   -->
   <pattern id="root.atleastOneScenarioInReport">
     <rule context="auc:Report">

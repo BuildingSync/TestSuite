@@ -205,8 +205,8 @@ describe "A PROPER oneOfEachFacilityUntilContacts" do
   it "Should have, under an auc:Facility element, exactly one auc:Contacts element" do
     doc = @doc_original.clone
     errors = @stron.validate(doc)
-    puts "Schematron errors:"
-    puts errors
+    # puts "Schematron errors:"
+    # puts errors
     expect(errors.length).to eq(0)
   end
 

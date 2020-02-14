@@ -70,6 +70,8 @@ $ bundle install --gemfile Gemfile-sch --path .bundle/install # if not previousl
 $ BUNDLE_GEMFILE=Gemfile-sch bundle exec rake spec
 ```
 
+More information on developing Schematron functiosn (and the required tests!) can be found in the [Contributions and Schematron](docs/Contributions%20and%20Schematron.md) document.
+
 ## HVAC System Examples
 
 | System Type | Level 000 | Level 100 | Level 200 |

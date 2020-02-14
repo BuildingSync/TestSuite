@@ -6,26 +6,29 @@
 -->
 
 <!--  
-    Check that all auc:TypicalOccupantUsage elements have the auc:TypicalOccupantUsageValue and auc:TypicalOccupantUsageUnits.
+    Check that both the auc:TypicalOccupantUsageValue and auc:TypicalOccupantUsageUnits are specified.
     <severity> error
-    <param> parent - an auc:TypicalOccupantUsages element
+    <param> parent - an auc:TypicalOccupantUsage element
 -->
   <pattern abstract="true" id="occ.typUsage.haveUnitsAndValue">
     <rule context="$parent">
-      <assert test="auc:TypicalOccupantUsage/auc:TypicalOccupantUsageUnits/text() and auc:TypicalOccupantUsage/auc:TypicalOccupantUsageValue/text()">
-        auc:TypicalOccupantUsage elements must specify both a auc:TypicalOccupantUsageValue and auc:TypicalOccupantUsageUnits for <name/>
+      <assert test="auc:TypicalOccupantUsageUnits/text() and auc:TypicalOccupantUsageValue/text()">
+        [ERROR] elements 'auc:TypicalOccupantUsageValue' and 'auc:TypicalOccupantUsageUnits' are REQUIRED EXACTLY ONCE for: '<name/>'
       </assert>
     </rule>
   </pattern>
   
 <!--
     Check the occupancy information for the auc:Section element is defined per 211 requirements
+    <severity> error
     <param> parent - an auc:TypicalOccupantUsages element
 -->
   <pattern abstract="true" id="occ.oneOfType.typicalUsageUnits">
-    <rule context="$parent" role="error">
-      <assert test="auc:TypicalOccupantUsage/auc:TypicalOccupantUsageUnits/text()=$typUsageUnits">
-        An auc:TypicalOccupantUsage element with auc:TypicalOccupantUsageUnits = <value-of select="$typUsageUnits"/> must be specified for <name/>
+    <rule context="$parent">
+      <let name="v" value="'Hours per week'"/>
+      <let name="typUnits" value="count(auc:TypicalOccupantUsage/auc:TypicalOccupantUsageUnits[text()=$v])"/>
+      <assert test="$typUnits = 1">
+        [ERROR] element 'auc:TypicalOccupantUsageUnits' MUST HAVE VALUE '<value-of select="$typUnits"/>' for '<name/>'
       </assert>
     </rule>
   </pattern>

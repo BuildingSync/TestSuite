@@ -78,12 +78,12 @@
       <assert test="auc:FloorsBelowGrade or auc:UnconditionedFloorsBelowGrade">
         auc:FloorsBelowGrade or auc:UnconditionedFloorsBelowGrade must be specified for element: <name/>
       </assert>
-      <assert test="if (auc:ConditionedFloorsAboveGrade and auc:FloorsAboveGrade and auc:UnconditionedFloorsAboveGrade) then (auc:FloorsAboveGrade = auc:ConditionedFloorsAboveGrade + auc:UnconditionedFloorsAboveGrade) else (true())">
+<!--      <assert test="if (auc:ConditionedFloorsAboveGrade and auc:FloorsAboveGrade and auc:UnconditionedFloorsAboveGrade) then (auc:FloorsAboveGrade = auc:ConditionedFloorsAboveGrade + auc:UnconditionedFloorsAboveGrade) else (true())">
         The following statement must be true: auc:FloorsAboveGrade = auc:ConditionedFloorsAboveGrade + auc:UnconditionedFloorsAboveGrade
-      </assert>
-      <assert test="if (auc:ConditionedFloorsBelowGrade and auc:FloorsBelowGrade and auc:UnconditionedFloorsBelowGrade) then (auc:FloorsBelowGrade = auc:ConditionedFloorsBelowGrade + auc:UnconditionedFloorsBelowGrade) else (true())">
+      </assert>-->
+<!--      <assert test="if (auc:ConditionedFloorsBelowGrade and auc:FloorsBelowGrade and auc:UnconditionedFloorsBelowGrade) then (auc:FloorsBelowGrade = auc:ConditionedFloorsBelowGrade + auc:UnconditionedFloorsBelowGrade) else (true())">
         The following statement must be true: auc:FloorsBelowGrade = auc:ConditionedFloorsBelowGrade + auc:UnconditionedFloorsBelowGrade
-      </assert>
+      </assert>-->
     </rule>
 <!--    Warnings (i.e. Recommended items) -->
     <rule context="auc:Buildings/auc:Building" role="warn">
@@ -100,8 +100,9 @@
   </pattern>
 
 <!--
-    Check the main details for the Building element as required by 211.
+    Check the simple location details for the Building element as required by 211.
     This function doesn't handle complex address types, i.e auc:StreetAddressDetail/auc:Complex
+    <severity> error
 -->
   <pattern id="be.simpleLocationDetails">
     <rule context="auc:Buildings/auc:Building">

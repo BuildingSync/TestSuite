@@ -8,17 +8,22 @@
 <!--
     A baseline scenario must be defined.  Within the baseline scenario, the following 
     must be defined exactly: auc:ScenarioType/auc:PackageOfMeasures/auc:ReferenceCase IDref='Baseline'
+    TODO: Need to update BuildingSync-gem to look for following and change this function to look for:
+      auc:ScenarioType/auc:CurrentBuilding/auc:CalculationMethod/auc:Modeled
+      The thought being that there should only be ONE of these types for a building.  Any other iterations
+      based on this original should be defined as:
+        auc:ScenarioType/auc:PackageOfMeasures/auc:ReferenceCase/@IDref='above'
 -->
   <pattern id="sc.baseline">
     <let name="baselineCount" value="count(//auc:Scenario[@ID='Baseline'])"/>
     <rule context="auc:Scenarios">
       <assert test="$baselineCount = 1">
-        There must be exactly one auc:Scenario with an attribute ID='Baseline' for <name/>
+        element 'auc:Scenario' with attribute ID='Baseline' is REQUIRED AT LEAST ONCE for: <name/>
       </assert>
     </rule>
     <rule context="auc:Scenario[@ID='Baseline']">
       <assert test="auc:ScenarioType/auc:PackageOfMeasures/auc:ReferenceCase/@IDref = 'Baseline'">
-        For <name/>[@ID='Baseline'] the following subelements are required:
+        element 'auc:Scenario' with attribute ID='Baseline' MUST CONTAIN the following subelements:
           auc:ScenarioType/auc:PackageOfMeasures/auc:ReferenceCase IDref='Baseline'
       </assert>
     </rule>

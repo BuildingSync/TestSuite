@@ -3,8 +3,7 @@ The TestSuite is designed to allow developers to reuse BuildingSync logic for th
 
 ## Limitations with schematron-nokogiri Ruby Library
 - Uses XPath 1.0, so be careful when developing new functions to make sure they only use XPath 1.0 expressions
-- Does not differentiate between different [Schematron severity levels](http://schematron.com/2018/12/standard-severity-levels-with-schematron-role/).  Everything is basically treated as an error.
-    - The authors use `[ERROR]`, `[WARNING]`, and `[INFO]` prepended to schematron messages to help users understand the severity of the report / assertion
+- Does not differentiate between different [Schematron severity levels](http://schematron.com/2018/12/standard-severity-levels-with-schematron-role/).  Everything from Schematron's perspective is viewed as an error.  To compensate for this, the authors use `[ERROR]`, `[WARNING]`, and `[INFO]` prepended to Schematron messages to help users understand the severity of the report / assertion (see [Standard Error Messages](#standard-error-messages))
 
 ## Adding Generic Schematron Functions
 
@@ -25,6 +24,22 @@ The following is an example Schematron function for Floor Areas.
 ```
 
 All new functions should provide structured comments as above defining severities and parameters (for abstract function declarations).
+
+### Standard Error Messages
+The following are provided as example error messages.  General rules:
+- Wrap BuildingSync elements in single quotes in messages ('auc:Facility')
+- Place the logging level at the beginning of the assertion in all caps surrounded by brackets (<assert>[LOG LEVEL])
+- For `[ERROR]` logs, use keywords like REQUIRED or MUST HAVE
+- For `[WARNING]` logs, use keywords like RECOMMENDED
+
+Examples provided below:
+```xml
+<assert>[ERROR] element '' is REQUIRED EXACTLY ONCE for: '<name/>'</assert>
+<assert>[ERROR] element '' is REQUIRED AT LEAST ONCE for: '<name/>'</assert>
+<assert>[WARNING] element '' is RECOMMENDED for: '<name/>’</assert>
+<assert>[ERROR] elements '' and '' are REQUIRED EXACTLY ONCE within element '' for: '<name/>'</assert>
+<assert>[ERROR] element '' MUST HAVE VALUE '<value-of select=“"/>' for '<name/>'</assert>
+```
 
 # Contributions
 
