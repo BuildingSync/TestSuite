@@ -19,44 +19,44 @@
   </pattern>
   
 <!--
-    Check the occupancy information for the auc:Section element is defined per 211 requirements
+    Check that, within an auc:TypicalOccupantUsages element, there is exactly one auc:TypicalOccupantUsage element
+    with the auc:TypicalOccupantUsageUnits = $typUsageUnits passed in as a parameter. 
     <severity> error
     <param> parent - an auc:TypicalOccupantUsages element
+    <param> typUsageUnits - one of the standard enums for auc:TypicalOccupantUsageUnits, such as 'Hours per week'
 -->
   <pattern abstract="true" id="occ.oneOfType.typicalUsageUnits">
     <rule context="$parent">
-      <let name="v" value="'Hours per week'"/>
-      <let name="typUnits" value="count(auc:TypicalOccupantUsage/auc:TypicalOccupantUsageUnits[text()=$v])"/>
-      <assert test="$typUnits = 1">
-        [ERROR] element 'auc:TypicalOccupantUsageUnits' MUST HAVE VALUE '<value-of select="$typUnits"/>' for '<name/>'
+      <assert test="count(auc:TypicalOccupantUsage/auc:TypicalOccupantUsageUnits[text()=$typUsageUnits]) = 1">
+        [ERROR] element 'auc:TypicalOccupantUsage' with child element 'auc:TypicalOccupantUsageUnits' having value '<value-of select="$typUsageUnits"/>' is REQUIRED EXACTLY ONCE for '<name/>'. Current number of occurrences: <value-of select="count(auc:TypicalOccupantUsage/auc:TypicalOccupantUsageUnits[text()=$typUsageUnits])"/>
       </assert>
     </rule>
   </pattern>
   
 <!--  
-    Check that all auc:Occupancy Level elements have the auc:OccupantQuantityType and auc:OccupantQuantity child elements defined.
+    Check that all auc:OccupancyLevel elements have the auc:OccupantQuantityType and auc:OccupantQuantity child elements defined.
     <severity> error
-    <param> parent - an auc:OccupancyLevels element
+    <param> parent - an auc:OccupancyLevel element
 -->
   <pattern abstract="true" id="occ.levels.haveQuantityAndType">
     <rule context="$parent">
-      <assert test="auc:OccupancyLevel/auc:OccupantQuantityType/text() and auc:OccupancyLevel/auc:OccupantQuantity/text()">
-        auc:OccupancyLevel elements must specify both a auc:OccupancyQuantityType and auc:OccupantQuantity for <name/>
+      <assert test="auc:OccupantQuantityType/text() and auc:OccupantQuantity/text()">
+        [ERROR] elements 'auc:OccupancyQuantityType' and 'auc:OccupantQuantity' are REQUIRED EXACTLY ONCE for: '<name/>'
       </assert>
     </rule>
   </pattern>
   
 <!--  
-    Check that all auc:Occupancy Level elements have the auc:OccupantQuantityType and auc:OccupantQuantity child elements defined.
+    Check that, within an auc:OccupancyLevels element, there is exactly one auc:OccupancyLevel element 
+    with the auc:OccupantQuantityType = $occLevelType passed in as a parameter
     <severity> error
     <param> parent - an auc:OccupancyLevels element
     <param> occLevelType - one of the standard enum values for auc:OccupancyQuantityType, such as 'Peak total occupants'
 -->
-  <pattern abstract="true" id="occ.levels.ofType">
+  <pattern abstract="true" id="occ.levels.oneOfType">
     <rule context="$parent">
-      <let name="countOccLevelType" value="count(auc:OccupancyLevel[auc:OccupantQuantityType = $occLevelType])"/>
-      <assert test="$countOccLevelType = 1">
-        An auc:OccupancyLevel element with auc:OccupancyQuantityType = <value-of select="$occLevelType"/> must be specified for <name/>.  Currently occurs: <value-of select="$countOccLevelType"/>
+      <assert test="count(auc:OccupancyLevel/auc:OccupantQuantityType[text()=$occLevelType]) = 1">
+        [ERROR] element 'auc:OccupancyLevel' with child element 'auc:OccupantQuantityType' having value '<value-of select="$occLevelType"/>' is REQUIRED EXACTLY ONCE for '<name/>'. Current number of occurrences: <value-of select="count(auc:OccupancyLevel/auc:OccupantQuantityType[text()=$occLevelType])"/>
       </assert>
     </rule>
   </pattern>  
