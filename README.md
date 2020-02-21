@@ -42,7 +42,22 @@ The formal definitions for the levels are defined using Schematron files, which 
 
 the [lib](lib) directory provides a library of general purpose Schematron functions used  within the individual Schematron xml documents.  These functions are designed to be used by others with use cases outside of the Levels defined above.  Narrative overviews for the different levels can be found in the [docs folder](<https://github.com/BuildingSync/TestSuite/blob/master/docs>).
 
-# Running Simulations (Rakefile)
+# Rakefile
+Rake tasks are currently used for two purposes, as outlined below.
+
+## Tests
+RSpec is used for running tests.  The tests are written around the following:
+1. Testing individual Schematron functions within `lib/` are working correctly. In Progress
+1. Testing that Schematron is working against Level Definition files.  TODO
+
+```
+$ bundle install --gemfile Gemfile-sch --path .bundle/install # if not previously run
+$ BUNDLE_GEMFILE=Gemfile-sch bundle exec rake spec
+```
+
+More information on developing Schematron functions (and the required tests!) can be found in the [Contributions and Schematron](docs/Contributions%20and%20Schematron.md) document.
+
+## Running Simulations
 
 The Rakefile can be used to run the entire BuildingSync -> OpenStudio + Simulate -> BuildingSync workflow.  It makes use of the `tests/tester.rb` script (TODO - turn this into a test using RSpec).  The script will look for BSync XML files to simulate in the `tests/[schema_version]/[Level_XXX]/inputs` directory.  There are currently two tasks that can be run:
 
@@ -57,20 +72,8 @@ $ bundle install --gemfile Gemfile --path .bundle/install # if not previously ru
 $ BUNDLE_GEMFILE=Gemfile bundle exec rake L000_run_sim[schema2.0.0-pr2,L000_Instance1.xml]
 ```
 
-## Outputs
+### Outputs
 An outputs directory will be created after running a task `tests/[schema_version]/[Level_XXX]/outputs` for each file instance run through the task runner.  Outputs are .gitignored so as not to clutter up the TestSuite repo.  The output directory  will mimic the traditional OSW structure.
-
-# Tests
-RSpec is used for running tests.  The tests are written around the following:
-1. Testing individual Schematron functions within `lib/` are working correctly. In Progress
-1. Testing that Schematron is working against Level Definition files.  TODO
-
-```
-$ bundle install --gemfile Gemfile-sch --path .bundle/install # if not previously run
-$ BUNDLE_GEMFILE=Gemfile-sch bundle exec rake spec
-```
-
-More information on developing Schematron functiosn (and the required tests!) can be found in the [Contributions and Schematron](docs/Contributions%20and%20Schematron.md) document.
 
 ## HVAC System Examples
 
