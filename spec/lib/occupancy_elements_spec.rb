@@ -281,8 +281,8 @@ describe "A PROPER occ.levels.oneOfType" do
 
     # Begin schematron validation
     errors = @stron.validate(doc)
-    puts "Schematron errors:"
-    puts errors
+    # puts "Schematron errors:"
+    # puts errors
     expect(errors.length).to eq(0)
   end
 
@@ -334,8 +334,8 @@ describe "An IMPROPER occ.levels.oneOfType" do
 
     # Begin schematron validation
     errors = @stron.validate(doc)
-    puts "Schematron errors:"
-    puts errors
+    # puts "Schematron errors:"
+    # puts errors
     expect(errors.length).to eq(1)
     expect(errors[0][:message]).to eq("[ERROR] element 'auc:OccupancyLevel' with child element 'auc:OccupantQuantityType' having value #{@units_to_find} is REQUIRED EXACTLY ONCE for 'auc:OccupancyLevels'. Current number of occurrences: 0")
   end
