@@ -1,7 +1,5 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<auc:BuildingSync xmlns:auc="http://buildingsync.net/schemas/bedes-auc/2019"
-  xsi:schemaLocation="http://buildingsync.net/schemas/bedes-auc/2019 file:///Users/cmosiman/Github/BuildingSync/schema/BuildingSync.xsd"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<?xml version="1.0" encoding="utf-8"?>
+<auc:BuildingSync xmlns:auc="http://buildingsync.net/schemas/bedes-auc/2019" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://buildingsync.net/schemas/bedes-auc/2019 file:///Users/cmosiman/Github/BuildingSync/schema/BuildingSync.xsd">
   <auc:Facilities>
     <auc:Facility ID="Facility-69916113180740">
       <auc:Sites>
@@ -128,7 +126,7 @@
             <auc:PrimaryHVACSystemType>Packaged Rooftop Air Conditioner</auc:PrimaryHVACSystemType>
             <auc:LinkedPremises>
               <auc:Section>
-                <auc:LinkedSectionID IDref="Section-Retail"></auc:LinkedSectionID>
+                <auc:LinkedSectionID IDref="Section-Retail"/>
               </auc:Section>
             </auc:LinkedPremises>
           </auc:HVACSystem>
@@ -136,7 +134,7 @@
             <auc:PrimaryHVACSystemType>Packaged Rooftop VAV with Electric Reheat</auc:PrimaryHVACSystemType>
             <auc:LinkedPremises>
               <auc:Section>
-                <auc:LinkedSectionID IDref="Section-Office"></auc:LinkedSectionID>
+                <auc:LinkedSectionID IDref="Section-Office"/>
               </auc:Section>
             </auc:LinkedPremises>
           </auc:HVACSystem>
@@ -145,7 +143,7 @@
           <auc:LightingSystem ID="LightingSystemType-Retail">
             <auc:LinkedPremises>
               <auc:Section>
-                <auc:LinkedSectionID IDref="Section-Retail"></auc:LinkedSectionID>
+                <auc:LinkedSectionID IDref="Section-Retail"/>
               </auc:Section>
             </auc:LinkedPremises>
             <auc:PrimaryLightingSystemType>Compact Fluorescent</auc:PrimaryLightingSystemType>
@@ -153,7 +151,7 @@
           <auc:LightingSystem ID="LightingSystemType-Office">
             <auc:LinkedPremises>
               <auc:Section>
-                <auc:LinkedSectionID IDref="Section-Office"></auc:LinkedSectionID>
+                <auc:LinkedSectionID IDref="Section-Office"/>
               </auc:Section>
             </auc:LinkedPremises>
             <auc:PrimaryLightingSystemType>LED</auc:PrimaryLightingSystemType>
@@ -165,7 +163,7 @@
             <auc:WeightedAverageLoad>0.5</auc:WeightedAverageLoad>
             <auc:LinkedPremises>
               <auc:Section>
-                <auc:LinkedSectionID IDref="Section-Retail"></auc:LinkedSectionID>
+                <auc:LinkedSectionID IDref="Section-Retail"/>
               </auc:Section>
             </auc:LinkedPremises>
           </auc:PlugLoad>
@@ -174,7 +172,7 @@
             <auc:WeightedAverageLoad>0.75</auc:WeightedAverageLoad>
             <auc:LinkedPremises>
               <auc:Section>
-                <auc:LinkedSectionID IDref="Section-Office"></auc:LinkedSectionID>
+                <auc:LinkedSectionID IDref="Section-Office"/>
               </auc:Section>
             </auc:LinkedPremises>
           </auc:PlugLoad>
@@ -184,13 +182,13 @@
         <auc:Report ID="ReportType-69916110806500">
           <auc:Scenarios>
             <auc:Scenario ID="Baseline">
-            <auc:ScenarioName>Baseline</auc:ScenarioName>
-            <auc:ScenarioType>
-              <auc:PackageOfMeasures>
-                <auc:ReferenceCase IDref="Baseline"/>
-              </auc:PackageOfMeasures>
-            </auc:ScenarioType>
-          </auc:Scenario>
+              <auc:ScenarioName>Baseline</auc:ScenarioName>
+              <auc:ScenarioType>
+                <auc:PackageOfMeasures>
+                  <auc:ReferenceCase IDref="Baseline"/>
+                </auc:PackageOfMeasures>
+              </auc:ScenarioType>
+            </auc:Scenario>
           </auc:Scenarios>
           <auc:AuditDates>
             <auc:AuditDate>

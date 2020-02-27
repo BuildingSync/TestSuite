@@ -4,8 +4,7 @@
   <!--  
     For logic that pertains to Occupancy
 -->
-
-<!--  
+  <!--  
     Check that both the auc:TypicalOccupantUsageValue and auc:TypicalOccupantUsageUnits are specified.
     <severity> error
     <param> parent - an auc:TypicalOccupantUsage element
@@ -17,8 +16,7 @@
       </assert>
     </rule>
   </pattern>
-  
-<!--
+  <!--
     Check that, within an auc:TypicalOccupantUsages element, there is exactly one auc:TypicalOccupantUsage element
     with the auc:TypicalOccupantUsageUnits = $typUsageUnits passed in as a parameter. 
     <severity> error
@@ -32,8 +30,7 @@
       </assert>
     </rule>
   </pattern>
-  
-<!--  
+  <!--  
     Check that all auc:OccupancyLevel elements have the auc:OccupantQuantityType and auc:OccupantQuantity child elements defined.
     <severity> error
     <param> parent - an auc:OccupancyLevel element
@@ -45,8 +42,7 @@
       </assert>
     </rule>
   </pattern>
-  
-<!--  
+  <!--  
     Check that, within an auc:OccupancyLevels element, there is exactly one auc:OccupancyLevel element 
     with the auc:OccupantQuantityType = $occLevelType passed in as a parameter
     <severity> error
@@ -59,5 +55,5 @@
         [ERROR] element 'auc:OccupancyLevel' with child element 'auc:OccupantQuantityType' having value '<value-of select="$occLevelType"/>' is REQUIRED EXACTLY ONCE for '<name/>'. Current number of occurrences: <value-of select="count(auc:OccupancyLevel/auc:OccupantQuantityType[text()=$occLevelType])"/>
       </assert>
     </rule>
-  </pattern>  
+  </pattern>
 </schema>

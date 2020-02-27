@@ -2,48 +2,37 @@
 <sch:schema xmlns:sch="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt2">
   <sch:title>Level 100 schema</sch:title>
   <sch:ns prefix="auc" uri="http://buildingsync.net/schemas/bedes-auc/2019"/>
-  
-<!--  Phase 1 -->
+  <!--  Phase 1 -->
   <sch:phase id="start">
     <sch:active pattern="rootElements"/>
     <sch:active pattern="minimumLocationRequirements"/>
     <sch:active pattern="bldgFloorAreasHaveTypeAndValue"/>
   </sch:phase>
-  
   <!--    This pattern ensures there is only one facility, site, and building -->
   <sch:pattern id="rootElements">
     <sch:rule context="/">
-      <sch:assert test="count(auc:BuildingSync) = 1"
-        >element "auc:BuildingSync" is REQUIRED EXACTLY ONCE</sch:assert>
+      <sch:assert test="count(auc:BuildingSync) = 1">element "auc:BuildingSync" is REQUIRED EXACTLY ONCE</sch:assert>
     </sch:rule>
     <sch:rule context="auc:BuildingSync">
-      <sch:assert test="count(auc:Facilities) = 1"
-        >element "auc:Facilities" is REQUIRED EXACTLY ONCE</sch:assert>
+      <sch:assert test="count(auc:Facilities) = 1">element "auc:Facilities" is REQUIRED EXACTLY ONCE</sch:assert>
     </sch:rule>
     <sch:rule context="auc:Facilities">
-      <sch:assert test="count(auc:Facility) = 1"
-        >element "auc:Facility" is REQUIRED EXACTLY ONCE</sch:assert>
+      <sch:assert test="count(auc:Facility) = 1">element "auc:Facility" is REQUIRED EXACTLY ONCE</sch:assert>
     </sch:rule>
     <sch:rule context="auc:Facility">
-      <sch:assert test="count(auc:Sites) = 1"
-        >element "auc:Sites" is REQUIRED EXACTLY ONCE</sch:assert>
+      <sch:assert test="count(auc:Sites) = 1">element "auc:Sites" is REQUIRED EXACTLY ONCE</sch:assert>
     </sch:rule>
     <sch:rule context="auc:Sites">
-      <sch:assert test="count(auc:Site) = 1"
-        >element "auc:Site" is REQUIRED EXACTLY ONCE</sch:assert>
+      <sch:assert test="count(auc:Site) = 1">element "auc:Site" is REQUIRED EXACTLY ONCE</sch:assert>
     </sch:rule>
     <sch:rule context="auc:Site">
-      <sch:assert test="count(auc:Buildings) = 1"
-        >element "auc:Buildings" is REQUIRED EXACTLY ONCE</sch:assert>
+      <sch:assert test="count(auc:Buildings) = 1">element "auc:Buildings" is REQUIRED EXACTLY ONCE</sch:assert>
     </sch:rule>
-    <sch:rule
-      context="auc:Buildings">
-      <sch:assert test="count(auc:Building) = 1"
-        >element "auc:Building" is REQUIRED EXACTLY ONCE</sch:assert>
+    <sch:rule context="auc:Buildings">
+      <sch:assert test="count(auc:Building) = 1">element "auc:Building" is REQUIRED EXACTLY ONCE</sch:assert>
     </sch:rule>
   </sch:pattern>
-  
-<!--  This pattern checks that:
+  <!--  This pattern checks that:
       - atleast 1 city and 1 state OR 1 climate zone are specified at the site OR building level.
       - fringe cases:
         - city / state specified at both site AND building level.  Which one to use?
@@ -70,7 +59,6 @@
       </sch:assert>
     </sch:rule>
   </sch:pattern>
-  
   <sch:pattern id="bldgElements">
     <sch:rule context="auc:Building">
       <sch:assert test="auc:PremisesName">
@@ -84,12 +72,10 @@
       </sch:assert>
     </sch:rule>
   </sch:pattern>
-  
   <sch:pattern id="bldgFloorAreasHaveTypeAndValue" is-a="floorAreasHaveTypeAndValue">
     <param name="$parentElement" value="auc:Building"/>
   </sch:pattern>
-  
-<!--  Check that all auc:FloorArea elements have the auc:FloorAreaType and auc:FloorAreaValue -->
+  <!--  Check that all auc:FloorArea elements have the auc:FloorAreaType and auc:FloorAreaValue -->
   <sch:pattern id="floorAreasHaveTypeAndValue" abstract="true">
     <sch:rule context="$parentElement">
       <sch:assert test="auc:FloorArea/auc:FloorAreaType and auc:FloorArea/auc:FloorAreaValue">

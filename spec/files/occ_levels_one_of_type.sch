@@ -5,7 +5,6 @@
   <phase id="Tests">
     <active pattern="sec.occ.levels.oneOfType"/>
   </phase>
-
   <pattern id="sec.occ.levels.oneOfType" is-a="occ.levels.oneOfType">
     <param name="parent" value="auc:Section/auc:OccupancyLevels"/>
     <param name="occLevelType" value="'Peak total occupants'"/>

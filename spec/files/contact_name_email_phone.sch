@@ -5,7 +5,6 @@
   <phase id="Tests">
     <active pattern="con.con.nameEmailPhone"/>
   </phase>
-
   <pattern id="con.con.nameEmailPhone" is-a="con.nameEmailPhone">
     <param name="parent" value="auc:Contacts/auc:Contact"/>
   </pattern>

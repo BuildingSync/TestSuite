@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schema xmlns="http://purl.oclc.org/dsdl/schematron">
   <ns prefix="auc" uri="http://buildingsync.net/schemas/bedes-auc/2019"/>
-<!--  For logic pertaining to a Building element. -->
-  
+  <!--  For logic pertaining to a Building element. -->
   <!--    Required elements for L000 at the building level -->
   <pattern id="be.L000BuildingInfo">
     <rule context="auc:Buildings/auc:Building">
@@ -20,8 +19,7 @@
       </assert>
     </rule>
   </pattern>
-  
-<!--
+  <!--
     Check the main details for the Building element as required by 211.
 -->
   <pattern id="be.mainDetails">
@@ -71,17 +69,15 @@
       <assert test="auc:YearOfLastMajorRemodel">
         [WARNING] element 'auc:YearOfLastMajorRemodel' is RECOMMENDED for: '<name/>'
       </assert>
-<!--      <assert test="if (auc:ConditionedFloorsAboveGrade and auc:FloorsAboveGrade and auc:UnconditionedFloorsAboveGrade) then (auc:FloorsAboveGrade = auc:ConditionedFloorsAboveGrade + auc:UnconditionedFloorsAboveGrade) else (true())">
+      <!--      <assert test="if (auc:ConditionedFloorsAboveGrade and auc:FloorsAboveGrade and auc:UnconditionedFloorsAboveGrade) then (auc:FloorsAboveGrade = auc:ConditionedFloorsAboveGrade + auc:UnconditionedFloorsAboveGrade) else (true())">
         The following statement must be true: auc:FloorsAboveGrade = auc:ConditionedFloorsAboveGrade + auc:UnconditionedFloorsAboveGrade
       </assert>-->
-<!--      <assert test="if (auc:ConditionedFloorsBelowGrade and auc:FloorsBelowGrade and auc:UnconditionedFloorsBelowGrade) then (auc:FloorsBelowGrade = auc:ConditionedFloorsBelowGrade + auc:UnconditionedFloorsBelowGrade) else (true())">
+      <!--      <assert test="if (auc:ConditionedFloorsBelowGrade and auc:FloorsBelowGrade and auc:UnconditionedFloorsBelowGrade) then (auc:FloorsBelowGrade = auc:ConditionedFloorsBelowGrade + auc:UnconditionedFloorsBelowGrade) else (true())">
         The following statement must be true: auc:FloorsBelowGrade = auc:ConditionedFloorsBelowGrade + auc:UnconditionedFloorsBelowGrade
       </assert>-->
     </rule>
   </pattern>
-
-
-<!--
+  <!--
     Check the simple location details for the Building element as required by 211.
     This function doesn't handle complex address types, i.e auc:StreetAddressDetail/auc:Complex
     <severity> error

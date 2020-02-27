@@ -23,7 +23,6 @@
   <include href="../../../lib/sectionElements.sch#sec.mainDetails"/>
   <include href="../../../lib/sectionElements.sch#sec.primarySystems"/>
   <include href="../../../lib/contacts.sch#con.nameEmailPhone"/>
-  
   <!--  L100 Phase 1  -->
   <phase id="L100AuditRequirementsPhase1">
     <active pattern="root.oneOfEachUntilBuilding"/>
@@ -51,29 +50,23 @@
     <active pattern="sec.occ.levels.hasPeak"/>
     <active pattern="all.con.nameEmailPhone"/>
   </phase>
-  
   <!--  L100 Phase 2  -->
   <phase id="L100AuditRequirementsPhase2">
     <active pattern="be.fa.mechTypeChecks"/>
     <active pattern="sec.fa.conditionedPercentChecks"/>
     <active pattern="sec.fa.conditionedValueChecks"/>
   </phase>
-  
-  
-<!--  Instantiate abstract patterns for L100 use case -->
-
-  
-<!--  START FLOOR AREA CHECKS -->
+  <!--  Instantiate abstract patterns for L100 use case -->
+  <!--  START FLOOR AREA CHECKS -->
   <pattern id="allUnderBuilding.fa.maxOneOfEachType" is-a="fa.maxOneOfEachType">
-    <param name="parent" value="auc:Building//auc:FloorAreas"/> <!-- //auc:FloorAreas is the intended effect -->
+    <param name="parent" value="auc:Building//auc:FloorAreas"/>
+    <!-- //auc:FloorAreas is the intended effect -->
   </pattern>
-  
-<!--  All Floor Areas must have a Type and Value at the Building Level-->
+  <!--  All Floor Areas must have a Type and Value at the Building Level-->
   <pattern id="be.fa.haveTypeAndValue" is-a="fa.haveTypeAndValue">
     <param name="parent" value="auc:Building/auc:FloorAreas"/>
   </pattern>
-  
-<!--  
+  <!--  
     Building Level: atleast one FloorAreaType of: Gross, Heated and Cooled, Cooled Only, Heated Only.
     Warning given if Ventilated Area not defined
 -->
@@ -101,23 +94,21 @@
     <param name="parent" value="auc:Building/auc:FloorAreas"/>
   </pattern>
   <pattern id="allUnderBuilding.fa.dontUse" is-a="fa.dontUse">
-    <param name="parent" value="auc:Building//auc:FloorAreas"/> <!-- //auc:FloorAreas is the intended effect -->
+    <param name="parent" value="auc:Building//auc:FloorAreas"/>
+    <!-- //auc:FloorAreas is the intended effect -->
   </pattern>
   <!--  END FLOOR AREA CHECKS -->
-  
   <!--  START CONTACT CHECKS -->
-<!--  Require all contacts to have a name, email, and phone number fields defined -->
+  <!--  Require all contacts to have a name, email, and phone number fields defined -->
   <pattern id="all.con.nameEmailPhone" is-a="con.nameEmailPhone">
     <param name="parent" value="auc:Contact"/>
   </pattern>
   <!--  END CONTACT CHECKS -->
-  
   <!--  START SPACE FUNCTION CHECKS -->
   <pattern id="sec.sec.mainDetails" is-a="sec.mainDetails">
     <param name="parent" value="auc:Section[auc:SectionType='Space function']"/>
   </pattern>
-  
-<!--  
+  <!--  
     Section Level Floor Areas: one Gross and one of:
     - Conditioned
     - Heated and Cooled
@@ -139,8 +130,7 @@
   <pattern id="sec.fa.conditionedValueChecks" is-a="fa.conditionedValueChecks">
     <param name="parent" value="auc:Section/auc:FloorAreas/auc:FloorArea[auc:FloorAreaType='Conditioned' and auc:FloorAreaValue]"/>
   </pattern>
-  
-<!--  
+  <!--  
     Section Level Occupancy Checks: one 'Hours per week' and one 'Weeks per year'
 -->
   <pattern id="sec.occ.typUsage.haveUnitsAndValue" is-a="occ.typUsage.haveUnitsAndValue">
@@ -161,8 +151,7 @@
     <param name="parent" value="auc:Section//auc:OccupancyLevels"/>
     <param name="occLevelType" value="'Peak total occupants'"/>
   </pattern>
-  
-<!--  
+  <!--  
     Section Level System Checks: one of each:
     - PrimaryHVACSystemType
     - PrimaryLightingSystem
@@ -171,7 +160,5 @@
   <pattern id="sec.sec.primarySystems" is-a="sec.primarySystems">
     <param name="parent" value="auc:Section[auc:SectionType='Space function']"/>
   </pattern>
-  
   <!--  END SPACE FUNCTION CHECKS -->
-  
 </schema>

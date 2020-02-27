@@ -5,7 +5,6 @@
   <phase id="Tests">
     <active pattern="sec.occ.oneOfType.hoursPerWeek"/>
   </phase>
-
   <pattern id="sec.occ.oneOfType.hoursPerWeek" is-a="occ.oneOfType.typicalUsageUnits">
     <param name="parent" value="auc:Section/auc:TypicalOccupantUsages"/>
     <param name="typUsageUnits" value="'Hours per week'"/>

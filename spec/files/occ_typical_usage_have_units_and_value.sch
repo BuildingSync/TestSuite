@@ -5,7 +5,6 @@
   <phase id="Tests">
     <active pattern="sec.occ.typUsage.haveUnitsAndValue"/>
   </phase>
-
   <pattern id="sec.occ.typUsage.haveUnitsAndValue" is-a="occ.typUsage.haveUnitsAndValue">
     <param name="parent" value="auc:Section/auc:TypicalOccupantUsages/auc:TypicalOccupantUsage"/>
   </pattern>

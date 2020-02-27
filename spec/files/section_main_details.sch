@@ -5,7 +5,6 @@
   <phase id="Tests">
     <active pattern="sec.sec.mainDetails"/>
   </phase>
-
   <pattern id="sec.sec.mainDetails" is-a="sec.mainDetails">
     <param name="parent" value="auc:Section[auc:SectionType='Space function']"/>
   </pattern>

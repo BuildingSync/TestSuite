@@ -5,7 +5,6 @@
   <phase id="Tests">
     <active pattern="be.fa.maxOneOfEachType"/>
   </phase>
-
   <pattern id="be.fa.maxOneOfEachType" is-a="fa.maxOneOfEachType">
     <param name="parent" value="auc:Building/auc:FloorAreas"/>
   </pattern>

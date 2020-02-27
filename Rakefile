@@ -1,4 +1,5 @@
 require 'rspec/core/rake_task'
+require 'nokogiri'
 
 task :default => :spec
 
@@ -34,6 +35,24 @@ task :L100_run_sim, [:schema_version, :test_file] do |t, args|
     puts "usage: bundle exec rake L100_run_sim[schema_version, file_to_run]"
     puts "[schema_version] is one of: 'schema2.0.0-pr2'"
     puts "[file_to_run] is one of: 'L100_Instance1.xml', 'L100_Instance2.xml', 'L100_Instance2_bad.xml'"
+  end
+end
+
+desc 'Convert tabs to spaces'
+task :remove_tabs do
+  Dir['lib/*.sch', 'spec/files/*.sch', 'spec/files/good/*.xml', 'tests/**/**/*.sch', 'tests/**/**/*.xml', 'tests/**/**/*.sch', 'tests/**/**/**/*.xml'].each do |file|
+    puts " Cleaning #{file}"
+    doc = Nokogiri.XML(File.read(file)) do |config|
+      config.default_xml.noblanks
+    end
+
+    doc.xpath('//comment()').each do |node|
+      if node.text =~ /XMLSpy/
+        node.remove
+      end
+    end
+
+    File.open(file, 'w') { |f| f << doc.to_xml(:indent => 2) }
   end
 end
 

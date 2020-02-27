@@ -5,7 +5,6 @@
   <phase id="Tests">
     <active pattern="sec.occ.levels.haveQuantityAndType"/>
   </phase>
-
   <pattern id="sec.occ.levels.haveQuantityAndType" is-a="occ.levels.haveQuantityAndType">
     <param name="parent" value="auc:Section/auc:OccupancyLevels/auc:OccupancyLevel"/>
   </pattern>

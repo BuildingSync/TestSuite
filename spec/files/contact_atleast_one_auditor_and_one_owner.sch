@@ -5,7 +5,6 @@
   <phase id="Tests">
     <active pattern="con.con.atleastOneAuditorAndOneOwner"/>
   </phase>
-
   <pattern id="con.con.atleastOneAuditorAndOneOwner" is-a="con.atleastOneAuditorAndOneOwner">
     <param name="parent" value="auc:Facility/auc:Contacts"/>
   </pattern>
