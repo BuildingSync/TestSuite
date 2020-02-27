@@ -5,7 +5,6 @@
     For logic that pertains to either a Site OR a Building element.  
 -->
   
-  
   <!--  
     This pattern checks that: atleast 1 city and 1 state OR 
     1 climate zone are specified at the site OR building level.

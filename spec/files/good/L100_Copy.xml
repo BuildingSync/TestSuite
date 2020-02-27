@@ -19,6 +19,10 @@
                 <auc:State>IL</auc:State>
                 <auc:PostalCode>60606</auc:PostalCode>
               </auc:Address>
+              <auc:BuildingClassification>Commercial</auc:BuildingClassification>
+              <auc:OccupancyClassification>Mixed-use commercial</auc:OccupancyClassification>
+              <auc:FloorsAboveGrade>2</auc:FloorsAboveGrade>
+              <auc:FloorsBelowGrade>0</auc:FloorsBelowGrade>
               <auc:ConditionedFloorsAboveGrade>2</auc:ConditionedFloorsAboveGrade>
               <auc:ConditionedFloorsBelowGrade>0</auc:ConditionedFloorsBelowGrade>
               <auc:BuildingAutomationSystem>false</auc:BuildingAutomationSystem>
@@ -42,6 +46,9 @@
                 </auc:FloorArea>
               </auc:FloorAreas>
               <auc:YearOfConstruction>2016</auc:YearOfConstruction>
+              <auc:YearOfLastEnergyAudit>2016</auc:YearOfLastEnergyAudit>
+              <auc:RetrocommissioningDate>2016-01-01</auc:RetrocommissioningDate>
+              <auc:YearOfLastMajorRemodel>2016</auc:YearOfLastMajorRemodel>
               <auc:PercentOccupiedByOwner>50</auc:PercentOccupiedByOwner>
               <auc:PercentLeasedByOwner>50</auc:PercentLeasedByOwner>
               <auc:Sections>
@@ -257,7 +264,7 @@
           </auc:ContactTelephoneNumbers>
           <auc:ContactEmailAddresses>
             <auc:ContactEmailAddress>
-              <auc:EmailAddress/>
+              <auc:EmailAddress>this.is.an.email@yahoosiers.com</auc:EmailAddress>
             </auc:ContactEmailAddress>
           </auc:ContactEmailAddresses>
         </auc:Contact>

@@ -12,7 +12,9 @@ describe "A PROPER occ.typUsage.haveUnitsAndValue" do
 
   end
 
-  it "Should have, under an auc:TypicalOccupantUsages, one auc:TypicalOccupantUsageValue and one auc:TypicalOccupantUsageUnits" do
+  it "Should have, under an auc:TypicalOccupantUsages:
+      One auc:TypicalOccupantUsageValue
+      One auc:TypicalOccupantUsageUnits" do
     doc = @doc_original.clone
 
     # Begin schematron validation
@@ -97,7 +99,8 @@ describe "A PROPER occ.oneOfType.typicalUsageUnits" do
 
   end
 
-  it "Should have, under an auc:TypicalOccupantUsages, exactly one auc:TypicalOccupantUsage/auc:TypicalOccupantUsageUnits of 'Hours per week' " do
+  it "Should have, under an auc:TypicalOccupantUsages:
+      One auc:TypicalOccupantUsage/auc:TypicalOccupantUsageUnits of 'Hours per week' " do
     doc = @doc_original.clone
 
     # Begin schematron validation

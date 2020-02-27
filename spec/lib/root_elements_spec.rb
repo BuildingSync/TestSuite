@@ -11,7 +11,10 @@ describe "A PROPER oneOfEachUntilBuilding" do
     @stron = SchematronNokogiri::Schema.new sch_file
   end
 
-  it "Should have one auc:Facility, one auc:Site, one auc:Building" do
+  it "Should have:
+      One auc:Facility
+      One auc:Site
+      One auc:Building" do
     errors = @stron.validate(@xml_file)
     expect(errors.length).to eq(0)
   end
@@ -30,7 +33,7 @@ describe "An IMPROPER oneOfEachUntilBuilding" do
     @building_string = @site_string + "/auc:Buildings/auc:Building"
   end
 
-  it "Will fail and issue two warnings when two auc:Facility elements are specified" do
+  it "Will fail and issue two WARNING when two auc:Facility elements are specified" do
     doc = @doc_original.clone
     facilities = doc.root.xpath(@facility_string) # returns a Nokogiri::XML::NodeSet
     new_facility = Nokogiri::XML::Node.new("auc:Facility", doc) # An empty Element is generally equivalent to a Node
@@ -49,7 +52,7 @@ describe "An IMPROPER oneOfEachUntilBuilding" do
     expect(errors[1][:message]).to eq("[ERROR] element 'auc:Sites' is REQUIRED EXACTLY ONCE for: 'auc:Facility'")
   end
 
-  it "Will fail and issue two warnings when two auc:Site elements are specified" do
+  it "Will fail and issue two WARNING when two auc:Site elements are specified" do
     doc = @doc_original.clone
     sites = doc.root.xpath(@site_string)
     new_site = Nokogiri::XML::Element.new("auc:Site", doc)
@@ -68,7 +71,7 @@ describe "An IMPROPER oneOfEachUntilBuilding" do
     expect(errors[1][:message]).to eq("[ERROR] element 'auc:Buildings' is REQUIRED EXACTLY ONCE for: 'auc:Site'")
   end
 
-  it "Will fail and issue one warning when two auc:Building elements are specified" do
+  it "Will fail and issue one WARNING when two auc:Building elements are specified" do
     doc = @doc_original.clone
     buildings = doc.root.xpath(@building_string)
     new_building = Nokogiri::XML::Element.new("auc:Building", doc)
@@ -148,7 +151,7 @@ describe "An IMPROPER oneOfEachFacilityUntilScenario" do
     @scenario_string = @report_string + "/auc:Scenarios/auc:Scenario"
   end
 
-  it "Will fail and issue one warning when no auc:Report element is specified" do
+  it "Will fail and issue one WARNING when no auc:Report element is specified" do
     doc = @doc_original.clone
     all_report_elements = doc.root.xpath(@report_string)
 
@@ -169,7 +172,7 @@ describe "An IMPROPER oneOfEachFacilityUntilScenario" do
     expect(errors[0][:message]).to eq("[ERROR] element 'auc:Report' is REQUIRED AT LEAST ONCE for: 'auc:Reports'")
   end
 
-  it "Will fail and issue one warning when no auc:Scenario element is specified" do
+  it "Will fail and issue one WARNING when no auc:Scenario element is specified" do
     doc = @doc_original.clone
     all_scenario_elements = doc.root.xpath(@scenario_string)
 
@@ -224,7 +227,7 @@ describe "An IMPROPER oneOfEachFacilityUntilContacts" do
     @contacts_string = @facility_string + "/auc:Contacts"
   end
 
-  it "Will fail if no auc:Contacts element is specified" do
+  it "Will fail and issue one ERROR if no auc:Contacts element is specified" do
     doc = @doc_original.clone
     all_contacts_elements = doc.root.xpath(@contacts_string)
 
@@ -245,7 +248,7 @@ describe "An IMPROPER oneOfEachFacilityUntilContacts" do
     expect(errors[0][:message]).to eq("[ERROR] element 'auc:Contacts' is REQUIRED EXACTLY ONCE for: 'auc:Facility'")
   end
 
-  it "Will fail if more than one auc:Contacts element is specified" do
+  it "Will fail and issue one ERROR if more than one auc:Contacts element is specified" do
     doc = @doc_original.clone
     contacts = doc.root.xpath(@contacts_string)
     contacts_element = Nokogiri::XML::Element.new("auc:Contacts", doc)
@@ -390,7 +393,7 @@ describe "An IMPROPER atleastOneScenarioInReport" do
     @scenario_string = @report_string + "/auc:Scenarios/auc:Scenario"
   end
 
-  it "Will fail if no auc:Scenario element is specified" do
+  it "Will fail and issue one ERROR if no auc:Scenario element is specified" do
     doc = @doc_original.clone
     all_scenario_elements = doc.root.xpath(@scenario_string)
 
