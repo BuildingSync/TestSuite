@@ -1,19 +1,19 @@
-require "spec_helper"
-require "schematron-nokogiri"
+require 'spec_helper'
+require 'schematron-nokogiri'
 
-def add_floor_area_of_type(type, floor_areas_elements, value=1)
+def add_floor_area_of_type(type, floor_areas_elements, value = 1)
   floor_areas_elements.each do |floor_areas_element|
     Nokogiri::XML::Builder.with(floor_areas_element) do |xml|
-      xml['auc'].FloorArea {
-        xml['auc'].FloorAreaType "#{type}"
-        xml['auc'].FloorAreaValue "#{value}"
-      }
+      xml['auc'].FloorArea do
+        xml['auc'].FloorAreaType type.to_s
+        xml['auc'].FloorAreaValue value.to_s
+      end
     end
   end
   return floor_areas_elements
 end
 
-describe "A PROPER fa.maxOneOfEachType" do
+describe 'A PROPER fa.maxOneOfEachType' do
   before(:all) do
     sch_path = File.join(File.dirname(__FILE__), '../files/floor_max_one_of_each_type.sch')
     sch_file = Nokogiri::XML File.open sch_path
@@ -21,10 +21,9 @@ describe "A PROPER fa.maxOneOfEachType" do
 
     @xml_path = File.join(File.dirname(__FILE__), '../files/good/L100_Copy.xml')
     @doc_original = Nokogiri::XML File.open @xml_path # create a Nokogiri::XML::Document
-
   end
 
-  it "Should have, under an auc:FloorAreas, maximum one of each auc:FloorArea/auc:FloorAreaType" do
+  it 'Should have, under an auc:FloorAreas, maximum one of each auc:FloorArea/auc:FloorAreaType' do
     doc = @doc_original.clone
 
     # Begin schematron validation
@@ -35,7 +34,7 @@ describe "A PROPER fa.maxOneOfEachType" do
   end
 end
 
-describe "AN IMPROPER fa.maxOneOfEachType" do
+describe 'AN IMPROPER fa.maxOneOfEachType' do
   before(:all) do
     sch_path = File.join(File.dirname(__FILE__), '../files/floor_max_one_of_each_type.sch')
     sch_file = Nokogiri::XML File.open sch_path
@@ -43,11 +42,11 @@ describe "AN IMPROPER fa.maxOneOfEachType" do
 
     @xml_path = File.join(File.dirname(__FILE__), '../files/good/L100_Copy.xml')
     @doc_original = Nokogiri::XML File.open @xml_path # create a Nokogiri::XML::Document
-    @building_string = "auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building"
-    @building_floor_areas_string = @building_string + "/auc:FloorAreas"
+    @building_string = 'auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building'
+    @building_floor_areas_string = @building_string + '/auc:FloorAreas'
   end
 
-  it "Will fail and issue one ERROR for each auc:FloorAreas that has multiple auc:FloorArea/auc:FloorAreaType elemnts with the same enumerated value" do
+  it 'Will fail and issue one ERROR for each auc:FloorAreas that has multiple auc:FloorArea/auc:FloorAreaType elemnts with the same enumerated value' do
     doc = @doc_original.clone
     building_floor_areas = doc.root.xpath(@building_floor_areas_string)
 
@@ -65,7 +64,7 @@ describe "AN IMPROPER fa.maxOneOfEachType" do
   end
 end
 
-describe "A PROPER fa.haveTypeAndValue" do
+describe 'A PROPER fa.haveTypeAndValue' do
   before(:all) do
     sch_path = File.join(File.dirname(__FILE__), '../files/floor_have_type_and_value.sch')
     sch_file = Nokogiri::XML File.open sch_path
@@ -73,7 +72,6 @@ describe "A PROPER fa.haveTypeAndValue" do
 
     @xml_path = File.join(File.dirname(__FILE__), '../files/good/L100_Copy.xml')
     @doc_original = Nokogiri::XML File.open @xml_path # create a Nokogiri::XML::Document
-
   end
 
   it "Should have, under an:FloorArea:
@@ -89,7 +87,7 @@ describe "A PROPER fa.haveTypeAndValue" do
   end
 end
 
-describe "AN IMPROPER fa.haveTypeAndValue" do
+describe 'AN IMPROPER fa.haveTypeAndValue' do
   before(:all) do
     sch_path = File.join(File.dirname(__FILE__), '../files/floor_have_type_and_value.sch')
     sch_file = Nokogiri::XML File.open sch_path
@@ -97,11 +95,11 @@ describe "AN IMPROPER fa.haveTypeAndValue" do
 
     @xml_path = File.join(File.dirname(__FILE__), '../files/good/L100_Copy.xml')
     @doc_original = Nokogiri::XML File.open @xml_path # create a Nokogiri::XML::Document
-    @building_string = "auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building"
-    @building_floor_areas_string = @building_string + "/auc:FloorAreas"
-    @building_floor_areas_floor_area_string = @building_floor_areas_string + "/auc:FloorArea"
-    @building_floor_areas_floor_area_floor_area_type_string = @building_floor_areas_floor_area_string + "/auc:FloorAreaType"
-    @building_floor_areas_floor_area_floor_area_value_string = @building_floor_areas_floor_area_string + "/auc:FloorAreaValue"
+    @building_string = 'auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building'
+    @building_floor_areas_string = @building_string + '/auc:FloorAreas'
+    @building_floor_areas_floor_area_string = @building_floor_areas_string + '/auc:FloorArea'
+    @building_floor_areas_floor_area_floor_area_type_string = @building_floor_areas_floor_area_string + '/auc:FloorAreaType'
+    @building_floor_areas_floor_area_floor_area_value_string = @building_floor_areas_floor_area_string + '/auc:FloorAreaValue'
   end
 
   it "Will fail and issue one ERROR for every auc:FloorArea element that doesn't specify an auc:FloorAreaType" do
@@ -109,13 +107,11 @@ describe "AN IMPROPER fa.haveTypeAndValue" do
     building_floor_areas_floor_area_floor_area_type = doc.root.xpath(@building_floor_areas_floor_area_floor_area_type_string)
 
     expect(building_floor_areas_floor_area_floor_area_type.length).to eq(4)
-    building_floor_areas_floor_area_floor_area_type.each do |el|
-      el.remove
-    end
+    building_floor_areas_floor_area_floor_area_type.each(&:remove)
 
     # Begin schematron validation
     errors = @stron.validate(doc)
-    puts "Schematron errors:"
+    puts 'Schematron errors:'
     puts errors
     expect(errors.length).to eq(4)
     expect(errors[0][:message]).to eq("[ERROR] elements 'auc:FloorAreaType' and 'auc:FloorAreaValue' are REQUIRED EXACTLY ONCE for: 'auc:FloorArea'")
@@ -129,13 +125,11 @@ describe "AN IMPROPER fa.haveTypeAndValue" do
     building_floor_areas_floor_area_floor_area_value = doc.root.xpath(@building_floor_areas_floor_area_floor_area_value_string)
 
     expect(building_floor_areas_floor_area_floor_area_value.length).to eq(4)
-    building_floor_areas_floor_area_floor_area_value.each do |el|
-      el.remove
-    end
+    building_floor_areas_floor_area_floor_area_value.each(&:remove)
 
     # Begin schematron validation
     errors = @stron.validate(doc)
-    puts "Schematron errors:"
+    puts 'Schematron errors:'
     puts errors
     expect(errors.length).to eq(4)
     expect(errors[0][:message]).to eq("[ERROR] elements 'auc:FloorAreaType' and 'auc:FloorAreaValue' are REQUIRED EXACTLY ONCE for: 'auc:FloorArea'")

@@ -32,7 +32,7 @@ puts "result_from_write: #{result_from_write}"
 translator.write_osws
 
 # Run the OSW
-runner_opts = {:num_parallel => 1}
+runner_opts = { num_parallel: 1 }
 translator.run_osws(runner_opts)
 
 # osws = Dir.glob("#{output_path}/Baseline/in.osw")

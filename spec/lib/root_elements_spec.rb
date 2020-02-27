@@ -1,7 +1,7 @@
-require "spec_helper"
-require "schematron-nokogiri"
+require 'spec_helper'
+require 'schematron-nokogiri'
 
-describe "A PROPER oneOfEachUntilBuilding" do
+describe 'A PROPER oneOfEachUntilBuilding' do
   before(:all) do
     xml_path = File.join(File.dirname(__FILE__), '../files/good/root.xml')
     @xml_file = Nokogiri::XML File.open xml_path
@@ -20,23 +20,23 @@ describe "A PROPER oneOfEachUntilBuilding" do
   end
 end
 
-describe "An IMPROPER oneOfEachUntilBuilding" do
+describe 'An IMPROPER oneOfEachUntilBuilding' do
   before(:all) do
     sch_path = File.join(File.dirname(__FILE__), '../files/root_one_of_each_until_building.sch')
     sch_file = Nokogiri::XML File.open sch_path
     @stron = SchematronNokogiri::Schema.new sch_file
-    @ns = "auc"
+    @ns = 'auc'
     @xml_path = File.join(File.dirname(__FILE__), '../files/good/root.xml')
     @doc_original = Nokogiri::XML File.open @xml_path # create a Nokogiri::XML::Document
-    @facility_string = "auc:Facilities/auc:Facility"
-    @site_string = @facility_string + "/auc:Sites/auc:Site"
-    @building_string = @site_string + "/auc:Buildings/auc:Building"
+    @facility_string = 'auc:Facilities/auc:Facility'
+    @site_string = @facility_string + '/auc:Sites/auc:Site'
+    @building_string = @site_string + '/auc:Buildings/auc:Building'
   end
 
-  it "Will fail and issue two WARNING when two auc:Facility elements are specified" do
+  it 'Will fail and issue two WARNING when two auc:Facility elements are specified' do
     doc = @doc_original.clone
     facilities = doc.root.xpath(@facility_string) # returns a Nokogiri::XML::NodeSet
-    new_facility = Nokogiri::XML::Node.new("auc:Facility", doc) # An empty Element is generally equivalent to a Node
+    new_facility = Nokogiri::XML::Node.new('auc:Facility', doc) # An empty Element is generally equivalent to a Node
     facilities.before(new_facility) # insert new facility element before the first Facility element
 
     # Begin schematron validation
@@ -52,10 +52,10 @@ describe "An IMPROPER oneOfEachUntilBuilding" do
     expect(errors[1][:message]).to eq("[ERROR] element 'auc:Sites' is REQUIRED EXACTLY ONCE for: 'auc:Facility'")
   end
 
-  it "Will fail and issue two WARNING when two auc:Site elements are specified" do
+  it 'Will fail and issue two WARNING when two auc:Site elements are specified' do
     doc = @doc_original.clone
     sites = doc.root.xpath(@site_string)
-    new_site = Nokogiri::XML::Element.new("auc:Site", doc)
+    new_site = Nokogiri::XML::Element.new('auc:Site', doc)
     sites.after(new_site)
 
     # Begin schematron validation
@@ -71,10 +71,10 @@ describe "An IMPROPER oneOfEachUntilBuilding" do
     expect(errors[1][:message]).to eq("[ERROR] element 'auc:Buildings' is REQUIRED EXACTLY ONCE for: 'auc:Site'")
   end
 
-  it "Will fail and issue one WARNING when two auc:Building elements are specified" do
+  it 'Will fail and issue one WARNING when two auc:Building elements are specified' do
     doc = @doc_original.clone
     buildings = doc.root.xpath(@building_string)
-    new_building = Nokogiri::XML::Element.new("auc:Building", doc)
+    new_building = Nokogiri::XML::Element.new('auc:Building', doc)
     buildings.after(new_building)
 
     # Begin schematron validation
@@ -88,7 +88,7 @@ describe "An IMPROPER oneOfEachUntilBuilding" do
   end
 end
 
-describe "A PROPER oneOfEachFacilityUntilScenario" do
+describe 'A PROPER oneOfEachFacilityUntilScenario' do
   before(:all) do
     sch_path = File.join(File.dirname(__FILE__), '../files/root_one_of_each_facility_until_scenario.sch')
     sch_file = Nokogiri::XML File.open sch_path
@@ -96,25 +96,25 @@ describe "A PROPER oneOfEachFacilityUntilScenario" do
 
     @xml_path = File.join(File.dirname(__FILE__), '../files/good/root.xml')
     @doc_original = Nokogiri::XML File.open @xml_path # create a Nokogiri::XML::Document
-    @facility_string = "auc:Facilities/auc:Facility"
-    @report_string = @facility_string + "/auc:Reports/auc:Report"
-    @scenario_string = @report_string + "/auc:Scenarios/auc:Scenario"
+    @facility_string = 'auc:Facilities/auc:Facility'
+    @report_string = @facility_string + '/auc:Reports/auc:Report'
+    @scenario_string = @report_string + '/auc:Scenarios/auc:Scenario'
 
     # Build up correct Report node
-    @good_report_node = Nokogiri::XML::Element.new("auc:Report", @doc_original)
-    @scenarios = Nokogiri::XML::Element.new("auc:Scenarios", @doc_original)
-    @scenario = Nokogiri::XML::Element.new("auc:Scenario", @doc_original)
+    @good_report_node = Nokogiri::XML::Element.new('auc:Report', @doc_original)
+    @scenarios = Nokogiri::XML::Element.new('auc:Scenarios', @doc_original)
+    @scenario = Nokogiri::XML::Element.new('auc:Scenario', @doc_original)
     @scenarios.add_child(@scenario)
     @good_report_node.add_child(@scenarios)
   end
 
-  it "Should have, under an auc:Facility element, one of each element until a auc:Scenario" do
+  it 'Should have, under an auc:Facility element, one of each element until a auc:Scenario' do
     doc = @doc_original.clone
     errors = @stron.validate(doc)
     expect(errors.length).to eq(0)
   end
 
-  it "Should not fail when multiple properly defined auc:Report elements provided" do
+  it 'Should not fail when multiple properly defined auc:Report elements provided' do
     doc = @doc_original.clone
     original = doc.root.xpath(@report_string)
     original.after(@good_report_node)
@@ -124,7 +124,7 @@ describe "A PROPER oneOfEachFacilityUntilScenario" do
     expect(errors.length).to eq(0)
   end
 
-  it "Should not fail when multiple auc:Scenario elements provided" do
+  it 'Should not fail when multiple auc:Scenario elements provided' do
     doc = @doc_original.clone
     original = doc.root.xpath(@scenario_string)
 
@@ -138,7 +138,7 @@ describe "A PROPER oneOfEachFacilityUntilScenario" do
   end
 end
 
-describe "An IMPROPER oneOfEachFacilityUntilScenario" do
+describe 'An IMPROPER oneOfEachFacilityUntilScenario' do
   before(:all) do
     sch_path = File.join(File.dirname(__FILE__), '../files/root_one_of_each_facility_until_scenario.sch')
     sch_file = Nokogiri::XML File.open sch_path
@@ -146,12 +146,12 @@ describe "An IMPROPER oneOfEachFacilityUntilScenario" do
 
     @xml_path = File.join(File.dirname(__FILE__), '../files/good/root.xml')
     @doc_original = Nokogiri::XML File.open @xml_path # create a Nokogiri::XML::Document
-    @facility_string = "auc:Facilities/auc:Facility"
-    @report_string = @facility_string + "/auc:Reports/auc:Report"
-    @scenario_string = @report_string + "/auc:Scenarios/auc:Scenario"
+    @facility_string = 'auc:Facilities/auc:Facility'
+    @report_string = @facility_string + '/auc:Reports/auc:Report'
+    @scenario_string = @report_string + '/auc:Scenarios/auc:Scenario'
   end
 
-  it "Will fail and issue one WARNING when no auc:Report element is specified" do
+  it 'Will fail and issue one WARNING when no auc:Report element is specified' do
     doc = @doc_original.clone
     all_report_elements = doc.root.xpath(@report_string)
 
@@ -172,7 +172,7 @@ describe "An IMPROPER oneOfEachFacilityUntilScenario" do
     expect(errors[0][:message]).to eq("[ERROR] element 'auc:Report' is REQUIRED AT LEAST ONCE for: 'auc:Reports'")
   end
 
-  it "Will fail and issue one WARNING when no auc:Scenario element is specified" do
+  it 'Will fail and issue one WARNING when no auc:Scenario element is specified' do
     doc = @doc_original.clone
     all_scenario_elements = doc.root.xpath(@scenario_string)
 
@@ -194,7 +194,7 @@ describe "An IMPROPER oneOfEachFacilityUntilScenario" do
   end
 end
 
-describe "A PROPER oneOfEachFacilityUntilContacts" do
+describe 'A PROPER oneOfEachFacilityUntilContacts' do
   before(:all) do
     sch_path = File.join(File.dirname(__FILE__), '../files/root_one_of_each_facility_until_contacts.sch')
     sch_file = Nokogiri::XML File.open sch_path
@@ -202,20 +202,19 @@ describe "A PROPER oneOfEachFacilityUntilContacts" do
 
     @xml_path = File.join(File.dirname(__FILE__), '../files/good/root.xml')
     @doc_original = Nokogiri::XML File.open @xml_path # create a Nokogiri::XML::Document
-    @facility_string = "auc:Facilities/auc:Facility"
+    @facility_string = 'auc:Facilities/auc:Facility'
   end
 
-  it "Should have, under an auc:Facility element, exactly one auc:Contacts element" do
+  it 'Should have, under an auc:Facility element, exactly one auc:Contacts element' do
     doc = @doc_original.clone
     errors = @stron.validate(doc)
     # puts "Schematron errors:"
     # puts errors
     expect(errors.length).to eq(0)
   end
-
 end
 
-describe "An IMPROPER oneOfEachFacilityUntilContacts" do
+describe 'An IMPROPER oneOfEachFacilityUntilContacts' do
   before(:all) do
     sch_path = File.join(File.dirname(__FILE__), '../files/root_one_of_each_facility_until_contacts.sch')
     sch_file = Nokogiri::XML File.open sch_path
@@ -223,11 +222,11 @@ describe "An IMPROPER oneOfEachFacilityUntilContacts" do
 
     @xml_path = File.join(File.dirname(__FILE__), '../files/good/root.xml')
     @doc_original = Nokogiri::XML File.open @xml_path # create a Nokogiri::XML::Document
-    @facility_string = "auc:Facilities/auc:Facility"
-    @contacts_string = @facility_string + "/auc:Contacts"
+    @facility_string = 'auc:Facilities/auc:Facility'
+    @contacts_string = @facility_string + '/auc:Contacts'
   end
 
-  it "Will fail and issue one ERROR if no auc:Contacts element is specified" do
+  it 'Will fail and issue one ERROR if no auc:Contacts element is specified' do
     doc = @doc_original.clone
     all_contacts_elements = doc.root.xpath(@contacts_string)
 
@@ -248,10 +247,10 @@ describe "An IMPROPER oneOfEachFacilityUntilContacts" do
     expect(errors[0][:message]).to eq("[ERROR] element 'auc:Contacts' is REQUIRED EXACTLY ONCE for: 'auc:Facility'")
   end
 
-  it "Will fail and issue one ERROR if more than one auc:Contacts element is specified" do
+  it 'Will fail and issue one ERROR if more than one auc:Contacts element is specified' do
     doc = @doc_original.clone
     contacts = doc.root.xpath(@contacts_string)
-    contacts_element = Nokogiri::XML::Element.new("auc:Contacts", doc)
+    contacts_element = Nokogiri::XML::Element.new('auc:Contacts', doc)
     contacts.before(contacts_element)
 
     # Begin Schematron validation
@@ -263,7 +262,7 @@ describe "An IMPROPER oneOfEachFacilityUntilContacts" do
   end
 end
 
-describe "A PROPER atleastOneReportInFacility" do
+describe 'A PROPER atleastOneReportInFacility' do
   before(:all) do
     sch_path = File.join(File.dirname(__FILE__), '../files/root_atleast_one_report_in_facility.sch')
     sch_file = Nokogiri::XML File.open sch_path
@@ -271,11 +270,11 @@ describe "A PROPER atleastOneReportInFacility" do
 
     @xml_path = File.join(File.dirname(__FILE__), '../files/good/root.xml')
     @doc_original = Nokogiri::XML File.open @xml_path # create a Nokogiri::XML::Document
-    @facility_string = "auc:Facilities/auc:Facility"
-    @report_string = @facility_string + "/auc:Reports/auc:Report"
+    @facility_string = 'auc:Facilities/auc:Facility'
+    @report_string = @facility_string + '/auc:Reports/auc:Report'
   end
 
-  it "Should have, under an auc:Facility element, at least one auc:Report element" do
+  it 'Should have, under an auc:Facility element, at least one auc:Report element' do
     doc = @doc_original.clone
     all_report_elements = doc.root.xpath(@report_string)
 
@@ -287,10 +286,10 @@ describe "A PROPER atleastOneReportInFacility" do
     expect(errors.length).to eq(0)
   end
 
-  it "Should not fail if more than one auc:Report element is specified" do
+  it 'Should not fail if more than one auc:Report element is specified' do
     doc = @doc_original.clone
     all_report_elements = doc.root.xpath(@report_string)
-    report_element = Nokogiri::XML::Element.new("auc:Report", doc)
+    report_element = Nokogiri::XML::Element.new('auc:Report', doc)
     all_report_elements.after(report_element)
     all_report_elements = doc.root.xpath(@report_string)
 
@@ -301,10 +300,9 @@ describe "A PROPER atleastOneReportInFacility" do
     expect(all_report_elements.length).to eq(2)
     expect(errors.length).to eq(0)
   end
-
 end
 
-describe "An IMPROPER atleastOneReportInFacility" do
+describe 'An IMPROPER atleastOneReportInFacility' do
   before(:all) do
     sch_path = File.join(File.dirname(__FILE__), '../files/root_atleast_one_report_in_facility.sch')
     sch_file = Nokogiri::XML File.open sch_path
@@ -312,11 +310,11 @@ describe "An IMPROPER atleastOneReportInFacility" do
 
     @xml_path = File.join(File.dirname(__FILE__), '../files/good/root.xml')
     @doc_original = Nokogiri::XML File.open @xml_path # create a Nokogiri::XML::Document
-    @facility_string = "auc:Facilities/auc:Facility"
-    @report_string = @facility_string + "/auc:Reports/auc:Report"
+    @facility_string = 'auc:Facilities/auc:Facility'
+    @report_string = @facility_string + '/auc:Reports/auc:Report'
   end
 
-  it "Will fail if no auc:Report element is specified" do
+  it 'Will fail if no auc:Report element is specified' do
     doc = @doc_original.clone
     all_report_elements = doc.root.xpath(@report_string)
 
@@ -338,7 +336,7 @@ describe "An IMPROPER atleastOneReportInFacility" do
   end
 end
 
-describe "A PROPER atleastOneScenarioInReport" do
+describe 'A PROPER atleastOneScenarioInReport' do
   before(:all) do
     sch_path = File.join(File.dirname(__FILE__), '../files/root_atleast_one_scenario_in_report.sch')
     sch_file = Nokogiri::XML File.open sch_path
@@ -346,12 +344,12 @@ describe "A PROPER atleastOneScenarioInReport" do
 
     @xml_path = File.join(File.dirname(__FILE__), '../files/good/root.xml')
     @doc_original = Nokogiri::XML File.open @xml_path # create a Nokogiri::XML::Document
-    @facility_string = "auc:Facilities/auc:Facility"
-    @report_string = @facility_string + "/auc:Reports/auc:Report"
-    @scenario_string = @report_string + "/auc:Scenarios/auc:Scenario"
+    @facility_string = 'auc:Facilities/auc:Facility'
+    @report_string = @facility_string + '/auc:Reports/auc:Report'
+    @scenario_string = @report_string + '/auc:Scenarios/auc:Scenario'
   end
 
-  it "Should have, under an auc:Report element, at least one auc:Scenario element" do
+  it 'Should have, under an auc:Report element, at least one auc:Scenario element' do
     doc = @doc_original.clone
     all_scenario_elements = doc.root.xpath(@scenario_string)
 
@@ -363,10 +361,10 @@ describe "A PROPER atleastOneScenarioInReport" do
     expect(errors.length).to eq(0)
   end
 
-  it "Should not fail if more than one auc:Scenario element is specified" do
+  it 'Should not fail if more than one auc:Scenario element is specified' do
     doc = @doc_original.clone
     all_scenario_elements = doc.root.xpath(@scenario_string)
-    scenario_element = Nokogiri::XML::Element.new("auc:Scenario", doc)
+    scenario_element = Nokogiri::XML::Element.new('auc:Scenario', doc)
     all_scenario_elements.after(scenario_element)
     all_scenario_elements = doc.root.xpath(@scenario_string)
 
@@ -377,10 +375,9 @@ describe "A PROPER atleastOneScenarioInReport" do
     expect(all_scenario_elements.length).to eq(2)
     expect(errors.length).to eq(0)
   end
-
 end
 
-describe "An IMPROPER atleastOneScenarioInReport" do
+describe 'An IMPROPER atleastOneScenarioInReport' do
   before(:all) do
     sch_path = File.join(File.dirname(__FILE__), '../files/root_atleast_one_scenario_in_report.sch')
     sch_file = Nokogiri::XML File.open sch_path
@@ -388,12 +385,12 @@ describe "An IMPROPER atleastOneScenarioInReport" do
 
     @xml_path = File.join(File.dirname(__FILE__), '../files/good/root.xml')
     @doc_original = Nokogiri::XML File.open @xml_path # create a Nokogiri::XML::Document
-    @facility_string = "auc:Facilities/auc:Facility"
-    @report_string = @facility_string + "/auc:Reports/auc:Report"
-    @scenario_string = @report_string + "/auc:Scenarios/auc:Scenario"
+    @facility_string = 'auc:Facilities/auc:Facility'
+    @report_string = @facility_string + '/auc:Reports/auc:Report'
+    @scenario_string = @report_string + '/auc:Scenarios/auc:Scenario'
   end
 
-  it "Will fail and issue one ERROR if no auc:Scenario element is specified" do
+  it 'Will fail and issue one ERROR if no auc:Scenario element is specified' do
     doc = @doc_original.clone
     all_scenario_elements = doc.root.xpath(@scenario_string)
 
