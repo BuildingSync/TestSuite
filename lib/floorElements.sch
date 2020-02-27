@@ -6,10 +6,11 @@
 -->
   <!--  
     Each FloorAreaType enumeration can occur AT MOST one time in a set of FloorArea elements.
+    <severity> error
     <param> parent - an auc:FloorAreas element
 -->
   <pattern abstract="true" id="fa.maxOneOfEachType">
-    <rule context="$parent" role="fatal">
+    <rule context="$parent">
       <let name="tenant" value="count(auc:FloorArea[auc:FloorAreaType = 'Tenant'])"/>
       <let name="common" value="count(auc:FloorArea[auc:FloorAreaType = 'Common'])"/>
       <let name="gross" value="count(auc:FloorArea[auc:FloorAreaType = 'Gross'])"/>
@@ -35,88 +36,88 @@
       <let name="lot" value="count(auc:FloorArea[auc:FloorAreaType = 'Lot'])"/>
       <let name="custom" value="count(auc:FloorArea[auc:FloorAreaType = 'Custom'])"/>
       <assert test="1 &gt;= $tenant">
-        An auc:FloorAreas element should contain at most one auc:FloorAreaType = 'Tenant'
+        [ERROR] element 'auc:FloorAreaType' with value 'Tenant' is ALLOWED NO MORE THAN ONCE for '<name/>'
       </assert>
       <assert test="1 &gt;= $common">
-        An auc:FloorAreas element should contain at most one auc:FloorAreaType = 'Common'
+        [ERROR] element 'auc:FloorAreaType' with value 'Common' is ALLOWED NO MORE THAN ONCE for '<name/>'
       </assert>
       <assert test="1 &gt;= $gross">
-        An auc:FloorAreas element should contain at most one auc:FloorAreaType = 'Gross'
+        [ERROR] element 'auc:FloorAreaType' with value 'Gross' is ALLOWED NO MORE THAN ONCE for '<name/>'
       </assert>
       <assert test="1 &gt;= $net">
-        An auc:FloorAreas element should contain at most one auc:FloorAreaType = 'Net'
+        [ERROR] element 'auc:FloorAreaType' with value 'Net' is ALLOWED NO MORE THAN ONCE for '<name/>'
       </assert>
       <assert test="1 &gt;= $finished">
-        An auc:FloorAreas element should contain at most one auc:FloorAreaType = 'Finished'
+        [ERROR] element 'auc:FloorAreaType' with value 'Finished' is ALLOWED NO MORE THAN ONCE for '<name/>'
       </assert>
       <assert test="1 &gt;= $footprint">
-        An auc:FloorAreas element should contain at most one auc:FloorAreaType = 'Footprint'
+        [ERROR] element 'auc:FloorAreaType' with value 'Footprint' is ALLOWED NO MORE THAN ONCE for '<name/>'
       </assert>
       <assert test="1 &gt;= $rentable">
-        An auc:FloorAreas element should contain at most one auc:FloorAreaType = 'Rentable'
+        [ERROR] element 'auc:FloorAreaType' with value 'Rentable' is ALLOWED NO MORE THAN ONCE for '<name/>'
       </assert>
       <assert test="1 &gt;= $occupied">
-        An auc:FloorAreas element should contain at most one auc:FloorAreaType = 'Occupied'
+        [ERROR] element 'auc:FloorAreaType' with value 'Occupied' is ALLOWED NO MORE THAN ONCE for '<name/>'
       </assert>
       <assert test="1 &gt;= $lighted">
-        An auc:FloorAreas element should contain at most one auc:FloorAreaType = 'Lighted'
+        [ERROR] element 'auc:FloorAreaType' with value 'Lighted' is ALLOWED NO MORE THAN ONCE for '<name/>'
       </assert>
       <assert test="1 &gt;= $daylit">
-        An auc:FloorAreas element should contain at most one auc:FloorAreaType = 'Daylit'
+        [ERROR] element 'auc:FloorAreaType' with value 'Daylit' is ALLOWED NO MORE THAN ONCE for '<name/>'
       </assert>
       <assert test="1 &gt;= $heated">
-        An auc:FloorAreas element should contain at most one auc:FloorAreaType = 'Heated'
+        [ERROR] element 'auc:FloorAreaType' with value 'Heated' is ALLOWED NO MORE THAN ONCE for '<name/>'
       </assert>
       <assert test="1 &gt;= $cooled">
-        An auc:FloorAreas element should contain at most one auc:FloorAreaType = 'Cooled'
+        [ERROR] element 'auc:FloorAreaType' with value 'Cooled' is ALLOWED NO MORE THAN ONCE for '<name/>'
       </assert>
       <assert test="1 &gt;= $conditioned">
-        An auc:FloorAreas element should contain at most one auc:FloorAreaType = 'Conditioned'
+        [ERROR] element 'auc:FloorAreaType' with value 'Conditioned' is ALLOWED NO MORE THAN ONCE for '<name/>'
       </assert>
       <assert test="1 &gt;= $unconditioned">
-        An auc:FloorAreas element should contain at most one auc:FloorAreaType = 'Unconditioned'
+        [ERROR] element 'auc:FloorAreaType' with value 'Unconditioned' is ALLOWED NO MORE THAN ONCE for '<name/>'
       </assert>
       <assert test="1 &gt;= $semiConditioned">
-        An auc:FloorAreas element should contain at most one auc:FloorAreaType = 'Semi-conditioned'
+        [ERROR] element 'auc:FloorAreaType' with value 'Semi-conditioned' is ALLOWED NO MORE THAN ONCE for '<name/>'
       </assert>
       <assert test="1 &gt;= $heatedCooled">
-        An auc:FloorAreas element should contain at most one auc:FloorAreaType = 'Heated and Cooled'
+        [ERROR] element 'auc:FloorAreaType' with value 'Heated and Cooled' is ALLOWED NO MORE THAN ONCE for '<name/>'
       </assert>
       <assert test="1 &gt;= $heatedOnly">
-        An auc:FloorAreas element should contain at most one auc:FloorAreaType = 'Heated only'
+        [ERROR] element 'auc:FloorAreaType' with value 'Heated only' is ALLOWED NO MORE THAN ONCE for '<name/>'
       </assert>
       <assert test="1 &gt;= $cooledOnly">
-        An auc:FloorAreas element should contain at most one auc:FloorAreaType = 'Cooled only'
+        [ERROR] element 'auc:FloorAreaType' with value 'Cooled only' is ALLOWED NO MORE THAN ONCE for '<name/>'
       </assert>
       <assert test="1 &gt;= $ventilated">
-        An auc:FloorAreas element should contain at most one auc:FloorAreaType = 'Ventilated'
+        [ERROR] element 'auc:FloorAreaType' with value 'Ventilated' is ALLOWED NO MORE THAN ONCE for '<name/>'
       </assert>
       <assert test="1 &gt;= $enclosed">
-        An auc:FloorAreas element should contain at most one auc:FloorAreaType = 'Enclosed'
+        [ERROR] element 'auc:FloorAreaType' with value 'Enclosed' is ALLOWED NO MORE THAN ONCE for '<name/>'
       </assert>
       <assert test="1 &gt;= $nonEnclosed">
-        An auc:FloorAreas element should contain at most one auc:FloorAreaType = 'Non-Enclosed'
+        [ERROR] element 'auc:FloorAreaType' with value 'Non-Enclosed' is ALLOWED NO MORE THAN ONCE for '<name/>'
       </assert>
       <assert test="1 &gt;= $open">
-        An auc:FloorAreas element should contain at most one auc:FloorAreaType = 'Open'
+        [ERROR] element 'auc:FloorAreaType' with value 'Open' is ALLOWED NO MORE THAN ONCE for '<name/>'
       </assert>
       <assert test="1 &gt;= $lot">
-        An auc:FloorAreas element should contain at most one auc:FloorAreaType = 'Lot'
+        [ERROR] element 'auc:FloorAreaType' with value 'Lot' is ALLOWED NO MORE THAN ONCE for '<name/>'
       </assert>
       <assert test="1 &gt;= $custom">
-        An auc:FloorAreas element should contain at most one auc:FloorAreaType = 'Custom'
+        [ERROR] element 'auc:FloorAreaType' with value 'Custom' is ALLOWED NO MORE THAN ONCE for '<name/>'
       </assert>
     </rule>
   </pattern>
   <!--  
-    Check that all auc:FloorArea elements have the auc:FloorAreaType and auc:FloorAreaValue.
+    Check that the auc:FloorArea elements have the auc:FloorAreaType and auc:FloorAreaValue.
     <severity> error
-    <param> parent - an auc:FloorAreas element
+    <param> parent - an auc:FloorArea element
 -->
   <pattern abstract="true" id="fa.haveTypeAndValue">
     <rule context="$parent">
-      <assert test="auc:FloorArea/auc:FloorAreaType and auc:FloorArea/auc:FloorAreaValue">
-        auc:FloorArea elements must specify both a auc:FloorAreaType and auc:FloorAreaValue for <name/>
+      <assert test="auc:FloorAreaType and auc:FloorAreaValue">
+        [ERROR] elements 'auc:FloorAreaType' and 'auc:FloorAreaValue' are REQUIRED EXACTLY ONCE for: '<name/>'
       </assert>
     </rule>
   </pattern>
@@ -136,12 +137,12 @@
   </pattern>
   <!--  
     Check if an auc:FloorAreaType is declared.
-    <severity> warn
+    <severity> error
     <param> parent - an auc:FloorAreas element
     <param> floorAreaType - one of the standardized string enumerations of the auc:FloorAreaType element
 -->
   <pattern abstract="true" id="fa.noneDefinedWarn">
-    <rule context="$parent" role="warn">
+    <rule context="$parent">
       <let name="areas" value="count(auc:FloorArea/auc:FloorAreaType[text() = $floorAreaType])"/>
       <assert test="$areas != 0">
         auc:FloorAreaType = <value-of select="$floorAreaType"/> is not defined - did you mean to define it?  If not, this is just a warning - element is not required./&gt;

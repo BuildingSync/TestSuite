@@ -8,3 +8,4 @@ Gemfile.lock
 archive/
 ~$*.xlsx
 *_bad.xml
+.rubocop-http---s3-amazonaws-com-openstudio-resources-styles-rubocop-yml

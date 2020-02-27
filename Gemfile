@@ -9,6 +9,7 @@ gem 'rexml', '3.2.2'
 gem 'rspec', '~> 3.8'
 gem 'multipart-post', '2.1.1'
 gem 'geocoder'
+gem 'rubocop', '~> 0.54.0'
 
 allow_local = false
 
