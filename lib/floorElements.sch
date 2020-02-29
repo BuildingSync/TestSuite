@@ -128,10 +128,9 @@
     <param> floorAreaType - one of the standardized string enumerations of the auc:FloorAreaType element
 -->
   <pattern abstract="true" id="fa.oneOfType">
-    <rule context="$parent" role="fatal">
-      <let name="areas" value="count(auc:FloorArea[auc:FloorAreaType = $floorAreaType])"/>
-      <assert test="$areas = 1">\
-        auc:FloorAreaType = <value-of select="$floorAreaType"/> must occur exactly once for <name/>.  Currently occurs: <value-of select="$areas"/>
+    <rule context="$parent">
+      <assert test="count(auc:FloorArea[auc:FloorAreaType = $floorAreaType]) = 1">
+        [ERROR] element 'auc:FloorAreaType' with value '<value-of select="$floorAreaType"/>' is REQUIRED EXACTLY ONCE within element 'auc:FloorArea' for '<name/>'.  Currently occurs: <value-of select="count(auc:FloorArea[auc:FloorAreaType = $floorAreaType])"/>
       </assert>
     </rule>
   </pattern>
@@ -143,9 +142,8 @@
 -->
   <pattern abstract="true" id="fa.noneDefinedWarn">
     <rule context="$parent">
-      <let name="areas" value="count(auc:FloorArea/auc:FloorAreaType[text() = $floorAreaType])"/>
-      <assert test="$areas != 0">
-        auc:FloorAreaType = <value-of select="$floorAreaType"/> is not defined - did you mean to define it?  If not, this is just a warning - element is not required./&gt;
+      <assert test="count(auc:FloorArea/auc:FloorAreaType[text() = $floorAreaType]) != 0">
+        [WARNING] element 'auc:FloorAreaType' with value '<value-of select="$floorAreaType"/>' is RECOMMENDED for: '<name/>'
       </assert>
     </rule>
   </pattern>
@@ -163,18 +161,56 @@
 -->
   <pattern abstract="true" id="fa.mechTypeChecks">
     <rule context="$parent" role="error">
-      <let name="grossArea" value="if (auc:FloorArea/auc:FloorAreaType[text()='Gross']) then (number(auc:FloorArea/auc:FloorAreaType[text()='Gross']/parent::auc:FloorArea/auc:FloorAreaValue)) else (0.0)"/>
-      <let name="cooledOnlyArea" value="if (auc:FloorArea/auc:FloorAreaType[text()='Cooled only']) then (number(auc:FloorArea/auc:FloorAreaType[text()='Cooled only']/parent::auc:FloorArea/auc:FloorAreaValue)) else (0.0)"/>
-      <let name="heatedOnlyArea" value="if (auc:FloorArea/auc:FloorAreaType[text()='Heated only']) then (number(auc:FloorArea/auc:FloorAreaType[text()='Heated only']/parent::auc:FloorArea/auc:FloorAreaValue)) else (0.0)"/>
-      <let name="heatedCooledArea" value="if (auc:FloorArea/auc:FloorAreaType[text()='Heated and Cooled']) then (number(auc:FloorArea/auc:FloorAreaType[text()='Heated and Cooled']/parent::auc:FloorArea/auc:FloorAreaValue)) else (0.0)"/>
-      <let name="ventilatedArea" value="if (auc:FloorArea/auc:FloorAreaType[text()='Ventilated']) then (number(auc:FloorArea/auc:FloorAreaType[text()='Ventilated']/parent::auc:FloorArea/auc:FloorAreaValue)) else (0.0)"/>
-      <let name="conditionedArea" value="if (auc:FloorArea/auc:FloorAreaType[text()='Conditioned']) then (number(auc:FloorArea/auc:FloorAreaType[text()='Conditioned']/parent::auc:FloorArea/auc:FloorAreaValue)) else ($heatedOnlyArea + $cooledOnlyArea + $ventilatedArea + $heatedCooledArea)"/>
-      <let name="unconditionedArea" value="if (auc:FloorArea/auc:FloorAreaType[text()='Unconditioned']) then (number(auc:FloorArea/auc:FloorAreaType[text()='Unconditioned']/parent::auc:FloorArea/auc:FloorAreaValue)) else ($grossArea - $conditionedArea)"/>
-      <assert test="$grossArea &gt;= $cooledOnlyArea + $heatedOnlyArea + $heatedCooledArea + $ventilatedArea">
-        Gross building Floor Area (<value-of select="$grossArea"/>) must be greater than or equal to: Heated and Cooled (<value-of select="$heatedCooledArea"/>) + Heated only (<value-of select="$heatedOnlyArea"/>) + Cooled only (<value-of select="$cooledOnlyArea"/>) + Ventilated (<value-of select="$ventilatedArea"/>)
+      <let name="grossAreaValue" value="number(auc:FloorArea[auc:FloorAreaType/text()='Gross']/auc:FloorAreaValue)"/>
+      <let name="grossArea" value="number(translate(string($grossAreaValue), 'NaN', '0'))"/>
+      <let name="cooledOnlyAreaValue" value="number(auc:FloorArea[auc:FloorAreaType/text()='Cooled only']/auc:FloorAreaValue)"/>
+      <let name="cooledOnlyArea" value="number(translate(string($cooledOnlyAreaValue), 'NaN', '0'))"/>
+      <let name="heatedOnlyAreaValue" value="number(auc:FloorArea[auc:FloorAreaType/text()='Heated only']/auc:FloorAreaValue)"/>
+      <let name="heatedOnlyArea" value="number(translate(string($heatedOnlyAreaValue), 'NaN', '0'))"/>
+      <let name="heatedCooledAreaValue" value="number(auc:FloorArea[auc:FloorAreaType/text()='Heated and Cooled']/auc:FloorAreaValue)"/>
+      <let name="heatedCooledArea" value="number(translate(string($heatedCooledAreaValue), 'NaN', '0'))"/>
+      <let name="ventilatedAreaValue" value="number(auc:FloorArea[auc:FloorAreaType/text()='Ventilated']/auc:FloorAreaValue)"/>
+      <let name="ventilatedArea" value="number(translate(string($ventilatedAreaValue), 'NaN', '0'))"/>
+      
+<!--      The following logic is based on Becker's method for if-else statements in XPath 1.0 -->
+      <let name="conditionedAreaValue" value="number(auc:FloorArea[auc:FloorAreaType/text()='Conditioned']/auc:FloorAreaValue)"/>
+      <let name="conditionedAreaValueComputed" value="$cooledOnlyArea + $heatedOnlyArea + $heatedCooledArea + $ventilatedArea"/>
+      <let name="endTextPosition1CA" value="number(not(string($conditionedAreaValue) != 'NaN')) * string-length(string($conditionedAreaValueComputed))"/>
+      <let name="endTextPosition2CA" value="number(not(string($conditionedAreaValue) = 'NaN')) * string-length(string($conditionedAreaValue))"/>
+      <let name="conditionedArea" value="number(concat(substring($conditionedAreaValueComputed, 1, $endTextPosition1CA),
+                                                       substring($conditionedAreaValue, 1, $endTextPosition2CA)))"/>
+      <let name="unconditionedAreaValue" value="number(auc:FloorArea[auc:FloorAreaType/text()='Unconditioned']/auc:FloorAreaValue)"/>
+      <let name="unconditionedAreaValueComputed" value="$grossArea - $conditionedArea"/>
+      <let name="endTextPosition1UCA" value="number(not(string($unconditionedAreaValue) != 'NaN')) * string-length(string($unconditionedAreaValueComputed))"/>
+      <let name="endTextPosition2UCA" value="number(not(string($unconditionedAreaValue) = 'NaN')) * string-length(string($unconditionedAreaValue))"/>
+      <let name="unconditionedArea" value="number(concat(substring($unconditionedAreaValueComputed, 1, $endTextPosition1UCA),
+                                                         substring($unconditionedAreaValue, 1, $endTextPosition2UCA)))"/>
+      <assert test="$conditionedArea &gt;= $cooledOnlyArea + $heatedOnlyArea + $heatedCooledArea + $ventilatedArea">
+        [ERROR] Conditioned Floor Area (<value-of select="$conditionedArea"/>) must be greater than or equal to: Heated and Cooled (<value-of select="$heatedCooledArea"/>) + Heated only (<value-of select="$heatedOnlyArea"/>) + Cooled only (<value-of select="$cooledOnlyArea"/>) + Ventilated (<value-of select="$ventilatedArea"/>)
       </assert>
-      <assert test="$grossArea &gt;= $conditionedArea + $unconditionedArea">
-        Gross building Floor Area (<value-of select="$grossArea"/>) must be greater than or equal to: Conditioned (<value-of select="$conditionedArea"/>) + Unconditioned (<value-of select="$unconditionedArea"/>)
+      <assert test="$grossArea &gt;= $conditionedArea + $unconditionedArea and $unconditionedArea >= 0">
+        [ERROR] Gross Floor Area (<value-of select="$grossArea"/>) must be greater than or equal to: Conditioned (<value-of select="$conditionedArea"/>) + Unconditioned (<value-of select="$unconditionedArea"/>) AND Unconditioned Floor Area must be > 0
+      </assert>
+      <assert test="false()">
+        [INFO] 'Gross' Floor Area: <value-of select="$grossArea"/>
+      </assert>
+      <assert test="false()">
+        [INFO] 'Cooled only' Floor Area: <value-of select="$cooledOnlyArea"/>
+      </assert>
+      <assert test="false()">
+        [INFO] 'Heated only' Floor Area: <value-of select="$heatedOnlyArea"/>
+      </assert>
+      <assert test="false()">
+        [INFO] 'Heated and Cooled' Floor Area: <value-of select="$heatedCooledArea"/>
+      </assert>
+      <assert test="false()">
+        [INFO] 'Ventilated' Floor Area: <value-of select="$ventilatedArea"/>
+      </assert>
+      <assert test="false()">
+        [INFO] 'Conditioned' Floor Area: <value-of select="$conditionedArea"/>
+      </assert>
+      <assert test="false()">
+        [INFO] 'Unconditioned' Floor Area: <value-of select="$unconditionedArea"/>
       </assert>
     </rule>
   </pattern>
@@ -186,10 +222,10 @@
   <pattern abstract="true" id="fa.dontUse">
     <rule context="$parent">
       <assert test="not (auc:FloorArea/auc:FloorAreaType[text()='Heated'])">
-        auc:FloorAreatype of 'Heated' should not be used.
+        [ERROR] element 'auc:FloorAreaType' with value 'Heated' within element 'auc:FloorArea' SHOULD NOT BE USED for: '<name/>'
       </assert>
       <assert test="not (auc:FloorArea/auc:FloorAreaType[text()='Cooled'])">
-        auc:FloorAreatype of 'Cooled' should not be used.
+        [ERROR] element 'auc:FloorAreaType' with value 'Cooled' within element 'auc:FloorArea' SHOULD NOT BE USED for: '<name/>'
       </assert>
     </rule>
   </pattern>
@@ -200,15 +236,20 @@
 -->
   <pattern abstract="true" id="fa.oneOfMechType">
     <rule context="$parent">
-      <assert test="auc:FloorArea/auc:FloorAreaType[text()='Conditioned'] or                      auc:FloorArea/auc:FloorAreaType[text()='Heated and Cooled'] or                     auc:FloorArea/auc:FloorAreaType[text()='Heated only'] or                     auc:FloorArea/auc:FloorAreaType[text()='Cooled only'] or                     auc:FloorArea/auc:FloorAreaType[text()='Ventilated']">
-        One of the following Floor Area typs must be defined: Conditioned, Heated and Cooled, Heated only, Cooled only, Ventilated
+      <let name="conditioned" value="count(auc:FloorArea/auc:FloorAreaType[text()='Conditioned'])"/>
+      <let name="heatedCooled" value="count(auc:FloorArea/auc:FloorAreaType[text()='Heated and Cooled'])"/>
+      <let name="heated" value="count(auc:FloorArea/auc:FloorAreaType[text()='Heated only'])"/>
+      <let name="cooled" value="count(auc:FloorArea/auc:FloorAreaType[text()='Cooled only'])"/>
+      <let name="ventilated" value="count(auc:FloorArea/auc:FloorAreaType[text()='Ventilated'])"/>
+      <assert test="$conditioned + $heatedCooled + $heated + $cooled + $ventilated > 0">
+        [ERROR] element 'auc:FloorAreaType' with value 'Conditioned' or 'Heated and Cooled' or 'Heated only' or 'Cooled only' or 'Ventilated' is REQUIRED AT LEAST ONCE for '<name/>'
       </assert>
     </rule>
   </pattern>
   <!--  
     Check that the Conditioned area is greater than Cooled only + Heated only + Heated and Cooled + Ventilated
     <severity> error
-    <param> parent - an auc:FloorArea[auc:FloorAreaType='Conditioned' and auc:FloorAreaPercentage] element
+    <param> parent - an auc:FloorAreas[auc:FloorAreaType='Conditioned' and auc:FloorAreaPercentage] element
 -->
   <pattern abstract="true" id="fa.conditionedPercentChecks">
     <rule context="$parent">
@@ -225,28 +266,37 @@
     </rule>
   </pattern>
   <!--  
-    Check that the Gross area is greater than or equal to the Conditioned area.
-    Check that the Conditioned area is greater than Cooled only + Heated only + Heated and Cooled + Ventilated
+    Check that the Gross Area of the auc:Building is greater than or equal to the sum of the Gross Area from all auc:Section[auc:SectionType='Space function'] elements
     <severity> error
-    <param> parent - an auc:FloorArea[auc:FloorAreaType='Conditioned' and auc:FloorAreaValue] element
+    <param> parent - an auc:Building
 -->
-  <pattern abstract="true" id="fa.conditionedValueChecks">
+  <pattern abstract="true" id="fa.buildingSectionGrossAreaChecks">
     <rule context="$parent">
-      <let name="grossArea" value="if (parent::node()/auc:FloorArea/auc:FloorAreaType[text()='Gross']) then (number(parent::node()/auc:FloorArea/auc:FloorAreaType[text()='Gross']/parent::auc:FloorArea/auc:FloorAreaValue)) else (0.0)"/>
-      <let name="cooledOnlyArea" value="if (parent::node()/auc:FloorArea/auc:FloorAreaType[text()='Cooled only']) then (number(parent::node()/auc:FloorArea/auc:FloorAreaType[text()='Cooled only']/parent::auc:FloorArea/auc:FloorAreaValue)) else (0.0)"/>
-      <let name="heatedOnlyArea" value="if (parent::node()/auc:FloorArea/auc:FloorAreaType[text()='Heated only']) then (number(parent::node()/auc:FloorArea/auc:FloorAreaType[text()='Heated only']/parent::auc:FloorArea/auc:FloorAreaValue)) else (0.0)"/>
-      <let name="heatedCooledArea" value="if (parent::node()/auc:FloorArea/auc:FloorAreaType[text()='Heated and Cooled']) then (number(parent::node()/auc:FloorArea/auc:FloorAreaType[text()='Heated and Cooled']/parent::auc:FloorArea/auc:FloorAreaValue)) else (0.0)"/>
-      <let name="ventilatedArea" value="if (parent::node()/auc:FloorArea/auc:FloorAreaType[text()='Ventilated']) then (number(auc:FloorArea/auc:FloorAreaType[text()='Ventilated']/parent::auc:FloorArea/auc:FloorAreaValue)) else (0.0)"/>
-      <let name="conditionedAreaValue" value="number(auc:FloorAreaValue/text())"/>
+      <let name="buildingGrossArea" value="number(auc:FloorAreas/auc:FloorArea[auc:FloorAreaType='Gross']/auc:FloorAreaValue)"/>
+      <let name="allSpaceFunctionSectionsGrossArea" value="number(sum(//auc:Section[auc:SectionType/text()='Space function']/auc:FloorAreas/auc:FloorArea[auc:FloorAreaType='Gross']/auc:FloorAreaValue))"/>
+      <assert test="$buildingGrossArea >= $allSpaceFunctionSectionsGrossArea">
+        [ERROR] auc:Building Gross Floor (<value-of select="$buildingGrossArea"/>) Area MUST BE GREATER THAN OR EQUAL TO the sum of all Gross Floor areas from elements auc:Section[auc:SectionType='Space function'] (<value-of select="$allSpaceFunctionSectionsGrossArea"/>)
+      </assert>
       <assert test="false()">
-        JUST PRINT VALUES: Gross Area (<value-of select="$grossArea"/>) must be greater than or equal to Conditioned Area Value (<value-of select="$conditionedAreaValue"/>)
+        [INFO] Building Gross Floor Area: <value-of select="$buildingGrossArea"/>
       </assert>
-      <assert test="$grossArea &gt;= $conditionedAreaValue">
-        Gross Area (<value-of select="$grossArea"/>) must be greater than or equal to Conditioned Area Value (<value-of select="$conditionedAreaValue"/>)
-      </assert>
-      <assert test="$conditionedAreaValue &gt;= $cooledOnlyArea + $heatedOnlyArea + $heatedCooledArea + $ventilatedArea">
-        Conditioned Area Value (<value-of select="$conditionedAreaValue"/>) must be greater than or equal to: Heated and Cooled (<value-of select="$heatedCooledArea"/>) + Heated only (<value-of select="$heatedOnlyArea"/>) + Cooled only (<value-of select="$cooledOnlyArea"/>) + Ventilated (<value-of select="$ventilatedArea"/>)
+      <assert test="false()">
+        [INFO] Sum of all auc:Section[auc:SectionType='Space function'] Gross Floor Area: <value-of select="$allSpaceFunctionSectionsGrossArea"/>
       </assert>
     </rule>
   </pattern>
+<!--  Check that either a auc:FloorAreaValue or auc:FloorAreaPercentage is specifed, but not both 
+      <severity> error
+      <param> parent - an auc:FloorArea element
+  -->
+  <pattern abstract="true" id="fa.type.valueOrPercent">
+    <rule context="$parent">
+      <let name="value" value="count(auc:FloorAreaValue)"/>
+      <let name="percent" value="count(auc:FloorAreaPercentage)"/>
+      <assert test="$value + $percent = 1">
+        [ERROR] either element 'auc:FloorAreaValue' OR 'auc:FloorAreaPercentage' MUST BE SPECIFIED for: '<name/>'
+      </assert>
+    </rule>
+  </pattern>
+  
 </schema>
