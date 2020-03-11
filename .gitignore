@@ -3,6 +3,7 @@
 .bundle
 outputs/
 Gemfile.lock
+Gemfile-sch.lock
 
 # store local info used during development, but no longer needed
 archive/
