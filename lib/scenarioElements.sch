@@ -13,17 +13,19 @@
       based on this original should be defined as:
         auc:ScenarioType/auc:PackageOfMeasures/auc:ReferenceCase/@IDref='above'
 -->
-  <pattern id="sc.baseline">
+  <pattern id="sc.baseline.ID">
     <let name="baselineCount" value="count(//auc:Scenario[@ID='Baseline'])"/>
     <rule context="auc:Scenarios">
       <assert test="$baselineCount = 1">
-        element 'auc:Scenario' with attribute ID='Baseline' is REQUIRED AT LEAST ONCE for: <name/>
+        [ERROR] element 'auc:Scenario' with attribute ID='Baseline' is REQUIRED EXACTLY ONCE for: <name/>
       </assert>
     </rule>
+  </pattern>
+  <pattern id="sc.baseline.asPackageOfMeasures">
     <rule context="auc:Scenario[@ID='Baseline']">
       <assert test="auc:ScenarioType/auc:PackageOfMeasures/auc:ReferenceCase/@IDref = 'Baseline'">
-        element 'auc:Scenario' with attribute ID='Baseline' MUST CONTAIN the following subelements:
-          auc:ScenarioType/auc:PackageOfMeasures/auc:ReferenceCase IDref='Baseline'
+        [ERROR] element 'auc:Scenario' with attribute ID='Baseline' MUST CONTAIN the following subelements:
+        auc:ScenarioType/auc:PackageOfMeasures/auc:ReferenceCase IDref='Baseline'
       </assert>
     </rule>
   </pattern>

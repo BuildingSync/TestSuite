@@ -1,5 +1,5 @@
-<?xml version="1.0"?>
-<auc:BuildingSync xmlns:auc="http://buildingsync.net/schemas/bedes-auc/2019" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://buildingsync.net/schemas/bedes-auc/2019 https://raw.githubusercontent.com/BuildingSync/schema/1c73127d389b779c6b74029be72c6e9ff3187113/BuildingSync.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+<auc:BuildingSync xmlns:auc="http://buildingsync.net/schemas/bedes-auc/2019" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://buildingsync.net/schemas/bedes-auc/2019 https://raw.githubusercontent.com/BuildingSync/schema/v2.0/BuildingSync.xsd">
   <auc:Facilities>
     <auc:Facility>
       <auc:Sites>
@@ -25,17 +25,20 @@
           </auc:Buildings>
         </auc:Site>
       </auc:Sites>
+      <auc:Systems/>
+      <auc:Measures>
+        <auc:Measure/>
+      </auc:Measures>
       <auc:Reports>
         <auc:Report>
           <auc:Scenarios>
             <auc:Scenario ID="Baseline">
+              <auc:ScenarioName>Baseline</auc:ScenarioName>
               <auc:ScenarioType>
                 <auc:PackageOfMeasures>
                   <auc:ReferenceCase IDref="Baseline"/>
                 </auc:PackageOfMeasures>
               </auc:ScenarioType>
-            </auc:Scenario>
-            <auc:Scenario ID="Baseline2">
             </auc:Scenario>
           </auc:Scenarios>
         </auc:Report>
