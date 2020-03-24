@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<auc:BuildingSync xmlns:auc="http://buildingsync.net/schemas/bedes-auc/2019"
+  xsi:schemaLocation="http://buildingsync.net/schemas/bedes-auc/2019 https://raw.githubusercontent.com/BuildingSync/schema/v2.0/BuildingSync.xsd"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <auc:Facilities>
+    <auc:Facility>
+      <auc:Sites>
+        <auc:Site>
+          <auc:Buildings>
+            <auc:Building ID="Building1">
+              <auc:PremisesName>Building 1</auc:PremisesName>
+              <auc:Address>
+                <auc:StreetAddressDetail>
+                  <auc:Simplified>
+                    <auc:StreetAddress>1234</auc:StreetAddress>
+                  </auc:Simplified>
+                </auc:StreetAddressDetail>
+                <auc:City>Chicago</auc:City>
+                <auc:State>IL</auc:State>
+                <auc:PostalCode>60516</auc:PostalCode>
+              </auc:Address>
+              <auc:FloorAreas>
+                <auc:FloorArea>
+                  <auc:FloorAreaType>Gross</auc:FloorAreaType>
+                  <auc:FloorAreaValue>1234</auc:FloorAreaValue>
+                </auc:FloorArea>
+              </auc:FloorAreas>
+              <auc:Sections>
+                <auc:Section ID="Section-Retail">
+                  <auc:SectionType>Space function</auc:SectionType>
+                  <auc:OccupancyClassification>Retail</auc:OccupancyClassification>
+                </auc:Section>
+              </auc:Sections>
+            </auc:Building>
+          </auc:Buildings>
+        </auc:Site>
+      </auc:Sites>
+      <auc:Systems>
+        <auc:HVACSystems>
+          <auc:HVACSystem ID="PSZ-HP-Retail">
+            <auc:HeatingAndCoolingSystems>
+              <auc:ZoningSystemType>Single zone</auc:ZoningSystemType>
+              <auc:HeatingSources>
+                <auc:HeatingSource ID="PSZ-Retail-HP-Heating">
+                  <auc:HeatingSourceType>
+                    <auc:HeatPump>
+                      <auc:HeatPumpType>Packaged Unitary</auc:HeatPumpType>
+                      <auc:HeatPumpBackupHeatingSwitchoverTemperature>12</auc:HeatPumpBackupHeatingSwitchoverTemperature>
+                      <auc:HeatPumpBackupSystemFuel>Electricity</auc:HeatPumpBackupSystemFuel>
+                      <auc:HeatPumpBackupAFUE>100</auc:HeatPumpBackupAFUE>
+                    </auc:HeatPump>
+                  </auc:HeatingSourceType>
+                  <auc:HeatingMedium>Air</auc:HeatingMedium>
+                  <auc:AnnualHeatingEfficiencyValue>8.0</auc:AnnualHeatingEfficiencyValue>
+                  <auc:AnnualHeatingEfficiencyUnits>HSPF</auc:AnnualHeatingEfficiencyUnits>
+                  <auc:OutputCapacity>22</auc:OutputCapacity>
+                  <auc:CapacityUnits>kBtu/hr</auc:CapacityUnits>
+                  <auc:HeatingStaging>Single stage</auc:HeatingStaging>
+                  <auc:PrimaryFuel>Electricity</auc:PrimaryFuel>
+                </auc:HeatingSource>
+              </auc:HeatingSources>
+              <auc:CoolingSources>
+                <auc:CoolingSource ID="PSZ-Retail-HP-Cooling">
+                  <auc:CoolingSourceType>
+                    <auc:DX>
+                      <auc:DXSystemType>Packaged/unitary heat pump</auc:DXSystemType>
+                      <auc:CompressorType>Scroll</auc:CompressorType>
+                      <auc:CompressorStaging>Single stage</auc:CompressorStaging>
+                      <auc:ActiveDehumidification>false</auc:ActiveDehumidification>
+                    </auc:DX>
+                  </auc:CoolingSourceType>
+                  <auc:CoolingMedium>Air</auc:CoolingMedium>
+                  <auc:AnnualCoolingEfficiencyValue>14.0</auc:AnnualCoolingEfficiencyValue>
+                  <auc:AnnualCoolingEfficiencyUnits>SEER</auc:AnnualCoolingEfficiencyUnits>
+                  <auc:Capacity>22.0</auc:Capacity>
+                  <auc:CapacityUnits>kBtu/hr</auc:CapacityUnits>
+                  <auc:NumberOfDiscreteCoolingStages>1</auc:NumberOfDiscreteCoolingStages>
+                  <auc:PrimaryFuel>Electricity</auc:PrimaryFuel>
+                </auc:CoolingSource>
+              </auc:CoolingSources>
+              <auc:Deliveries>
+                <auc:Delivery ID="PSZ-HP-Retail-Delivery">
+                  <auc:DeliveryType>
+                    <auc:CentralAirDistribution>
+                      <auc:AirDeliveryType>Central fan</auc:AirDeliveryType>
+                      <auc:TerminalUnit>CAV terminal box no reheat</auc:TerminalUnit>
+                      <auc:FanBased>
+                        <auc:CoolingSupplyAirTemperature>55</auc:CoolingSupplyAirTemperature>
+                        <auc:HeatingSupplyAirTemperature>95</auc:HeatingSupplyAirTemperature>
+                      </auc:FanBased>
+                    </auc:CentralAirDistribution>
+                  </auc:DeliveryType>
+                  <auc:HeatingSourceID IDref="PSZ-Retail-HP-Heating"/>
+                  <auc:CoolingSourceID IDref="PSZ-Retail-HP-Cooling"/>
+                </auc:Delivery>
+              </auc:Deliveries>
+            </auc:HeatingAndCoolingSystems>
+            <auc:LinkedPremises>
+              <auc:Building>
+                <auc:LinkedBuildingID IDref="Building1"/>
+              </auc:Building>
+              <auc:Section>
+                <auc:LinkedSectionID IDref="Section-Retail">
+                  <auc:FloorAreas>
+                    <auc:FloorArea>
+                      <auc:FloorAreaType>Gross</auc:FloorAreaType>
+                      <auc:FloorAreaPercentage>100</auc:FloorAreaPercentage>
+                    </auc:FloorArea>
+                  </auc:FloorAreas>
+                </auc:LinkedSectionID>
+              </auc:Section>
+            </auc:LinkedPremises>
+          </auc:HVACSystem>
+        </auc:HVACSystems>
+        <auc:FanSystems>
+          <auc:FanSystem ID="PSZ-HP-Retail-Delivery-SupplyFan">
+            <auc:FanEfficiency>56</auc:FanEfficiency>
+            <auc:FanSize>6000</auc:FanSize>
+            <auc:FanApplication>Supply</auc:FanApplication>
+            <auc:FanControlType>Constant Volume</auc:FanControlType>
+            <auc:FanPlacement>Draw Through</auc:FanPlacement>
+            <auc:LinkedSystemIDs>
+              <auc:LinkedSystemID IDref="PSZ-HP-Retail-Delivery"/>
+            </auc:LinkedSystemIDs>
+          </auc:FanSystem>
+        </auc:FanSystems>
+        <auc:MotorSystems>
+          <auc:MotorSystem ID="PSZ-HP-Retail-Delivery-SupplyFan-Motor">
+            <auc:MotorHP>12</auc:MotorHP>
+            <auc:MotorEfficiency>86</auc:MotorEfficiency>
+            <auc:MotorApplication>Fan</auc:MotorApplication>
+            <auc:LinkedSystemIDs>
+              <auc:LinkedSystemID IDref="PSZ-HP-Retail-Delivery-SupplyFan"/>
+            </auc:LinkedSystemIDs>
+          </auc:MotorSystem>
+        </auc:MotorSystems>
+      </auc:Systems>
+    </auc:Facility>
+  </auc:Facilities>
+</auc:BuildingSync>

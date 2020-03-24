@@ -1,10 +1,5 @@
 # Description
-This directory provides walk through examples for different system types to be defined using the BuildingSync XML Schema.  It will serve as a reference for the following:
-- How to create different 'System' types
-- How to link a 'System' to a 'Section' within a building
-- How to specify a 'System' only provides heating / cooling / ventilation to a portion of the 'Section'
-
-Each of the example directories will have README documentation, walking the user through creation of the specific elements.
+This directory provides walk through examples for generating BuildingSync documents.
 
 # Typical Tasks
 
