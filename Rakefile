@@ -1,14 +1,23 @@
 require 'rspec/core/rake_task'
-require 'nokogiri'
 
 task default: :spec
 
 RSpec::Core::RakeTask.new(:spec) do |t|
-  t.pattern = Dir.glob('spec/**/*_spec.rb')
+  t.pattern = Dir.glob('spec/lib/**/*_spec.rb')
   t.rspec_opts = '--format documentation'
 end
 
 root = Dir.pwd
+
+desc 'Run simulation test'
+task :simulate do |task, args|
+  t = RSpec::Core::RakeTask.new
+  t.pattern = Dir.glob('spec/simulations/*_spec.rb')
+  t.rspec_opts = '--format documentation'
+  t.run_task(task)
+  puts "Not here"
+  # end
+end
 
 desc 'L000 run simulation'
 task :L000_run_sim, [:schema_version, :test_file] do |t, args|
