@@ -78,6 +78,7 @@ $ BUNDLE_GEMFILE=Gemfile bundle exec simulate
 ### Outputs
 Output directories will be created after running either the translation or simulation tests and are located in `spec/simulations/[schema-version]/[sim-file]/`.
 
+#Examples
 ## HVAC System Examples
 
 | System Type | Level 000 | Level 100 | Level 200 |
