@@ -83,6 +83,10 @@ $ BUNDLE_GEMFILE=Gemfile bundle exec rake L000_run_sim[schema2.0.0-pr2,L000_Inst
 ### Outputs
 An outputs directory will be created after running a task `tests/[schema_version]/[Level_XXX]/outputs` for each file instance run through the task runner.  Outputs are .gitignored so as not to clutter up the TestSuite repo.  The output directory  will mimic the traditional OSW structure.
 
+<<<<<<< Updated upstream
+=======
+# Examples
+>>>>>>> Stashed changes
 ## HVAC System Examples
 
 | System Type | Level 000 | Level 100 | Level 200 |
