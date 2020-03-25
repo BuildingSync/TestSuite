@@ -65,28 +65,28 @@ $ BUNDLE_GEMFILE=Gemfile-sch bundle exec rake spec
 
 More information on developing Schematron functions (and the required tests!) can be found in the `docs/Contributions and Schematron.md` document.
 
-## Running Simulations
+## Running Simulation Tests
 
-The Rakefile can be used to run the entire BuildingSync -> OpenStudio + Simulate -> BuildingSync workflow.  It makes use of the `tests/tester.rb` script (TODO - turn this into a test using RSpec).  The script will look for BSync XML files to simulate in the `tests/[schema_version]/[Level_XXX]/inputs` directory.  There are currently two tasks that can be run:
+Tests are also written for OpenStudio Simulation files.  Examples for how to use the BuildingSync-gem and the Translator class to run OpenStudio simulations using a BuildingSync XML file can be found in the `spec/simulations/**_spec.rb` files.  Since running all of the files through a simulation can be computationally expensive, tests are separated into two scenarios:
+1. Translation of BuildingSync XML file into the OSM / OSW.
+1. Simulation of the OSW.
 
-1. L000_run_sim - Run a Level 000 simulation using the schema_version and file specified
-1. L100_run_sim - Run a Level 100 simulation using the schema_version and file specified
-    
-Tasks can be run as follows from the TestSuite directory:
-- Run the L000_Instance1.xml file for the schema2.0.0-pr2 schema version
+Tests can be run as follows:
 
+__Test that simulation files are translated__
 ```
-$ bundle install --gemfile Gemfile --path .bundle/install # if not previously run
-$ BUNDLE_GEMFILE=Gemfile bundle exec rake L000_run_sim[schema2.0.0-pr2,L000_Instance1.xml]
+$ BUNDLE_GEMFILE=Gemfile bundle exec translate
+```
+
+__Test that simulation files can be simulated__
+```
+$ BUNDLE_GEMFILE=Gemfile bundle exec simulate
 ```
 
 ### Outputs
-An outputs directory will be created after running a task `tests/[schema_version]/[Level_XXX]/outputs` for each file instance run through the task runner.  Outputs are .gitignored so as not to clutter up the TestSuite repo.  The output directory  will mimic the traditional OSW structure.
+Output directories will be created after running either the translation or simulation tests and are located in `spec/simulations/[schema-version]/[sim-file]/`.
 
-<<<<<<< Updated upstream
-=======
-# Examples
->>>>>>> Stashed changes
+#Examples
 ## HVAC System Examples
 
 | System Type | Level 000 | Level 100 | Level 200 |
