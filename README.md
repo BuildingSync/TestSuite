@@ -1,10 +1,10 @@
 # Overview
 
-This repository hosts test files and examples for the BuildingSync schema.  As newer versions of the schema are released, this repository will be updated to include relevant changes.  Currently, all example files are based on [schema2.0.0-pr2](https://github.com/BuildingSync/schema/releases/tag/v2.0-pr2).
+This repository hosts test files and examples for the BuildingSync schema.  As newer versions of the schema are released, this repository will be updated to include relevant changes.  Currently, all example files are based on [schema2.0.0](https://github.com/BuildingSync/schema/releases/tag/v2.0).
 
 ## System Requirements 
 
-In order to run the tests you must have a stable version of the following:
+In order to run the OpenStudio simulation tests you must have a stable version of the following:
 * `OpenStudio>2.0` 
 * `Ruby v2.2.4` via an `rbenv` environment 
 * `Bundler v1.17.2`
@@ -19,7 +19,7 @@ require '/Applications/OpenStudio-2.9.1/Ruby/openstudio.rb'
 ___Note - your version of OpenStudio may be different___
 
 Due to dependency issues, there are currently two Gemfiles available in the repo.  Refer to the linked sections for specifics on how to use.
-1. `Gemfile` - Use this for running Rake tasks for [running simulations](#running-simulations-rakefile)
+1. `Gemfile` - Use this for running Rake tasks for [running OpenStudio Simulations](#running-simulations-rakefile)
 1. `Gemfile-sch` - Use this for running Rake tasks for [tests](#tests)
 
 __Note - there is no need to `rm -rf .bundle/` when switching between the above two scenarios.  Just run the below commands and then proceed as described in the linked sections__
@@ -29,7 +29,11 @@ $ bundle install --gemfile Gemfile-sch --path .bundle/install
 ```
 
 ## Level Definitions
-The formal definitions for the levels are defined using Schematron files, which are located at `tests/[schema_version]/[Level_XXX]/BuildingSync_schematron_LXXX.xml`.  The levels are in alignment with the ASHRAE Standard 211 levels as defined below:
+The formal definitions for the levels are defined using Schematron files, which are located in `spec/use_cases/[schema_version]/[Level_XXX]_[Use_Case].sch`.  The two primary use cases for defining levels are to:
+1. Ensure alignment with different portions of ASHRAE Standard 211
+1. Enable BuilingSync XML files to be used with the [BuildingSync gem](https://github.com/BuildingSync/BuildingSync-gem) and run through the OpenStudio simulation workflow.
+
+Level definitions are in alignment with the ASHRAE Standard 211 levels as defined below:
 
 | Level | Alignment to Std 211 | Std 211 Section |
 |-----------|----------------------|-----------------|
@@ -40,22 +44,26 @@ The formal definitions for the levels are defined using Schematron files, which 
 | Level 400 | Not Applicable | Not Applicable |
 | Level 500 | Not Applicable | Not Applicable |
 
-the [lib](lib) directory provides a library of general purpose Schematron functions used  within the individual Schematron xml documents.  These functions are designed to be used by others with use cases outside of the Levels defined above.  Narrative overviews for the different levels can be found in the [docs folder](<https://github.com/BuildingSync/TestSuite/blob/master/docs>).
+__Note - Level definitions for use with the BuildingSync gem are significantly reduced compared to requirements for the 211 Standard, since only certain elements are used when generating a model for simulation.  For example, to define a Level_000 Simulation file, an auc:ScenarioType/auc:Benchmark is not required, nor are things like auc:Contacts, however we do rely on fields like auc:Building/auc:YearOfConstruction to drive the vintage of code standard used.  More specifics to follow.__
+
+The `lib` directory provides a library of general purpose Schematron functions used  within the individual Schematron documents.  These functions are designed to be used by others with use cases outside of the Levels defined above.  Narrative overviews for the different levels can be found in `docs`.
 
 # Rakefile
-Rake tasks are currently used for two purposes, as outlined below.
+Rake tasks are currently used for two purposes:
+1. Tests
+1. Running Simulations
 
 ## Tests
 RSpec is used for running tests.  The tests are written around the following:
-1. Testing individual Schematron functions within `lib/` are working correctly. In Progress
-1. Testing that Schematron is working against Level Definition files.  TODO
+1. Testing individual Schematron functions within `lib/` are working correctly. In Progress.
+1. Testing that Schematron is working against Level Definition files.  In Progress.
 
 ```
 $ bundle install --gemfile Gemfile-sch --path .bundle/install # if not previously run
 $ BUNDLE_GEMFILE=Gemfile-sch bundle exec rake spec
 ```
 
-More information on developing Schematron functions (and the required tests!) can be found in the [Contributions and Schematron](docs/Contributions%20and%20Schematron.md) document.
+More information on developing Schematron functions (and the required tests!) can be found in the `docs/Contributions and Schematron.md` document.
 
 ## Running Simulations
 

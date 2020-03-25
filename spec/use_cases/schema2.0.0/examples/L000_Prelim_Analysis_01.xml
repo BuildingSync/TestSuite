@@ -57,6 +57,12 @@
                   <auc:AnnualFuelUseNativeUnits>295368.2492032391</auc:AnnualFuelUseNativeUnits>
                   <auc:AnnualFuelUseConsistentUnits>295.3682492032391</auc:AnnualFuelUseConsistentUnits>
                 </auc:ResourceUse>
+                <auc:ResourceUse ID="Baseline-Measured-Onsite-Solar">
+                  <auc:EnergyResource></auc:EnergyResource>
+                  <auc:ResourceUnits>kWh</auc:ResourceUnits>
+                  <auc:AnnualFuelUseNativeUnits>100</auc:AnnualFuelUseNativeUnits>
+                  <auc:AnnualFuelUseConsistentUnits>0.34</auc:AnnualFuelUseConsistentUnits>
+                </auc:ResourceUse>
               </auc:ResourceUses>
               <auc:TimeSeriesData>
                 <auc:TimeSeries>
@@ -300,6 +306,9 @@
                       <auc:ClimateZone>5</auc:ClimateZone>
                     </auc:CBECS>
                   </auc:BenchmarkType>
+                  <auc:BenchmarkTool>Other</auc:BenchmarkTool>
+                  <auc:BenchmarkYear>2015</auc:BenchmarkYear>
+                  <auc:BenchmarkValue>54</auc:BenchmarkValue>
                 </auc:Benchmark>
               </auc:ScenarioType>
               <auc:LinkedPremises>

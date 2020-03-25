@@ -29,4 +29,17 @@
       </assert>
     </rule>
   </pattern>
+  
+<!--  
+  Function Description
+  <severity> error
+  <param> paramName - type of element expected
+  -->
+  <pattern id="sc.benchmarkType">
+    <rule context="auc:Scenarios">
+      <assert test="count(auc:Scenario[auc:ScenarioType/auc:Benchmark]) &gt;= 1">
+        [ERROR] element 'auc:ScenarioType/auc:Benchmark' is REQUIRED AT LEAST ONCE for '<name/>’
+      </assert>
+    </rule>
+  </pattern>
 </schema>
