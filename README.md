@@ -75,12 +75,12 @@ Tests can be run as follows:
 
 __Test that simulation files are translated__
 ```
-$ BUNDLE_GEMFILE=Gemfile bundle exec translate
+$ BUNDLE_GEMFILE=Gemfile bundle exec rake translate
 ```
 
 __Test that simulation files can be simulated__
 ```
-$ BUNDLE_GEMFILE=Gemfile bundle exec simulate
+$ BUNDLE_GEMFILE=Gemfile bundle exec rake simulate
 ```
 
 ### Outputs
