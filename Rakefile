@@ -9,13 +9,21 @@ end
 
 root = Dir.pwd
 
-desc 'Run simulation test'
-task :simulate do |task, args|
+desc 'Run translation tests'
+task :translate do |task, args|
   t = RSpec::Core::RakeTask.new
-  t.pattern = Dir.glob('spec/simulations/*_spec.rb')
+  t.pattern = Dir.glob('spec/simulations/*translate_spec.rb')
   t.rspec_opts = '--format documentation'
   t.run_task(task)
-  puts "Not here"
+  # end
+end
+
+desc 'Run simulation tests'
+task :simulate do |task, args|
+  t = RSpec::Core::RakeTask.new
+  t.pattern = Dir.glob('spec/simulations/*simulate_spec.rb')
+  t.rspec_opts = '--format documentation'
+  t.run_task(task)
   # end
 end
 

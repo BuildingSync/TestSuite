@@ -17,28 +17,27 @@ describe 'A PROPER schema2.0.0 L000_OpenStudio_Simulation_02.xml' do
     @result_from_write_osw = @translator.write_osws # this just returns the Baseline scenario
     @output_osm = File.join(@output_path, 'in.osm')
     @output_osw = File.join(@output_path, 'Baseline', 'in.osw')
-    @finished_job = File.join(@output_path, 'Baseline', 'finished.job')
-    @failed_job = File.join(@output_path, 'Baseline', 'failed.job')
   end
 
-  it "Should successfully simulate a Baseline building" do
-    # Run the OSW
-    runner_opts = { num_parallel: 1 }
-    @translator.run_osws(runner_opts)
-    expect(File.exist?(@finished_job)).to be true
-    expect(File.exist?(@failed_job)).to be false
+  it "Should create an L000_OpenStudio_Simulation_02/in.osm file" do
+    expect(File.exist?(@output_osm)).to be true
   end
 
-  it "Should output OpenStudio Results via L000_OpenStudio_Simulation_02/Baseline/reports/openstudio_results_report.html" do
-    os_reports = File.join(@output_path, 'Baseline/reports/openstudio_results_report.html')
-    expect(File.exist?(os_reports)).to be true
+  it "Should have a system_type of 'PSZ-AC with gas coil heat'" do
+    expect(@result_from_write_osm["system_type"]).to eq("PSZ-AC with gas coil heat")
   end
 
-  it "Should have a total building floor area of 31,053ft2 +- 1ft2 (floating point)" do
-    f = File.read(File.join(@output_path, 'Baseline/results.json'))
-    results = JSON.parse(f)
-    area = results["OpenStudioResults"]["total_building_area"]
-    expect(area).to be_within(1).of(31053)
+  it "Should have a bldg_type of 'SmallOffice'" do
+    expect(@result_from_write_osm["bldg_type"]).to eq("SmallOffice")
   end
+
+  it "Should have a template of 'DOE Ref Pre-1980'" do
+    expect(@result_from_write_osm["template"]).to eq("DOE Ref Pre-1980")
+  end
+
+  it "Should create an L000_OpenStudio_Simulation_02/Baseline/in.osw file" do
+    expect(File.exist?(@output_osw)).to be true
+  end
+
 end
 
