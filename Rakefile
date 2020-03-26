@@ -53,9 +53,12 @@ task :L100_run_sim, [:schema_version, :test_file] do |t, args|
   end
 end
 
+# To run this task, you must put: require 'nokigiri' at the top
+# of the file, then run it with:
+# BUNDLE_GEMFILE=Gemfile-sch bundle exec rake remove_tabs
 desc 'Convert tabs to spaces'
 task :remove_tabs do
-  Dir['lib/*.sch', 'spec/files/*.sch', 'spec/files/good/*.xml', 'tests/**/**/*.sch', 'tests/**/**/*.xml', 'tests/**/**/*.sch', 'tests/**/**/**/*.xml'].each do |file|
+  Dir['lib/*.sch', 'spec/**/*.sch', 'spec/**/*.xml', 'examples/**/*.xml'].each do |file|
     puts " Cleaning #{file}"
     doc = Nokogiri.XML(File.read(file)) do |config|
       config.default_xml.noblanks
