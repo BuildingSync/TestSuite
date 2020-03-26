@@ -66,7 +66,6 @@ describe 'L100 OpenStudio Simulation Checks - Schematron' do
       sch_path = File.join(File.dirname(__FILE__), '../../use_cases/schema2.0.0/L100_OpenStudio_Simulation.sch')
       sch_file = Nokogiri::XML File.open sch_path
       @stron = SchematronNokogiri::Schema.new sch_file
-
     end
 
     it "Should issue three 'errors' at the [INFO] level when run against spec/use_cases/schema2.0.0/examples/L100_OpenStudio_Simulation_01.xml" do
@@ -83,8 +82,8 @@ describe 'L100 OpenStudio Simulation Checks - Schematron' do
         errors_warning << err[:message] if err[:message].include? "[WARNING]"
         errors_info  << err[:message] if err[:message].include? "[INFO]"
       end
-      # puts "Schematron errors:"
-      # puts errors
+      puts "Schematron errors:"
+      puts errors
       expect(errors_error.length).to eq(0)
       expect(errors_warning.length).to eq(0)
       expect(errors_info.length).to eq(3)
@@ -107,8 +106,8 @@ describe 'L100 OpenStudio Simulation Checks - Schematron' do
         errors_warning << err[:message] if err[:message].include? "[WARNING]"
         errors_info  << err[:message] if err[:message].include? "[INFO]"
       end
-      # puts "Schematron errors:"
-      # puts errors
+      puts "Schematron errors:"
+      puts errors
       expect(errors_error.length).to eq(0)
       expect(errors_warning.length).to eq(0)
       expect(errors_info.length).to eq(3)

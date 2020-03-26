@@ -17,10 +17,10 @@
                 <auc:State>IL</auc:State>
                 <auc:PostalCode>60606</auc:PostalCode>
               </auc:Address>
-              
-              
-              
-              
+              <auc:ConditionedFloorsAboveGrade>2</auc:ConditionedFloorsAboveGrade>
+              <auc:ConditionedFloorsBelowGrade>0</auc:ConditionedFloorsBelowGrade>
+              <auc:BuildingAutomationSystem>false</auc:BuildingAutomationSystem>
+              <auc:HistoricalLandmark>false</auc:HistoricalLandmark>
               <auc:FloorAreas>
                 <auc:FloorArea>
                   <auc:FloorAreaType>Cooled only</auc:FloorAreaType>
@@ -40,8 +40,8 @@
                 </auc:FloorArea>
               </auc:FloorAreas>
               <auc:YearOfConstruction>2016</auc:YearOfConstruction>
-              
-              
+              <auc:PercentOccupiedByOwner>50</auc:PercentOccupiedByOwner>
+              <auc:PercentLeasedByOwner>50</auc:PercentLeasedByOwner>
               <auc:Sections>
                 <auc:Section ID="Section-69916112335020">
                   <auc:SectionType>Whole building</auc:SectionType>
@@ -181,6 +181,20 @@
               </auc:ScenarioType>
             </auc:Scenario>
           </auc:Scenarios>
+          <auc:AuditDates>
+            <auc:AuditDate>
+              <auc:Date>2019-11-15</auc:Date>
+              <auc:DateType>Custom</auc:DateType>
+              <auc:CustomDateType>Level 1: Walk-through</auc:CustomDateType>
+            </auc:AuditDate>
+          </auc:AuditDates>
+          <auc:Qualifications>
+            <auc:Qualification ID="Qualification-69916110503580">
+              <auc:AuditorQualification>Association of Energy Engineers Certified Energy Manager (CEM)</auc:AuditorQualification>
+              <auc:CertifiedAuditTeamMemberContactID IDref="ContactType-69916110581980"/>
+            </auc:Qualification>
+          </auc:Qualifications>
+          <auc:AuditorContactID IDref="ContactType-69916110581980"/>
           <auc:LinkedPremisesOrSystem>
             <auc:Building>
               <auc:LinkedBuildingID IDref="BuildingType-69916112909060"/>
@@ -188,6 +202,62 @@
           </auc:LinkedPremisesOrSystem>
         </auc:Report>
       </auc:Reports>
+      <auc:Contacts>
+        <auc:Contact ID="ContactType-69916110581980">
+          <auc:ContactRoles>
+            <auc:ContactRole>Energy Auditor</auc:ContactRole>
+          </auc:ContactRoles>
+          <auc:ContactName>Cory Mosiman</auc:ContactName>
+          <auc:ContactCompany>NREL</auc:ContactCompany>
+          <auc:Address>
+            <auc:StreetAddressDetail>
+              <auc:Simplified>
+                <auc:StreetAddress/>
+              </auc:Simplified>
+            </auc:StreetAddressDetail>
+            <auc:City/>
+            <auc:State>CO</auc:State>
+            <auc:PostalCode>80305</auc:PostalCode>
+          </auc:Address>
+          <auc:ContactTelephoneNumbers>
+            <auc:ContactTelephoneNumber>
+              <auc:TelephoneNumber>630-234-5678</auc:TelephoneNumber>
+            </auc:ContactTelephoneNumber>
+          </auc:ContactTelephoneNumbers>
+          <auc:ContactEmailAddresses>
+            <auc:ContactEmailAddress>
+              <auc:EmailAddress>cory.mosiman@nrel.gov</auc:EmailAddress>
+            </auc:ContactEmailAddress>
+          </auc:ContactEmailAddresses>
+        </auc:Contact>
+        <auc:Contact ID="ContactType-69916110393100">
+          <auc:ContactRoles>
+            <auc:ContactRole>Owner</auc:ContactRole>
+          </auc:ContactRoles>
+          <auc:ContactName>Building Owner 1</auc:ContactName>
+          <auc:ContactCompany>Company A</auc:ContactCompany>
+          <auc:Address>
+            <auc:StreetAddressDetail>
+              <auc:Simplified>
+                <auc:StreetAddress/>
+              </auc:Simplified>
+            </auc:StreetAddressDetail>
+            <auc:City/>
+            <auc:State>IL</auc:State>
+            <auc:PostalCode>12345</auc:PostalCode>
+          </auc:Address>
+          <auc:ContactTelephoneNumbers>
+            <auc:ContactTelephoneNumber>
+              <auc:TelephoneNumber>630-123-4567</auc:TelephoneNumber>
+            </auc:ContactTelephoneNumber>
+          </auc:ContactTelephoneNumbers>
+          <auc:ContactEmailAddresses>
+            <auc:ContactEmailAddress>
+              <auc:EmailAddress/>
+            </auc:ContactEmailAddress>
+          </auc:ContactEmailAddresses>
+        </auc:Contact>
+      </auc:Contacts>
     </auc:Facility>
   </auc:Facilities>
 </auc:BuildingSync>

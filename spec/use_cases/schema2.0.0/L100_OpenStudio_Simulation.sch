@@ -14,8 +14,6 @@
   <include href="../../../lib/floorElements.sch#fa.mechTypeChecks"/>
   <include href="../../../lib/floorElements.sch#fa.dontUse"/>
   <include href="../../../lib/floorElements.sch#fa.oneOfMechType"/>
-  <include href="../../../lib/floorElements.sch#fa.conditionedPercentChecks"/>
-  <include href="../../../lib/floorElements.sch#fa.conditionedValueChecks"/>
   <include href="../../../lib/occupancyElements.sch#occ.oneOfType.typicalUsageUnits"/>
   <include href="../../../lib/occupancyElements.sch#occ.typUsage.haveUnitsAndValue"/>
   <include href="../../../lib/occupancyElements.sch#occ.levels.haveQuantityAndType"/>
@@ -23,46 +21,53 @@
   <include href="../../../lib/sectionElements.sch#sec.mainDetails"/>
   <include href="../../../lib/sectionElements.sch#sec.primarySystems"/>
   <!--  L100 Phase 1  -->
-  <phase id="L100AuditRequirementsPhase1">
+  <phase id="L100_Simulation">
     <active pattern="root.oneOfEachUntilBuilding"/>
     <active pattern="root.oneOfEachFacilityUntilContacts"/>
     <active pattern="root.atleastOneReportInFacility"/>
     <active pattern="root.atleastOneScenarioInReport"/>
-    <active pattern="allUnderBuilding.fa.dontUse"/>
-    <active pattern="allUnderBuilding.fa.maxOneOfEachType"/>
+    <active pattern="all.fa.maxOneOfEachType"/>
+    <active pattern="all.fa.noneDefinedWarn.ventilated"/>
+    <active pattern="all.fa.dontUse"/>
+    <active pattern="all.fa.haveTypeAndValue"/>
     <active pattern="be.simpleLocationDetails"/>
     <active pattern="be.mainDetails"/>
-    <active pattern="be.fa.haveTypeAndValue"/>
     <active pattern="be.fa.oneGross"/>
     <active pattern="be.fa.oneHeatedCooled"/>
     <active pattern="be.fa.oneHeated"/>
     <active pattern="be.fa.oneCooled"/>
-    <active pattern="be.fa.oneVentilated"/>
+    <active pattern="be.fa.mechTypeChecks"/>
     <active pattern="sec.sec.mainDetails"/>
-    <active pattern="sec.sec.primarySystems"/>
     <active pattern="sec.fa.oneGross"/>
     <active pattern="sec.fa.oneOfMechType"/>
+    <active pattern="sec.fa.mechTypeChecks"/>
     <active pattern="sec.occ.typUsage.haveUnitsAndValue"/>
     <active pattern="sec.occ.oneOfType.hoursPerWeek"/>
     <active pattern="sec.occ.oneOfType.weeksPerYear"/>
     <active pattern="sec.occ.levels.haveQuantityAndType"/>
     <active pattern="sec.occ.levels.hasPeak"/>
-  </phase>
-  <!--  L100 Phase 2  -->
-  <phase id="L100AuditRequirementsPhase2">
-    <active pattern="be.fa.mechTypeChecks"/>
-    <active pattern="sec.fa.conditionedPercentChecks"/>
-    <active pattern="sec.fa.conditionedValueChecks"/>
+<!--    <active pattern="sec.sec.primarySystems"/>-->
   </phase>
   <!--  Instantiate abstract patterns for L100 use case -->
   <!--  START FLOOR AREA CHECKS -->
-  <pattern id="allUnderBuilding.fa.maxOneOfEachType" is-a="fa.maxOneOfEachType">
-    <param name="parent" value="auc:Building//auc:FloorAreas"/>
-    <!-- //auc:FloorAreas is the intended effect -->
+<!--  Ensure there is maximum one of each FloorAreaType in a FloorAreas -->
+  <pattern id="all.fa.maxOneOfEachType" is-a="fa.maxOneOfEachType">
+    <param name="parent" value="auc:FloorAreas"/>
+    <!-- //auc:FloorAreas is the intended effect, also checks Sections, etc. -->
   </pattern>
-  <!--  All Floor Areas must have a Type and Value at the Building Level-->
-  <pattern id="be.fa.haveTypeAndValue" is-a="fa.haveTypeAndValue">
-    <param name="parent" value="auc:Building/auc:FloorAreas"/>
+<!--  Issue warning wherever 'Ventilated' is not defined-->
+  <pattern id="all.fa.noneDefinedWarn.ventilated" is-a="fa.noneDefinedWarn">
+    <param name="parent" value="auc:FloorAreas"/>
+    <param name="floorAreaType" value="'Ventilated'"/>
+  </pattern>
+<!--  Don't use 'Heated' or 'Cooled' in any of the FloorAreaType text -->
+  <pattern id="all.fa.dontUse" is-a="fa.dontUse">
+    <param name="parent" value="auc:FloorAreas"/>
+    <!-- //auc:FloorAreas is the intended effect, checks Sections, etc. -->
+  </pattern>
+  <!--  All Floor Areas must have a Type and Value -->
+  <pattern id="all.fa.haveTypeAndValue" is-a="fa.haveTypeAndValue">
+    <param name="parent" value="auc:FloorAreas/auc:FloorArea"/>
   </pattern>
   <!--
     Building Level: atleast one FloorAreaType of: Gross, Heated and Cooled, Cooled Only, Heated Only.
@@ -84,24 +89,11 @@
     <param name="parent" value="auc:Building/auc:FloorAreas"/>
     <param name="floorAreaType" value="'Heated only'"/>
   </pattern>
-  <pattern id="be.fa.oneVentilated" is-a="fa.noneDefinedWarn">
-    <param name="parent" value="auc:Building/auc:FloorAreas"/>
-    <param name="floorAreaType" value="'Ventilated'"/>
-  </pattern>
   <pattern id="be.fa.mechTypeChecks" is-a="fa.mechTypeChecks">
     <param name="parent" value="auc:Building/auc:FloorAreas"/>
   </pattern>
-  <pattern id="allUnderBuilding.fa.dontUse" is-a="fa.dontUse">
-    <param name="parent" value="auc:Building//auc:FloorAreas"/>
-    <!-- //auc:FloorAreas is the intended effect -->
-  </pattern>
+
   <!--  END FLOOR AREA CHECKS -->
-  <!--  START CONTACT CHECKS -->
-  <!--  Require all contacts to have a name, email, and phone number fields defined -->
-  <pattern id="all.con.nameEmailPhone" is-a="con.nameEmailPhone">
-    <param name="parent" value="auc:Contact"/>
-  </pattern>
-  <!--  END CONTACT CHECKS -->
   <!--  START SPACE FUNCTION CHECKS -->
   <pattern id="sec.sec.mainDetails" is-a="sec.mainDetails">
     <param name="parent" value="auc:Section[auc:SectionType='Space function']"/>
@@ -122,28 +114,25 @@
   <pattern id="sec.fa.oneOfMechType" is-a="fa.oneOfMechType">
     <param name="parent" value="auc:Section[auc:SectionType='Space function']/auc:FloorAreas"/>
   </pattern>
-  <pattern id="sec.fa.conditionedPercentChecks" is-a="fa.conditionedPercentChecks">
-    <param name="parent" value="auc:Section/auc:FloorAreas/auc:FloorArea[auc:FloorAreaType='Conditioned' and auc:FloorAreaPercentage]"/>
-  </pattern>
-  <pattern id="sec.fa.conditionedValueChecks" is-a="fa.conditionedValueChecks">
-    <param name="parent" value="auc:Section/auc:FloorAreas/auc:FloorArea[auc:FloorAreaType='Conditioned' and auc:FloorAreaValue]"/>
+  <pattern id="sec.fa.mechTypeChecks" is-a="fa.mechTypeChecks">
+    <param name="parent" value="auc:Section[auc:SectionType='Space function']/auc:FloorAreas"/>
   </pattern>
   <!--
     Section Level Occupancy Checks: one 'Hours per week' and one 'Weeks per year'
 -->
   <pattern id="sec.occ.typUsage.haveUnitsAndValue" is-a="occ.typUsage.haveUnitsAndValue">
-    <param name="parent" value="auc:Section/auc:TypicalOccupantUsages"/>
+    <param name="parent" value="auc:Section/auc:TypicalOccupantUsages/auc:TypicalOccupantUsage"/>
   </pattern>
   <pattern id="sec.occ.oneOfType.hoursPerWeek" is-a="occ.oneOfType.typicalUsageUnits">
-    <param name="parent" value="auc:Section/auc:TypicalOccupantUsages"/>
+    <param name="parent" value="auc:Section[auc:SectionType='Space function']/auc:TypicalOccupantUsages"/>
     <param name="typUsageUnits" value="'Hours per week'"/>
   </pattern>
   <pattern id="sec.occ.oneOfType.weeksPerYear" is-a="occ.oneOfType.typicalUsageUnits">
-    <param name="parent" value="auc:Section/auc:TypicalOccupantUsages"/>
+    <param name="parent" value="auc:Section[auc:SectionType='Space function']/auc:TypicalOccupantUsages"/>
     <param name="typUsageUnits" value="'Weeks per year'"/>
   </pattern>
   <pattern id="sec.occ.levels.haveQuantityAndType" is-a="occ.levels.haveQuantityAndType">
-    <param name="parent" value="auc:Section/auc:OccupancyLevels"/>
+    <param name="parent" value="auc:Section/auc:OccupancyLevels/auc:OccupancyLevel"/>
   </pattern>
   <pattern id="sec.occ.levels.hasPeak" is-a="occ.levels.oneOfType">
     <param name="parent" value="auc:Section/auc:OccupancyLevels"/>
@@ -155,8 +144,8 @@
     - PrimaryLightingSystem
     - PlugLoadType = 'Miscellaneous Electric Load
 -->
-  <pattern id="sec.sec.primarySystems" is-a="sec.primarySystems">
+<!--  <pattern id="sec.sec.primarySystems" is-a="sec.primarySystems">
     <param name="parent" value="auc:Section[auc:SectionType='Space function']"/>
-  </pattern>
+  </pattern>-->
   <!--  END SPACE FUNCTION CHECKS -->
 </schema>
