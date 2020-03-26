@@ -86,7 +86,7 @@ $ BUNDLE_GEMFILE=Gemfile bundle exec rake simulate REMOVE_FILES=false
 ### Outputs
 Output directories will be created after running either the translation or simulation tests and are located in `spec/simulations/[schema-version]/[sim-file]/`.
 
-#Examples
+# Examples
 ## HVAC System Examples
 
 Where the System Type specified below does not exactly match the enumeration in the BSync XML file, check the mapping defined by [map_primary_hvac_system_type_to_cbecs_system_type](https://github.com/BuildingSync/BuildingSync-gem/blob/bb52655ebb8efeca44249277d3fb67ac60b4e610/lib/buildingsync/model_articulation/hvac_system.rb#L121-L143).  Additionally, see the [examples/HVACSystems](https://github.com/BuildingSync/TestSuite/tree/L100_Schematron/examples/HVACSystems) directory for a tutorial and example files.
