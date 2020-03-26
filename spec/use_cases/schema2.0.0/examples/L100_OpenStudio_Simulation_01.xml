@@ -17,10 +17,10 @@
                 <auc:State>IL</auc:State>
                 <auc:PostalCode>60606</auc:PostalCode>
               </auc:Address>
-              
-              
-              
-              
+              <auc:FloorsAboveGrade>2</auc:FloorsAboveGrade>
+              <auc:FloorsBelowGrade>0</auc:FloorsBelowGrade>
+              <auc:ConditionedFloorsAboveGrade>2</auc:ConditionedFloorsAboveGrade>
+              <auc:ConditionedFloorsBelowGrade>0</auc:ConditionedFloorsBelowGrade>
               <auc:FloorAreas>
                 <auc:FloorArea>
                   <auc:FloorAreaType>Cooled only</auc:FloorAreaType>
@@ -40,8 +40,6 @@
                 </auc:FloorArea>
               </auc:FloorAreas>
               <auc:YearOfConstruction>2016</auc:YearOfConstruction>
-              
-              
               <auc:Sections>
                 <auc:Section ID="Section-69916112335020">
                   <auc:SectionType>Whole building</auc:SectionType>

@@ -113,6 +113,9 @@ describe 'Translate' do
       @result_from_write_osw = @translator.write_osws # this just returns the Baseline scenario
       @output_osm = File.join(@output_path, 'in.osm')
       @output_osw = File.join(@output_path, 'Baseline', 'in.osw')
+      @m = OpenStudio::Model::Model.load(@output_osm)
+      @m = @m.get
+      @bldg = @m.building.get
     end
 
     it "Should create an L100_OpenStudio_Simulation_01/in.osm file" do
@@ -129,13 +132,50 @@ describe 'Translate' do
     end
 
     it "Should have a total number of occupants: 371 + 123 = 494" do
-      m = OpenStudio::Model::Model.load(@output_osm)
-      m = m.get
-      bldg = m.building.get
-      number_of_people = bldg.numberOfPeople.to_i
+      number_of_people = @bldg.numberOfPeople.to_i
 
       # As defined in XML file: 371 + 123 = 494
       expect(number_of_people).to eq(494)
+    end
+
+    it "Should have the same number of stories as specified by: FloorsAboveGrade: 2" do
+      # TODO: Can't figure out if this is happening correctly based on the number of floors
+      #   specified by the XML file, or just perchance...?
+      number_of_stories = @m.getBuildingStorys.size
+
+      expect(number_of_stories).to eq(2)
+    end
+
+    it "Should change the number of stories in the OSM when the XML is changed and re-translated.  FloorsAboveGrade: 4" do
+      # TODO: Figure out if BSync-gem is reading:
+        # FloorsAboveGrade
+        # ConditionedFloorsAboveGrade, etc.
+
+      doc = REXML::Document.new(File.new(@test_file))
+      floors_above_grade = REXML::XPath.match(doc, "//auc:Building/auc:FloorsAboveGrade")
+      cond_floors = REXML::XPath.match(doc, "//auc:Building/auc:ConditionedFloorsAboveGrade")
+      puts floors_above_grade
+      floors_above_grade[0].text = 4
+      cond_floors[0].text = 4
+      temp_file = "#{@output_path}/temp.xml"
+      File.open(temp_file, 'w') do |file|
+        doc.write(file)
+      end
+      translator = BuildingSync::Translator.new(temp_file, @output_path, nil, 'ASHRAE90.1', false)
+      result_from_write_osm = translator.write_osm
+      result_from_write_osw = translator.write_osws # this just returns the Baseline scenario
+
+      m = OpenStudio::Model::Model.load(@output_osm)
+      m = m.get
+      number_of_stories = m.getBuildingStorys.size
+
+      # TODO: Currently, it is getting set to 3 Stories.
+      expect(number_of_stories).to eq(4)
+
+      # Remove temp file
+      if @remove_files
+        File.delete(temp_file)
+      end
     end
 
     it "Should change the number of people in the OSM when the XML is changed and re-translated.  New value should be: 500 + 123 = 623" do
