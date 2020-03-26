@@ -89,18 +89,9 @@ Output directories will be created after running either the translation or simul
 #Examples
 ## HVAC System Examples
 
-Where the System Type specified below does not exactly match the enumeration in the BSync XML file, check the mapping defined by [map_primary_hvac_system_type_to_cbecs_system_type](https://github.com/BuildingSync/BuildingSync-gem/blob/bb52655ebb8efeca44249277d3fb67ac60b4e610/lib/buildingsync/model_articulation/hvac_system.rb#L121-L143).  Additionally, see the `examples/HVACSystems` directory for a tutorial and example files.
+Where the System Type specified below does not exactly match the enumeration in the BSync XML file, check the mapping defined by [map_primary_hvac_system_type_to_cbecs_system_type](https://github.com/BuildingSync/BuildingSync-gem/blob/bb52655ebb8efeca44249277d3fb67ac60b4e610/lib/buildingsync/model_articulation/hvac_system.rb#L121-L143).  Additionally, see the [examples/HVACSystems](https://github.com/BuildingSync/TestSuite/tree/L100_Schematron/examples/HVACSystems) directory for a tutorial and example files.
 
-| System Type | Level 000 | Level 100 | Level 200 |
-|------------------------------------|--------------------|--------------------|-----------|
-| PSZ-AC with gas coil heat | [L000_OpenStudio_Simulation_02.xml](https://github.com/BuildingSync/TestSuite/blob/L100_Schematron/spec/use_cases/schema2.0.0/examples/L000_OpenStudio_Simulation_02.xml) - via inference from OS Standards  | [L100_Instance1.xml](https://github.com/BuildingSync/TestSuite/blob/master/tests/schema2.0.0-pr2/Level_100/inputs/L100_Instance1.xml) |  |
-| VAV with reheat | [L000_OpenStudio_Simulation_01](https://github.com/BuildingSync/TestSuite/blob/L100_Schematron/spec/use_cases/schema2.0.0/examples/L000_OpenStudio_Simulation_01.xml)  - via inference from OS Standards | [L100_Instance2.xml](https://github.com/BuildingSync/TestSuite/blob/master/tests/schema2.0.0-pr2/Level_100/inputs/L100_Instance2.xml) |  |
-| Shared Boiler |  | TODO |  |
-| DOAS & Radiant |  | TODO |  |
-| Inferred from OpenStudio Standards | [L000_Instance1.xml](https://github.com/BuildingSync/TestSuite/blob/master/tests/schema2.0.0-pr2/Level_000/inputs/L000_Instance1.xml) |  |  |
-|  | [L000_Instance2.xml](https://github.com/BuildingSync/TestSuite/blob/master/tests/schema2.0.0-pr2/Level_000/inputs/L000_Instance1.xml) |  |  |
-
-| File | Specified For | System Type | Translate Tested | Simulate Tested | Approximate Level | Validates Against | Notes |
+| File | Specified For | System Type | Translate Tested | Simulate Tested | Approximate Level | Validates Against | Description |
 |-----------------------------------|----------------|---------------------------------------------------|------------------|-----------------|-------------------|--------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------|
 | [L000_OpenStudio_Simulation_01.xml](https://github.com/BuildingSync/TestSuite/blob/L100_Schematron/spec/use_cases/schema2.0.0/examples/L000_OpenStudio_Simulation_01.xml) | Building | VAV with reheat | TRUE | TRUE | L000 | L000_OpenStudio_Simulation.sch | No system-type actually declared.  System inferred from OpenStudio Standards based on Building's OccupancyClassification and Gross floor area. |
 | [L000_OpenStudio_Simulation_02.xml](https://github.com/BuildingSync/TestSuite/blob/L100_Schematron/spec/use_cases/schema2.0.0/examples/L000_OpenStudio_Simulation_02.xml) | Building | PSZ-AC with gas reheat | TRUE | TRUE | L000 | L000_OpenStudio_Simulation.sch | No system-type actually declared.  System inferred from OpenStudio Standards based on Building's OccupancyClassification and Gross floor area. |
