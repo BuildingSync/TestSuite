@@ -71,16 +71,16 @@ Tests are also written for OpenStudio Simulation files.  Examples for how to use
 1. Translation of BuildingSync XML file into the OSM / OSW.
 1. Simulation of the OSW.
 
-Tests can be run as follows:
+By default, all of the files are removed after the translation/simulation occurs.  This can be overriden by passing the `REMOVE_FILES=false` environment variable.  Tests can be run as follows:
 
-__Test that simulation files are translated__
+__Test that simulation files are translated (files will be removed after test)__
 ```
 $ BUNDLE_GEMFILE=Gemfile bundle exec rake translate
 ```
 
-__Test that simulation files can be simulated__
+__Test that simulation files can be simulated (files will remain after test)__
 ```
-$ BUNDLE_GEMFILE=Gemfile bundle exec rake simulate
+$ BUNDLE_GEMFILE=Gemfile bundle exec rake simulate REMOVE_FILES=false
 ```
 
 ### Outputs

@@ -15,7 +15,6 @@ task :translate do |task, args|
   t.pattern = Dir.glob('spec/simulations/*translate_spec.rb')
   t.rspec_opts = '--format documentation'
   t.run_task(task)
-  # end
 end
 
 desc 'Run simulation tests'
@@ -24,7 +23,6 @@ task :simulate do |task, args|
   t.pattern = Dir.glob('spec/simulations/*simulate_spec.rb')
   t.rspec_opts = '--format documentation'
   t.run_task(task)
-  # end
 end
 
 desc 'L000 run simulation'
