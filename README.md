@@ -30,8 +30,8 @@ $ bundle install --gemfile Gemfile-sch --path .bundle/install
 
 ## Modeling Level of Detail Definitions
 The Modeling Level of Detail (MLOD) is similar in concept to the [Model View Definitions (MVD)](https://technical.buildingsmart.org/standards/mvd/) defined by IFC.  MLODs define a subset of the overall BuildingSync schema necessary for a specific use case or workflow.  The two primary use cases for defining levels are to:
-1. Ensure alignment with different portions of ASHRAE Standard 211
-1. Enable BuilingSync XML files to be used with the [BuildingSync gem](https://github.com/BuildingSync/BuildingSync-gem) and run through the OpenStudio simulation workflow.
+1. Ensure alignment with different portions of ASHRAE Standard 211 (Use Case = Audit)
+1. Enable BuilingSync XML files to be used with the [BuildingSync gem](https://github.com/BuildingSync/BuildingSync-gem) and run through the OpenStudio simulation workflow. (Use Case = OpenStudio_Simulation)
 
 The formal definitions for the levels are defined using Schematron files, which are located in `spec/use_cases/[schema_version]/[Level_XXX]_[Use_Case].sch`. Level definitions are in alignment with the ASHRAE Standard 211 levels as defined below:
 
@@ -44,7 +44,7 @@ The formal definitions for the levels are defined using Schematron files, which 
 | Level 400 | Audit | Not Applicable | Not Applicable |
 | Level 500 | Audit | Not Applicable | Not Applicable |
 
-__Note - Level definitions for use with the BuildingSync gem are significantly reduced compared to requirements for the 211 Standard, since only certain elements are used when generating a model for simulation.  For example, to define a Level_000 Simulation file, an auc:ScenarioType/auc:Benchmark is not required, nor are things like auc:Contacts, however we do rely on fields like auc:Building/auc:YearOfConstruction to drive the vintage of code standard used.  More specifics to follow.__
+__Note - MLOD definitions for use with the OpenStudio Simulation use case are significantly reduced compared to requirements for the 211 Standard, since only certain elements are used when generating a model for simulation.  For example, to define a Level_000 Simulation file, an auc:ScenarioType/auc:Benchmark is not required, nor are things like auc:Contacts, however we do rely on fields like auc:Building/auc:YearOfConstruction to drive the vintage of code standard used.  More specifics to follow.__
 
 The `lib` directory provides a library of general purpose Schematron functions used  within the individual Schematron documents.  These functions are designed to be used by others with use cases outside of the Levels defined above.  Narrative overviews for the different levels can be found in `docs`.
 
