@@ -8,11 +8,11 @@
   <include href="../../../lib/floorElements.sch#fa.haveTypeAndValue"/>
   <include href="../../../lib/scenarioElements.sch#sc.benchmarkType"/>
   <phase id="L000_PrelimAnalysis">
-<!--    Ensure Building element is specified -->
+    <!--    Ensure Building element is specified -->
     <active pattern="root.oneOfEachUntilBuilding"/>
-<!--    Ensure atleast one Scenario element is specified -->
+    <!--    Ensure atleast one Scenario element is specified -->
     <active pattern="root.oneOfEachFacilityUntilScenario"/>
-<!--    Ensure a Benchmark scenario is specified -->
+    <!--    Ensure a Benchmark scenario is specified -->
     <active pattern="sc.benchmarkType"/>
   </phase>
 </schema>

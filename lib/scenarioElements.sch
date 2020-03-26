@@ -29,8 +29,7 @@
       </assert>
     </rule>
   </pattern>
-  
-<!--  
+  <!--  
   Function Description
   <severity> error
   <param> paramName - type of element expected

@@ -58,7 +58,7 @@
                   <auc:AnnualFuelUseConsistentUnits>295.3682492032391</auc:AnnualFuelUseConsistentUnits>
                 </auc:ResourceUse>
                 <auc:ResourceUse ID="Baseline-Measured-Onsite-Solar">
-                  <auc:EnergyResource></auc:EnergyResource>
+                  <auc:EnergyResource/>
                   <auc:ResourceUnits>kWh</auc:ResourceUnits>
                   <auc:AnnualFuelUseNativeUnits>100</auc:AnnualFuelUseNativeUnits>
                   <auc:AnnualFuelUseConsistentUnits>0.34</auc:AnnualFuelUseConsistentUnits>
@@ -293,7 +293,7 @@
               </auc:AllResourceTotals>
               <auc:LinkedPremises>
                 <auc:Building>
-                  <auc:LinkedBuildingID IDref="Willis_Tower"></auc:LinkedBuildingID>
+                  <auc:LinkedBuildingID IDref="Willis_Tower"/>
                 </auc:Building>
               </auc:LinkedPremises>
             </auc:Scenario>
@@ -313,7 +313,7 @@
               </auc:ScenarioType>
               <auc:LinkedPremises>
                 <auc:Building>
-                  <auc:LinkedBuildingID IDref="Willis_Tower"></auc:LinkedBuildingID>
+                  <auc:LinkedBuildingID IDref="Willis_Tower"/>
                 </auc:Building>
               </auc:LinkedPremises>
             </auc:Scenario>
