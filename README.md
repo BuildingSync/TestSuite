@@ -19,8 +19,8 @@ require '/Applications/OpenStudio-2.9.1/Ruby/openstudio.rb'
 ___Note - your version of OpenStudio may be different___
 
 Due to dependency issues, there are currently two Gemfiles available in the repo.  Refer to the linked sections for specifics on how to use.
-1. `Gemfile` - Use this for running Rake tasks for [running OpenStudio Simulations](#running-simulations-rakefile)
-1. `Gemfile-sch` - Use this for running Rake tasks for [tests](#tests)
+1. `Gemfile` - Use this for running Rake tasks for [running simulation tests](#running-simulation-tests)
+1. `Gemfile-sch` - Use this for running Rake tasks for [schematron tests](#schematron-tests)
 
 __Note - there is no need to `rm -rf .bundle/` when switching between the above two scenarios.  Just run the below commands and then proceed as described in the linked sections__
 ```
@@ -53,7 +53,7 @@ Rake tasks are currently used for two purposes:
 1. Tests
 1. Running Simulations
 
-## Tests
+## Schematron Tests
 RSpec is used for running tests.  The tests are written around the following:
 1. Testing individual Schematron functions within `lib/` are working correctly. In Progress.
 1. Testing that Schematron is working against Level Definition files.  In Progress.
