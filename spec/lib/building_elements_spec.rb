@@ -114,9 +114,9 @@ describe 'An IMPROPER be.L000BuildingInfo' do
   end
 end
 
-describe 'A PROPER be.mainDetails' do
+describe 'A PROPER be.mainDetails.L100.audit' do
   before(:all) do
-    sch_path = File.join(File.dirname(__FILE__), '../files/building_main_details.sch')
+    sch_path = File.join(File.dirname(__FILE__), '../files/building_main_details_L100_audit.sch')
     sch_file = Nokogiri::XML File.open sch_path
     @stron = SchematronNokogiri::Schema.new sch_file
 
@@ -214,9 +214,9 @@ describe 'A PROPER be.mainDetails' do
   end
 end
 
-describe 'AN IMPROPER be.mainDetails' do
+describe 'AN IMPROPER be.mainDetails.L100.audit' do
   before(:all) do
-    sch_path = File.join(File.dirname(__FILE__), '../files/building_main_details.sch')
+    sch_path = File.join(File.dirname(__FILE__), '../files/building_main_details_L100_audit.sch')
     sch_file = Nokogiri::XML File.open sch_path
     @stron = SchematronNokogiri::Schema.new sch_file
 
