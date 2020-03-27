@@ -17,6 +17,8 @@
                 <auc:State>IL</auc:State>
                 <auc:PostalCode>60606</auc:PostalCode>
               </auc:Address>
+              <auc:BuildingClassification>Mixed use commercial</auc:BuildingClassification>
+              <auc:OccupancyClassification>Mixed-use commercial</auc:OccupancyClassification>
               <auc:FloorsAboveGrade>2</auc:FloorsAboveGrade>
               <auc:FloorsBelowGrade>0</auc:FloorsBelowGrade>
               <auc:ConditionedFloorsAboveGrade>2</auc:ConditionedFloorsAboveGrade>
@@ -70,7 +72,7 @@
                     </auc:FloorArea>
                     <auc:FloorArea>
                       <auc:FloorAreaType>Conditioned</auc:FloorAreaType>
-                      <auc:FloorAreaPercentage>100</auc:FloorAreaPercentage>
+                      <auc:FloorAreaValue>24695.0</auc:FloorAreaValue>
                     </auc:FloorArea>
                   </auc:FloorAreas>
                 </auc:Section>
@@ -100,7 +102,7 @@
                     </auc:FloorArea>
                     <auc:FloorArea>
                       <auc:FloorAreaType>Conditioned</auc:FloorAreaType>
-                      <auc:FloorAreaPercentage>100</auc:FloorAreaPercentage>
+                      <auc:FloorAreaValue>24695</auc:FloorAreaValue>
                     </auc:FloorArea>
                   </auc:FloorAreas>
                 </auc:Section>
