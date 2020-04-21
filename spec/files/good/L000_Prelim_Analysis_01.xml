@@ -58,7 +58,7 @@
                   <auc:AnnualFuelUseConsistentUnits>295.3682492032391</auc:AnnualFuelUseConsistentUnits>
                 </auc:ResourceUse>
                 <auc:ResourceUse ID="Baseline-Measured-Onsite-Solar">
-                  <auc:EnergyResource/>
+                  <auc:EnergyResource>Solar</auc:EnergyResource>
                   <auc:ResourceUnits>kWh</auc:ResourceUnits>
                   <auc:AnnualFuelUseNativeUnits>100</auc:AnnualFuelUseNativeUnits>
                   <auc:AnnualFuelUseConsistentUnits>0.34</auc:AnnualFuelUseConsistentUnits>
