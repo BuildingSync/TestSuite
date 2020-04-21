@@ -8,13 +8,13 @@ __Note: It is important to understand the schema hierarchy when modeling these c
 # Scenario Types
 Based on data requirements specified by ASHRAE 211, the following standardized types are defined to capture necessary audit information.
 
-|  211 Section | Short Description | Scenario Purpose | XPath |
+|  211 Section | Short Description | Scenario Purpose | XPath (Prefix for all is `auc:Scenario/auc:ScenarioType`) |
 | --- | --- | --- | --- |
-| 6.1.2 | Current Building Measured | Exactly 1 `auc:Scenario` to represent historical building data, fuel resources, and the monthly and annual data values for the different resources. | `auc:Scenario/auc:ScenarioType/auc:CurrentBuilding/auc:CalculationMethod/auc:Measured`
-|  6.1.3 | Benchmark | At least 1 `auc:Scenario` to represent data from a benchmark, declaring the type of benchmark used (Building Performance Database, CBECS, etc.) and the associated benchmark value. | `auc:Scenario/auc:ScenarioType/auc:Benchmark` |
-| 6.1.4 | Target | At least 1 `auc:Scenario` to represent the target and estimate expected savings. | `auc:Scenario/auc:ScenarioType/auc:Target` | 
-| N/A | Current Building Modeled | Exactly 1 `auc:Scenario` to represent the current building modeled performance.  This is used as the baseline for calculating energy / cost savings as necessary for 6.1.5 and 6.1.6 | `auc:Scenario/auc:ScenarioType/auc:CurrentBuilding/auc:CalculationMethod/auc:Modeled` |
-| 6.1.5 & 6.1.6 | Proposed Building Modeled | N+ `auc:Scenario`s to represent EEM analysis, associated costs, savings, resources used, and consumption. Each of these scenario types can include 1+ individual measures, so grouped measure analysis is feasible to represent. | `auc:Scenario/auc:ScenarioType/auc:PackageOfMeasures` |
+| 6.1.2 | Current Building Measured | Exactly 1 `auc:Scenario` to represent historical building data, fuel resources, and the monthly and annual data values for the different resources. | `auc:CurrentBuilding/auc:CalculationMethod/auc:Measured`
+|  6.1.3 | Benchmark | At least 1 `auc:Scenario` to represent data from a benchmark, declaring the type of benchmark used (Building Performance Database, CBECS, etc.) and the associated benchmark value. | `auc:Benchmark` |
+| 6.1.4 | Target | At least 1 `auc:Scenario` to represent the target and estimate expected savings. | `auc:Target` | 
+| N/A | Current Building Modeled | Exactly 1 `auc:Scenario` to represent the current building modeled performance.  This is used as the baseline for calculating energy / cost savings as necessary for 6.1.5 and 6.1.6 | `auc:CurrentBuilding/auc:CalculationMethod/auc:Modeled` |
+| 6.1.5 & 6.1.6 | Proposed Building Modeled | N+ `auc:Scenario`s to represent EEM analysis, associated costs, savings, resources used, and consumption. Each of these scenario types can include 1+ individual measures, so grouped measure analysis is feasible to represent. | `auc:PackageOfMeasures` |
 
 # Standard 211 Requirements
 Modeling concepts that are important for Standard 211 specifically.
