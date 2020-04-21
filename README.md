@@ -28,14 +28,25 @@ $ bundle install --gemfile Gemfile --path .bundle/install
 $ bundle install --gemfile Gemfile-sch --path .bundle/install
 ```
 
-## Modeling Level of Detail Definitions
-The Modeling Level of Detail (MLOD) is similar in concept to the [Model View Definitions (MVD)](https://technical.buildingsmart.org/standards/mvd/) defined by IFC.  MLODs define a subset of the overall BuildingSync schema necessary for a specific use case or workflow.  The two primary use cases for defining levels are to:
-1. Ensure alignment with different portions of ASHRAE Standard 211 (Use Case = Audit)
-1. Enable BuilingSync XML files to be used with the [BuildingSync gem](https://github.com/BuildingSync/BuildingSync-gem) and run through the OpenStudio simulation workflow. (Use Case = OpenStudio_Simulation)
+## Use Cases, Model View Definitions, and Modeling Level of Detail Definitions
+As BuildingSync has grown in its ability to represent information about buildings, it is able to define aspects of buildings at varying levels of abstraction.  Additionally, while originally designed to capture energy audit data, data stored in BuildingSync can be used for other purposes as well. Working with data for different purposes and at varying levels of abstraction in a schema is not something new to BuildingSync.  This is a similar problem faced by the building information modeling (BIM) community, where different informational requirements are necessary at different project stages and many different stakeholders are involved in projects. BIM uses the Industry Foundation Classes (IFC) schema for transferring data between applications.  The BuildingSync team utilizes two concepts introduced by the BIM world for refining data expectations needed by different users of the schema: Level of Development (LOD) and Model View Definitions (MVD).
 
-The formal definitions for the levels are defined using Schematron files, which are located in `spec/use_cases/[schema_version]/[Level_XXX]_[Use_Case].sch`. Level definitions are in alignment with the ASHRAE Standard 211 levels as defined below:
+The LOD spec is a comprehensive guide developed by the AIA and BIMForm to help BIM authors describe the depth of their models based on phases of design [reference](https://bimforum.agc.org/lod/).  MVDs are developed by a variety of users in the BIM community to define a subset of the overall schema necessary for a specific use case or workflow [reference](https://www.sciencedirect.com/science/article/abs/pii/S0926580515002319?via%3Dihub).  We utilize these concepts in BuildingSync and define them as follows:
 
-| MLOD | Use Case | Alignment to Std 211 | Std 211 Section |
+### MVD
+A MVD in BuildingSync is intended to provide a narrower focus for which the data stored in a BuildingSync document is intended. It is analogous to the MVD introduced above. The two primary MVDs developed so far are:
+    - Audit – To ensure alignment of data contained in the BuildingSync document with portions of the ASHRAE 211 Standard
+    - OpenStudio Simulation – To ensure alignment of data contained in the BuildingSync document with requirements necessary to utilize the BuildingSync-gem for automatically generating and simulating an energy model using OpenStudio.
+    
+### MLOD definitions
+The MLOD definitions are intended to provide expectations of informational requirements at differing levels of abstraction.  For example, in BuildingSync, a Building element can be defined to capture high-level information, but narrower levels of abstraction regarding architectural and mechanical space configurations (Section, ThermalZone, or Space elements) can be defined as child elements of the Building to provide more specific information.  This is analogous to the LOD spec introduced above.
+
+### Use case
+A use case is a combination of an MVD and a MLOD.  Together, these provide formalized definitions for BuildingSync data expectations.
+
+The formal definitions for each use case is defined using Schematron files, which are located in `spec/use_cases/[schema_version]/[MLOD]_[MVD].sch`. Six MLODs have been defined in BuildingSync, the first four being in alignment with ASHRAE Standard 211:
+
+| MLOD | MVD | Alignment to Std 211 | Std 211 Section |
 |-----------|----------------------|-----------------|---|
 | Level 000 | Audit | Preliminary Analysis | Section 5.2.3 |
 | Level 100 | Audit | Level 1 | Section 6.1 |
@@ -44,9 +55,8 @@ The formal definitions for the levels are defined using Schematron files, which 
 | Level 400 | Audit | Not Applicable | Not Applicable |
 | Level 500 | Audit | Not Applicable | Not Applicable |
 
-__Note - MLOD definitions for use with the OpenStudio Simulation use case are significantly reduced compared to requirements for the 211 Standard, since only certain elements are used when generating a model for simulation.  For example, to define a Level_000 Simulation file, an auc:ScenarioType/auc:Benchmark is not required, nor are things like auc:Contacts, however we do rely on fields like auc:Building/auc:YearOfConstruction to drive the vintage of code standard used.  More specifics to follow.__
 
-The `lib` directory provides a library of general purpose Schematron functions used  within the individual Schematron documents.  These functions are designed to be used by others with use cases outside of the Levels defined above.  Narrative overviews for the different levels can be found in `docs`.
+The `lib` directory provides a library of general purpose Schematron functions used within the individual Schematron documents.  These functions are designed to be used by others with use cases outside of the Levels defined above.  Narrative overviews for the different levels can be found in `docs`.
 
 # Rakefile
 Rake tasks are currently used for two purposes:
@@ -91,7 +101,7 @@ Output directories will be created after running either the translation or simul
 
 Where the System Type specified below does not exactly match the enumeration in the BSync XML file, check the mapping defined by [map_primary_hvac_system_type_to_cbecs_system_type](https://github.com/BuildingSync/BuildingSync-gem/blob/bb52655ebb8efeca44249277d3fb67ac60b4e610/lib/buildingsync/model_articulation/hvac_system.rb#L121-L143).  Additionally, see the [examples/HVACSystems](https://github.com/BuildingSync/TestSuite/tree/L100_Schematron/examples/HVACSystems) directory for a tutorial and example files.
 
-| File                                                                                                                                                                      | Specified For  | System Type                                       | Translate Tested | Simulate Tested | [MLOD](#modeling-level-of-detail-definitions) | Use Case              | Validates Against              | Description                                                                                                                                    |
+| File                                                                                                                                                                      | Specified For  | System Type                                       | Translate Tested | Simulate Tested | [MLOD](#mlod-definitions) | [MVD](#mvd)              | Validates Against              | Description                                                                                                                                    |
 |---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------|---------------------------------------------------|------------------|-----------------|------|-----------------------|--------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------|
 | [L000_OpenStudio_Simulation_01.xml](https://github.com/BuildingSync/TestSuite/blob/L100_Schematron/spec/use_cases/schema2.0.0/examples/L000_OpenStudio_Simulation_01.xml) | Building       | VAV with reheat                                   | TRUE             | TRUE            | L000 | OpenStudio_Simulation | [L000_OpenStudio_Simulation.sch](https://github.com/BuildingSync/TestSuite/blob/L100_Schematron/spec/use_cases/schema2.0.0/L000_OpenStudio_Simulation.sch) | No system-type actually declared.  System inferred from OpenStudio Standards based on Building's OccupancyClassification and Gross floor area. |
 | [L000_OpenStudio_Simulation_02.xml](https://github.com/BuildingSync/TestSuite/blob/L100_Schematron/spec/use_cases/schema2.0.0/examples/L000_OpenStudio_Simulation_02.xml) | Building       | PSZ-AC with gas reheat                            | TRUE             | TRUE            | L000 | OpenStudio_Simulation | [L000_OpenStudio_Simulation.sch](https://github.com/BuildingSync/TestSuite/blob/L100_Schematron/spec/use_cases/schema2.0.0/L000_OpenStudio_Simulation.sch) | No system-type actually declared.  System inferred from OpenStudio Standards based on Building's OccupancyClassification and Gross floor area. |
