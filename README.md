@@ -71,6 +71,7 @@ RSpec is used for running tests.  The tests are written around the following:
 ```
 $ bundle install --gemfile Gemfile-sch --path .bundle/install # if not previously run
 $ BUNDLE_GEMFILE=Gemfile-sch bundle exec rake spec
+$ BUNDLE_GEMFILE=Gemfile-sch bundle exec rake spec SPEC=spec/lib/scenario_elements_spec.rb # run tests in single file
 ```
 
 More information on developing Schematron functions (and the required tests!) can be found in the `docs/Contributions and Schematron.md` document.
