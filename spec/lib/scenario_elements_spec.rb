@@ -4,7 +4,7 @@ require 'schematron-nokogiri'
 # sc.be.hasBenchmarkType
 describe 'A PROPER sc.be.hasBenchmarkType' do
   before(:all) do
-    sch_path = File.join(File.dirname(__FILE__), '../files/scenario_building_benchmark_type.sch')
+    sch_path = File.join(File.dirname(__FILE__), '../files/scenario_building_has_benchmark_type.sch')
     sch_file = Nokogiri::XML File.open sch_path
     @stron = SchematronNokogiri::Schema.new sch_file
 
@@ -25,7 +25,7 @@ end
 
 describe 'An IMPROPER sc.be.hasBenchmarkType' do
   before(:all) do
-    sch_path = File.join(File.dirname(__FILE__), '../files/scenario_building_benchmark_type.sch')
+    sch_path = File.join(File.dirname(__FILE__), '../files/scenario_building_has_benchmark_type.sch')
     sch_file = Nokogiri::XML File.open sch_path
     @stron = SchematronNokogiri::Schema.new sch_file
 
@@ -68,7 +68,7 @@ end
 # sc.be.hasMeasured
 describe 'A PROPER sc.be.hasMeasured' do
   before(:all) do
-    sch_path = File.join(File.dirname(__FILE__), '../files/scenario_building_measured.sch')
+    sch_path = File.join(File.dirname(__FILE__), '../files/scenario_building_has_measured.sch')
     sch_file = Nokogiri::XML File.open sch_path
     @stron = SchematronNokogiri::Schema.new sch_file
 
@@ -89,7 +89,7 @@ end
 
 describe 'An IMPROPER sc.be.hasMeasured' do
   before(:all) do
-    sch_path = File.join(File.dirname(__FILE__), '../files/scenario_building_measured.sch')
+    sch_path = File.join(File.dirname(__FILE__), '../files/scenario_building_has_measured.sch')
     sch_file = Nokogiri::XML File.open sch_path
     @stron = SchematronNokogiri::Schema.new sch_file
 
@@ -231,7 +231,7 @@ end
 # sc.measured.resourceUseReqs
 describe 'A PROPER sc.measured.resourceUseReqs' do
   before(:all) do
-    sch_path = File.join(File.dirname(__FILE__), '../files/scenario_measured_resource_uses.sch')
+    sch_path = File.join(File.dirname(__FILE__), '../files/scenario_measured_resource_use_reqs.sch')
     sch_file = Nokogiri::XML File.open sch_path
     @stron = SchematronNokogiri::Schema.new sch_file
 
@@ -239,20 +239,22 @@ describe 'A PROPER sc.measured.resourceUseReqs' do
     @doc_original = Nokogiri::XML File.open @xml_path # create a Nokogiri::XML::Document
   end
 
-  it "Should ensure an auc:ResourceUses is defined for the measured auc:Scenario" do
+  it "Should ensure, for a measured auc:Scenario:
+      - an auc:ResourceUses is defined
+      - atleast one auc:ResourceUse/auc:EnergyResource is defined" do
     doc = @doc_original.clone
 
     # Begin schematron validation
     errors = @stron.validate(doc)
-    puts "Schematron errors:"
-    puts errors
+    # puts "Schematron errors:"
+    # puts errors
     expect(errors.length).to eq(0)
   end
 end
 
 describe 'AN IMPROPER sc.measured.resourceUseReqs' do
   before(:all) do
-    sch_path = File.join(File.dirname(__FILE__), '../files/scenario_measured_resource_uses.sch')
+    sch_path = File.join(File.dirname(__FILE__), '../files/scenario_measured_resource_use_reqs.sch')
     sch_file = Nokogiri::XML File.open sch_path
     @stron = SchematronNokogiri::Schema.new sch_file
 
@@ -287,8 +289,8 @@ describe 'AN IMPROPER sc.measured.resourceUseReqs' do
 
     # Begin schematron validation
     errors = @stron.validate(doc)
-    puts "Schematron errors:"
-    puts errors
+    # puts "Schematron errors:"
+    # puts errors
     expect(errors.length).to eq(4)
     expect(errors[0][:message]).to eq("[ERROR] 'auc:Scenario' ID = 'Baseline-Measured' MUST HAVE EXACTLY ONE 'auc:ResourceUses' child element")
     expect(errors[1][:message]).to eq("[ERROR] 'auc:Scenario' ID = 'Baseline-Measured' MUST HAVE AT LEAST ONE 'auc:ResourceUses/auc:ResourceUse/auc:EnergyResource'")
@@ -296,7 +298,7 @@ describe 'AN IMPROPER sc.measured.resourceUseReqs' do
     expect(errors[3][:message]).to eq("[ERROR] 'auc:Scenario' ID = 'Test-Scenario' MUST HAVE AT LEAST ONE 'auc:ResourceUses/auc:ResourceUse/auc:EnergyResource'")
   end
 
-  it "Should issue one ERRORs for every auc:Scenario/../auc:Measured that does not declare an auc:ResourceUses/auc:ResourceUse/auc:EnergyResource" do
+  it "Should issue one ERROR for every auc:Scenario/../auc:Measured that does not declare an auc:ResourceUses/auc:ResourceUse/auc:EnergyResource" do
     doc = @doc_original.clone
     scenarios = doc.root.xpath(@scenarios)
 
@@ -324,8 +326,45 @@ describe 'AN IMPROPER sc.measured.resourceUseReqs' do
 
     # Begin schematron validation
     errors = @stron.validate(doc)
-    puts "Schematron errors:"
-    puts errors
+    # puts "Schematron errors:"
+    # puts errors
+    expect(errors.length).to eq(4)
+    expect(errors[0][:message]).to eq("[ERROR] 'auc:Scenario' ID = 'Baseline-Measured' MUST HAVE EXACTLY ONE 'auc:ResourceUses' child element")
+    expect(errors[1][:message]).to eq("[ERROR] 'auc:Scenario' ID = 'Baseline-Measured' MUST HAVE AT LEAST ONE 'auc:ResourceUses/auc:ResourceUse/auc:EnergyResource'")
+    expect(errors[2][:message]).to eq("[ERROR] 'auc:Scenario' ID = 'Test-Scenario' MUST HAVE EXACTLY ONE 'auc:ResourceUses' child element")
+    expect(errors[3][:message]).to eq("[ERROR] 'auc:Scenario' ID = 'Test-Scenario' MUST HAVE AT LEAST ONE 'auc:ResourceUses/auc:ResourceUse/auc:EnergyResource'")
+  end
+
+  it "Should issue one ERROR for every auc:Scenario/../auc:Measured that does not declare an auc:ResourceUses/auc:ResourceUse/auc:EnergyResource" do
+    doc = @doc_original.clone
+    scenarios = doc.root.xpath(@scenarios)
+
+    # Add additional Scenario w/ResourceUses/ResourceUse/EnergyResource
+    Nokogiri::XML::Builder.with(scenarios[0]) do |xml|
+      xml['auc'].Scenario('ID' => 'Test-Scenario') {
+        xml['auc'].ScenarioType {
+          xml['auc'].CurrentBuilding {
+            xml['auc'].CalculationMethod {
+              xml['auc'].Measured
+            }
+          }
+        }
+        xml['auc'].ResourceUses {
+          xml['auc'].ResourceUse {
+            xml['auc'].EnergyResource
+          }
+        }
+      }
+    end
+    # puts doc
+    scenario_resource_uses = doc.root.xpath(@resource_uses)
+    expect(scenario_resource_uses.length).to eq(2)
+    scenario_resource_uses.each(&:remove)
+
+    # Begin schematron validation
+    errors = @stron.validate(doc)
+    # puts "Schematron errors:"
+    # puts errors
     expect(errors.length).to eq(4)
     expect(errors[0][:message]).to eq("[ERROR] 'auc:Scenario' ID = 'Baseline-Measured' MUST HAVE EXACTLY ONE 'auc:ResourceUses' child element")
     expect(errors[1][:message]).to eq("[ERROR] 'auc:Scenario' ID = 'Baseline-Measured' MUST HAVE AT LEAST ONE 'auc:ResourceUses/auc:ResourceUse/auc:EnergyResource'")
