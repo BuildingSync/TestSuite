@@ -38,8 +38,8 @@
   <include href="../../lib/id.sch#id.tenant"/>
   <include href="../../lib/id.sch#id.utility"/>
   <include href="../../lib/id.sch#id.wallSystem"/>
-<!--  <phase id="Tests">-->
-<!--    <active pattern="id.airInfiltrationSystem"/>
+  <phase id="Tests">
+    <active pattern="id.airInfiltrationSystem"/>
     <active pattern="id.building"/>
     <active pattern="id.condenserPlant"/>
     <active pattern="id.contact"/>
@@ -49,8 +49,8 @@
     <active pattern="id.criticalITSystem"/>
     <active pattern="id.delivery"/>
     <active pattern="id.domesticHotWaterSystem"/>
-    <active pattern="id.exteriorFloorSystem"/>-->
-<!--    <active pattern="id.facility"/>
+    <active pattern="id.exteriorFloorSystem"/>
+    <active pattern="id.facility"/>
     <active pattern="id.fanSystem"/>
     <active pattern="id.fenestrationSystem"/>
     <active pattern="id.foundationSystem"/>
@@ -75,6 +75,6 @@
     <active pattern="id.site"/>
     <active pattern="id.tenant"/>
     <active pattern="id.utility"/>
-    <active pattern="id.wallSystem"/>-->
-<!--  </phase>-->
+    <active pattern="id.wallSystem"/>
+  </phase>
 </schema>

@@ -92,4 +92,15 @@
       </assert>
     </rule>
   </pattern>
+  
+  <!--  
+  Ensure that, within the context of a Measurement Scenario, each EnergyResource type has a EndUse='All end uses'
+  <severity> error
+  -->
+<!--  <pattern id="sc.measured.energyResource.allEndUses">
+    <rule context="auc:Scenario[auc:ScenarioType/auc:CurrentBuilding/auc:CalculationMethod/auc:Measured]/auc:ResourceUses[auc:ResourceUse/auc:EnergyResource]">
+      <let name="energyResourceTypes" value="auc:ResourceUse/auc:EnergyResource/text()"/>
+      <let name="numEnergyResourceTypes" value="count(auc:ResourceUse/auc:EnergyResource/"
+    </rule>
+  </pattern>-->
 </schema>
