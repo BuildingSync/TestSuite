@@ -120,3 +120,31 @@ describe 'SEED Checks - Schematron' do
     end
   end
 end
+
+describe 'BRICR Checks - Schematron' do
+  describe 'A PROPER spec/use_cases/schema2.0.0/BRICR_SEED.sch' do
+    before(:all) do
+      sch_path = File.join(File.dirname(__FILE__), '../../use_cases/schema2.0.0/BRICR_SEED.sch')
+      sch_file = Nokogiri::XML File.open sch_path
+      @stron = SchematronNokogiri::Schema.new sch_file
+    end
+
+    it "Should not issue any [ERROR] or [WARNING] level when run against spec/use_cases/schema2.0.0/examples/SEED_01.xml" do
+      xml_path = File.join(File.dirname(__FILE__), '../../use_cases/schema2.0.0/examples/SEED_01.xml')
+      doc = Nokogiri::XML File.open xml_path # create a Nokogiri::XML::Document
+
+      # Begin schematron validation
+      errors = @stron.validate(doc)
+      errors_error = []
+      errors_warning = []
+      errors_info = []
+      errors.each do |err|
+        errors_error << err[:message] if err[:message].include? "[ERROR]"
+        errors_warning << err[:message] if err[:message].include? "[WARNING]"
+        errors_info  << err[:message] if err[:message].include? "[INFO]"
+      end
+      expect(errors_error.length).to eq(0)
+      expect(errors_warning.length).to eq(0)
+    end
+  end
+end
