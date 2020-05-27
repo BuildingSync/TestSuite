@@ -126,4 +126,15 @@
       </assert>
     </rule>
   </pattern>
+<!--  Check for Lat and Long at the building level-->
+  <pattern id="be.latLong">
+    <rule context="auc:Buildings/auc:Building">
+      <assert test="auc:Latitude">
+        [ERROR] element 'auc:Latitude' within element 'auc:Address' is REQUIRED EXACTLY ONCE for: '<name/>'
+      </assert>
+      <assert test="auc:Longitude">
+        [ERROR] element 'auc:Longitude' within element 'auc:Address' is REQUIRED EXACTLY ONCE for: '<name/>'
+      </assert>
+    </rule>
+  </pattern>
 </schema>
