@@ -16,15 +16,15 @@
   <pattern id="sc.baseline.ID">
     <let name="baselineCount" value="count(//auc:Scenario[@ID='Baseline'])"/>
     <rule context="auc:Scenarios">
-      <assert test="$baselineCount = 1">
-        [ERROR] element 'auc:Scenario' with attribute ID='Baseline' is REQUIRED EXACTLY ONCE for: <name/>
+      <assert test="$baselineCount = 1" role="ERROR">
+        element 'auc:Scenario' with attribute ID='Baseline' is REQUIRED EXACTLY ONCE for: <name/>
       </assert>
     </rule>
   </pattern>
   <pattern id="sc.baseline.asPackageOfMeasures">
     <rule context="auc:Scenario[@ID='Baseline']">
-      <assert test="auc:ScenarioType/auc:PackageOfMeasures/auc:ReferenceCase/@IDref = 'Baseline'">
-        [ERROR] element 'auc:Scenario' with attribute ID='Baseline' MUST CONTAIN the following subelements:
+      <assert test="auc:ScenarioType/auc:PackageOfMeasures/auc:ReferenceCase/@IDref = 'Baseline'" role="ERROR">
+        element 'auc:Scenario' with attribute ID='Baseline' MUST CONTAIN the following subelements:
         auc:ScenarioType/auc:PackageOfMeasures/auc:ReferenceCase IDref='Baseline'
       </assert>
     </rule>
@@ -37,8 +37,8 @@
     <rule context="auc:Buildings/auc:Building">
       <let name="buildingID" value="@ID"/>
       <let name="benchmarkLinkedBuildingIDs" value="ancestor::auc:Facility/auc:Reports//auc:Scenario[auc:ScenarioType/auc:Benchmark]/auc:LinkedPremises/auc:Building/auc:LinkedBuildingID/@IDref"/>
-      <assert test="$buildingID = $benchmarkLinkedBuildingIDs ">
-        [ERROR] '<name/>' ID = '<value-of select="$buildingID"/>' IS REQUIRED TO BE LINKED TO an 'auc:Scenario/auc:ScenarioType/auc:Benchmark'
+      <assert test="$buildingID = $benchmarkLinkedBuildingIDs " role="ERROR">
+        '<name/>' ID = '<value-of select="$buildingID"/>' IS REQUIRED TO BE LINKED TO an 'auc:Scenario/auc:ScenarioType/auc:Benchmark'
       </assert>
     </rule>
   </pattern>
@@ -49,17 +49,17 @@
   <pattern id="sc.benchmarkType.mainDetails.L000">
     <rule context="auc:Scenario[auc:ScenarioType/auc:Benchmark]/auc:ScenarioType/auc:Benchmark">
 <!--      <assert test="auc:BenchmarkType/*">-->
-      <assert test="count(auc:BenchmarkType/*) > 0">
-        [ERROR] child element for 'auc:BenchmarkType' is REQUIRED AT LEAST ONCE for '<name/>’
+      <assert test="count(auc:BenchmarkType/*) > 0" role="ERROR">
+        child element for 'auc:BenchmarkType' is REQUIRED AT LEAST ONCE for '<name/>’
       </assert>
-      <assert test="auc:BenchmarkTool">
-        [ERROR] element 'auc:BenchmarkTool' is REQUIRED EXACTLY ONCE for '<name/>’
+      <assert test="auc:BenchmarkTool" role="ERROR">
+        element 'auc:BenchmarkTool' is REQUIRED EXACTLY ONCE for '<name/>’
       </assert>
-      <assert test="auc:BenchmarkYear">
-        [ERROR] element 'auc:BenchmarkYear' is REQUIRED EXACTLY ONCE for '<name/>’
+      <assert test="auc:BenchmarkYear" role="ERROR">
+        element 'auc:BenchmarkYear' is REQUIRED EXACTLY ONCE for '<name/>’
       </assert>
-      <assert test="../../auc:LinkedPremises/auc:Building/auc:LinkedBuildingID">
-        [ERROR] elements 'auc:LinkedPremises/auc:Building/auc:LinkedBuildingID' is REQUIRED EXACTLY ONCE for '<name/>’
+      <assert test="../../auc:LinkedPremises/auc:Building/auc:LinkedBuildingID" role="ERROR">
+        elements 'auc:LinkedPremises/auc:Building/auc:LinkedBuildingID' is REQUIRED EXACTLY ONCE for '<name/>’
       </assert>
     </rule>
   </pattern>
@@ -71,8 +71,8 @@
     <rule context="auc:Buildings/auc:Building">
       <let name="buildingID" value="@ID"/>
       <let name="benchmarkLinkedBuildingIDs" value="ancestor::auc:Facility/auc:Reports//auc:Scenario[auc:ScenarioType/auc:CurrentBuilding/auc:CalculationMethod/auc:Measured]/auc:LinkedPremises/auc:Building/auc:LinkedBuildingID/@IDref"/>
-      <assert test="$buildingID = $benchmarkLinkedBuildingIDs ">
-        [ERROR] '<name/>' ID = '<value-of select="$buildingID"/>' IS REQUIRED TO BE LINKED TO an 'auc:Scenario/auc:ScenarioType/auc:CurrentBuilding/auc:CalculationMethod/auc:Measured'
+      <assert test="$buildingID = $benchmarkLinkedBuildingIDs " role="ERROR">
+        '<name/>' ID = '<value-of select="$buildingID"/>' IS REQUIRED TO BE LINKED TO an 'auc:Scenario/auc:ScenarioType/auc:CurrentBuilding/auc:CalculationMethod/auc:Measured'
       </assert>
     </rule>
   </pattern>
@@ -84,11 +84,11 @@
   -->
   <pattern id="sc.measured.resourceUseReqs">
     <rule context="auc:Scenario[auc:ScenarioType/auc:CurrentBuilding/auc:CalculationMethod/auc:Measured]">
-      <assert test="count(auc:ResourceUses) = 1">
-        [ERROR] '<name/>' ID = '<value-of select="@ID"/>' MUST HAVE EXACTLY ONE 'auc:ResourceUses' child element
+      <assert test="count(auc:ResourceUses) = 1" role="ERROR">
+        '<name/>' ID = '<value-of select="@ID"/>' MUST HAVE EXACTLY ONE 'auc:ResourceUses' child element
       </assert>
-      <assert test="count(auc:ResourceUses/auc:ResourceUse/auc:EnergyResource) >= 1">
-        [ERROR] '<name/>' ID = '<value-of select="@ID"/>' MUST HAVE AT LEAST ONE 'auc:ResourceUses/auc:ResourceUse/auc:EnergyResource'
+      <assert test="count(auc:ResourceUses/auc:ResourceUse/auc:EnergyResource) >= 1" role="ERROR">
+        '<name/>' ID = '<value-of select="@ID"/>' MUST HAVE AT LEAST ONE 'auc:ResourceUses/auc:ResourceUse/auc:EnergyResource'
       </assert>
     </rule>
   </pattern>
