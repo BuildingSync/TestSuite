@@ -54,8 +54,8 @@
     -->
   <pattern id="id.facility">
     <rule context="auc:Facilities/auc:Facility">
-      <assert test="@ID">
-        [ERROR] '<name/>' MUST HAVE an @ID attribute.
+      <assert test="@ID" role="ERROR">
+        '<name/>' MUST HAVE an @ID attribute.
       </assert>
     </rule>
   </pattern>
@@ -65,8 +65,8 @@
     -->
   <pattern id="id.site">
     <rule context="auc:Sites/auc:Site">
-      <assert test="@ID">
-        [ERROR] '<name/>' MUST HAVE an @ID attribute.  Refer to: 'auc:Facility' ID='<value-of select="ancestor::auc:Facility/@ID"/>'
+      <assert test="@ID" role="ERROR">
+        '<name/>' MUST HAVE an @ID attribute.  Refer to: 'auc:Facility' ID='<value-of select="ancestor::auc:Facility/@ID"/>'
       </assert>
     </rule>
   </pattern>
@@ -76,8 +76,8 @@
     -->
   <pattern id="id.building">
     <rule context="auc:Buildings/auc:Building">
-      <assert test="@ID">
-        [ERROR] '<name/>' MUST HAVE an @ID attribute.  Refer to: 'auc:Site' ID='<value-of select="ancestor::auc:Site/@ID"/>'
+      <assert test="@ID" role="ERROR">
+        '<name/>' MUST HAVE an @ID attribute.  Refer to: 'auc:Site' ID='<value-of select="ancestor::auc:Site/@ID"/>'
       </assert>
     </rule>
   </pattern>
@@ -87,8 +87,8 @@
     -->
   <pattern id="id.section">
     <rule context="auc:Sections/auc:Section">
-      <assert test="@ID">
-        [ERROR] '<name/>' MUST HAVE an @ID attribute.  Refer to: 'auc:Building' ID='<value-of select="ancestor::auc:Building/@ID"/>'
+      <assert test="@ID" role="ERROR">
+        '<name/>' MUST HAVE an @ID attribute.  Refer to: 'auc:Building' ID='<value-of select="ancestor::auc:Building/@ID"/>'
       </assert>
     </rule>
   </pattern>
@@ -99,8 +99,8 @@
     -->
   <pattern id="id.hvacSystem">
     <rule context="auc:HVACSystems/auc:HVACSystem">
-      <assert test="@ID">
-        [ERROR] '<name/>' MUST HAVE an @ID attribute.  Refer to: 'auc:Facility' ID='<value-of select="ancestor::auc:Facility/@ID"/>'
+      <assert test="@ID" role="ERROR">
+        '<name/>' MUST HAVE an @ID attribute.  Refer to: 'auc:Facility' ID='<value-of select="ancestor::auc:Facility/@ID"/>'
       </assert>
     </rule>
   </pattern>
@@ -110,8 +110,8 @@
     -->
   <pattern id="id.heatingPlant">
     <rule context="auc:HeatingPlants/auc:HeatingPlant">
-      <assert test="@ID">
-        [ERROR] '<name/>' MUST HAVE an @ID attribute.  Refer to: 'auc:HVACSystem' ID='<value-of select="ancestor::auc:HVACSystem/@ID"/>'
+      <assert test="@ID" role="ERROR">
+        '<name/>' MUST HAVE an @ID attribute.  Refer to: 'auc:HVACSystem' ID='<value-of select="ancestor::auc:HVACSystem/@ID"/>'
       </assert>
     </rule>
   </pattern>
@@ -121,8 +121,8 @@
     -->
   <pattern id="id.coolingPlant">
     <rule context="auc:CoolingPlants/auc:CoolingPlant">
-      <assert test="@ID">
-        [ERROR] '<name/>' MUST HAVE an @ID attribute.  Refer to: 'auc:HVACSystem' ID='<value-of select="ancestor::auc:HVACSystem/@ID"/>'
+      <assert test="@ID" role="ERROR">
+        '<name/>' MUST HAVE an @ID attribute.  Refer to: 'auc:HVACSystem' ID='<value-of select="ancestor::auc:HVACSystem/@ID"/>'
       </assert>
     </rule>
   </pattern>
@@ -132,8 +132,8 @@
     -->
   <pattern id="id.condenserPlant">
     <rule context="auc:CondenserPlants/auc:CondenserPlant">
-      <assert test="@ID">
-        [ERROR] '<name/>' MUST HAVE an @ID attribute.  Refer to: 'auc:HVACSystem' ID='<value-of select="ancestor::auc:HVACSystem/@ID"/>'
+      <assert test="@ID" role="ERROR">
+        '<name/>' MUST HAVE an @ID attribute.  Refer to: 'auc:HVACSystem' ID='<value-of select="ancestor::auc:HVACSystem/@ID"/>'
       </assert>
     </rule>
   </pattern>
@@ -143,8 +143,8 @@
     -->
   <pattern id="id.heatingSource">
     <rule context="auc:HeatingSources/auc:HeatingSource">
-      <assert test="@ID">
-        [ERROR] '<name/>' MUST HAVE an @ID attribute.  Refer to: 'auc:HVACSystem' ID='<value-of select="ancestor::auc:HVACSystem/@ID"/>'
+      <assert test="@ID" role="ERROR">
+        '<name/>' MUST HAVE an @ID attribute.  Refer to: 'auc:HVACSystem' ID='<value-of select="ancestor::auc:HVACSystem/@ID"/>'
       </assert>
     </rule>
   </pattern>
@@ -154,8 +154,8 @@
     -->
   <pattern id="id.coolingSource">
     <rule context="auc:CoolingSources/auc:CoolingSource">
-      <assert test="@ID">
-        [ERROR] '<name/>' MUST HAVE an @ID attribute.  Refer to: 'auc:HVACSystem' ID='<value-of select="ancestor::auc:HVACSystem/@ID"/>'
+      <assert test="@ID" role="ERROR">
+        '<name/>' MUST HAVE an @ID attribute.  Refer to: 'auc:HVACSystem' ID='<value-of select="ancestor::auc:HVACSystem/@ID"/>'
       </assert>
     </rule>
   </pattern>
@@ -165,8 +165,8 @@
     -->
   <pattern id="id.delivery">
     <rule context="auc:Deliveries/auc:Delivery">
-      <assert test="@ID">
-        [ERROR] '<name/>' MUST HAVE an @ID attribute.  Refer to: 'auc:HVACSystem' ID='<value-of select="ancestor::auc:HVACSystem/@ID"/>'
+      <assert test="@ID" role="ERROR">
+        '<name/>' MUST HAVE an @ID attribute.  Refer to: 'auc:HVACSystem' ID='<value-of select="ancestor::auc:HVACSystem/@ID"/>'
       </assert>
     </rule>
   </pattern>
@@ -176,8 +176,8 @@
     -->
   <pattern id="id.otherHVACSystem">
     <rule context="auc:OtherHVACSystems/auc:OtherHVACSystem">
-      <assert test="@ID">
-        [ERROR] '<name/>' MUST HAVE an @ID attribute.  Refer to: 'auc:HVACSystem' ID='<value-of select="ancestor::auc:HVACSystem/@ID"/>'
+      <assert test="@ID" role="ERROR">
+        '<name/>' MUST HAVE an @ID attribute.  Refer to: 'auc:HVACSystem' ID='<value-of select="ancestor::auc:HVACSystem/@ID"/>'
       </assert>
     </rule>
   </pattern>
@@ -187,8 +187,8 @@
     -->
   <pattern id="id.lightingSystem">
     <rule context="auc:LightingSystems/auc:LightingSystem">
-      <assert test="@ID">
-        [ERROR] '<name/>' MUST HAVE an @ID attribute.  Refer to: 'auc:Facility' ID='<value-of select="ancestor::auc:Facility/@ID"/>'
+      <assert test="@ID" role="ERROR">
+        '<name/>' MUST HAVE an @ID attribute.  Refer to: 'auc:Facility' ID='<value-of select="ancestor::auc:Facility/@ID"/>'
       </assert>
     </rule>
   </pattern>
@@ -198,8 +198,8 @@
     -->
   <pattern id="id.domesticHotWaterSystem">
     <rule context="auc:DomesticHotWaterSystems/auc:DomesticHotWaterSystem">
-      <assert test="@ID">
-        [ERROR] '<name/>' MUST HAVE an @ID attribute.  Refer to: 'auc:Facility' ID='<value-of select="ancestor::auc:Facility/@ID"/>'
+      <assert test="@ID" role="ERROR">
+        '<name/>' MUST HAVE an @ID attribute.  Refer to: 'auc:Facility' ID='<value-of select="ancestor::auc:Facility/@ID"/>'
       </assert>
     </rule>
   </pattern>
@@ -209,8 +209,8 @@
     -->
   <pattern id="id.pumpSystem">
     <rule context="auc:PumpSystems/auc:PumpSystem">
-      <assert test="@ID">
-        [ERROR] '<name/>' MUST HAVE an @ID attribute.  Refer to: 'auc:Facility' ID='<value-of select="ancestor::auc:Facility/@ID"/>'
+      <assert test="@ID" role="ERROR">
+        '<name/>' MUST HAVE an @ID attribute.  Refer to: 'auc:Facility' ID='<value-of select="ancestor::auc:Facility/@ID"/>'
       </assert>
     </rule>
   </pattern>
@@ -220,8 +220,8 @@
     -->
   <pattern id="id.fanSystem">
     <rule context="auc:FanSystems/auc:FanSystem">
-      <assert test="@ID">
-        [ERROR] '<name/>' MUST HAVE an @ID attribute.  Refer to: 'auc:Facility' ID='<value-of select="ancestor::auc:Facility/@ID"/>'
+      <assert test="@ID" role="ERROR">
+        '<name/>' MUST HAVE an @ID attribute.  Refer to: 'auc:Facility' ID='<value-of select="ancestor::auc:Facility/@ID"/>'
       </assert>
     </rule>
   </pattern>
@@ -231,8 +231,8 @@
     -->
   <pattern id="id.motorSystem">
     <rule context="auc:MotorSystems/auc:MotorSystem">
-      <assert test="@ID">
-        [ERROR] '<name/>' MUST HAVE an @ID attribute.  Refer to: 'auc:Facility' ID='<value-of select="ancestor::auc:Facility/@ID"/>'
+      <assert test="@ID" role="ERROR">
+        '<name/>' MUST HAVE an @ID attribute.  Refer to: 'auc:Facility' ID='<value-of select="ancestor::auc:Facility/@ID"/>'
       </assert>
     </rule>
   </pattern>
@@ -242,8 +242,8 @@
     -->
   <pattern id="id.wallSystem">
     <rule context="auc:WallSystems/auc:WallSystem">
-      <assert test="@ID">
-        [ERROR] '<name/>' MUST HAVE an @ID attribute.  Refer to: 'auc:Facility' ID='<value-of select="ancestor::auc:Facility/@ID"/>'
+      <assert test="@ID" role="ERROR">
+        '<name/>' MUST HAVE an @ID attribute.  Refer to: 'auc:Facility' ID='<value-of select="ancestor::auc:Facility/@ID"/>'
       </assert>
     </rule>
   </pattern>
@@ -253,8 +253,8 @@
     -->
   <pattern id="id.roofSystem">
     <rule context="auc:RoofSystems/auc:RoofSystem">
-      <assert test="@ID">
-        [ERROR] '<name/>' MUST HAVE an @ID attribute.  Refer to: 'auc:Facility' ID='<value-of select="ancestor::auc:Facility/@ID"/>'
+      <assert test="@ID" role="ERROR">
+        '<name/>' MUST HAVE an @ID attribute.  Refer to: 'auc:Facility' ID='<value-of select="ancestor::auc:Facility/@ID"/>'
       </assert>
     </rule>
   </pattern>
@@ -264,8 +264,8 @@
     -->
   <pattern id="id.fenestrationSystem">
     <rule context="auc:FenestrationSystems/auc:FenestrationSystem">
-      <assert test="@ID">
-        [ERROR] '<name/>' MUST HAVE an @ID attribute.  Refer to: 'auc:Facility' ID='<value-of select="ancestor::auc:Facility/@ID"/>'
+      <assert test="@ID" role="ERROR">
+        '<name/>' MUST HAVE an @ID attribute.  Refer to: 'auc:Facility' ID='<value-of select="ancestor::auc:Facility/@ID"/>'
       </assert>
     </rule>
   </pattern>
@@ -275,8 +275,8 @@
     -->
   <pattern id="id.exteriorFloorSystem">
     <rule context="auc:ExteriorFloorSystems/auc:ExteriorFloorSystem">
-      <assert test="@ID">
-        [ERROR] '<name/>' MUST HAVE an @ID attribute.  Refer to: 'auc:Facility' ID='<value-of select="ancestor::auc:Facility/@ID"/>'
+      <assert test="@ID" role="ERROR">
+        '<name/>' MUST HAVE an @ID attribute.  Refer to: 'auc:Facility' ID='<value-of select="ancestor::auc:Facility/@ID"/>'
       </assert>
     </rule>
   </pattern>
@@ -286,8 +286,8 @@
     -->
   <pattern id="id.foundationSystem">
     <rule context="auc:FoundationSystems/auc:FoundationSystem">
-      <assert test="@ID">
-        [ERROR] '<name/>' MUST HAVE an @ID attribute.  Refer to: 'auc:Facility' ID='<value-of select="ancestor::auc:Facility/@ID"/>'
+      <assert test="@ID" role="ERROR">
+        '<name/>' MUST HAVE an @ID attribute.  Refer to: 'auc:Facility' ID='<value-of select="ancestor::auc:Facility/@ID"/>'
       </assert>
     </rule>
   </pattern>
@@ -297,8 +297,8 @@
     -->
   <pattern id="id.criticalITSystem">
     <rule context="auc:CriticalITSystems/auc:CriticalITSystem">
-      <assert test="@ID">
-        [ERROR] '<name/>' MUST HAVE an @ID attribute.  Refer to: 'auc:Facility' ID='<value-of select="ancestor::auc:Facility/@ID"/>'
+      <assert test="@ID" role="ERROR">
+        '<name/>' MUST HAVE an @ID attribute.  Refer to: 'auc:Facility' ID='<value-of select="ancestor::auc:Facility/@ID"/>'
       </assert>
     </rule>
   </pattern>
@@ -308,8 +308,8 @@
     -->
   <pattern id="id.plugLoad">
     <rule context="auc:PlugLoads/auc:PlugLoad">
-      <assert test="@ID">
-        [ERROR] '<name/>' MUST HAVE an @ID attribute.  Refer to: 'auc:Facility' ID='<value-of select="ancestor::auc:Facility/@ID"/>'
+      <assert test="@ID" role="ERROR">
+        '<name/>' MUST HAVE an @ID attribute.  Refer to: 'auc:Facility' ID='<value-of select="ancestor::auc:Facility/@ID"/>'
       </assert>
     </rule>
   </pattern>
@@ -319,8 +319,8 @@
     -->
   <pattern id="id.processLoad">
     <rule context="auc:ProcessLoads/auc:ProcessLoad">
-      <assert test="@ID">
-        [ERROR] '<name/>' MUST HAVE an @ID attribute.  Refer to: 'auc:Facility' ID='<value-of select="ancestor::auc:Facility/@ID"/>'
+      <assert test="@ID" role="ERROR">
+        '<name/>' MUST HAVE an @ID attribute.  Refer to: 'auc:Facility' ID='<value-of select="ancestor::auc:Facility/@ID"/>'
       </assert>
     </rule>
   </pattern>
@@ -330,8 +330,8 @@
     -->
   <pattern id="id.conveyanceSystem">
     <rule context="auc:ConveyanceSystems/auc:ConveyanceSystem">
-      <assert test="@ID">
-        [ERROR] '<name/>' MUST HAVE an @ID attribute.  Refer to: 'auc:Facility' ID='<value-of select="ancestor::auc:Facility/@ID"/>'
+      <assert test="@ID" role="ERROR">
+        '<name/>' MUST HAVE an @ID attribute.  Refer to: 'auc:Facility' ID='<value-of select="ancestor::auc:Facility/@ID"/>'
       </assert>
     </rule>
   </pattern>
@@ -341,8 +341,8 @@
     -->
   <pattern id="id.onsiteStorageTransmissionGenerationSystem">
     <rule context="auc:OnsiteStorageTransmissionGenerationSystems/auc:OnsiteStorageTransmissionGenerationSystem">
-      <assert test="@ID">
-        [ERROR] '<name/>' MUST HAVE an @ID attribute.  Refer to: 'auc:Facility' ID='<value-of select="ancestor::auc:Facility/@ID"/>'
+      <assert test="@ID" role="ERROR">
+        '<name/>' MUST HAVE an @ID attribute.  Refer to: 'auc:Facility' ID='<value-of select="ancestor::auc:Facility/@ID"/>'
       </assert>
     </rule>
   </pattern>
@@ -352,8 +352,8 @@
     -->
   <pattern id="id.airInfiltrationSystem">
     <rule context="auc:AirInfiltrationSystems/auc:AirInfiltrationSystem">
-      <assert test="@ID">
-        [ERROR] '<name/>' MUST HAVE an @ID attribute.  Refer to: 'auc:Facility' ID='<value-of select="ancestor::auc:Facility/@ID"/>'
+      <assert test="@ID" role="ERROR">
+        '<name/>' MUST HAVE an @ID attribute.  Refer to: 'auc:Facility' ID='<value-of select="ancestor::auc:Facility/@ID"/>'
       </assert>
     </rule>
   </pattern>
@@ -364,8 +364,8 @@
     -->
   <pattern id="id.schedule">
     <rule context="auc:Schedules/auc:Schedule">
-      <assert test="@ID">
-        [ERROR] '<name/>' MUST HAVE an @ID attribute.  Refer to: 'auc:Facility' ID='<value-of select="ancestor::auc:Facility/@ID"/>'
+      <assert test="@ID" role="ERROR">
+        '<name/>' MUST HAVE an @ID attribute.  Refer to: 'auc:Facility' ID='<value-of select="ancestor::auc:Facility/@ID"/>'
       </assert>
     </rule>
   </pattern>
@@ -375,8 +375,8 @@
     -->
   <pattern id="id.measure">
     <rule context="auc:Measures/auc:Measure">
-      <assert test="@ID">
-        [ERROR] '<name/>' MUST HAVE an @ID attribute.  Refer to: 'auc:Facility' ID='<value-of select="ancestor::auc:Facility/@ID"/>'
+      <assert test="@ID" role="ERROR">
+        '<name/>' MUST HAVE an @ID attribute.  Refer to: 'auc:Facility' ID='<value-of select="ancestor::auc:Facility/@ID"/>'
       </assert>
     </rule>
   </pattern>  
@@ -387,8 +387,8 @@
     -->
   <pattern id="id.report">
     <rule context="auc:Reports/auc:Report">
-      <assert test="@ID">
-        [ERROR] '<name/>' MUST HAVE an @ID attribute.  Refer to: 'auc:Facility' ID='<value-of select="ancestor::auc:Facility/@ID"/>'
+      <assert test="@ID" role="ERROR">
+        '<name/>' MUST HAVE an @ID attribute.  Refer to: 'auc:Facility' ID='<value-of select="ancestor::auc:Facility/@ID"/>'
       </assert>
     </rule>
   </pattern>
@@ -398,8 +398,8 @@
     -->
   <pattern id="id.scenario">
     <rule context="auc:Scenarios/auc:Scenario">
-      <assert test="@ID">
-        [ERROR] '<name/>' MUST HAVE an @ID attribute.  Refer to: 'auc:Report' ID='<value-of select="ancestor::auc:Report/@ID"/>'
+      <assert test="@ID" role="ERROR">
+        '<name/>' MUST HAVE an @ID attribute.  Refer to: 'auc:Report' ID='<value-of select="ancestor::auc:Report/@ID"/>'
       </assert>
     </rule>
   </pattern>
@@ -410,8 +410,8 @@
   <pattern id="id.resourceUse">
     <rule context="auc:ResourceUses/auc:ResourceUse">
       <let name="scID" value="ancestor::auc:Scenario/@ID"/>
-      <assert test="@ID">
-        [ERROR] '<name/>' MUST HAVE an @ID attribute.  Refer to: 'auc:Scenario' ID='<value-of select="$scID"/>'
+      <assert test="@ID" role="ERROR">
+        '<name/>' MUST HAVE an @ID attribute.  Refer to: 'auc:Scenario' ID='<value-of select="$scID"/>'
       </assert>
     </rule>
   </pattern>
@@ -421,8 +421,8 @@
     -->
   <pattern id="id.qualification">
     <rule context="auc:Qualifications/auc:Qualification">
-      <assert test="@ID">
-        [ERROR] '<name/>' MUST HAVE an @ID attribute.  Refer to: 'auc:Report' ID='<value-of select="ancestor::auc:Report/@ID"/>'
+      <assert test="@ID" role="ERROR">
+        '<name/>' MUST HAVE an @ID attribute.  Refer to: 'auc:Report' ID='<value-of select="ancestor::auc:Report/@ID"/>'
       </assert>
     </rule>
   </pattern>
@@ -432,8 +432,8 @@
     -->
   <pattern id="id.utility">
     <rule context="auc:Utilities/auc:Utility">
-      <assert test="@ID">
-        [ERROR] '<name/>' MUST HAVE an @ID attribute.  Refer to: 'auc:Report' ID='<value-of select="ancestor::auc:Report/@ID"/>'
+      <assert test="@ID" role="ERROR">
+        '<name/>' MUST HAVE an @ID attribute.  Refer to: 'auc:Report' ID='<value-of select="ancestor::auc:Report/@ID"/>'
       </assert>
     </rule>
   </pattern>
@@ -444,8 +444,8 @@
     -->
   <pattern id="id.contact">
     <rule context="auc:Contacts/auc:Contact">
-      <assert test="@ID">
-        [ERROR] '<name/>' MUST HAVE an @ID attribute.  Refer to: 'auc:Facility' ID='<value-of select="ancestor::auc:Facility/@ID"/>'
+      <assert test="@ID" role="ERROR">
+        '<name/>' MUST HAVE an @ID attribute.  Refer to: 'auc:Facility' ID='<value-of select="ancestor::auc:Facility/@ID"/>'
       </assert>
     </rule>
   </pattern>
@@ -456,8 +456,8 @@
     -->
   <pattern id="id.tenant">
     <rule context="auc:Tenants/auc:Tenant">
-      <assert test="@ID">
-        [ERROR] '<name/>' MUST HAVE an @ID attribute.  Refer to: 'auc:Facility' ID='<value-of select="ancestor::auc:Facility/@ID"/>'
+      <assert test="@ID" role="ERROR">
+        '<name/>' MUST HAVE an @ID attribute.  Refer to: 'auc:Facility' ID='<value-of select="ancestor::auc:Facility/@ID"/>'
       </assert>
     </rule>
   </pattern>
