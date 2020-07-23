@@ -1,151 +1,83 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<schema xmlns="http://purl.oclc.org/dsdl/schematron">
-  <ns prefix="auc" uri="http://buildingsync.net/schemas/bedes-auc/2019"/>
-  <include href="../../../lib/rootElements.sch#root.oneOfEachUntilBuilding"/>
-  <include href="../../../lib/rootElements.sch#root.oneOfEachFacilityUntilContacts"/>
-  <include href="../../../lib/rootElements.sch#root.atleastOneReportInFacility"/>
-  <include href="../../../lib/rootElements.sch#root.atleastOneScenarioInReport"/>
-  <include href="../../../lib/buildingElements.sch#be.simpleLocationDetails"/>
-  <include href="../../../lib/buildingElements.sch#be.mainDetails"/>
-  <include href="../../../lib/floorElements.sch#fa.maxOneOfEachType"/>
-  <include href="../../../lib/floorElements.sch#fa.oneOfType"/>
-  <include href="../../../lib/floorElements.sch#fa.noneDefinedWarn"/>
-  <include href="../../../lib/floorElements.sch#fa.haveTypeAndValue"/>
-  <include href="../../../lib/floorElements.sch#fa.mechTypeChecks"/>
-  <include href="../../../lib/floorElements.sch#fa.dontUse"/>
-  <include href="../../../lib/floorElements.sch#fa.oneOfMechType"/>
-  <include href="../../../lib/occupancyElements.sch#occ.oneOfType.typicalUsageUnits"/>
-  <include href="../../../lib/occupancyElements.sch#occ.typUsage.haveUnitsAndValue"/>
-  <include href="../../../lib/occupancyElements.sch#occ.levels.haveQuantityAndType"/>
-  <include href="../../../lib/occupancyElements.sch#occ.levels.oneOfType"/>
-  <include href="../../../lib/sectionElements.sch#sec.mainDetails"/>
-  <include href="../../../lib/sectionElements.sch#sec.primarySystems"/>
-  <!--  L100 Phase 1  -->
-  <phase id="L100_Simulation">
-    <active pattern="root.oneOfEachUntilBuilding"/>
-    <active pattern="root.oneOfEachFacilityUntilContacts"/>
-    <active pattern="root.atleastOneReportInFacility"/>
-    <active pattern="root.atleastOneScenarioInReport"/>
-    <active pattern="all.fa.maxOneOfEachType"/>
-    <active pattern="all.fa.noneDefinedWarn.ventilated"/>
-    <active pattern="all.fa.dontUse"/>
-    <active pattern="all.fa.haveTypeAndValue"/>
-    <active pattern="be.simpleLocationDetails"/>
-    <active pattern="be.mainDetails"/>
-    <active pattern="be.fa.oneGross"/>
-    <active pattern="be.fa.oneHeatedCooled"/>
-    <active pattern="be.fa.oneHeated"/>
-    <active pattern="be.fa.oneCooled"/>
-    <active pattern="be.fa.mechTypeChecks"/>
-    <active pattern="sec.sec.mainDetails"/>
-    <active pattern="sec.fa.oneGross"/>
-    <active pattern="sec.fa.oneOfMechType"/>
-    <active pattern="sec.fa.mechTypeChecks"/>
-    <active pattern="sec.occ.typUsage.haveUnitsAndValue"/>
-    <active pattern="sec.occ.oneOfType.hoursPerWeek"/>
-    <active pattern="sec.occ.oneOfType.weeksPerYear"/>
-    <active pattern="sec.occ.levels.haveQuantityAndType"/>
-    <active pattern="sec.occ.levels.hasPeak"/>
-    <!--    <active pattern="sec.sec.primarySystems"/>-->
-  </phase>
-  <!--  Instantiate abstract patterns for L100 use case -->
-  <!--  START FLOOR AREA CHECKS -->
-  <!--  Ensure there is maximum one of each FloorAreaType in a FloorAreas -->
-  <pattern id="all.fa.maxOneOfEachType" is-a="fa.maxOneOfEachType">
-    <param name="parent" value="auc:FloorAreas"/>
-    <!-- //auc:FloorAreas is the intended effect, also checks Sections, etc. -->
-  </pattern>
-  <!--  Issue warning wherever 'Ventilated' is not defined-->
-  <pattern id="all.fa.noneDefinedWarn.ventilated" is-a="fa.noneDefinedWarn">
-    <param name="parent" value="auc:FloorAreas"/>
-    <param name="floorAreaType" value="'Ventilated'"/>
-  </pattern>
-  <!--  Don't use 'Heated' or 'Cooled' in any of the FloorAreaType text -->
-  <pattern id="all.fa.dontUse" is-a="fa.dontUse">
-    <param name="parent" value="auc:FloorAreas"/>
-    <!-- //auc:FloorAreas is the intended effect, checks Sections, etc. -->
-  </pattern>
-  <!--  All Floor Areas must have a Type and Value -->
-  <pattern id="all.fa.haveTypeAndValue" is-a="fa.haveTypeAndValue">
-    <param name="parent" value="auc:FloorAreas/auc:FloorArea"/>
-  </pattern>
-  <!--
-    Building Level: atleast one FloorAreaType of: Gross, Heated and Cooled, Cooled Only, Heated Only.
-    Warning given if Ventilated Area not defined
--->
-  <pattern id="be.fa.oneGross" is-a="fa.oneOfType">
-    <param name="parent" value="auc:Building/auc:FloorAreas"/>
-    <param name="floorAreaType" value="'Gross'"/>
-  </pattern>
-  <pattern id="be.fa.oneHeatedCooled" is-a="fa.oneOfType">
-    <param name="parent" value="auc:Building/auc:FloorAreas"/>
-    <param name="floorAreaType" value="'Heated and Cooled'"/>
-  </pattern>
-  <pattern id="be.fa.oneCooled" is-a="fa.oneOfType">
-    <param name="parent" value="auc:Building/auc:FloorAreas"/>
-    <param name="floorAreaType" value="'Cooled only'"/>
-  </pattern>
-  <pattern id="be.fa.oneHeated" is-a="fa.oneOfType">
-    <param name="parent" value="auc:Building/auc:FloorAreas"/>
-    <param name="floorAreaType" value="'Heated only'"/>
-  </pattern>
-  <pattern id="be.fa.mechTypeChecks" is-a="fa.mechTypeChecks">
-    <param name="parent" value="auc:Building/auc:FloorAreas"/>
-  </pattern>
-
-  <!--  END FLOOR AREA CHECKS -->
-  <!--  START SPACE FUNCTION CHECKS -->
-  <pattern id="sec.sec.mainDetails" is-a="sec.mainDetails">
-    <param name="parent" value="auc:Section[auc:SectionType='Space function']"/>
-  </pattern>
-  <!--
-    Section Level Floor Areas: one Gross and one of:
-    - Conditioned
-    - Heated and Cooled
-    - Cooled only
-    - Heated only
-    - Ventilated
-    Also check math for mechanical and gross floor areas
--->
-  <pattern id="sec.fa.oneGross" is-a="fa.oneOfType">
-    <param name="parent" value="auc:Section[auc:SectionType='Space function']/auc:FloorAreas"/>
-    <param name="floorAreaType" value="'Gross'"/>
-  </pattern>
-  <pattern id="sec.fa.oneOfMechType" is-a="fa.oneOfMechType">
-    <param name="parent" value="auc:Section[auc:SectionType='Space function']/auc:FloorAreas"/>
-  </pattern>
-  <pattern id="sec.fa.mechTypeChecks" is-a="fa.mechTypeChecks">
-    <param name="parent" value="auc:Section[auc:SectionType='Space function']/auc:FloorAreas"/>
-  </pattern>
-  <!--
-    Section Level Occupancy Checks: one 'Hours per week' and one 'Weeks per year'
--->
-  <pattern id="sec.occ.typUsage.haveUnitsAndValue" is-a="occ.typUsage.haveUnitsAndValue">
-    <param name="parent" value="auc:Section/auc:TypicalOccupantUsages/auc:TypicalOccupantUsage"/>
-  </pattern>
-  <pattern id="sec.occ.oneOfType.hoursPerWeek" is-a="occ.oneOfType.typicalUsageUnits">
-    <param name="parent" value="auc:Section[auc:SectionType='Space function']/auc:TypicalOccupantUsages"/>
-    <param name="typUsageUnits" value="'Hours per week'"/>
-  </pattern>
-  <pattern id="sec.occ.oneOfType.weeksPerYear" is-a="occ.oneOfType.typicalUsageUnits">
-    <param name="parent" value="auc:Section[auc:SectionType='Space function']/auc:TypicalOccupantUsages"/>
-    <param name="typUsageUnits" value="'Weeks per year'"/>
-  </pattern>
-  <pattern id="sec.occ.levels.haveQuantityAndType" is-a="occ.levels.haveQuantityAndType">
-    <param name="parent" value="auc:Section/auc:OccupancyLevels/auc:OccupancyLevel"/>
-  </pattern>
-  <pattern id="sec.occ.levels.hasPeak" is-a="occ.levels.oneOfType">
-    <param name="parent" value="auc:Section/auc:OccupancyLevels"/>
-    <param name="occLevelType" value="'Peak total occupants'"/>
-  </pattern>
-  <!--
-    Section Level System Checks: one of each:
-    - PrimaryHVACSystemType
-    - PrimaryLightingSystem
-    - PlugLoadType = 'Miscellaneous Electric Load
--->
-  <!--  <pattern id="sec.sec.primarySystems" is-a="sec.primarySystems">
-      <param name="parent" value="auc:Section[auc:SectionType='Space function']"/>
-    </pattern>-->
-  <!--  END SPACE FUNCTION CHECKS -->
-</schema>
+<?xml version='1.0' encoding='ASCII'?>
+<sch:schema xmlns:sch="http://purl.oclc.org/dsdl/schematron">
+  <sch:ns prefix="auc" uri="http://buildingsync.net/schemas/bedes-auc/2019"/>
+  <sch:phase id="facility_description" see="ASHRAE 211 6.1.1">
+    <sch:active pattern="misc_building_info"/>
+    <sch:active pattern="contact_information"/>
+    <sch:active pattern="space_functions"/>
+  </sch:phase>
+  <sch:phase id="historical_energy_use" see="ASHRAE 211 6.1.2">
+    <sch:active pattern="some_info"/>
+  </sch:phase>
+  <sch:pattern see="ASHRAE 211 6.1.1.1 and 6.1.1.2" id="misc_building_info">
+    <sch:title>Misc Building Info</sch:title>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building">
+      <sch:assert test="auc:PremisesName" role="">auc:PremisesName</sch:assert>
+      <sch:assert test="auc:Address/auc:City" role="">auc:Address/auc:City</sch:assert>
+      <sch:assert test="auc:Address/auc:State" role="">auc:Address/auc:State</sch:assert>
+      <sch:assert test="auc:Address/auc:PostalCode" role="">auc:Address/auc:PostalCode</sch:assert>
+      <sch:assert test="auc:Address/auc:StreetAddressDetail/auc:Simplified/auc:StreetAddress" role="">auc:Address/auc:StreetAddressDetail/auc:Simplified/auc:StreetAddress</sch:assert>
+      <sch:assert test="auc:FloorsAboveGrade" role="">auc:FloorsAboveGrade</sch:assert>
+      <sch:assert test="auc:FloorsBelowGrade" role="">auc:FloorsBelowGrade</sch:assert>
+      <sch:assert test="auc:FloorAreas/auc:FloorArea[auc:FloorAreaType/text() = 'Gross']" role="">auc:FloorAreas/auc:FloorArea[auc:FloorAreaType/text() = 'Gross']</sch:assert>
+      <sch:assert test="auc:BuildingClassification" role="">auc:BuildingClassification</sch:assert>
+      <sch:assert test="auc:OccupancyClassification" role="">auc:OccupancyClassification</sch:assert>
+      <sch:assert test="auc:YearOfConstruction" role="">auc:YearOfConstruction</sch:assert>
+      <sch:assert test="auc:YearOfLastMajorRemodel" role="WARNING">auc:YearOfLastMajorRemodel</sch:assert>
+      <sch:assert test="auc:YearOfLastEnergyAudit" role="WARNING">auc:YearOfLastEnergyAudit</sch:assert>
+      <sch:assert test="(auc:BuildingClassification/text() != 'Mixed use commercial' and auc:BuildingClassification/text() != 'Residential') or auc:SpatialUnits/auc:SpatialUnit[auc:SpatialUnitType/text() = 'Apartment']/auc:NumberOfUnits" role="">If building classification implies residents, number of apartments units must be defined</sch:assert>
+      <sch:assert test="(auc:BuildingClassification/text() != 'Mixed use commercial' and auc:BuildingClassification/text() != 'Residential') or auc:SpatialUnits/auc:SpatialUnit[auc:SpatialUnitType/text() = 'Apartment']/auc:SpatialUnitOccupiedPercentage" role="">If building classification implies residents, occupied percent must be defined</sch:assert>
+      <sch:assert test="auc:PremisesNotes" role="">auc:PremisesNotes</sch:assert>
+      <sch:assert test="auc:HistoricalLandmark" role="">auc:HistoricalLandmark</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="ASHRAE 211 6.1.1.1.b and 6.1.1.1.c" id="contact_information">
+    <sch:title>Contact Information</sch:title>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Contacts/auc:Contact[auc:ContactRoles/auc:ContactRole/text() = 'Owner']">
+      <sch:assert test="auc:ContactName" role="">auc:ContactName</sch:assert>
+      <sch:assert test="auc:ContactTelephoneNumbers/auc:ContactTelephoneNumber/auc:TelephoneNumber" role="WARNING">auc:ContactTelephoneNumbers/auc:ContactTelephoneNumber/auc:TelephoneNumber</sch:assert>
+      <sch:assert test="auc:ContactEmailAddresses/auc:ContactEmailAddress/auc:EmailAddress" role="WARNING">auc:ContactEmailAddresses/auc:ContactEmailAddress/auc:EmailAddress</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Contacts/auc:Contact[auc:ContactRoles/auc:ContactRole/text() = 'Energy Auditor']">
+      <sch:assert test="auc:ContactName" role="">auc:ContactName</sch:assert>
+      <sch:assert test="auc:ContactTelephoneNumbers/auc:ContactTelephoneNumber/auc:TelephoneNumber" role="WARNING">auc:ContactTelephoneNumbers/auc:ContactTelephoneNumber/auc:TelephoneNumber</sch:assert>
+      <sch:assert test="auc:ContactEmailAddresses/auc:ContactEmailAddress/auc:EmailAddress" role="WARNING">auc:ContactEmailAddresses/auc:ContactEmailAddress/auc:EmailAddress</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="ASHRAE 211 6.1.1.1.g/5.3.4" id="space_functions">
+    <sch:title>Space Functions</sch:title>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType/text() = 'Space function']">
+      <sch:assert test="auc:OccupancyClassification" role="">auc:OccupancyClassification</sch:assert>
+      <sch:assert test="auc:FloorAreas/auc:FloorArea[auc:FloorAreaType/text() = 'Gross']/auc:FloorAreaValue" role="">auc:FloorAreas/auc:FloorArea[auc:FloorAreaType/text() = 'Gross']/auc:FloorAreaValue</sch:assert>
+      <sch:assert test="auc:FloorAreas/auc:FloorArea[auc:FloorAreaType/text() = 'Conditioned']/auc:FloorAreaValue" role="">auc:FloorAreas/auc:FloorArea[auc:FloorAreaType/text() = 'Conditioned']/auc:FloorAreaValue</sch:assert>
+      <sch:assert test="auc:TypicalOccupantUsages/auc:TypicalOccupantUsage[auc:TypicalOccupantUsageUnits/text() = 'Hours per week']" role="">auc:TypicalOccupantUsages/auc:TypicalOccupantUsage[auc:TypicalOccupantUsageUnits/text() = 'Hours per week']</sch:assert>
+      <sch:assert test="auc:TypicalOccupantUsages/auc:TypicalOccupantUsage[auc:TypicalOccupantUsageUnits/text() = 'Weeks per year']" role="">auc:TypicalOccupantUsages/auc:TypicalOccupantUsage[auc:TypicalOccupantUsageUnits/text() = 'Weeks per year']</sch:assert>
+      <sch:assert test="auc:OccupancyLevels/auc:OccupancyLevel[auc:OccupantQuantityType/text() = 'Peak total occupants' or auc:OccupantQuantityType/text() = 'Normal occupancy']" role="">auc:OccupancyLevels/auc:OccupancyLevel[auc:OccupantQuantityType/text() = 'Peak total occupants' or auc:OccupantQuantityType/text() = 'Normal occupancy']</sch:assert>
+      <sch:assert test="//auc:PlugLoad[auc:LinkedPremises/auc:Section/auc:LinkedSectionID/@IDref = current()/@ID]/auc:WeightedAverageLoad" role="">Space must have an associated plug load</sch:assert>
+      <sch:assert test="//auc:HVACSystem[auc:LinkedPremises/auc:Section/auc:LinkedSectionID/@IDref = current()/@ID]/auc:PrimaryHVACSystemType" role="">Space must have an associated primary HVAC system</sch:assert>
+      <sch:assert test="//auc:LightingSystem[auc:LinkedPremises/auc:Section/auc:LinkedSectionID/@IDref = current()/@ID]/auc:LampType" role="">Space must have an associated lamp type</sch:assert>
+      <sch:assert test="//auc:LightingSystem[auc:LinkedPremises/auc:Section/auc:LinkedSectionID/@IDref = current()/@ID]/auc:LampType//auc:LampLabel" role="WARNING">//auc:LightingSystem[auc:LinkedPremises/auc:Section/auc:LinkedSectionID/@IDref = current()/@ID]/auc:LampType//auc:LampLabel</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="Some info" id="some_info">
+    <sch:title>Some info</sch:title>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Scenarios/auc:Scenario[auc:ScenarioType/auc:CurrentBuilding/auc:CalculationMethod/auc:Measured]/auc:ResourceUses/auc:ResourceUse">
+      <sch:assert test="auc:EnergyResource" role="">auc:EnergyResource</sch:assert>
+      <sch:assert test="auc:EndUse/text() =&quot;All end uses&quot;" role="">auc:EndUse/text() ="All end uses"</sch:assert>
+      <sch:assert test="auc:ResourceUnits" role="">auc:ResourceUnits</sch:assert>
+      <sch:assert test="//auc:Utility[@ID = current()/auc:UtilityIDs/auc:UtilityID/@IDref]" role="">Resource use must be associated with a utility</sch:assert>
+      <sch:assert test="count(//auc:TimeSeriesData/auc:TimeSeries[auc:ResourceUseID/@IDref = current()/@ID and auc:ReadingType/text() = 'Total' and auc:IntervalFrequency/text() = 'Month']) &gt;= 12" role="">Resource use must have at least 12 consecutive "Total" readings.</sch:assert>
+      <sch:assert test="//auc:TimeSeriesData/auc:TimeSeries[auc:ResourceUseID/@IDref = current()/@ID and auc:ReadingType/text() = 'Total' and auc:IntervalFrequency/text() = 'Month']/auc:StartTimestamp" role="">//auc:TimeSeriesData/auc:TimeSeries[auc:ResourceUseID/@IDref = current()/@ID and auc:ReadingType/text() = 'Total' and auc:IntervalFrequency/text() = 'Month']/auc:StartTimestamp</sch:assert>
+      <sch:assert test="//auc:TimeSeriesData/auc:TimeSeries[auc:ResourceUseID/@IDref = current()/@ID and auc:ReadingType/text() = 'Total' and auc:IntervalFrequency/text() = 'Month']/auc:EndTimestamp" role="">//auc:TimeSeriesData/auc:TimeSeries[auc:ResourceUseID/@IDref = current()/@ID and auc:ReadingType/text() = 'Total' and auc:IntervalFrequency/text() = 'Month']/auc:EndTimestamp</sch:assert>
+      <sch:assert test="//auc:TimeSeriesData/auc:TimeSeries[auc:ResourceUseID/@IDref = current()/@ID and auc:ReadingType/text() = 'Total' and auc:IntervalFrequency/text() = 'Month']/auc:IntervalReading" role="">//auc:TimeSeriesData/auc:TimeSeries[auc:ResourceUseID/@IDref = current()/@ID and auc:ReadingType/text() = 'Total' and auc:IntervalFrequency/text() = 'Month']/auc:IntervalReading</sch:assert>
+      <sch:assert test="count(//auc:TimeSeriesData/auc:TimeSeries[auc:ResourceUseID/@IDref = current()/@ID and auc:ReadingType/text() = 'Peak' and auc:IntervalFrequency/text() = 'Month']) &gt;= 12" role="">Resource use must have at least 12 consecutive "Peak" readings.</sch:assert>
+      <sch:assert test="//auc:TimeSeriesData/auc:TimeSeries[auc:ResourceUseID/@IDref = current()/@ID and auc:ReadingType/text() = 'Peak' and auc:IntervalFrequency/text() = 'Month']/auc:StartTimestamp" role="">//auc:TimeSeriesData/auc:TimeSeries[auc:ResourceUseID/@IDref = current()/@ID and auc:ReadingType/text() = 'Peak' and auc:IntervalFrequency/text() = 'Month']/auc:StartTimestamp</sch:assert>
+      <sch:assert test="//auc:TimeSeriesData/auc:TimeSeries[auc:ResourceUseID/@IDref = current()/@ID and auc:ReadingType/text() = 'Peak' and auc:IntervalFrequency/text() = 'Month']/auc:EndTimestamp" role="">//auc:TimeSeriesData/auc:TimeSeries[auc:ResourceUseID/@IDref = current()/@ID and auc:ReadingType/text() = 'Peak' and auc:IntervalFrequency/text() = 'Month']/auc:EndTimestamp</sch:assert>
+      <sch:assert test="//auc:TimeSeriesData/auc:TimeSeries[auc:ResourceUseID/@IDref = current()/@ID and auc:ReadingType/text() = 'Peak' and auc:IntervalFrequency/text() = 'Month']/auc:IntervalReading" role="">//auc:TimeSeriesData/auc:TimeSeries[auc:ResourceUseID/@IDref = current()/@ID and auc:ReadingType/text() = 'Peak' and auc:IntervalFrequency/text() = 'Month']/auc:IntervalReading</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Utilities/auc:Utility">
+      <sch:assert test="auc:UtilityAccountNumber" role="">auc:UtilityAccountNumber</sch:assert>
+      <sch:assert test="auc:RateSchedules/auc:RateSchedule/auc:TypeOfRateStructure/*" role="">auc:RateSchedules/auc:RateSchedule/auc:TypeOfRateStructure/*</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+</sch:schema>

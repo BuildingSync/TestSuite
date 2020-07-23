@@ -1,0 +1,538 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+  Work in progress
+  This file is intended to document all of the required elements and attributes
+  for a Level 1 audit.
+-->
+<auc:BuildingSync xmlns:auc="http://buildingsync.net/schemas/bedes-auc/2019" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://buildingsync.net/schemas/bedes-auc/2019 https://raw.githubusercontent.com/BuildingSync/schema/develop/BuildingSync.xsd" version="2.0.0">
+  <auc:Facilities>
+    <auc:Facility>
+      <auc:Sites>
+        <auc:Site ID="SiteA">
+          <auc:Buildings>
+            <auc:Building>
+              <!-- 6.1.1.a -->
+              <auc:PremisesName>Building Name</auc:PremisesName>
+              
+              <!-- 6.1.1.1.m and 6.1.1.2.a and 6.1.1.2.c and 6.1.1.2.d and 6.1.1.2.e -->
+              <auc:PremisesNotes>
+                Problems or Needs
+                -----------------
+                Problems or needs identified in walkthrough survey,
+                including revisions to operations and maintenance procedures
+
+                Comfort or Health Concerns
+                -----------------
+                Comfort or health concerns, including indoor environmental quality (IEQ) deficiencies
+
+                Need for Repairs
+                -----------------
+                Need for repairs
+
+                Opportunities to Improve Maintenance Practices
+                -----------------
+                Opportunities to improve maintenance practices
+
+                Other Conditions Causing Unusual Operating Costs
+                -----------------
+                Other conditions causing unusual operating costs
+              </auc:PremisesNotes>
+
+              <!-- 6.1.1.1.d -->
+              <auc:Address>
+                <auc:StreetAddressDetail>
+                  <auc:Simplified>
+                    <auc:StreetAddress>
+                      123 Main Street
+                    </auc:StreetAddress>
+                  </auc:Simplified>
+                </auc:StreetAddressDetail>
+                <auc:City>Rome</auc:City>
+                <auc:State>GA</auc:State>
+                <auc:PostalCode>30161</auc:PostalCode>
+              </auc:Address>
+              
+              <!-- 6.1.1.1.f -->
+              <auc:BuildingClassification>Commercial</auc:BuildingClassification>
+              <auc:OccupancyClassification>Office</auc:OccupancyClassification>
+              
+              <!-- 6.1.1.1.k (only if building classification is multifamily, ie auc:BuildingClassification='Mixed use commercial' or auc:BuildingClassification='Residential') -->
+              <auc:SpatialUnits>
+                <auc:SpatialUnit>
+                  <auc:SpatialUnitType>Apartment units</auc:SpatialUnitType>
+                  <auc:NumberOfUnits>1</auc:NumberOfUnits>
+                  <auc:SpatialUnitOccupiedPercentage>100</auc:SpatialUnitOccupiedPercentage>
+                </auc:SpatialUnit>
+              </auc:SpatialUnits>
+
+              <!-- 6.1.1.1.h -->
+              <auc:FloorsAboveGrade>2</auc:FloorsAboveGrade>
+              <auc:FloorsBelowGrade>2</auc:FloorsBelowGrade>
+              <auc:ConditionedFloorsAboveGrade>1</auc:ConditionedFloorsAboveGrade>
+              <auc:ConditionedFloorsBelowGrade>1</auc:ConditionedFloorsBelowGrade>
+              
+              <!-- 6.1.1.2.b -->
+              <auc:HistoricalLandmark>true</auc:HistoricalLandmark>
+
+              <!-- 6.1.1.1.e -->
+              <auc:FloorAreas>
+                <auc:FloorArea>
+                  <auc:FloorAreaType>Gross</auc:FloorAreaType>
+                  <auc:FloorAreaValue>123</auc:FloorAreaValue>
+                </auc:FloorArea>
+              </auc:FloorAreas>
+              
+              <!-- 6.1.1.1.i -->
+              <auc:YearOfConstruction>1993</auc:YearOfConstruction>
+              <!-- 6.1.1.1.l (recommended) -->
+              <auc:YearOfLastEnergyAudit>2018</auc:YearOfLastEnergyAudit>
+              <!-- 6.1.1.1.i -->
+              <auc:YearOfLastMajorRemodel>2016</auc:YearOfLastMajorRemodel>
+              
+              <!-- 6.1.1.1g (for every space function) -->
+              <auc:Sections>
+                <auc:Section ID="Section-SpaceA">
+                  <auc:SectionType>Space function</auc:SectionType>
+                  <auc:OccupancyClassification>Office</auc:OccupancyClassification>
+
+                  <!-- 6.1.1.1.g/5.3.4.d -->
+                  <auc:OccupancyLevels>
+                    <auc:OccupancyLevel>
+                      <!-- note, type can also be 'Normal Occupancy' -->
+                      <auc:OccupantQuantityType>Peak total occupants</auc:OccupantQuantityType>
+                      <auc:OccupantQuantity>123</auc:OccupantQuantity>
+                    </auc:OccupancyLevel>
+                  </auc:OccupancyLevels>
+                  
+                  <auc:TypicalOccupantUsages>
+                    <!-- 6.1.1.1.g/5.3.4.b -->
+                    <auc:TypicalOccupantUsage>
+                      <auc:TypicalOccupantUsageValue>40</auc:TypicalOccupantUsageValue>
+                      <auc:TypicalOccupantUsageUnits>Hours per week</auc:TypicalOccupantUsageUnits>
+                    </auc:TypicalOccupantUsage>
+
+                    <!-- 6.1.1.1.g/5.3.4.c -->
+                    <auc:TypicalOccupantUsage>
+                      <auc:TypicalOccupantUsageValue>30</auc:TypicalOccupantUsageValue>
+                      <auc:TypicalOccupantUsageUnits>Weeks per year</auc:TypicalOccupantUsageUnits>
+                    </auc:TypicalOccupantUsage>
+                  </auc:TypicalOccupantUsages>
+
+                  <auc:FloorAreas>
+                    <!-- 6.1.1.1.g/5.3.4.a -->
+                    <auc:FloorArea>
+                      <auc:FloorAreaType>Gross</auc:FloorAreaType>
+                      <auc:FloorAreaValue>123</auc:FloorAreaValue>
+                    </auc:FloorArea>
+                    <auc:FloorArea>
+                      <auc:FloorAreaType>Conditioned</auc:FloorAreaType>
+                      <auc:FloorAreaValue>23</auc:FloorAreaValue>
+                    </auc:FloorArea>
+
+                  </auc:FloorAreas>
+                </auc:Section>
+              </auc:Sections>
+
+            </auc:Building>
+          </auc:Buildings>
+        </auc:Site>
+      </auc:Sites>
+
+      <auc:Systems>
+
+        <auc:HVACSystems>
+          <!-- 6.1.1.1.g/5.3.4.g (for every space function) -->
+          <auc:HVACSystem>
+            <auc:PrimaryHVACSystemType>Packaged Terminal Air Conditioner</auc:PrimaryHVACSystemType>
+            <auc:LinkedPremises>
+              <auc:Section>
+                <auc:LinkedSectionID IDref="Section-SpaceA"></auc:LinkedSectionID>
+              </auc:Section>
+            </auc:LinkedPremises>
+          </auc:HVACSystem>
+        </auc:HVACSystems>
+
+        <auc:LightingSystems>
+          <!-- 6.1.1.1.g/5.3.4.h (for every space function) -->
+          <auc:LightingSystem>
+            <!-- note that LampType must be defined -->
+            <auc:LampType>
+              <auc:CompactFluorescent>
+                <!-- LampLabel is recommended, not required -->
+                <auc:LampLabel>2D</auc:LampLabel>
+              </auc:CompactFluorescent>
+            </auc:LampType>
+            <auc:LinkedPremises>
+              <auc:Section>
+                <auc:LinkedSectionID IDref="Section-SpaceA"></auc:LinkedSectionID>
+              </auc:Section>
+            </auc:LinkedPremises>
+          </auc:LightingSystem>
+        </auc:LightingSystems>
+
+        <auc:PlugLoads>
+          <!-- 6.1.1.1.g/5.3.4.e (for every space function) -->
+          <auc:PlugLoad>
+            <auc:WeightedAverageLoad>123</auc:WeightedAverageLoad>
+            <auc:LinkedPremises>
+              <auc:Section>
+                <auc:LinkedSectionID IDref="Section-SpaceA"></auc:LinkedSectionID>
+              </auc:Section>
+            </auc:LinkedPremises>
+          </auc:PlugLoad>
+        </auc:PlugLoads>
+      </auc:Systems>
+
+      <auc:Measures>
+        <!-- Low cost measure -->
+        <auc:Measure>
+          <!-- 6.1.5.b -->
+          <auc:SystemCategoryAffected>Air Distribution</auc:SystemCategoryAffected>
+          <!-- 6.1.5.a -->
+          <auc:CustomMeasureName>Low Cost Measure</auc:CustomMeasureName>
+          <!-- 6.1.5.a -->
+          <auc:LongDescription>This measure does something cheap</auc:LongDescription>
+        </auc:Measure>
+
+        <!-- Capital measure -->
+        <auc:Measure>
+          <!-- 6.1.6.b -->
+          <auc:SystemCategoryAffected>Air Distribution</auc:SystemCategoryAffected>
+          <!-- 6.1.6.a -->
+          <auc:CustomMeasureName>Capital Measure</auc:CustomMeasureName>
+          <!-- 6.1.6.a -->
+          <auc:LongDescription>This measure does something expensive</auc:LongDescription>
+        </auc:Measure>
+      </auc:Measures>
+
+      <auc:Reports>
+        <auc:Report>
+          <auc:Scenarios>
+            <auc:Scenario>
+              <!-- 6.1.2 (indicates this is measured data) -->
+              <auc:ScenarioType>
+                <auc:CurrentBuilding>
+                  <auc:CalculationMethod>
+                    <auc:Measured></auc:Measured>
+                  </auc:CalculationMethod>
+                </auc:CurrentBuilding>
+              </auc:ScenarioType>
+              <auc:ResourceUses>
+                <!-- 6.1.2 (covers multiple subsections) -->
+                <auc:ResourceUse ID="ResourceUse-Electricity">
+                  <auc:EnergyResource>Electricity</auc:EnergyResource>
+                  <auc:ResourceUnits>kWh</auc:ResourceUnits>
+                  <auc:EndUse>All end uses</auc:EndUse>
+                  <auc:UtilityIDs>
+                    <auc:UtilityID IDref="Utility-Electricity" />
+                  </auc:UtilityIDs>
+                </auc:ResourceUse>
+              </auc:ResourceUses>
+              <!-- 6.1.2 (total and peak monthly use - should exist for every resource use) -->
+              <auc:TimeSeriesData>
+                <!-- TOTAL use -->
+                <auc:TimeSeries>
+                  <auc:ReadingType>Total</auc:ReadingType>
+                  <auc:StartTimestamp>2019-01-01T00:00:00</auc:StartTimestamp>
+                  <auc:EndTimestamp>2019-02-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalFrequency>Month</auc:IntervalFrequency>
+                  <auc:IntervalReading>123</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="ResourceUse-Electricity" />
+                </auc:TimeSeries>
+                <auc:TimeSeries>
+                  <auc:ReadingType>Total</auc:ReadingType>
+                  <auc:StartTimestamp>2019-02-01T00:00:00</auc:StartTimestamp>
+                  <auc:EndTimestamp>2019-03-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalFrequency>Month</auc:IntervalFrequency>
+                  <auc:IntervalReading>123</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="ResourceUse-Electricity" />
+                </auc:TimeSeries>
+                <auc:TimeSeries>
+                  <auc:ReadingType>Total</auc:ReadingType>
+                  <auc:StartTimestamp>2019-03-01T00:00:00</auc:StartTimestamp>
+                  <auc:EndTimestamp>2019-04-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalFrequency>Month</auc:IntervalFrequency>
+                  <auc:IntervalReading>123</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="ResourceUse-Electricity" />
+                </auc:TimeSeries>
+                <auc:TimeSeries>
+                  <auc:ReadingType>Total</auc:ReadingType>
+                  <auc:StartTimestamp>2019-04-01T00:00:00</auc:StartTimestamp>
+                  <auc:EndTimestamp>2019-05-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalFrequency>Month</auc:IntervalFrequency>
+                  <auc:IntervalReading>123</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="ResourceUse-Electricity" />
+                </auc:TimeSeries>
+                <auc:TimeSeries>
+                  <auc:ReadingType>Total</auc:ReadingType>
+                  <auc:StartTimestamp>2019-05-01T00:00:00</auc:StartTimestamp>
+                  <auc:EndTimestamp>2019-06-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalFrequency>Month</auc:IntervalFrequency>
+                  <auc:IntervalReading>123</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="ResourceUse-Electricity" />
+                </auc:TimeSeries>
+                <auc:TimeSeries>
+                  <auc:ReadingType>Total</auc:ReadingType>
+                  <auc:StartTimestamp>2019-06-01T00:00:00</auc:StartTimestamp>
+                  <auc:EndTimestamp>2019-07-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalFrequency>Month</auc:IntervalFrequency>
+                  <auc:IntervalReading>123</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="ResourceUse-Electricity" />
+                </auc:TimeSeries>
+                <auc:TimeSeries>
+                  <auc:ReadingType>Total</auc:ReadingType>
+                  <auc:StartTimestamp>2019-07-01T00:00:00</auc:StartTimestamp>
+                  <auc:EndTimestamp>2019-08-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalFrequency>Month</auc:IntervalFrequency>
+                  <auc:IntervalReading>123</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="ResourceUse-Electricity" />
+                </auc:TimeSeries>
+                <auc:TimeSeries>
+                  <auc:ReadingType>Total</auc:ReadingType>
+                  <auc:StartTimestamp>2019-08-01T00:00:00</auc:StartTimestamp>
+                  <auc:EndTimestamp>2019-09-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalFrequency>Month</auc:IntervalFrequency>
+                  <auc:IntervalReading>123</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="ResourceUse-Electricity" />
+                </auc:TimeSeries>
+                <auc:TimeSeries>
+                  <auc:ReadingType>Total</auc:ReadingType>
+                  <auc:StartTimestamp>2019-09-01T00:00:00</auc:StartTimestamp>
+                  <auc:EndTimestamp>2019-10-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalFrequency>Month</auc:IntervalFrequency>
+                  <auc:IntervalReading>123</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="ResourceUse-Electricity" />
+                </auc:TimeSeries>
+                <auc:TimeSeries>
+                  <auc:ReadingType>Total</auc:ReadingType>
+                  <auc:StartTimestamp>2019-10-01T00:00:00</auc:StartTimestamp>
+                  <auc:EndTimestamp>2019-11-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalFrequency>Month</auc:IntervalFrequency>
+                  <auc:IntervalReading>123</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="ResourceUse-Electricity" />
+                </auc:TimeSeries>
+                <auc:TimeSeries>
+                  <auc:ReadingType>Total</auc:ReadingType>
+                  <auc:StartTimestamp>2019-11-01T00:00:00</auc:StartTimestamp>
+                  <auc:EndTimestamp>2019-12-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalFrequency>Month</auc:IntervalFrequency>
+                  <auc:IntervalReading>123</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="ResourceUse-Electricity" />
+                </auc:TimeSeries>
+                <auc:TimeSeries>
+                  <auc:ReadingType>Total</auc:ReadingType>
+                  <auc:StartTimestamp>2019-12-01T00:00:00</auc:StartTimestamp>
+                  <auc:EndTimestamp>2020-01-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalFrequency>Month</auc:IntervalFrequency>
+                  <auc:IntervalReading>123</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="ResourceUse-Electricity" />
+                </auc:TimeSeries>
+                <!-- PEAK use (required only when the ResourceUse is Electricity) -->
+                <auc:TimeSeries>
+                  <auc:ReadingType>Peak</auc:ReadingType>
+                  <auc:StartTimestamp>2019-01-01T00:00:00</auc:StartTimestamp>
+                  <auc:EndTimestamp>2019-02-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalFrequency>Month</auc:IntervalFrequency>
+                  <auc:IntervalReading>123</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="ResourceUse-Electricity" />
+                </auc:TimeSeries>
+                <auc:TimeSeries>
+                  <auc:ReadingType>Peak</auc:ReadingType>
+                  <auc:StartTimestamp>2019-02-01T00:00:00</auc:StartTimestamp>
+                  <auc:EndTimestamp>2019-03-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalFrequency>Month</auc:IntervalFrequency>
+                  <auc:IntervalReading>123</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="ResourceUse-Electricity" />
+                </auc:TimeSeries>
+                <auc:TimeSeries>
+                  <auc:ReadingType>Peak</auc:ReadingType>
+                  <auc:StartTimestamp>2019-03-01T00:00:00</auc:StartTimestamp>
+                  <auc:EndTimestamp>2019-04-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalFrequency>Month</auc:IntervalFrequency>
+                  <auc:IntervalReading>123</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="ResourceUse-Electricity" />
+                </auc:TimeSeries>
+                <auc:TimeSeries>
+                  <auc:ReadingType>Peak</auc:ReadingType>
+                  <auc:StartTimestamp>2019-04-01T00:00:00</auc:StartTimestamp>
+                  <auc:EndTimestamp>2019-05-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalFrequency>Month</auc:IntervalFrequency>
+                  <auc:IntervalReading>123</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="ResourceUse-Electricity" />
+                </auc:TimeSeries>
+                <auc:TimeSeries>
+                  <auc:ReadingType>Peak</auc:ReadingType>
+                  <auc:StartTimestamp>2019-05-01T00:00:00</auc:StartTimestamp>
+                  <auc:EndTimestamp>2019-06-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalFrequency>Month</auc:IntervalFrequency>
+                  <auc:IntervalReading>123</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="ResourceUse-Electricity" />
+                </auc:TimeSeries>
+                <auc:TimeSeries>
+                  <auc:ReadingType>Peak</auc:ReadingType>
+                  <auc:StartTimestamp>2019-06-01T00:00:00</auc:StartTimestamp>
+                  <auc:EndTimestamp>2019-07-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalFrequency>Month</auc:IntervalFrequency>
+                  <auc:IntervalReading>123</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="ResourceUse-Electricity" />
+                </auc:TimeSeries>
+                <auc:TimeSeries>
+                  <auc:ReadingType>Peak</auc:ReadingType>
+                  <auc:StartTimestamp>2019-07-01T00:00:00</auc:StartTimestamp>
+                  <auc:EndTimestamp>2019-08-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalFrequency>Month</auc:IntervalFrequency>
+                  <auc:IntervalReading>123</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="ResourceUse-Electricity" />
+                </auc:TimeSeries>
+                <auc:TimeSeries>
+                  <auc:ReadingType>Peak</auc:ReadingType>
+                  <auc:StartTimestamp>2019-08-01T00:00:00</auc:StartTimestamp>
+                  <auc:EndTimestamp>2019-09-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalFrequency>Month</auc:IntervalFrequency>
+                  <auc:IntervalReading>123</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="ResourceUse-Electricity" />
+                </auc:TimeSeries>
+                <auc:TimeSeries>
+                  <auc:ReadingType>Peak</auc:ReadingType>
+                  <auc:StartTimestamp>2019-09-01T00:00:00</auc:StartTimestamp>
+                  <auc:EndTimestamp>2019-10-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalFrequency>Month</auc:IntervalFrequency>
+                  <auc:IntervalReading>123</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="ResourceUse-Electricity" />
+                </auc:TimeSeries>
+                <auc:TimeSeries>
+                  <auc:ReadingType>Peak</auc:ReadingType>
+                  <auc:StartTimestamp>2019-10-01T00:00:00</auc:StartTimestamp>
+                  <auc:EndTimestamp>2019-11-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalFrequency>Month</auc:IntervalFrequency>
+                  <auc:IntervalReading>123</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="ResourceUse-Electricity" />
+                </auc:TimeSeries>
+                <auc:TimeSeries>
+                  <auc:ReadingType>Peak</auc:ReadingType>
+                  <auc:StartTimestamp>2019-11-01T00:00:00</auc:StartTimestamp>
+                  <auc:EndTimestamp>2019-12-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalFrequency>Month</auc:IntervalFrequency>
+                  <auc:IntervalReading>123</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="ResourceUse-Electricity" />
+                </auc:TimeSeries>
+                <auc:TimeSeries>
+                  <auc:ReadingType>Peak</auc:ReadingType>
+                  <auc:StartTimestamp>2019-12-01T00:00:00</auc:StartTimestamp>
+                  <auc:EndTimestamp>2020-01-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalFrequency>Month</auc:IntervalFrequency>
+                  <auc:IntervalReading>123</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="ResourceUse-Electricity" />
+                </auc:TimeSeries>
+              </auc:TimeSeriesData>
+            </auc:Scenario>
+
+            <!-- Current energy use -->
+            <auc:Scenario>
+              <auc:ScenarioType>
+                <auc:CurrentBuilding>
+                  <!-- Not sure what to include here -->
+                </auc:CurrentBuilding>
+              </auc:ScenarioType>
+              <auc:AllResourceTotals>
+                <auc:AllResourceTotal>
+                  <!-- 6.1.2.2.a -->
+                  <auc:SiteEnergyUse>123</auc:SiteEnergyUse>
+                  <!-- 6.1.2.2.a -->
+                  <auc:SiteEnergyUseIntensity>123</auc:SiteEnergyUseIntensity>
+                  <!-- 6.1.2.2.b -->
+                  <auc:EnergyCost>123</auc:EnergyCost>
+                  <!-- 6.1.2.2.b -->
+                  <auc:EnergyCostIndex>123</auc:EnergyCostIndex>
+                </auc:AllResourceTotal>
+              </auc:AllResourceTotals>
+            </auc:Scenario>
+
+            <!-- Target energy use -->
+            <!-- 6.1.4 -->
+            <auc:Scenario>
+              <auc:ScenarioType>
+                <auc:Target>
+                  <auc:AnnualSavingsSiteEnergy>123</auc:AnnualSavingsSiteEnergy>
+                  <auc:AnnualSavingsCost>123</auc:AnnualSavingsCost>
+                </auc:Target>
+              </auc:ScenarioType>
+              <auc:AllResourceTotals>
+                <auc:AllResourceTotal>
+                  <auc:SiteEnergyUse>123</auc:SiteEnergyUse>
+                  <auc:SiteEnergyUseIntensity>123</auc:SiteEnergyUseIntensity>
+                  <auc:EnergyCost>123</auc:EnergyCost>
+                  <auc:EnergyCostIndex>123</auc:EnergyCostIndex>
+                </auc:AllResourceTotal>
+              </auc:AllResourceTotals>
+            </auc:Scenario>
+          </auc:Scenarios>
+
+          <!-- 6.1.2.1.a -->
+          <auc:Utilities>
+            <auc:Utility ID="Utility-Electricity">
+
+              <!-- 6.1.2.1.c -->
+              <auc:RateSchedules>
+                <auc:RateSchedule>
+                  <auc:TypeOfRateStructure>
+                    <auc:Other />
+                  </auc:TypeOfRateStructure>
+                </auc:RateSchedule>
+              </auc:RateSchedules>
+
+              <!-- 6.1.2.1.b -->
+              <auc:UtilityAccountNumber>12345</auc:UtilityAccountNumber>
+            </auc:Utility>
+          </auc:Utilities>
+        </auc:Report>
+      </auc:Reports>
+
+      <auc:Contacts>
+        <!-- 6.1.1.1.b and 6.1.1.1.c -->
+        <auc:Contact>
+          <auc:ContactRoles>
+            <auc:ContactRole>Owner</auc:ContactRole>
+          </auc:ContactRoles>
+          <auc:ContactName>Building Owner</auc:ContactName>
+          <auc:ContactCompany>Owner Company</auc:ContactCompany>
+          <!-- <auc:Address></auc:Address> -->
+          <!-- recommended -->
+          <auc:ContactTelephoneNumbers>
+            <auc:ContactTelephoneNumber>
+              <auc:TelephoneNumber>123-456-7890</auc:TelephoneNumber>
+            </auc:ContactTelephoneNumber>
+          </auc:ContactTelephoneNumbers>
+          <!-- recommended -->
+          <auc:ContactEmailAddresses>
+            <auc:ContactEmailAddress>
+              <auc:EmailAddress>owner@example.com</auc:EmailAddress>
+            </auc:ContactEmailAddress>
+          </auc:ContactEmailAddresses>
+        </auc:Contact>
+
+        <!-- 6.1.1.1.c -->
+        <auc:Contact>
+          <auc:ContactRoles>
+            <auc:ContactRole>Energy Auditor</auc:ContactRole>
+          </auc:ContactRoles>
+          <auc:ContactName>Building Auditor</auc:ContactName>
+          <auc:ContactCompany>Auditor Company</auc:ContactCompany>
+          <!-- <auc:Address></auc:Address> -->
+          <!-- recommended -->
+          <auc:ContactTelephoneNumbers>
+            <auc:ContactTelephoneNumber>
+              <auc:TelephoneNumber>123-456-7890</auc:TelephoneNumber>
+            </auc:ContactTelephoneNumber>
+          </auc:ContactTelephoneNumbers>
+          <!-- recommended -->
+          <auc:ContactEmailAddresses>
+            <auc:ContactEmailAddress>
+              <auc:EmailAddress>auditor@example.com</auc:EmailAddress>
+            </auc:ContactEmailAddress>
+          </auc:ContactEmailAddresses>
+        </auc:Contact>
+      </auc:Contacts>
+    </auc:Facility>
+  </auc:Facilities>
+</auc:BuildingSync>
