@@ -14,8 +14,6 @@ def _get_unfired_rules(schematron, phase):
     schematron_tree = schematron.schematron
     if schematron_tree is None:
         raise Exception('Schematron is missing schematron attribute. Was schematron created with `store_schematron=True`?')
-    with open('asdfg.sch', 'w') as f:
-        f.write(etree.tostring(schematron_tree, pretty_print=True).decode())
 
     if phase is None:
         # get all rules in the schematron
