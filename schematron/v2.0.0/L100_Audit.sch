@@ -7,7 +7,8 @@
     <sch:active pattern="space_functions"/>
   </sch:phase>
   <sch:phase id="historical_energy_use" see="ASHRAE 211 6.1.2">
-    <sch:active pattern="some_info"/>
+    <sch:active pattern="monthly_utility_data"/>
+    <sch:active pattern="annual_energy_use"/>
   </sch:phase>
   <sch:pattern see="ASHRAE 211 6.1.1.1 and 6.1.1.2" id="misc_building_info">
     <sch:title>Misc Building Info</sch:title>
@@ -59,8 +60,8 @@
       <sch:assert test="//auc:LightingSystem[auc:LinkedPremises/auc:Section/auc:LinkedSectionID/@IDref = current()/@ID]/auc:LampType//auc:LampLabel" role="WARNING">//auc:LightingSystem[auc:LinkedPremises/auc:Section/auc:LinkedSectionID/@IDref = current()/@ID]/auc:LampType//auc:LampLabel</sch:assert>
     </sch:rule>
   </sch:pattern>
-  <sch:pattern see="Some info" id="some_info">
-    <sch:title>Some info</sch:title>
+  <sch:pattern see="ASHRAE 211 6.1.2.1" id="monthly_utility_data">
+    <sch:title>Monthly Utility Data</sch:title>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Scenarios/auc:Scenario[auc:ScenarioType/auc:CurrentBuilding/auc:CalculationMethod/auc:Measured]/auc:ResourceUses/auc:ResourceUse">
       <sch:assert test="auc:EnergyResource" role="">auc:EnergyResource</sch:assert>
       <sch:assert test="auc:EndUse/text() =&quot;All end uses&quot;" role="">auc:EndUse/text() ="All end uses"</sch:assert>
@@ -78,6 +79,15 @@
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Utilities/auc:Utility">
       <sch:assert test="auc:UtilityAccountNumber" role="">auc:UtilityAccountNumber</sch:assert>
       <sch:assert test="auc:RateSchedules/auc:RateSchedule/auc:TypeOfRateStructure/*" role="">auc:RateSchedules/auc:RateSchedule/auc:TypeOfRateStructure/*</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="ASHRAE 211 6.1.2.2" id="annual_energy_use">
+    <sch:title>Annual Energy Use</sch:title>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Scenarios/auc:Scenario[auc:ScenarioType/auc:CurrentBuilding]/auc:AllResourceTotals/auc:AllResourceTotal">
+      <sch:assert test="auc:SiteEnergyUse" role="">auc:SiteEnergyUse</sch:assert>
+      <sch:assert test="auc:SiteEnergyUseIntensity" role="">auc:SiteEnergyUseIntensity</sch:assert>
+      <sch:assert test="auc:EnergyCost" role="">auc:EnergyCost</sch:assert>
+      <sch:assert test="auc:EnergyCostIndex" role="">auc:EnergyCostIndex</sch:assert>
     </sch:rule>
   </sch:pattern>
 </sch:schema>

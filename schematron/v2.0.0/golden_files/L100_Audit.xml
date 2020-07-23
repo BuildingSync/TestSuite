@@ -425,6 +425,16 @@
                   <auc:ResourceUseID IDref="ResourceUse-Electricity" />
                 </auc:TimeSeries>
               </auc:TimeSeriesData>
+
+              <!-- 6.1.2.2 -->
+              <auc:AllResourceTotals>
+                <auc:AllResourceTotal>
+                  <auc:SiteEnergyUse>123</auc:SiteEnergyUse>
+                  <auc:SiteEnergyUseIntensity>123</auc:SiteEnergyUseIntensity>
+                  <auc:EnergyCost>123</auc:EnergyCost>
+                  <auc:EnergyCostIndex>123</auc:EnergyCostIndex>
+                </auc:AllResourceTotal>
+              </auc:AllResourceTotals>
             </auc:Scenario>
 
             <!-- Current energy use -->
