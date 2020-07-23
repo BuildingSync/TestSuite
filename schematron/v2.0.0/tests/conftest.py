@@ -22,7 +22,7 @@ class AssertFailureRolesMixin:
             else:
                 assert expected_role not in actual, f"Expected to NOT find failure with role {expected_role}"
         
-        assert len(actual) == 0, f"Expected to account for all failure roles, but found some unaccounted for: {list(actual.keys())}"
+        assert len(actual) == 0, f"Expected to account for all failure roles, but found some unaccounted for:\n    {actual}"
 
 
 def failures_by_role(failures):
