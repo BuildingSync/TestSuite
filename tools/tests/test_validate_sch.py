@@ -124,7 +124,41 @@ class TestValidateSchematron:
 
         # -- Act
         # note that we are passing a phase ID in order to only run that one
-        failures = validate_schematron(sch, doc, phase="phaseA")
+        failures = validate_schematron(sch, doc, phase="phaseA", strict_context=False)
+
+        # -- Assert
+        # there should only be one failure b/c we only ran one phase
+        assert len(failures) == 1
+        assert failures[0].message == 'Attr should be hello'
+
+    def test_when_phase_is_specified_and_using_strict_context_it_ignores_rules_in_phases_not_run(self):
+        # -- Setup
+        doc = '''<root>
+            <child attr="world"/>
+        </root>'''
+        # create sch that uses phases - each of which should fail against the document
+        sch = '''<sch:schema xmlns:sch="http://purl.oclc.org/dsdl/schematron">
+            <sch:phase id="phaseA">
+                <sch:active pattern="patternA"/>
+            </sch:phase>
+            <sch:phase id="phaseB">
+                <sch:active pattern="patternB"/>
+            </sch:phase>
+            <sch:pattern id="patternA">
+                <sch:rule context="/root/child">
+                    <sch:assert test="@attr = 'hello'" role="ERROR">Attr should be hello</sch:assert>
+                </sch:rule>
+            </sch:pattern>
+            <sch:pattern id="patternB">
+                <sch:rule context="/root">
+                    <sch:assert test="count(child) = 123" role="ERROR">There should be 123 child elements</sch:assert>
+                </sch:rule>
+            </sch:pattern>
+        </sch:schema>'''
+
+        # -- Act
+        # note that we are passing a phase ID in order to only run that one
+        failures = validate_schematron(sch, doc, phase="phaseA", strict_context=True)
 
         # -- Assert
         # there should only be one failure b/c we only ran one phase
