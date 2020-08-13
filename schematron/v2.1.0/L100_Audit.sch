@@ -110,6 +110,7 @@
     <sch:title>Benchmarking Tests</sch:title>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Scenarios/auc:Scenario/auc:ScenarioType/auc:Benchmark">
       <sch:assert test="auc:BenchmarkType/*" role="">auc:BenchmarkType/*</sch:assert>
+      <sch:assert test="auc:BenchmarkTool" role="">auc:BenchmarkTool</sch:assert>
       <sch:assert test="auc:BenchmarkYear" role="">auc:BenchmarkYear</sch:assert>
       <sch:assert test="auc:BenchmarkValue" role="">auc:BenchmarkValue</sch:assert>
     </sch:rule>
