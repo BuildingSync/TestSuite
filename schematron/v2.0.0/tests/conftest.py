@@ -1,9 +1,12 @@
 import copy
+import os
 
 import pytest
 from lxml import etree
 
 from tools.constants import BSYNC_NSMAP
+
+SCH_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
 
 
 class AssertFailureRolesMixin:
@@ -48,7 +51,7 @@ def golden_tree(name):
     :param name: str, name of the file, without any file extension
     :return: lxml.etree
     """
-    golden_file = f'schematron/v2.0.0/golden_files/{name}.xml'
+    golden_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'golden_files', f'{name}.xml')
     return etree.parse(golden_file)
 
 def remove_element(tree, xpath):

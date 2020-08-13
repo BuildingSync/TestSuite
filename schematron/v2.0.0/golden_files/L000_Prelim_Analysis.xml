@@ -5,9 +5,9 @@
   This file is intended to document all of the required elements and attributes
   for preliminary analysis.
 -->
-<auc:BuildingSync xmlns:auc="http://buildingsync.net/schemas/bedes-auc/2019" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://buildingsync.net/schemas/bedes-auc/2019 https://raw.githubusercontent.com/BuildingSync/schema/develop/BuildingSync.xsd" version="2.0.0">
+<auc:BuildingSync xmlns:auc="http://buildingsync.net/schemas/bedes-auc/2019" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://buildingsync.net/schemas/bedes-auc/2019 https://raw.githubusercontent.com/BuildingSync/schema/v2.1.0/BuildingSync.xsd" version="2.1.0">
   <auc:Facilities>
-    <auc:Facility>
+    <auc:Facility ID="FacilityA">
       <auc:Sites>
         <auc:Site ID="SiteA">
           <auc:Buildings>
@@ -22,9 +22,9 @@
       </auc:Sites>
 
       <auc:Reports>
-        <auc:Report>
+        <auc:Report ID="ReportA">
           <auc:Scenarios>
-            <auc:Scenario>
+            <auc:Scenario ID="ScenarioA">
               <!-- 5.2.3.1 -->
               <auc:ScenarioType>
                 <auc:CurrentBuilding>
@@ -35,13 +35,13 @@
               </auc:ScenarioType>
 
               <auc:ResourceUses>
-                <auc:ResourceUse>
+                <auc:ResourceUse ID="ElectricityA">
                   <auc:EnergyResource>Electricity</auc:EnergyResource>
                 </auc:ResourceUse>
               </auc:ResourceUses>
 
               <auc:AllResourceTotals>
-                <auc:AllResourceTotal>
+                <auc:AllResourceTotal ID="AllResourceTotalA">
                   <!-- 5.2.3.1 -->
                   <auc:SiteEnergyUseIntensity>123</auc:SiteEnergyUseIntensity>
                   <!-- 5.2.3.2 -->
@@ -56,7 +56,7 @@
               </auc:LinkedPremises>
             </auc:Scenario>
 
-            <auc:Scenario>
+            <auc:Scenario ID="ScenarioB">
               <!-- 5.2.3.3 -->
               <auc:ScenarioType>
                 <auc:Benchmark>
