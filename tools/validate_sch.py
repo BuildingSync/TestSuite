@@ -86,10 +86,15 @@ def validate_schematron(schematron, document, result_path=None, phase=None, stri
         store_schematron=True,
     )
 
-    try:
-        document_tree = etree.fromstring(document)
-    except etree.XMLSyntaxError:
-        document_tree = etree.parse(document)
+    if isinstance(document, str):
+        try:
+            document_tree = etree.fromstring(document)
+        except etree.XMLSyntaxError:
+            document_tree = etree.parse(document)
+    elif isinstance(document, etree._ElementTree):
+        document_tree = document
+    else:
+        raise Exception(f'Unrecognized type for `document`: {type(document)}. Expected file path, string of xml, or lxml etree instance')
 
     schematron.validate(document_tree)
     

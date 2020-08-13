@@ -3,6 +3,8 @@ import copy
 import pytest
 from lxml import etree
 
+from tools.constants import BSYNC_NSMAP
+
 
 class AssertFailureRolesMixin:
     def assert_failure_roles(self, actual_failures, expected_dict):
@@ -48,3 +50,11 @@ def golden_tree(name):
     """
     golden_file = f'schematron/v2.0.0/golden_files/{name}.xml'
     return etree.parse(golden_file)
+
+def remove_element(tree, xpath):
+    elems = tree.xpath(xpath, namespaces=BSYNC_NSMAP)
+    assert len(elems) == 1
+    elem = elems[0]
+    elem.getparent().remove(elem)
+
+    return tree
