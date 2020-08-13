@@ -43,9 +43,6 @@
   </sch:pattern>
   <sch:pattern see="ASHRAE 211 5.2.3.1 and 5.2.3.2" id="measured_scenario">
     <sch:title>Measured Scenario</sch:title>
-    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings">
-      <sch:assert test="auc:Building/@ID" role="">auc:Building/@ID</sch:assert>
-    </sch:rule>
     <sch:rule context="//auc:Scenario[auc:ScenarioType/auc:CurrentBuilding/auc:CalculationMethod/auc:Measured]/auc:LinkedPremises/auc:Building/auc:LinkedBuildingID">
       <sch:assert test="//auc:Buildings/auc:Building[@ID = current()/@IDref]" role="">Scenario of Measured type must be linked to the Building</sch:assert>
     </sch:rule>
