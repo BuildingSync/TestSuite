@@ -1,15 +1,56 @@
 # Overview
 
-This repository hosts test files and examples for the BuildingSync schema.  As newer versions of the schema are released, this repository will be updated to include relevant changes.  Currently, all example files are based on [schema2.0.0](https://github.com/BuildingSync/schema/releases/tag/v2.0).
+This repo contains a collection of example BuildingSync files and tools for writing and validating BuildingSync use cases as schematron files.
 
-## System Requirements 
+## Command line validation
+### Setup
+Python 3 must be installed before continuing. Check your version with `python --version`.
+```bash
+# Copy repo
+git clone https://github.com/BuildingSync/TestSuite.git
+
+# Install dependencies
+cd TestSuite
+python -m pip install -r requirements.txt
+
+# Test that it works, you should see a message describing the usage
+./buildingsch.py
+```
+
+## Development
+### Generate Schematron
+First create a CSV file that meets the required structure:
+```
+phase title,phase see,pattern title,pattern see,rule title,rule context,assert test,assert description,assert severity,notes
+```
+To get an example file, run the following
+```bash
+echo -e \
+"phase title,phase see,pattern title,pattern see,rule title,rule context,assert test,assert description,assert severity,notes\n\
+Phase A, Section 1.2.3, Pattern A, Section 1.2.3.4, Rule One, /auc:BuildingSync, auc:Facilities,,WARNING,example rule\n\
+,,,,,,auc:Facilities/auc:Facility,,," > example_sch.csv
+```
+Hierarchy is implied by the lack of text in a column. If no phase data is added to a row, it's considered to be the same phase as the row above. If no pattern data is present, it's assumed to be the same pattern as above. If no rule context is given, it's assumed to be the same as the one above.
+
+The generator expects a "golden" xml file which should pass the validation. This is used to make sure all rules are applied (schematron will skip rules if the rule context doesn't match or if it only matches nodes that have already been matched within that pattern). If no golden file is provided no rule context checks will be made.
+```bash
+python tools/generate_sch.py path_to_csv path_to_golden_xml
+```
+### Testing
+```bash
+tox
+```
+
+## Ruby tests and validation
+We are currently migrating from Ruby to Python, so there is still some remaining Ruby code.
+### System Requirements 
 
 In order to run the OpenStudio simulation tests you must have a stable version of the following:
 * `OpenStudio>2.0` 
 * `Ruby v2.2.4` via an `rbenv` environment 
 * `Bundler v1.17.2`
 
-## Setup
+### Setup
 Place a file called `openstudio.rb` into the the directory of your `Ruby2.2.4` installation `/foo/bar/.rbenv/versions/2.2.4/lib/ruby/2.2.4`
 
 The `openstudio.rb` file should contain one line referencing the location of the Ruby folder of your OpenStudio installation:
