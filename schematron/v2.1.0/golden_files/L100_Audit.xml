@@ -6,11 +6,11 @@
 -->
 <auc:BuildingSync xmlns:auc="http://buildingsync.net/schemas/bedes-auc/2019" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://buildingsync.net/schemas/bedes-auc/2019 https://raw.githubusercontent.com/BuildingSync/schema/v2.1.0/BuildingSync.xsd" version="2.1.0">
   <auc:Facilities>
-    <auc:Facility ID="FacilityA">
+    <auc:Facility ID="Facility-A">
       <auc:Sites>
-        <auc:Site ID="SiteA">
+        <auc:Site ID="Site-A">
           <auc:Buildings>
-            <auc:Building ID="BuildingA">
+            <auc:Building ID="Building-A">
               <!-- 6.1.1.a -->
               <auc:PremisesName>Building Name</auc:PremisesName>
               
@@ -99,7 +99,7 @@
               
               <!-- 6.1.1.1g (for every space function) -->
               <auc:Sections>
-                <auc:Section ID="Section-SpaceA">
+                <auc:Section ID="Section-Space-A">
                   <auc:SectionType>Space function</auc:SectionType>
                   <auc:OccupancyClassification>Office</auc:OccupancyClassification>
 
@@ -150,11 +150,11 @@
 
         <auc:HVACSystems>
           <!-- 6.1.1.1.g/5.3.4.g (for every space function) -->
-          <auc:HVACSystem ID="HVACA">
+          <auc:HVACSystem ID="HVAC-A">
             <auc:PrimaryHVACSystemType>Packaged Terminal Air Conditioner</auc:PrimaryHVACSystemType>
             <auc:LinkedPremises>
               <auc:Section>
-                <auc:LinkedSectionID IDref="Section-SpaceA"></auc:LinkedSectionID>
+                <auc:LinkedSectionID IDref="Section-Space-A"></auc:LinkedSectionID>
               </auc:Section>
             </auc:LinkedPremises>
           </auc:HVACSystem>
@@ -162,7 +162,7 @@
 
         <auc:LightingSystems>
           <!-- 6.1.1.1.g/5.3.4.h (for every space function) -->
-          <auc:LightingSystem ID="LightingA">
+          <auc:LightingSystem ID="Lighting-A">
             <!-- note that LampType must be defined -->
             <auc:LampType>
               <auc:CompactFluorescent>
@@ -172,7 +172,7 @@
             </auc:LampType>
             <auc:LinkedPremises>
               <auc:Section>
-                <auc:LinkedSectionID IDref="Section-SpaceA"></auc:LinkedSectionID>
+                <auc:LinkedSectionID IDref="Section-Space-A"></auc:LinkedSectionID>
               </auc:Section>
             </auc:LinkedPremises>
           </auc:LightingSystem>
@@ -180,11 +180,11 @@
 
         <auc:PlugLoads>
           <!-- 6.1.1.1.g/5.3.4.e (for every space function) -->
-          <auc:PlugLoad ID="PlugLoadA">
+          <auc:PlugLoad ID="PlugLoad-A">
             <auc:WeightedAverageLoad>123</auc:WeightedAverageLoad>
             <auc:LinkedPremises>
               <auc:Section>
-                <auc:LinkedSectionID IDref="Section-SpaceA"></auc:LinkedSectionID>
+                <auc:LinkedSectionID IDref="Section-Space-A"></auc:LinkedSectionID>
               </auc:Section>
             </auc:LinkedPremises>
           </auc:PlugLoad>
@@ -193,7 +193,7 @@
 
       <auc:Measures>
         <!-- Low cost measure -->
-        <auc:Measure ID="Measure-LowCostA">
+        <auc:Measure ID="Measure-LowCost-A">
           
           <!-- 6.1.5.b -->
           <auc:SystemCategoryAffected>Air Distribution</auc:SystemCategoryAffected>
@@ -213,7 +213,7 @@
         </auc:Measure>
 
         <!-- Capital measure -->
-        <auc:Measure ID="Measure-CapitalA">
+        <auc:Measure ID="Measure-Capital-A">
           <!-- 6.1.6.b -->
           <auc:SystemCategoryAffected>Air Distribution</auc:SystemCategoryAffected>
 
@@ -232,9 +232,9 @@
       </auc:Measures>
 
       <auc:Reports>
-        <auc:Report ID="ReportA">
+        <auc:Report ID="Report-A">
           <auc:Scenarios>
-            <auc:Scenario ID="ReportA-ScenarioA">
+            <auc:Scenario ID="Report-A-Scenario-A">
               <!-- 6.1.2 (indicates this is measured data) -->
               <auc:ScenarioType>
                 <auc:CurrentBuilding>
@@ -269,7 +269,7 @@
               <!-- 6.1.2 (total and peak monthly use - should exist for every resource use) -->
               <auc:TimeSeriesData>
                 <!-- Electricity TOTAL use -->
-                <auc:TimeSeries ID="ScenarioA-TS1">
+                <auc:TimeSeries ID="Scenario-A-TS1">
                   <auc:ReadingType>Total</auc:ReadingType>
                   <auc:StartTimestamp>2019-01-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-02-01T00:00:00</auc:EndTimestamp>
@@ -277,7 +277,7 @@
                   <auc:IntervalReading>123</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-Electricity" />
                 </auc:TimeSeries>
-                <auc:TimeSeries ID="ScenarioA-TS2">
+                <auc:TimeSeries ID="Scenario-A-TS2">
                   <auc:ReadingType>Total</auc:ReadingType>
                   <auc:StartTimestamp>2019-02-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-03-01T00:00:00</auc:EndTimestamp>
@@ -285,7 +285,7 @@
                   <auc:IntervalReading>123</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-Electricity" />
                 </auc:TimeSeries>
-                <auc:TimeSeries ID="ScenarioA-TS3">
+                <auc:TimeSeries ID="Scenario-A-TS3">
                   <auc:ReadingType>Total</auc:ReadingType>
                   <auc:StartTimestamp>2019-03-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-04-01T00:00:00</auc:EndTimestamp>
@@ -293,7 +293,7 @@
                   <auc:IntervalReading>123</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-Electricity" />
                 </auc:TimeSeries>
-                <auc:TimeSeries ID="ScenarioA-TS4">
+                <auc:TimeSeries ID="Scenario-A-TS4">
                   <auc:ReadingType>Total</auc:ReadingType>
                   <auc:StartTimestamp>2019-04-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-05-01T00:00:00</auc:EndTimestamp>
@@ -301,7 +301,7 @@
                   <auc:IntervalReading>123</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-Electricity" />
                 </auc:TimeSeries>
-                <auc:TimeSeries ID="ScenarioA-TS5">
+                <auc:TimeSeries ID="Scenario-A-TS5">
                   <auc:ReadingType>Total</auc:ReadingType>
                   <auc:StartTimestamp>2019-05-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-06-01T00:00:00</auc:EndTimestamp>
@@ -309,7 +309,7 @@
                   <auc:IntervalReading>123</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-Electricity" />
                 </auc:TimeSeries>
-                <auc:TimeSeries ID="ScenarioA-TS6">
+                <auc:TimeSeries ID="Scenario-A-TS6">
                   <auc:ReadingType>Total</auc:ReadingType>
                   <auc:StartTimestamp>2019-06-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-07-01T00:00:00</auc:EndTimestamp>
@@ -317,7 +317,7 @@
                   <auc:IntervalReading>123</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-Electricity" />
                 </auc:TimeSeries>
-                <auc:TimeSeries ID="ScenarioA-TS7">
+                <auc:TimeSeries ID="Scenario-A-TS7">
                   <auc:ReadingType>Total</auc:ReadingType>
                   <auc:StartTimestamp>2019-07-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-08-01T00:00:00</auc:EndTimestamp>
@@ -325,7 +325,7 @@
                   <auc:IntervalReading>123</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-Electricity" />
                 </auc:TimeSeries>
-                <auc:TimeSeries ID="ScenarioA-TS8">
+                <auc:TimeSeries ID="Scenario-A-TS8">
                   <auc:ReadingType>Total</auc:ReadingType>
                   <auc:StartTimestamp>2019-08-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-09-01T00:00:00</auc:EndTimestamp>
@@ -333,7 +333,7 @@
                   <auc:IntervalReading>123</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-Electricity" />
                 </auc:TimeSeries>
-                <auc:TimeSeries ID="ScenarioA-TS9">
+                <auc:TimeSeries ID="Scenario-A-TS9">
                   <auc:ReadingType>Total</auc:ReadingType>
                   <auc:StartTimestamp>2019-09-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-10-01T00:00:00</auc:EndTimestamp>
@@ -341,7 +341,7 @@
                   <auc:IntervalReading>123</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-Electricity" />
                 </auc:TimeSeries>
-                <auc:TimeSeries ID="ScenarioA-TS10">
+                <auc:TimeSeries ID="Scenario-A-TS10">
                   <auc:ReadingType>Total</auc:ReadingType>
                   <auc:StartTimestamp>2019-10-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-11-01T00:00:00</auc:EndTimestamp>
@@ -349,7 +349,7 @@
                   <auc:IntervalReading>123</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-Electricity" />
                 </auc:TimeSeries>
-                <auc:TimeSeries ID="ScenarioA-TS11">
+                <auc:TimeSeries ID="Scenario-A-TS11">
                   <auc:ReadingType>Total</auc:ReadingType>
                   <auc:StartTimestamp>2019-11-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-12-01T00:00:00</auc:EndTimestamp>
@@ -357,7 +357,7 @@
                   <auc:IntervalReading>123</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-Electricity" />
                 </auc:TimeSeries>
-                <auc:TimeSeries ID="ScenarioA-TS12">
+                <auc:TimeSeries ID="Scenario-A-TS12">
                   <auc:ReadingType>Total</auc:ReadingType>
                   <auc:StartTimestamp>2019-12-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2020-01-01T00:00:00</auc:EndTimestamp>
@@ -366,7 +366,7 @@
                   <auc:ResourceUseID IDref="ResourceUse-Electricity" />
                 </auc:TimeSeries>
                 <!-- Electricity PEAK use (required only when the ResourceUse is Electricity) -->
-                <auc:TimeSeries ID="ScenarioA-TS13">
+                <auc:TimeSeries ID="Scenario-A-TS13">
                   <auc:ReadingType>Peak</auc:ReadingType>
                   <auc:StartTimestamp>2019-01-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-02-01T00:00:00</auc:EndTimestamp>
@@ -374,7 +374,7 @@
                   <auc:IntervalReading>123</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-Electricity" />
                 </auc:TimeSeries>
-                <auc:TimeSeries ID="ScenarioA-TS14">
+                <auc:TimeSeries ID="Scenario-A-TS14">
                   <auc:ReadingType>Peak</auc:ReadingType>
                   <auc:StartTimestamp>2019-02-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-03-01T00:00:00</auc:EndTimestamp>
@@ -382,7 +382,7 @@
                   <auc:IntervalReading>123</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-Electricity" />
                 </auc:TimeSeries>
-                <auc:TimeSeries ID="ScenarioA-TS15">
+                <auc:TimeSeries ID="Scenario-A-TS15">
                   <auc:ReadingType>Peak</auc:ReadingType>
                   <auc:StartTimestamp>2019-03-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-04-01T00:00:00</auc:EndTimestamp>
@@ -390,7 +390,7 @@
                   <auc:IntervalReading>123</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-Electricity" />
                 </auc:TimeSeries>
-                <auc:TimeSeries ID="ScenarioA-TS16">
+                <auc:TimeSeries ID="Scenario-A-TS16">
                   <auc:ReadingType>Peak</auc:ReadingType>
                   <auc:StartTimestamp>2019-04-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-05-01T00:00:00</auc:EndTimestamp>
@@ -398,7 +398,7 @@
                   <auc:IntervalReading>123</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-Electricity" />
                 </auc:TimeSeries>
-                <auc:TimeSeries ID="ScenarioA-TS17">
+                <auc:TimeSeries ID="Scenario-A-TS17">
                   <auc:ReadingType>Peak</auc:ReadingType>
                   <auc:StartTimestamp>2019-05-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-06-01T00:00:00</auc:EndTimestamp>
@@ -406,7 +406,7 @@
                   <auc:IntervalReading>123</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-Electricity" />
                 </auc:TimeSeries>
-                <auc:TimeSeries ID="ScenarioA-TS18">
+                <auc:TimeSeries ID="Scenario-A-TS18">
                   <auc:ReadingType>Peak</auc:ReadingType>
                   <auc:StartTimestamp>2019-06-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-07-01T00:00:00</auc:EndTimestamp>
@@ -414,7 +414,7 @@
                   <auc:IntervalReading>123</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-Electricity" />
                 </auc:TimeSeries>
-                <auc:TimeSeries ID="ScenarioA-TS19">
+                <auc:TimeSeries ID="Scenario-A-TS19">
                   <auc:ReadingType>Peak</auc:ReadingType>
                   <auc:StartTimestamp>2019-07-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-08-01T00:00:00</auc:EndTimestamp>
@@ -422,7 +422,7 @@
                   <auc:IntervalReading>123</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-Electricity" />
                 </auc:TimeSeries>
-                <auc:TimeSeries ID="ScenarioA-TS20">
+                <auc:TimeSeries ID="Scenario-A-TS20">
                   <auc:ReadingType>Peak</auc:ReadingType>
                   <auc:StartTimestamp>2019-08-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-09-01T00:00:00</auc:EndTimestamp>
@@ -430,7 +430,7 @@
                   <auc:IntervalReading>123</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-Electricity" />
                 </auc:TimeSeries>
-                <auc:TimeSeries ID="ScenarioA-TS21">
+                <auc:TimeSeries ID="Scenario-A-TS21">
                   <auc:ReadingType>Peak</auc:ReadingType>
                   <auc:StartTimestamp>2019-09-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-10-01T00:00:00</auc:EndTimestamp>
@@ -438,7 +438,7 @@
                   <auc:IntervalReading>123</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-Electricity" />
                 </auc:TimeSeries>
-                <auc:TimeSeries ID="ScenarioA-TS22">
+                <auc:TimeSeries ID="Scenario-A-TS22">
                   <auc:ReadingType>Peak</auc:ReadingType>
                   <auc:StartTimestamp>2019-10-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-11-01T00:00:00</auc:EndTimestamp>
@@ -446,7 +446,7 @@
                   <auc:IntervalReading>123</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-Electricity" />
                 </auc:TimeSeries>
-                <auc:TimeSeries ID="ScenarioA-TS23">
+                <auc:TimeSeries ID="Scenario-A-TS23">
                   <auc:ReadingType>Peak</auc:ReadingType>
                   <auc:StartTimestamp>2019-11-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-12-01T00:00:00</auc:EndTimestamp>
@@ -454,7 +454,7 @@
                   <auc:IntervalReading>123</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-Electricity" />
                 </auc:TimeSeries>
-                <auc:TimeSeries ID="ScenarioA-TS24">
+                <auc:TimeSeries ID="Scenario-A-TS24">
                   <auc:ReadingType>Peak</auc:ReadingType>
                   <auc:StartTimestamp>2019-12-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2020-01-01T00:00:00</auc:EndTimestamp>
@@ -464,7 +464,7 @@
                 </auc:TimeSeries>
 
                 <!-- Natural Gas TOTAL use -->
-                <auc:TimeSeries ID="ScenarioA-NG-TS1">
+                <auc:TimeSeries ID="Scenario-A-NG-TS1">
                   <auc:ReadingType>Total</auc:ReadingType>
                   <auc:StartTimestamp>2019-01-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-02-01T00:00:00</auc:EndTimestamp>
@@ -472,7 +472,7 @@
                   <auc:IntervalReading>123</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-NG" />
                 </auc:TimeSeries>
-                <auc:TimeSeries ID="ScenarioA-NG-TS2">
+                <auc:TimeSeries ID="Scenario-A-NG-TS2">
                   <auc:ReadingType>Total</auc:ReadingType>
                   <auc:StartTimestamp>2019-02-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-03-01T00:00:00</auc:EndTimestamp>
@@ -480,7 +480,7 @@
                   <auc:IntervalReading>123</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-NG" />
                 </auc:TimeSeries>
-                <auc:TimeSeries ID="ScenarioA-NG-TS3">
+                <auc:TimeSeries ID="Scenario-A-NG-TS3">
                   <auc:ReadingType>Total</auc:ReadingType>
                   <auc:StartTimestamp>2019-03-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-04-01T00:00:00</auc:EndTimestamp>
@@ -488,7 +488,7 @@
                   <auc:IntervalReading>123</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-NG" />
                 </auc:TimeSeries>
-                <auc:TimeSeries ID="ScenarioA-NG-TS4">
+                <auc:TimeSeries ID="Scenario-A-NG-TS4">
                   <auc:ReadingType>Total</auc:ReadingType>
                   <auc:StartTimestamp>2019-04-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-05-01T00:00:00</auc:EndTimestamp>
@@ -496,7 +496,7 @@
                   <auc:IntervalReading>123</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-NG" />
                 </auc:TimeSeries>
-                <auc:TimeSeries ID="ScenarioA-NG-TS5">
+                <auc:TimeSeries ID="Scenario-A-NG-TS5">
                   <auc:ReadingType>Total</auc:ReadingType>
                   <auc:StartTimestamp>2019-05-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-06-01T00:00:00</auc:EndTimestamp>
@@ -504,7 +504,7 @@
                   <auc:IntervalReading>123</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-NG" />
                 </auc:TimeSeries>
-                <auc:TimeSeries ID="ScenarioA-NG-TS6">
+                <auc:TimeSeries ID="Scenario-A-NG-TS6">
                   <auc:ReadingType>Total</auc:ReadingType>
                   <auc:StartTimestamp>2019-06-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-07-01T00:00:00</auc:EndTimestamp>
@@ -512,7 +512,7 @@
                   <auc:IntervalReading>123</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-NG" />
                 </auc:TimeSeries>
-                <auc:TimeSeries ID="ScenarioA-NG-TS7">
+                <auc:TimeSeries ID="Scenario-A-NG-TS7">
                   <auc:ReadingType>Total</auc:ReadingType>
                   <auc:StartTimestamp>2019-07-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-08-01T00:00:00</auc:EndTimestamp>
@@ -520,7 +520,7 @@
                   <auc:IntervalReading>123</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-NG" />
                 </auc:TimeSeries>
-                <auc:TimeSeries ID="ScenarioA-NG-TS8">
+                <auc:TimeSeries ID="Scenario-A-NG-TS8">
                   <auc:ReadingType>Total</auc:ReadingType>
                   <auc:StartTimestamp>2019-08-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-09-01T00:00:00</auc:EndTimestamp>
@@ -528,7 +528,7 @@
                   <auc:IntervalReading>123</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-NG" />
                 </auc:TimeSeries>
-                <auc:TimeSeries ID="ScenarioA-NG-TS9">
+                <auc:TimeSeries ID="Scenario-A-NG-TS9">
                   <auc:ReadingType>Total</auc:ReadingType>
                   <auc:StartTimestamp>2019-09-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-10-01T00:00:00</auc:EndTimestamp>
@@ -536,7 +536,7 @@
                   <auc:IntervalReading>123</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-NG" />
                 </auc:TimeSeries>
-                <auc:TimeSeries ID="ScenarioA-NG-TS10">
+                <auc:TimeSeries ID="Scenario-A-NG-TS10">
                   <auc:ReadingType>Total</auc:ReadingType>
                   <auc:StartTimestamp>2019-10-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-11-01T00:00:00</auc:EndTimestamp>
@@ -544,7 +544,7 @@
                   <auc:IntervalReading>123</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-NG" />
                 </auc:TimeSeries>
-                <auc:TimeSeries ID="ScenarioA-NG-TS11">
+                <auc:TimeSeries ID="Scenario-A-NG-TS11">
                   <auc:ReadingType>Total</auc:ReadingType>
                   <auc:StartTimestamp>2019-11-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-12-01T00:00:00</auc:EndTimestamp>
@@ -552,7 +552,7 @@
                   <auc:IntervalReading>123</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-NG" />
                 </auc:TimeSeries>
-                <auc:TimeSeries ID="ScenarioA-NG-TS12">
+                <auc:TimeSeries ID="Scenario-A-NG-TS12">
                   <auc:ReadingType>Total</auc:ReadingType>
                   <auc:StartTimestamp>2019-12-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2020-01-01T00:00:00</auc:EndTimestamp>
@@ -564,7 +564,7 @@
 
               <!-- 6.1.2.2 -->
               <auc:AllResourceTotals>
-                <auc:AllResourceTotal ID="AllResourceTotalA">
+                <auc:AllResourceTotal ID="AllResourceTotal-A">
                   <auc:SiteEnergyUse>123</auc:SiteEnergyUse>
                   <auc:SiteEnergyUseIntensity>123</auc:SiteEnergyUseIntensity>
                   <auc:EnergyCost>123</auc:EnergyCost>
@@ -574,14 +574,14 @@
             </auc:Scenario>
 
             <!-- Current energy use -->
-            <auc:Scenario ID="ScenarioB">
+            <auc:Scenario ID="Scenario-B">
               <auc:ScenarioType>
                 <auc:CurrentBuilding>
                   <!-- Not sure what to include here -->
                 </auc:CurrentBuilding>
               </auc:ScenarioType>
               <auc:AllResourceTotals>
-                <auc:AllResourceTotal ID="AllResourceTotalB">
+                <auc:AllResourceTotal ID="AllResourceTotal-B">
                   <!-- 6.1.2.2.a -->
                   <auc:SiteEnergyUse>123</auc:SiteEnergyUse>
                   <!-- 6.1.2.2.a -->
@@ -596,7 +596,7 @@
 
             <!-- Target energy use -->
             <!-- 6.1.4 -->
-            <auc:Scenario ID="ScenarioC">
+            <auc:Scenario ID="Scenario-C">
               <auc:ScenarioType>
                 <auc:Target>
                   <auc:AnnualSavingsSiteEnergy>123</auc:AnnualSavingsSiteEnergy>
@@ -604,7 +604,7 @@
                 </auc:Target>
               </auc:ScenarioType>
               <auc:AllResourceTotals>
-                <auc:AllResourceTotal ID="AllResourceTotalC">
+                <auc:AllResourceTotal ID="AllResourceTotal-C">
                   <auc:SiteEnergyUse>123</auc:SiteEnergyUse>
                   <auc:SiteEnergyUseIntensity>123</auc:SiteEnergyUseIntensity>
                   <auc:EnergyCost>123</auc:EnergyCost>
@@ -613,33 +613,36 @@
               </auc:AllResourceTotals>
             </auc:Scenario>
 
+            <!-- Benchmark -->
             <!-- 6.1.3 -->
-            <auc:Scenario ID="ScenarioD">
+            <auc:Scenario ID="Scenario-D">
               <auc:ScenarioType>
                 <auc:Benchmark>
                   <auc:BenchmarkType>
                     <auc:PortfolioManager></auc:PortfolioManager>
                   </auc:BenchmarkType>
+                  <auc:BenchmarkTool>Portfolio Manager</auc:BenchmarkTool>
                   <auc:BenchmarkYear>2020</auc:BenchmarkYear>
                   <auc:BenchmarkValue>75</auc:BenchmarkValue>
                 </auc:Benchmark>
               </auc:ScenarioType>
 
               <auc:AllResourceTotals>
-                <auc:AllResourceTotal ID="AllResourceTotalD">
+                <auc:AllResourceTotal ID="AllResourceTotal-D">
                   <auc:SiteEnergyUse>123</auc:SiteEnergyUse>
                   <auc:SiteEnergyUseIntensity>123</auc:SiteEnergyUseIntensity>
                 </auc:AllResourceTotal>
               </auc:AllResourceTotals>
             </auc:Scenario>
 
+            <!-- Package of Measures -->
             <!-- 6.1.4 -->
-            <auc:Scenario ID="ScenarioE">
+            <auc:Scenario ID="Scenario-E">
               <auc:ScenarioType>
                 <auc:PackageOfMeasures ID="PackageOfMeasures-LowCost">
-                  <auc:ReferenceCase IDref="ReportA-ScenarioA" />
+                  <auc:ReferenceCase IDref="Report-A-Scenario-A" />
                   <auc:MeasureIDs>
-                    <auc:MeasureID IDref="Measure-LowCostA" />
+                    <auc:MeasureID IDref="Measure-LowCost-A" />
                   </auc:MeasureIDs>
                 </auc:PackageOfMeasures>
               </auc:ScenarioType>
@@ -652,7 +655,7 @@
 
               <!-- 6.1.2.1.c -->
               <auc:RateSchedules>
-                <auc:RateSchedule ID="RateScheduleA">
+                <auc:RateSchedule ID="RateSchedule-A">
                   <auc:TypeOfRateStructure>
                     <auc:Other />
                   </auc:TypeOfRateStructure>
@@ -667,7 +670,7 @@
 
               <!-- 6.1.2.1.c -->
               <auc:RateSchedules>
-                <auc:RateSchedule ID="RateScheduleB">
+                <auc:RateSchedule ID="RateSchedule-B">
                   <auc:TypeOfRateStructure>
                     <auc:Other />
                   </auc:TypeOfRateStructure>
@@ -683,7 +686,7 @@
 
       <auc:Contacts>
         <!-- 6.1.1.1.b and 6.1.1.1.c -->
-        <auc:Contact ID="ContactA">
+        <auc:Contact ID="Contact-A">
           <auc:ContactRoles>
             <auc:ContactRole>Owner</auc:ContactRole>
           </auc:ContactRoles>
@@ -705,7 +708,7 @@
         </auc:Contact>
 
         <!-- 6.1.1.1.c -->
-        <auc:Contact ID="ContactB">
+        <auc:Contact ID="Contact-B">
           <auc:ContactRoles>
             <auc:ContactRole>Energy Auditor</auc:ContactRole>
           </auc:ContactRoles>
