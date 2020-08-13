@@ -10,6 +10,12 @@ from .constants import SVRL_NSMAP, SCH_NSMAP
 Failure = namedtuple('Failure', ['line', 'element', 'message', 'role'])
 
 def _get_unfired_rules(schematron, phase):
+    """
+    Returns rule contexts that were not fired after running the schematron
+
+    :param schematron: instance of lxml's schematron
+    :param phase: str | None, name of specific phase run
+    """
     # get expected rules
     schematron_tree = schematron.schematron
     if schematron_tree is None:
@@ -70,7 +76,7 @@ def validate_schematron(schematron, document, result_path=None, phase=None, stri
     Runs schematron on the given document and returns an array of failures
 
     :param schematron: str, path to sch file or string containing schematron xml
-    :param document: str, path to xml file to test or string containing document xml
+    :param document: str | etree._ElementTree, path to xml file to test or string containing document xml or etree
     :param result_path: str, path to file to save the svrl result
     :returns: Failure[], list of failures
     """
