@@ -6,7 +6,7 @@ from pprint import pprint
 
 from lxml import etree
 
-from constants import SCH_NS, SCH_NSMAP, BSYNC_NSMAP
+from tools.constants import SCH_NS, SCH_NSMAP, BSYNC_NSMAP
 
 
 # global variable for tracking visited nodes in the golden xml
@@ -67,7 +67,7 @@ def get_rule_warnings(tree, xpath):
         warnings.append(f'WARNING: failed to check rule: {e}\n    context: {xpath}')
     return warnings
 
-def generate_sch(csv_file, golden_xml_file):
+def generate_sch(csv_file, output_file=None, golden_xml_file=None, dry_run=False):
     """
     Generates a schematron file from a csv file
 
@@ -172,16 +172,21 @@ def generate_sch(csv_file, golden_xml_file):
     for pattern in collected_patterns:
         root.append(pattern)
 
-    sch_str = etree.tostring(root, pretty_print=True, xml_declaration=True).decode()
-    with open(f'{os.path.splitext(csv_file)[0]}.sch', 'w') as f:
-        f.write(sch_str)
-
-
-if __name__ == '__main__':
-    sch_file = sys.argv[1]
-    if len(sys.argv) == 3:
-        golden_file = sys.argv[2]
+    sch_bytes = etree.tostring(root, pretty_print=True, xml_declaration=True)
+    if output_file is None:
+        output_file = f'{os.path.splitext(csv_file)[0]}.sch'
+    
+    if os.path.isfile(output_file):
+        with open(output_file, 'rb') as f:
+            if sch_bytes != f.read():
+                file_maybe_updated = True
+            else:
+                file_maybe_updated = False
     else:
-        golden_file = None
-        print('INFO: No golden xml file provided - will not be able to check for potential unfired rule contexts')
-    generate_sch(sch_file, golden_file)
+        file_maybe_updated = True
+
+    if not dry_run:
+        with open(output_file, 'wb') as f:
+            f.write(sch_bytes)
+
+    return file_maybe_updated
