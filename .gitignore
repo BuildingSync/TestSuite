@@ -6,6 +6,7 @@ Gemfile-sch.lock
 .DS_Store
 .idea
 .ruby-version
+.python-version
 
 # store local info used during development, but no longer needed
 archive/
