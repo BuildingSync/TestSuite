@@ -1,4 +1,5 @@
 
+import copy
 import csv
 import os
 import sys
@@ -20,6 +21,9 @@ def qname(name):
     :returns: str
     """
     return etree.QName(SCH_NS, name)
+
+def to_id(name):
+    return name.lower().replace(' ', '_')
 
 def check_xpath(tree, xpath):
     """
@@ -67,6 +71,61 @@ def get_rule_warnings(tree, xpath):
         warnings.append(f'WARNING: failed to check rule: {e}\n    context: {xpath}')
     return warnings
 
+def make_pattern_for_testing_contexts(pattern):
+    """
+    Given a pattern, it returns a new pattern which makes assertions that every
+    rule context in the original pattern exists.
+
+    :param pattern: dict, schematron pattern in dictionary format
+    :returns: dict, a new schematron pattern in dictionary format
+    """
+    collected_contexts = {rule['context']: True for rule in pattern['rules']}
+
+    # create a "prerequisites" pattern to store our structure assertions
+    title = f'Document Structure Prerequisites {pattern["title"]}'
+    prereq_pattern = {
+        'title': title,
+        'id': to_id(title),
+        'see': '',
+        'rules': [],
+    }
+
+    prereq_pattern['rules'] = [
+        {
+            'context': '/',
+            'asserts': [{
+                'test': assertion,
+                'description': '',
+                'role': 'ERROR',
+            } for assertion in collected_contexts]
+        }
+    ]
+
+    return prereq_pattern
+
+def generate_tests_for_rule_contexts(orig_sch_dict):
+    """
+    Generates a new pattern for each existing pattern, where each new pattern asserts
+    the contexts used in the existing pattern rules exist in the document.
+
+    This is used to get around the fact that Schematron does not consider a non-matched
+    rule to be a failure, while we want them to be.
+
+    :param orig_sch_dict: dict, schematron in dictionary format
+    :returns: dict, a new schematron dictionary with new patterns added
+    """
+    new_sch_dict = copy.deepcopy(orig_sch_dict)
+    for phase_idx, phase in enumerate(orig_sch_dict['phases']):
+        for orig_pattern_idx, pattern in enumerate(phase['patterns']):
+            prereq_pattern = make_pattern_for_testing_contexts(pattern)
+
+            # insert the prerequisite pattern right before the original one
+            # *2 b/c we've already duplicated each previous pattern up to this point
+            prereq_insert_idx = (orig_pattern_idx * 2)
+            new_sch_dict['phases'][phase_idx]['patterns'].insert(prereq_insert_idx, prereq_pattern)
+    
+    return new_sch_dict
+
 def generate_sch(csv_file, output_file=None, golden_xml_file=None, dry_run=False):
     """
     Generates a schematron file from a csv file
@@ -85,13 +144,14 @@ def generate_sch(csv_file, output_file=None, golden_xml_file=None, dry_run=False
     current_phase = None
     current_pattern = None
     current_rule = None
+    all_rule_contexts = {}  # used to generate schematron tests about document structure
     for i, row in enumerate(rows):
         # handle new phase
         if row['phase title']:
             new_phase = {
                 'title': row['phase title'],
                 'see': row['phase see'],
-                'id': row['phase title'].lower().replace(' ', '_'),
+                'id': to_id(row['phase title']),
                 'patterns': []
             }
             if not row['pattern title']:
@@ -104,7 +164,7 @@ def generate_sch(csv_file, output_file=None, golden_xml_file=None, dry_run=False
             new_pattern = {
                 'title': row['pattern title'],
                 'see': row['pattern see'],
-                'id': row['pattern title'].lower().replace(' ', '_'),
+                'id': to_id(row['pattern title']),
                 'rules': [],
             }
             if not row['rule context']:
@@ -134,7 +194,9 @@ def generate_sch(csv_file, output_file=None, golden_xml_file=None, dry_run=False
             'role': row['assert severity']
         }
         current_rule['asserts'].append(new_assert)
-    
+
+    sch_dict = generate_tests_for_rule_contexts(sch_dict)
+
     # convert dict to schematron document, validating rule contexts as we go
     golden_xml = None
     if golden_xml_file is not None:
