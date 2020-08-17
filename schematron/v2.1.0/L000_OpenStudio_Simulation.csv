@@ -1,0 +1,22 @@
+phase title,phase see,pattern title,pattern see,rule title,rule context,assert test,assert description,assert severity,notes
+Preliminary Analysis,ASHRAE 211 5.2.3,Document Structure,,,/,count(auc:BuildingSync) = 1,,,
+,,,,,/auc:BuildingSync,count(auc:Facilities) = 1,,,
+,,,,,/auc:BuildingSync/auc:Facilities,count(auc:Facility) = 1,,,
+,,,,,/auc:BuildingSync/auc:Facilities/auc:Facility,count(auc:Sites) = 1,,,
+,,,,,,count(auc:Reports) = 1,,,
+"","","","","","",count(auc:Systems) = 1,"","",""
+"","","","","","",count(auc:Measures) = 1,"","",""
+,,,,,/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites,count(auc:Site) = 1,,,
+"","","","","",/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Measures,count(auc:Measure) >= 1,"","",""
+,,,,,/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site,count(auc:Buildings) = 1,,,
+,,,,,/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings,count(auc:Building) = 1,,,
+,,,,,/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports,count(auc:Report) >= 1,,,
+,,,,,/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report,count(auc:Scenarios) = 1,,,
+,,,,,/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Scenarios,count(auc:Scenario) >= 1,,,
+,,,,,,count(auc:Scenario[auc:ScenarioType/auc:PackageOfMeasures and auc:ScenarioName='Baseline']) = 1,,,
+"","",Building Info,"","",/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building,(auc:Address/auc:City and auc:Address/auc:State) or auc:ClimateZoneType/auc:ASHRAE/auc:ClimateZone or auc:ClimateZoneType/auc:CaliforniaTitle24/auc:ClimateZone,,"",""
+"","","","","",,auc:PremisesName,"","",""
+"","","","","","",auc:BuildingClassification,"","",""
+"","","","","","",auc:OccupancyClassification,"","",""
+"","","","","","",auc:FloorAreas/auc:FloorArea[auc:FloorAreaType='Gross' and auc:FloorAreaValue],"","",""
+"","","","","","",auc:YearOfConstruction,"","",""
