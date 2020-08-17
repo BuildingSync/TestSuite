@@ -71,7 +71,7 @@ def _get_unfired_rules(schematron, phase):
 
     return unfired_rules
 
-def validate_schematron(schematron, document, result_path=None, phase=None, strict_context=True):
+def validate_schematron(schematron, document, result_path=None, phase=None, strict_context=False):
     """
     Runs schematron on the given document and returns an array of failures
 
