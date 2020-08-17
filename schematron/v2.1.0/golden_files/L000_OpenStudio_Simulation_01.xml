@@ -4,13 +4,13 @@
     <auc:Facility ID="Facility1">
       <auc:Sites>
         <auc:Site ID="Site1">
-          <auc:Address>
-            <auc:City>Chicago</auc:City>
-            <auc:State>IL</auc:State>
-          </auc:Address>
           <auc:Buildings>
             <auc:Building ID="Willis_Tower">
               <auc:PremisesName>Willis Tower</auc:PremisesName>
+              <auc:Address>
+                <auc:City>Chicago</auc:City>
+                <auc:State>IL</auc:State>
+              </auc:Address>
               <auc:BuildingClassification>Commercial</auc:BuildingClassification>
               <auc:OccupancyClassification>Office</auc:OccupancyClassification>
               <auc:FloorAreas>
