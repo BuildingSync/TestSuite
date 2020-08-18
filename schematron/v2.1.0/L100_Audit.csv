@@ -55,6 +55,7 @@
 "","","","","","","(auc:EnergyResource/text() != 'Electricity') or auc:AnnualPeakNativeUnits","","",""
 "","","","","Utility Info","/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Utilities/auc:Utility","auc:UtilityAccountNumber","","",""
 "","","","","","","auc:RateSchedules/auc:RateSchedule/auc:TypeOfRateStructure/*","","",""
+"","","","","","","count(//auc:ResourceUses/auc:ResourceUse/auc:UtilityIDs/auc:UtilityID[@IDref = current()/@ID]) = 1","Each auc:Utility should have exactly 1 auc:ResourceUse linked to it (ie not 0, not 2+)","",""
 "","","Annual Energy Use","ASHRAE 211 6.1.2.2","Annual Energy Use","/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Scenarios/auc:Scenario[auc:ScenarioType/auc:CurrentBuilding]/auc:AllResourceTotals/auc:AllResourceTotal","auc:SiteEnergyUse","","",""
 "","","","","","","auc:SiteEnergyUseIntensity","","",""
 "","","","","","","auc:EnergyCost","","",""
