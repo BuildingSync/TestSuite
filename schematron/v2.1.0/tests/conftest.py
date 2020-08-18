@@ -27,7 +27,7 @@ class AssertFailureRolesMixin:
             else:
                 assert expected_role not in actual, f"Expected to NOT find failure with role {expected_role}"
 
-        assert len(actual) == 0, f"Expected to account for all failure roles, but found some unaccounted for:\n    {pprint.pprint(actual)}"
+        assert len(actual) == 0, f"Expected to account for all failure roles, but found some unaccounted for:\n{pprint.pformat(actual, indent=4)}"
 
     def assert_failure_messages(self, actual_failures, expected_dict):
         """Makes assertions about the failures. Specifically, their roles as well as
@@ -46,7 +46,7 @@ class AssertFailureRolesMixin:
             else:
                 assert expected_role not in actual, f"Expected to NOT find failure with role {expected_role}"
 
-        assert len(actual) == 0, f"Expected to account for all failure roles, but found some unaccounted for:\n    {pprint.pprint(actual)}"
+        assert len(actual) == 0, f"Expected to account for all failure roles, but found some unaccounted for:\n{pprint.pformat(actual, indent=4)}"
 
 
 def failures_by_role(failures):
