@@ -1,10 +1,7 @@
-import os
-import sys
 
-from lxml import etree
-import pytest
 
 from tools.generate_sch import make_pattern_for_testing_contexts
+
 
 class TestMakePatternForStructure:
     def test_pattern_maker_simple(self):

@@ -1,7 +1,8 @@
 import os
 
 from tools.validate_sch import validate_schematron
-from conftest import failures_by_role, AssertFailureRolesMixin, golden_tree, remove_element, SCH_DIR
+from conftest import AssertFailureRolesMixin, SCH_DIR, golden_tree, remove_element
+
 
 class TestL000OpenStudioSimulation01(AssertFailureRolesMixin):
     schematron = os.path.join(SCH_DIR, 'L000_OpenStudio_Simulation.sch')
@@ -68,7 +69,7 @@ class TestL000OpenStudioSimulation01(AssertFailureRolesMixin):
         # -- Assert
         self.assert_failure_roles(failures, {'ERROR': 1})
         assert failures[
-                   0].message == "count(auc:Scenario[@ID='Baseline' and auc:ScenarioType/auc:PackageOfMeasures/auc:ReferenceCase/@IDref='Baseline' and auc:ScenarioName='Baseline']) = 1"
+            0].message == "count(auc:Scenario[@ID='Baseline' and auc:ScenarioType/auc:PackageOfMeasures/auc:ReferenceCase/@IDref='Baseline' and auc:ScenarioName='Baseline']) = 1"
 
 
 class TestL000OpenStudioSimulation02(AssertFailureRolesMixin):
