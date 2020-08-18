@@ -39,7 +39,7 @@ class TestValidateSchematron:
         # -- Assert
         assert len(failures) == 0
 
-    def test_accepts_file_path_or_str_content(self, tmpdir, simple_valid_doc_content, simple_sch_content):
+    def test_accepts_file_path(self, tmpdir, simple_valid_doc_content, simple_sch_content):
         # -- Setup
         doc = os.path.join(tmpdir, "test.xml")
         with open(doc, 'w') as f:
@@ -164,3 +164,31 @@ class TestValidateSchematron:
         # there should only be one failure b/c we only ran one phase
         assert len(failures) == 1
         assert failures[0].message == 'Attr should be hello'
+
+    def test_when_using_strict_context_it_returns_failures_for_unfired_rules(self):
+        # -- Setup
+        doc = '''<root>
+            <child attr="hello"/>
+        </root>'''
+        # first pattern should fire and pass
+        # second pattern should _not_fire, and with strict validation result in a failure
+        sch = '''<sch:schema xmlns:sch="http://purl.oclc.org/dsdl/schematron">
+            <sch:pattern id="patternA">
+                <sch:rule context="/root/child">
+                    <sch:assert test="@attr = 'hello'" role="ERROR">Attr should be hello</sch:assert>
+                </sch:rule>
+            </sch:pattern>
+            <sch:pattern id="patternB">
+                <sch:rule context="/root/bogus">
+                    <sch:assert test="count(fake) = 123" role="ERROR">There should be 123 fake elements</sch:assert>
+                </sch:rule>
+            </sch:pattern>
+        </sch:schema>'''
+
+        # -- Act
+        failures = validate_schematron(sch, doc, strict_context=True)
+
+        # -- Assert
+        # there should be one failure, the rule which was not fired
+        assert len(failures) == 1
+        assert failures[0].message == 'Rule was NOT used for validation: /root/bogus'
