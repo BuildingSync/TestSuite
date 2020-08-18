@@ -1,9 +1,9 @@
 import os
 
-from lxml import etree
 
 from tools.validate_sch import validate_schematron
-from conftest import failures_by_role, AssertFailureRolesMixin, golden_tree, remove_element, SCH_DIR
+from conftest import AssertFailureRolesMixin, SCH_DIR, golden_tree, remove_element
+
 
 class TestL000PrelimAnalysis(AssertFailureRolesMixin):
     schematron = os.path.join(SCH_DIR, 'L000_Prelim_Analysis.sch')
@@ -26,8 +26,8 @@ class TestL000PrelimAnalysis(AssertFailureRolesMixin):
 
         # remove the measured scenario
         tree = remove_element(tree, '//auc:Scenario[auc:ScenarioType/auc:CurrentBuilding/auc:CalculationMethod/auc:Measured]')
-        
-        # -- Act 
+
+        # -- Act
         failures = validate_schematron(self.schematron, tree)
 
         # -- Assert
@@ -44,7 +44,7 @@ class TestL000PrelimAnalysis(AssertFailureRolesMixin):
         # remove the measured scenario
         tree = remove_element(tree, '//auc:Scenario[auc:ScenarioType/auc:Benchmark]/auc:LinkedPremises/auc:Building/auc:LinkedBuildingID')
 
-        # -- Act 
+        # -- Act
         failures = validate_schematron(self.schematron, tree)
 
         # -- Assert
@@ -61,7 +61,7 @@ class TestL000PrelimAnalysis(AssertFailureRolesMixin):
         # remove the benchmark scenario
         tree = remove_element(tree, '//auc:Scenario/auc:ScenarioType/auc:Benchmark')
 
-        # -- Act 
+        # -- Act
         failures = validate_schematron(self.schematron, tree)
 
         # -- Assert
@@ -78,7 +78,7 @@ class TestL000PrelimAnalysis(AssertFailureRolesMixin):
         # remove the benchmark scenario
         tree = remove_element(tree, '//auc:Scenario[auc:ScenarioType/auc:Benchmark]/auc:LinkedPremises/auc:Building/auc:LinkedBuildingID')
 
-        # -- Act 
+        # -- Act
         failures = validate_schematron(self.schematron, tree)
 
         # -- Assert

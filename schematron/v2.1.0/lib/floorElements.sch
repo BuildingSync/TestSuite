@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schema xmlns="http://purl.oclc.org/dsdl/schematron">
   <ns prefix="auc" uri="http://buildingsync.net/schemas/bedes-auc/2019"/>
-  <!--  
+  <!--
     For logic pertaining to FloorArea elements.
 -->
-  <!--  
+  <!--
     Each FloorAreaType enumeration can occur AT MOST one time in a set of FloorArea elements.
     <severity> error
     <param> parent - an auc:FloorAreas element
@@ -109,7 +109,7 @@
       </assert>
     </rule>
   </pattern>
-  <!--  
+  <!--
     Check that the auc:FloorArea elements have the auc:FloorAreaType and auc:FloorAreaValue.
     <severity> error
     <param> parent - an auc:FloorArea element
@@ -121,7 +121,7 @@
       </assert>
     </rule>
   </pattern>
-  <!--  
+  <!--
     Check that there is exactly one auc:FloorAreaType
     <severity> error
     <param> parent - an auc:FloorAreas element
@@ -134,7 +134,7 @@
       </assert>
     </rule>
   </pattern>
-  <!--  
+  <!--
     Check if an auc:FloorAreaType is declared.
     <severity> error
     <param> parent - an auc:FloorAreas element
@@ -148,7 +148,7 @@
     </rule>
   </pattern>
   <!--
-    Check mechanical floor area types add up to the gross type.  The following values are assumed if the type is not declared, 
+    Check mechanical floor area types add up to the gross type.  The following values are assumed if the type is not declared,
     although these types are not inserted in the BSync document:
     - Cooled only -> 0.0
     - Heated only -> 0.0
@@ -211,7 +211,7 @@
       </assert>
     </rule>
   </pattern>
-  <!--  
+  <!--
     Check that 'Heated' and 'Cooled' FloorAreaTypes are not defined.
     <severity> error
     <param> parent - an auc:FloorAreas element
@@ -226,7 +226,7 @@
       </assert>
     </rule>
   </pattern>
-  <!--  
+  <!--
     Check that at least one of the mechanical floor area types is defined.
     <severity> error
     <param> parent - an auc:FloorAreas element
@@ -243,7 +243,7 @@
       </assert>
     </rule>
   </pattern>
-  <!--  
+  <!--
     Check that the Gross Area of the auc:Building is greater than or equal to the sum of the Gross Area from all auc:Section[auc:SectionType='Space function'] elements
     <severity> error
     <param> parent - an auc:Building
@@ -263,7 +263,7 @@
       </assert>
     </rule>
   </pattern>
-  <!--  Check that either a auc:FloorAreaValue or auc:FloorAreaPercentage is specifed, but not both 
+  <!--  Check that either a auc:FloorAreaValue or auc:FloorAreaPercentage is specifed, but not both
       <severity> error
       <param> parent - an auc:FloorArea element
   -->

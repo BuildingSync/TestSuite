@@ -1,13 +1,11 @@
-import argparse
 from collections import namedtuple
-import os
-import sys
 
 from lxml import etree, isoschematron
 
 from .constants import SVRL_NSMAP, SCH_NSMAP
 
 Failure = namedtuple('Failure', ['line', 'element', 'message', 'role'])
+
 
 def _get_unfired_rules(schematron, phase):
     """
@@ -61,7 +59,7 @@ def _get_unfired_rules(schematron, phase):
             rule_counts[rule] += 1
         else:
             rule_counts[rule] = 1
-    
+
     for rule in fired_rules:
         rule_counts[rule] -= 1
 
@@ -70,6 +68,7 @@ def _get_unfired_rules(schematron, phase):
     unfired_rules = [rule for rule in expected_rules if rule in unfired_rules]
 
     return unfired_rules
+
 
 def validate_schematron(schematron, document, result_path=None, phase=None, strict_context=False):
     """
@@ -84,7 +83,7 @@ def validate_schematron(schematron, document, result_path=None, phase=None, stri
         schematron_tree = etree.fromstring(schematron)
     except etree.XMLSyntaxError:
         schematron_tree = etree.parse(schematron)
-        
+
     schematron = isoschematron.Schematron(
         schematron_tree,
         phase=phase,
@@ -103,7 +102,7 @@ def validate_schematron(schematron, document, result_path=None, phase=None, stri
         raise Exception(f'Unrecognized type for `document`: {type(document)}. Expected file path, string of xml, or lxml etree instance')
 
     schematron.validate(document_tree)
-    
+
     strout = etree.tostring(schematron.validation_report, pretty_print=True)
     if result_path is not None:
         with open(result_path, 'wb') as f:

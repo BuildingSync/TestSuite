@@ -2,8 +2,6 @@
 import copy
 import csv
 import os
-import sys
-from pprint import pprint
 
 from lxml import etree
 
@@ -14,6 +12,7 @@ from tools.constants import SCH_NS, SCH_NSMAP, BSYNC_NSMAP
 # see functions check_xpath and reset_rule_visits
 _NODE_VISITS = {}
 
+
 def qname(name):
     """
     Prefixes the name with schematron namespace
@@ -22,8 +21,10 @@ def qname(name):
     """
     return etree.QName(SCH_NS, name)
 
+
 def to_id(name):
     return name.lower().replace(' ', '_')
+
 
 def check_xpath(tree, xpath):
     """
@@ -42,8 +43,9 @@ def check_xpath(tree, xpath):
         else:
             unvisited += 1
             _NODE_VISITS[node] = True
-    
+
     return visited + unvisited > 0, visited, unvisited
+
 
 def reset_rule_visits():
     """
@@ -52,6 +54,7 @@ def reset_rule_visits():
     """
     global _NODE_VISITS
     _NODE_VISITS = {}
+
 
 def get_rule_warnings(tree, xpath):
     """
@@ -70,6 +73,7 @@ def get_rule_warnings(tree, xpath):
     except Exception as e:
         warnings.append(f'WARNING: failed to check rule: {e}\n    context: {xpath}')
     return warnings
+
 
 def make_pattern_for_testing_contexts(pattern):
     """
@@ -103,6 +107,7 @@ def make_pattern_for_testing_contexts(pattern):
 
     return prereq_pattern
 
+
 def generate_tests_for_rule_contexts(orig_sch_dict):
     """
     Generates a new pattern for each existing pattern, where each new pattern asserts
@@ -123,8 +128,9 @@ def generate_tests_for_rule_contexts(orig_sch_dict):
             # *2 b/c we've already duplicated each previous pattern up to this point
             prereq_insert_idx = (orig_pattern_idx * 2)
             new_sch_dict['phases'][phase_idx]['patterns'].insert(prereq_insert_idx, prereq_pattern)
-    
+
     return new_sch_dict
+
 
 def generate_sch(csv_file, output_file=None, golden_xml_file=None, dry_run=False):
     """
@@ -135,8 +141,8 @@ def generate_sch(csv_file, output_file=None, golden_xml_file=None, dry_run=False
     """
     with open(csv_file, encoding='utf-8-sig') as f:
         rows = [{k: v for k, v in row.items()}
-            for row in csv.DictReader(f, skipinitialspace=True)]
-    
+                for row in csv.DictReader(f, skipinitialspace=True)]
+
     # convert flat rows to hierarchical (nested) representation
     sch_dict = {
         'phases': []
@@ -144,7 +150,6 @@ def generate_sch(csv_file, output_file=None, golden_xml_file=None, dry_run=False
     current_phase = None
     current_pattern = None
     current_rule = None
-    all_rule_contexts = {}  # used to generate schematron tests about document structure
     for i, row in enumerate(rows):
         # handle new phase
         if row['phase title']:
@@ -211,7 +216,7 @@ def generate_sch(csv_file, output_file=None, golden_xml_file=None, dry_run=False
         phase_elem = etree.SubElement(root, qname('phase'), id=phase['id'], see=phase['see'])
         for pattern in phase['patterns']:
             reset_rule_visits()
-            active_elem = etree.SubElement(phase_elem, qname('active'), pattern=pattern['id'])
+            _ = etree.SubElement(phase_elem, qname('active'), pattern=pattern['id'])
 
             pattern_elem = etree.Element(qname('pattern'), see=pattern['see'], id=pattern['id'])
             etree.SubElement(pattern_elem, qname('title')).text = pattern['title']
@@ -230,14 +235,14 @@ def generate_sch(csv_file, output_file=None, golden_xml_file=None, dry_run=False
                     if not description:
                         description = assert_['test']
                     assert_elem.text = description
-    
+
     for pattern in collected_patterns:
         root.append(pattern)
 
     sch_bytes = etree.tostring(root, pretty_print=True, xml_declaration=True)
     if output_file is None:
         output_file = f'{os.path.splitext(csv_file)[0]}.sch'
-    
+
     if os.path.isfile(output_file):
         with open(output_file, 'rb') as f:
             if sch_bytes != f.read():

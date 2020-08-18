@@ -44,11 +44,11 @@ tox
 
 ## Ruby tests and validation
 We are currently migrating from Ruby to Python, so there is still some remaining Ruby code.
-### System Requirements 
+### System Requirements
 
 In order to run the OpenStudio simulation tests you must have a stable version of the following:
-* `OpenStudio>2.0` 
-* `Ruby v2.2.4` via an `rbenv` environment 
+* `OpenStudio>2.0`
+* `Ruby v2.2.4` via an `rbenv` environment
 * `Bundler v1.17.2`
 
 ### Setup
@@ -79,7 +79,7 @@ The LOD spec is a comprehensive guide developed by the AIA and BIMForm to help B
 A MVD in BuildingSync is intended to provide a narrower focus for which the data stored in a BuildingSync document is intended. It is analogous to the MVD introduced above. The two primary MVDs developed so far are:
     - Audit – To ensure alignment of data contained in the BuildingSync document with portions of the ASHRAE 211 Standard
     - OpenStudio Simulation – To ensure alignment of data contained in the BuildingSync document with requirements necessary to utilize the BuildingSync-gem for automatically generating and simulating an energy model using OpenStudio.
-    
+
 ### MLOD definitions
 The MLOD definitions are intended to provide expectations of informational requirements at differing levels of abstraction.  For example, in BuildingSync, a Building element can be defined to capture high-level information, but narrower levels of abstraction regarding architectural and mechanical space configurations (Section, ThermalZone, or Space elements) can be defined as child elements of the Building to provide more specific information.  This is analogous to the LOD spec introduced above.
 
