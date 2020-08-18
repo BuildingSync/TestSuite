@@ -6,8 +6,6 @@
     <sch:active pattern="measured_scenario"/>
     <sch:active pattern="document_structure_prerequisites_benchmark_scenario"/>
     <sch:active pattern="benchmark_scenario"/>
-    <sch:active pattern="document_structure_prerequisites_resource_use"/>
-    <sch:active pattern="resource_use"/>
   </sch:phase>
   <sch:pattern see="" id="document_structure_prerequisites_measured_scenario">
     <sch:title>Document Structure Prerequisites Measured Scenario</sch:title>
@@ -42,19 +40,6 @@
       <sch:assert test="count(auc:BenchmarkType/*) &gt; 0" role="">count(auc:BenchmarkType/*) &gt; 0</sch:assert>
       <sch:assert test="auc:BenchmarkTool" role="">auc:BenchmarkTool</sch:assert>
       <sch:assert test="auc:BenchmarkYear" role="">auc:BenchmarkYear</sch:assert>
-    </sch:rule>
-  </sch:pattern>
-  <sch:pattern see="" id="document_structure_prerequisites_resource_use">
-    <sch:title>Document Structure Prerequisites Resource Use</sch:title>
-    <sch:rule context="/">
-      <sch:assert test="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Scenarios/auc:Scenario[auc:ScenarioType/auc:CurrentBuilding/auc:CalculationMethod/auc:Measured]" role="ERROR">/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Scenarios/auc:Scenario[auc:ScenarioType/auc:CurrentBuilding/auc:CalculationMethod/auc:Measured]</sch:assert>
-    </sch:rule>
-  </sch:pattern>
-  <sch:pattern see="" id="resource_use">
-    <sch:title>Resource Use</sch:title>
-    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Scenarios/auc:Scenario[auc:ScenarioType/auc:CurrentBuilding/auc:CalculationMethod/auc:Measured]">
-      <sch:assert test="count(auc:ResourceUses) = 1" role="">count(auc:ResourceUses) = 1</sch:assert>
-      <sch:assert test="auc:ResourceUses/auc:ResourceUse/auc:EnergyResource" role="">auc:ResourceUses/auc:ResourceUse/auc:EnergyResource</sch:assert>
     </sch:rule>
   </sch:pattern>
 </sch:schema>

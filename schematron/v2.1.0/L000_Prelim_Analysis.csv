@@ -6,5 +6,3 @@ Preliminary Analysis,ASHRAE 211 5.2.3,Measured Scenario,ASHRAE 211 5.2.3.1 and 5
 ,,,,,/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Scenarios/auc:Scenario/auc:ScenarioType/auc:Benchmark,count(auc:BenchmarkType/*) > 0,,,
 ,,,,,,auc:BenchmarkTool,,,
 ,,,,,,auc:BenchmarkYear,,,
-,,Resource Use,,,/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Scenarios/auc:Scenario[auc:ScenarioType/auc:CurrentBuilding/auc:CalculationMethod/auc:Measured],count(auc:ResourceUses) = 1,,,
-,,,,,,auc:ResourceUses/auc:ResourceUse/auc:EnergyResource,,,
