@@ -1,12 +1,10 @@
 import os
 
-from lxml import etree
-import pytest
 
-from tools.constants import BSYNC_NSMAP
 from tools.validate_sch import validate_schematron
 
-from conftest import failures_by_role, golden_tree, AssertFailureRolesMixin, SCH_DIR, remove_element
+from conftest import AssertFailureRolesMixin, SCH_DIR, golden_tree, remove_element
+
 
 class TestL100Audit(AssertFailureRolesMixin):
     schematron = os.path.join(SCH_DIR, 'L100_Audit.sch')

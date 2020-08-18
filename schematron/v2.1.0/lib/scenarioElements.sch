@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schema xmlns="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt1">
   <ns prefix="auc" uri="http://buildingsync.net/schemas/bedes-auc/2019"/>
-  <!--  
+  <!--
     For logic that pertains to Scenario elements
 -->
   <!--
-    A baseline scenario must be defined.  Within the baseline scenario, the following 
+    A baseline scenario must be defined.  Within the baseline scenario, the following
     must be defined exactly: auc:ScenarioType/auc:PackageOfMeasures/auc:ReferenceCase IDref='Baseline'
     TODO: Need to update BuildingSync-gem to look for following and change this function to look for:
       auc:ScenarioType/auc:CurrentBuilding/auc:CalculationMethod/auc:Modeled
@@ -29,7 +29,7 @@
       </assert>
     </rule>
   </pattern>
-  <!--  
+  <!--
   Ensure that every Building is linked to a Benchmark Scenario
   <severity> error
   -->
@@ -42,7 +42,7 @@
       </assert>
     </rule>
   </pattern>
-  <!--  
+  <!--
   Ensure that every BenchmarkType Scenario has necessary info per Std 211 5.2.3
   <severity> error
   -->
@@ -63,7 +63,7 @@
       </assert>
     </rule>
   </pattern>
-  <!--  
+  <!--
   Ensure that every Building is linked to a Measurement Scenario
   <severity> error
   -->
@@ -76,7 +76,7 @@
       </assert>
     </rule>
   </pattern>
-  <!--  
+  <!--
   Ensure that Measurement Scenario has:
   - ResourceUses defined
   - At least one ResourceUse/EnergyResource
@@ -92,8 +92,8 @@
       </assert>
     </rule>
   </pattern>
-  
-  <!--  
+
+  <!--
   Ensure that, within the context of a Measurement Scenario, each EnergyResource type has a EndUse='All end uses'
   <severity> error
   -->

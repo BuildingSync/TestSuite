@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- 
+<!--
   Work in progress
   This file is intended to document all of the required elements and attributes
   for a Level 1 audit.
@@ -13,7 +13,7 @@
             <auc:Building ID="Building-A">
               <!-- 6.1.1.a -->
               <auc:PremisesName>Building Name</auc:PremisesName>
-              
+
               <!-- 6.1.1.1.m and 6.1.1.2.a and 6.1.1.2.c and 6.1.1.2.d and 6.1.1.2.e -->
               <auc:PremisesNotes>
                 Problems or Needs
@@ -51,11 +51,11 @@
                 <auc:State>GA</auc:State>
                 <auc:PostalCode>30161</auc:PostalCode>
               </auc:Address>
-              
+
               <!-- 6.1.1.1.f -->
               <auc:BuildingClassification>Commercial</auc:BuildingClassification>
               <auc:OccupancyClassification>Office</auc:OccupancyClassification>
-              
+
               <!-- 6.1.1.1.k -->
               <!--
                 Note that this is only required if building classification is residential,
@@ -74,7 +74,7 @@
               <auc:FloorsBelowGrade>2</auc:FloorsBelowGrade>
               <auc:ConditionedFloorsAboveGrade>1</auc:ConditionedFloorsAboveGrade>
               <auc:ConditionedFloorsBelowGrade>1</auc:ConditionedFloorsBelowGrade>
-              
+
               <!-- 6.1.1.2.b -->
               <auc:HistoricalLandmark>true</auc:HistoricalLandmark>
 
@@ -89,14 +89,14 @@
                   <auc:FloorAreaValue>123</auc:FloorAreaValue>
                 </auc:FloorArea>
               </auc:FloorAreas>
-              
+
               <!-- 6.1.1.1.i -->
               <auc:YearOfConstruction>1993</auc:YearOfConstruction>
               <!-- 6.1.1.1.l (recommended) -->
               <auc:YearOfLastEnergyAudit>2018</auc:YearOfLastEnergyAudit>
               <!-- 6.1.1.1.i -->
               <auc:YearOfLastMajorRemodel>2016</auc:YearOfLastMajorRemodel>
-              
+
               <!-- 6.1.1.1g (for every space function) -->
               <auc:Sections>
                 <auc:Section ID="Section-Space-A">
@@ -111,7 +111,7 @@
                       <auc:OccupantQuantity>123</auc:OccupantQuantity>
                     </auc:OccupancyLevel>
                   </auc:OccupancyLevels>
-                  
+
                   <auc:TypicalOccupantUsages>
                     <!-- 6.1.1.1.g/5.3.4.b -->
                     <auc:TypicalOccupantUsage>
@@ -194,7 +194,7 @@
       <auc:Measures>
         <!-- Low cost measure -->
         <auc:Measure ID="Measure-LowCost-A">
-          
+
           <!-- 6.1.5.b -->
           <auc:SystemCategoryAffected>Air Distribution</auc:SystemCategoryAffected>
 

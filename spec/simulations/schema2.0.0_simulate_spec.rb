@@ -55,4 +55,3 @@ describe 'Simulate' do
     end
   end
 end
-

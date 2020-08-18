@@ -6,6 +6,7 @@ import sys
 from tools.validate_sch import validate_schematron, print_failure
 from tools.generate_sch import generate_sch
 
+
 def validate_schematrons(args):
     num_errors = 0
     for doc in args.documents:
@@ -25,10 +26,12 @@ def validate_schematrons(args):
         sys.exit(1)
     sys.exit(0)
 
+
 def generate_schematron(args):
     if args.golden_xml is None:
         print('INFO: No golden xml file provided - will not be able to check for potential unfired rule contexts')
     generate_sch(args.source_csv, args.output, args.golden_xml)
+
 
 def generate_all_schematron(args):
     """
@@ -45,7 +48,7 @@ def generate_all_schematron(args):
             updated = generate_sch(filename, dry_run=args.dry_run)
             if updated:
                 updated_files.append(filename)
-    
+
     for file_ in updated_files:
         print(file_)
 
@@ -53,6 +56,7 @@ def generate_all_schematron(args):
         print('Expected no files to be modified after generating Schematron. Update the Schematron by running `./buildingsch.py generate_all`')
         sys.exit(1)
     sys.exit(0)
+
 
 # Construct Parsers
 parser = argparse.ArgumentParser(description='Tool for validating and generating Schematron documents')

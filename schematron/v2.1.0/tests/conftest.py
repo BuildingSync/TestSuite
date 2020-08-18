@@ -1,7 +1,6 @@
 import copy
 import os
 
-import pytest
 from lxml import etree
 
 from tools.constants import BSYNC_NSMAP
@@ -26,7 +25,7 @@ class AssertFailureRolesMixin:
                 assert expected[expected_role] == len(actual_failures), f"Expected failures does not equal actual failures for role {expected_role}"
             else:
                 assert expected_role not in actual, f"Expected to NOT find failure with role {expected_role}"
-        
+
         assert len(actual) == 0, f"Expected to account for all failure roles, but found some unaccounted for:\n    {actual}"
 
 
@@ -45,6 +44,7 @@ def failures_by_role(failures):
 
     return res
 
+
 def golden_tree(name):
     """Returns parsed lxml tree of the golden file
 
@@ -53,6 +53,7 @@ def golden_tree(name):
     """
     golden_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'golden_files', f'{name}.xml')
     return etree.parse(golden_file)
+
 
 def remove_element(tree, xpath):
     elems = tree.xpath(xpath, namespaces=BSYNC_NSMAP)

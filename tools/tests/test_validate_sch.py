@@ -1,10 +1,9 @@
 import os
-import sys
 
-from lxml import etree
 import pytest
 
 from tools.validate_sch import validate_schematron
+
 
 @pytest.fixture
 def simple_valid_doc_content():
@@ -12,11 +11,13 @@ def simple_valid_doc_content():
         <child attr="hello"/>
     </root>'''
 
+
 @pytest.fixture
 def simple_bad_doc_content():
     return '''<root>
         <child attr="world"/>
     </root>'''
+
 
 @pytest.fixture
 def simple_sch_content():
@@ -29,6 +30,7 @@ def simple_sch_content():
         </sch:pattern>
     </sch:schema>'''
 
+
 class TestValidateSchematron:
     def test_when_doc_is_valid_returns_no_errors(self, simple_valid_doc_content, simple_sch_content):
         # -- Act
@@ -36,7 +38,6 @@ class TestValidateSchematron:
 
         # -- Assert
         assert len(failures) == 0
-
 
     def test_accepts_file_path_or_str_content(self, tmpdir, simple_valid_doc_content, simple_sch_content):
         # -- Setup
@@ -46,13 +47,12 @@ class TestValidateSchematron:
         sch = os.path.join(tmpdir, "test.sch")
         with open(sch, 'w') as f:
             f.write(simple_sch_content)
-        
+
         # -- Act
         failures = validate_schematron(sch, doc)
 
         # -- Assert
         assert len(failures) == 0
-
 
     def test_when_doc_is_bad_returns_errors(self, simple_bad_doc_content, simple_sch_content):
         # -- Act
