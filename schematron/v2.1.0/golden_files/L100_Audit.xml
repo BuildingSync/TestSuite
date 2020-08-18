@@ -53,7 +53,7 @@
               </auc:Address>
 
               <!-- 6.1.1.1.f -->
-              <auc:BuildingClassification>Commercial</auc:BuildingClassification>
+              <auc:BuildingClassification>Mixed use commercial</auc:BuildingClassification>
               <auc:OccupancyClassification>Office</auc:OccupancyClassification>
 
               <!-- 6.1.1.1.k -->
