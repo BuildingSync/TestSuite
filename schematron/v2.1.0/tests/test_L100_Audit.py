@@ -5,23 +5,23 @@ import os
 from tools.constants import BSYNC_NSMAP
 from tools.validate_sch import validate_schematron
 
-from conftest import AssertFailureRolesMixin, SCH_DIR, golden_tree, remove_element
+from conftest import AssertFailureRolesMixin, SCH_DIR, exemplary_tree, remove_element
 
 
 class TestL100Audit(AssertFailureRolesMixin):
     schematron = os.path.join(SCH_DIR, 'L100_Audit.sch')
-    golden_file = os.path.join(SCH_DIR, 'golden_files', 'L100_Audit.xml')
+    exemplary_file = os.path.join(SCH_DIR, 'exemplary_files', 'L100_Audit.xml')
 
-    def test_golden_file_is_valid(self):
+    def test_exemplary_file_is_valid(self):
         # -- Act
-        failures = validate_schematron(self.schematron, self.golden_file)
+        failures = validate_schematron(self.schematron, self.exemplary_file)
 
         # -- Assert
         self.assert_failure_messages(failures, {})
 
     def test_is_valid_when_only_resource_use_is_electricity(self):
         # -- Setup
-        tree = golden_tree('L100_Audit')
+        tree = exemplary_tree('L100_Audit')
 
         # make sure it's valid
         failures = validate_schematron(self.schematron, tree)
@@ -39,7 +39,7 @@ class TestL100Audit(AssertFailureRolesMixin):
 
     def test_is_invalid_when_only_resource_use_is_not_electricity(self):
         # -- Setup
-        tree = golden_tree('L100_Audit')
+        tree = exemplary_tree('L100_Audit')
 
         # make sure it's valid
         failures = validate_schematron(self.schematron, tree)
@@ -59,7 +59,7 @@ class TestL100Audit(AssertFailureRolesMixin):
 
     def test_is_invalid_when_multiple_resource_uses_point_to_same_utility(self):
         # -- Setup
-        tree = golden_tree('L100_Audit')
+        tree = exemplary_tree('L100_Audit')
 
         # make sure it's valid
         failures = validate_schematron(self.schematron, tree)

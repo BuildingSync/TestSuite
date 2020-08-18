@@ -1,24 +1,24 @@
 import os
 
 from tools.validate_sch import validate_schematron
-from conftest import AssertFailureRolesMixin, SCH_DIR, golden_tree, remove_element
+from conftest import AssertFailureRolesMixin, SCH_DIR, exemplary_tree, remove_element
 
 
 class TestL000OpenStudioSimulation01(AssertFailureRolesMixin):
     schematron = os.path.join(SCH_DIR, 'L000_OpenStudio_Simulation.sch')
-    golden_file_name = 'L000_OpenStudio_Simulation_01'
-    golden_file = os.path.join(SCH_DIR, 'golden_files', f"{golden_file_name}.xml")
+    exemplary_file_name = 'L000_OpenStudio_Simulation_01'
+    exemplary_file = os.path.join(SCH_DIR, 'exemplary_files', f"{exemplary_file_name}.xml")
 
-    def test_golden_file_is_valid(self):
+    def test_exemplary_file_is_valid(self):
         # -- Act
-        failures = validate_schematron(self.schematron, self.golden_file)
+        failures = validate_schematron(self.schematron, self.exemplary_file)
 
         # -- Assert
         self.assert_failure_messages(failures, {})
 
     def test_fails_when_no_address(self):
         # -- Setup
-        tree = golden_tree(self.golden_file_name)
+        tree = exemplary_tree(self.exemplary_file_name)
 
         # verify it's valid
         failures = validate_schematron(self.schematron, tree)
@@ -38,7 +38,7 @@ class TestL000OpenStudioSimulation01(AssertFailureRolesMixin):
 
     def test_fails_when_package_of_measures_scenario_missing(self):
         # -- Setup
-        tree = golden_tree(self.golden_file_name)
+        tree = exemplary_tree(self.exemplary_file_name)
 
         # verify it's valid
         failures = validate_schematron(self.schematron, tree)
@@ -59,7 +59,7 @@ class TestL000OpenStudioSimulation01(AssertFailureRolesMixin):
 
     def test_fails_when_package_of_measures_scenario_missing_reference_case(self):
         # -- Setup
-        tree = golden_tree(self.golden_file_name)
+        tree = exemplary_tree(self.exemplary_file_name)
 
         # verify it's valid
         failures = validate_schematron(self.schematron, tree)
@@ -81,19 +81,19 @@ class TestL000OpenStudioSimulation01(AssertFailureRolesMixin):
 
 class TestL000OpenStudioSimulation02(AssertFailureRolesMixin):
     schematron = os.path.join(SCH_DIR, 'L000_OpenStudio_Simulation.sch')
-    golden_file_name = 'L000_OpenStudio_Simulation_02'
-    golden_file = os.path.join(SCH_DIR, 'golden_files', f"{golden_file_name}.xml")
+    exemplary_file_name = 'L000_OpenStudio_Simulation_02'
+    exemplary_file = os.path.join(SCH_DIR, 'exemplary_files', f"{exemplary_file_name}.xml")
 
-    def test_golden_file_is_valid(self):
+    def test_exemplary_file_is_valid(self):
         # -- Act
-        failures = validate_schematron(self.schematron, self.golden_file)
+        failures = validate_schematron(self.schematron, self.exemplary_file)
 
         # -- Assert
         self.assert_failure_messages(failures, {})
 
     def test_fails_when_no_climate_zone_type(self):
         # -- Setup
-        tree = golden_tree(self.golden_file_name)
+        tree = exemplary_tree(self.exemplary_file_name)
 
         # verify it's valid
         failures = validate_schematron(self.schematron, tree)

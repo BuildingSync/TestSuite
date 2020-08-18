@@ -8,7 +8,7 @@ from lxml import etree
 from tools.constants import SCH_NS, SCH_NSMAP, BSYNC_NSMAP
 
 
-# global variable for tracking visited nodes in the golden xml
+# global variable for tracking visited nodes in the exemplary xml
 # see functions check_xpath and reset_rule_visits
 _NODE_VISITS = {}
 
@@ -67,7 +67,7 @@ def get_rule_warnings(tree, xpath):
     try:
         matched, num_visited, num_unvisited = check_xpath(tree, xpath)
         if not matched and xpath != "/":
-            warnings.append(f'WARNING: found no matches with golden xml for rule\n    context: {xpath}')
+            warnings.append(f'WARNING: found no matches with exemplary xml for rule\n    context: {xpath}')
         if num_visited > 0:
             warnings.append(f'WARNING: rule matches nodes that have already been visited in this pattern: matched and already visited: {num_visited}; matched and unvisited: {num_unvisited}\n    context: {xpath}')
     except Exception as e:
@@ -132,12 +132,12 @@ def generate_tests_for_rule_contexts(orig_sch_dict):
     return new_sch_dict
 
 
-def generate_sch(csv_file, output_file=None, golden_xml_file=None, dry_run=False):
+def generate_sch(csv_file, output_file=None, exemplary_xml_file=None, dry_run=False):
     """
     Generates a schematron file from a csv file
 
     :param csv_file: str, path to csv for schematron generation
-    :param golden_xml_file: str | None, path to an xml file which should pass the schematron validation
+    :param exemplary_xml_file: str | None, path to an xml file which should pass the schematron validation
     """
     with open(csv_file, encoding='utf-8-sig') as f:
         rows = [{k: v for k, v in row.items()}
@@ -203,9 +203,9 @@ def generate_sch(csv_file, output_file=None, golden_xml_file=None, dry_run=False
     sch_dict = generate_tests_for_rule_contexts(sch_dict)
 
     # convert dict to schematron document, validating rule contexts as we go
-    golden_xml = None
-    if golden_xml_file is not None:
-        golden_xml = etree.parse(golden_xml_file)
+    exemplary_xml = None
+    if exemplary_xml_file is not None:
+        exemplary_xml = etree.parse(exemplary_xml_file)
     root = etree.Element(qname('schema'), nsmap=SCH_NSMAP)
     etree.SubElement(root, qname('ns'), prefix="auc", uri="http://buildingsync.net/schemas/bedes-auc/2019")
 
@@ -223,8 +223,8 @@ def generate_sch(csv_file, output_file=None, golden_xml_file=None, dry_run=False
             collected_patterns.append(pattern_elem)
 
             for rule in pattern['rules']:
-                if golden_xml is not None:
-                    for warning in get_rule_warnings(golden_xml, rule['context']):
+                if exemplary_xml is not None:
+                    for warning in get_rule_warnings(exemplary_xml, rule['context']):
                         print(warning)
 
                 rule_elem = etree.SubElement(pattern_elem, qname('rule'), context=rule['context'])

@@ -28,9 +28,9 @@ def validate_schematrons(args):
 
 
 def generate_schematron(args):
-    if args.golden_xml is None:
-        print('INFO: No golden xml file provided - will not be able to check for potential unfired rule contexts')
-    generate_sch(args.source_csv, args.output, args.golden_xml)
+    if args.exemplary_xml is None:
+        print('INFO: No exemplary xml file provided - will not be able to check for potential unfired rule contexts')
+    generate_sch(args.source_csv, args.output, args.exemplary_xml)
 
 
 def generate_all_schematron(args):
@@ -114,7 +114,7 @@ parser_generate.add_argument(
     help='Source CSV to generate schematron from',
 )
 parser_generate.add_argument(
-    'golden_xml',
+    'exemplary_xml',
     nargs='?',
     type=str,
     default=None,

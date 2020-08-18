@@ -65,14 +65,14 @@ def failures_by_role(failures):
     return res
 
 
-def golden_tree(name):
-    """Returns parsed lxml tree of the golden file
+def exemplary_tree(name):
+    """Returns parsed lxml tree of the exemplary file
 
     :param name: str, name of the file, without any file extension
     :return: lxml.etree
     """
-    golden_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'golden_files', f'{name}.xml')
-    return etree.parse(golden_file)
+    exemplary_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'exemplary_files', f'{name}.xml')
+    return etree.parse(exemplary_file)
 
 
 def remove_element(tree, xpath):

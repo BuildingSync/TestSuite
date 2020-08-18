@@ -27,9 +27,9 @@ See the CSV files in this repo for examples.
 
 Hierarchy is implied by the lack of text in a column. If no phase data is added to a row, it's considered to be the same phase as the row above. If no pattern data is present, it's assumed to be the same pattern as above. If no rule context is given, it's assumed to be the same as the one above.
 
-The generator expects a "golden" xml file which should pass the validation. This is used to make sure all rules are applied (schematron will skip rules if the rule context doesn't match or if it only matches nodes that have already been matched within that pattern). If no golden file is provided no rule context checks will be made.
+The generator expects a "exemplary" xml file which should pass the validation. This is used to make sure all rules are applied (schematron will skip rules if the rule context doesn't match or if it only matches nodes that have already been matched within that pattern). If no exemplary file is provided no rule context checks will be made.
 ```bash
-./buildingsch.py generate path_to_csv [path_to_golden_xml]
+./buildingsch.py generate path_to_csv [path_to_exemplary_xml]
 ```
 
 Generate all schematron files by using the following command
