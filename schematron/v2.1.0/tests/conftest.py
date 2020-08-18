@@ -1,5 +1,6 @@
 import copy
 import os
+import pprint
 
 from lxml import etree
 
@@ -26,7 +27,26 @@ class AssertFailureRolesMixin:
             else:
                 assert expected_role not in actual, f"Expected to NOT find failure with role {expected_role}"
 
-        assert len(actual) == 0, f"Expected to account for all failure roles, but found some unaccounted for:\n    {actual}"
+        assert len(actual) == 0, f"Expected to account for all failure roles, but found some unaccounted for:\n    {pprint.pprint(actual)}"
+
+    def assert_failure_messages(self, actual_failures, expected_dict):
+        """Makes assertions about the failures. Specifically, their roles as well as
+        what the failed assertion messages were.
+
+        :param actual_failures: list of Failures
+        :param expected_dict: dict, keys are roles and values lists of assertion messages
+        """
+        actual = failures_by_role(copy.deepcopy(actual_failures))
+        expected = copy.deepcopy(expected_dict)
+        for expected_role in expected:
+            if len(expected[expected_role]) != 0:
+                assert expected_role in actual, f"Expected to find failure with role {expected_role}"
+                actual_failure_msgs = [failure.message for failure in actual.pop(expected_role)]
+                assert expected[expected_role] == actual_failure_msgs
+            else:
+                assert expected_role not in actual, f"Expected to NOT find failure with role {expected_role}"
+
+        assert len(actual) == 0, f"Expected to account for all failure roles, but found some unaccounted for:\n    {pprint.pprint(actual)}"
 
 
 def failures_by_role(failures):
