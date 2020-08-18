@@ -15,7 +15,7 @@ class TestL100Audit(AssertFailureRolesMixin):
         failures = validate_schematron(self.schematron, self.golden_file)
 
         # -- Assert
-        self.assert_failure_roles(failures, {})
+        self.assert_failure_counts(failures, {})
 
     def test_is_valid_when_only_resource_use_is_electricity(self):
         # -- Setup
@@ -23,7 +23,7 @@ class TestL100Audit(AssertFailureRolesMixin):
 
         # make sure it's valid
         failures = validate_schematron(self.schematron, tree)
-        self.assert_failure_roles(failures, {})
+        self.assert_failure_counts(failures, {})
 
         # remove any resource uses that aren't electricity
         remove_element(tree, '//auc:ResourceUses/auc:ResourceUse[auc:EnergyResource/text() != "Electricity"]')
@@ -32,7 +32,7 @@ class TestL100Audit(AssertFailureRolesMixin):
         failures = validate_schematron(self.schematron, tree)
 
         # -- Assert
-        self.assert_failure_roles(failures, {})
+        self.assert_failure_counts(failures, {})
 
     def test_is_invalid_when_only_resource_use_is_not_electricity(self):
         # -- Setup
@@ -40,7 +40,7 @@ class TestL100Audit(AssertFailureRolesMixin):
 
         # make sure it's valid
         failures = validate_schematron(self.schematron, tree)
-        self.assert_failure_roles(failures, {})
+        self.assert_failure_counts(failures, {})
 
         # remove any resource uses that are electricity
         remove_element(tree, '//auc:ResourceUses/auc:ResourceUse[auc:EnergyResource/text() = "Electricity"]')

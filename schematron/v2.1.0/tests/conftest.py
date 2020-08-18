@@ -9,7 +9,7 @@ SCH_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
 
 
 class AssertFailureRolesMixin:
-    def assert_failure_roles(self, actual_failures, expected_dict):
+    def assert_failure_counts(self, actual_failures, expected_dict):
         """Makes assertions about the failures. Specifically, their roles as well as
         what assertions they failed on
 
