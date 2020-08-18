@@ -6,3 +6,7 @@ Preliminary Analysis,ASHRAE 211 5.2.3,Measured Scenario,ASHRAE 211 5.2.3.1 and 5
 ,,,,,/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Scenarios/auc:Scenario/auc:ScenarioType/auc:Benchmark,count(auc:BenchmarkType/*) > 0,,,
 ,,,,,,auc:BenchmarkTool,,,
 ,,,,,,auc:BenchmarkYear,,,
+,,Building Information,ASHRAE 211 5.2.3,,/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building,auc:BuildingClassification,,,
+,,,,,,auc:OccupancyClassification,,,
+,,,,,,auc:YearOfConstruction,,,
+,,,,,,auc:ClimateZoneType/*/auc:ClimateZone or (auc:Address/auc:City and auc:Address/auc:State),,,

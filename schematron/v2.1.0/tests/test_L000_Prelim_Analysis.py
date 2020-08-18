@@ -101,3 +101,25 @@ class TestL000PrelimAnalysis(AssertFailureRolesMixin):
                 '/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Scenarios/auc:Scenario[auc:ScenarioType/auc:Benchmark]/auc:LinkedPremises/auc:Building/auc:LinkedBuildingID'
             ]
         })
+
+    def test_fails_when_no_address_or_climate_zone_type(self):
+        # -- Setup
+        tree = golden_tree('L000_Prelim_Analysis')
+
+        # verify it's valid
+        failures = validate_schematron(self.schematron, tree)
+        self.assert_failure_messages(failures, {})
+
+        # remove the benchmark scenario
+        tree = remove_element(tree, '//auc:Building/auc:Address')
+        tree = remove_element(tree, '//auc:Building/auc:ClimateZoneType')
+
+        # -- Act
+        failures = validate_schematron(self.schematron, tree)
+
+        # -- Assert
+        self.assert_failure_messages(failures, {
+            'ERROR': [
+                'auc:ClimateZoneType/*/auc:ClimateZone or (auc:Address/auc:City and auc:Address/auc:State)'
+            ]
+        })

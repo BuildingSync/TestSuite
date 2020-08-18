@@ -6,6 +6,8 @@
     <sch:active pattern="measured_scenario"/>
     <sch:active pattern="document_structure_prerequisites_benchmark_scenario"/>
     <sch:active pattern="benchmark_scenario"/>
+    <sch:active pattern="document_structure_prerequisites_building_information"/>
+    <sch:active pattern="building_information"/>
   </sch:phase>
   <sch:pattern see="" id="document_structure_prerequisites_measured_scenario">
     <sch:title>Document Structure Prerequisites Measured Scenario</sch:title>
@@ -40,6 +42,21 @@
       <sch:assert test="count(auc:BenchmarkType/*) &gt; 0" role="">count(auc:BenchmarkType/*) &gt; 0</sch:assert>
       <sch:assert test="auc:BenchmarkTool" role="">auc:BenchmarkTool</sch:assert>
       <sch:assert test="auc:BenchmarkYear" role="">auc:BenchmarkYear</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="" id="document_structure_prerequisites_building_information">
+    <sch:title>Document Structure Prerequisites Building Information</sch:title>
+    <sch:rule context="/">
+      <sch:assert test="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building" role="ERROR">/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="ASHRAE 211 5.2.3" id="building_information">
+    <sch:title>Building Information</sch:title>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building">
+      <sch:assert test="auc:BuildingClassification" role="">auc:BuildingClassification</sch:assert>
+      <sch:assert test="auc:OccupancyClassification" role="">auc:OccupancyClassification</sch:assert>
+      <sch:assert test="auc:YearOfConstruction" role="">auc:YearOfConstruction</sch:assert>
+      <sch:assert test="auc:ClimateZoneType/*/auc:ClimateZone or (auc:Address/auc:City and auc:Address/auc:State)" role="">auc:ClimateZoneType/*/auc:ClimateZone or (auc:Address/auc:City and auc:Address/auc:State)</sch:assert>
     </sch:rule>
   </sch:pattern>
 </sch:schema>
