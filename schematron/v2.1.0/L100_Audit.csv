@@ -33,7 +33,7 @@
 "","","","","","","auc:TypicalOccupantUsages/auc:TypicalOccupantUsage[auc:TypicalOccupantUsageUnits/text() = 'Hours per week']","","",""
 "","","","","","","auc:TypicalOccupantUsages/auc:TypicalOccupantUsage[auc:TypicalOccupantUsageUnits/text() = 'Weeks per year']","","",""
 "","","","","","","auc:OccupancyLevels/auc:OccupancyLevel[auc:OccupantQuantityType/text() = 'Peak total occupants' or auc:OccupantQuantityType/text() = 'Normal occupancy']/auc:OccupantQuantity","","",""
-"","","","","","","//auc:PlugLoad[auc:LinkedPremises/auc:Section/auc:LinkedSectionID/@IDref = current()/@ID]/auc:WeightedAverageLoad","auc:Section[auc:SectionType='Space function'] must have a linked auc:PlugLoads/auc:PlugLoad","",""
+"","","","","","","//auc:PlugLoad[auc:LinkedPremises/auc:Section/auc:LinkedSectionID/@IDref = current()/@ID]/auc:WeightedAverageLoad","auc:Section[auc:SectionType='Space function'] must have a linked auc:PlugLoad with auc:WeightedAverageLoad","",""
 "","","","","","","//auc:HVACSystem[auc:LinkedPremises/auc:Section/auc:LinkedSectionID/@IDref = current()/@ID]/auc:PrimaryHVACSystemType","auc:Section[auc:SectionType='Space function'] must have a linked auc:HVACSystem/auc:PrimaryHVACSystem","",""
 "","","","","","","//auc:LightingSystem[auc:LinkedPremises/auc:Section/auc:LinkedSectionID/@IDref = current()/@ID]/auc:LampType","auc:Section[auc:SectionType='Space function'] must have a linked auc:LightingSystem with auc:LampType defined","",""
 "","","","","","","//auc:LightingSystem[auc:LinkedPremises/auc:Section/auc:LinkedSectionID/@IDref = current()/@ID]/auc:LampType//auc:LampLabel","auc:Section[auc:SectionType='Space function'] must have a linked auc:LightingSystem with auc:LampLabel defined","WARNING",""
