@@ -51,6 +51,8 @@
 "","","","","","","(auc:EnergyResource/text() != 'Electricity') or //auc:TimeSeriesData/auc:TimeSeries[auc:ResourceUseID/@IDref = current()/@ID and auc:ReadingType/text() = 'Peak' and auc:IntervalFrequency/text() = 'Month']/auc:EndTimestamp","TimeSeries data for ResourceUse must include an EndTimestamp","",""
 "","","","","","","(auc:EnergyResource/text() != 'Electricity') or //auc:TimeSeriesData/auc:TimeSeries[auc:ResourceUseID/@IDref = current()/@ID and auc:ReadingType/text() = 'Peak' and auc:IntervalFrequency/text() = 'Month']/auc:IntervalReading","TimeSeries data for ResourceUse must include an IntervalReading","",""
 "","","","","","","auc:AnnualFuelUseNativeUnits","","",""
+"","","","","","","(auc:EnergyResource/text() != 'Electricity') or auc:PeakResourceUnits","","",""
+"","","","","","","(auc:EnergyResource/text() != 'Electricity') or auc:AnnualPeakNativeUnits","","",""
 "","","","","Utility Info","/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Utilities/auc:Utility","auc:UtilityAccountNumber","","",""
 "","","","","","","auc:RateSchedules/auc:RateSchedule/auc:TypeOfRateStructure/*","","",""
 "","","Annual Energy Use","ASHRAE 211 6.1.2.2","Annual Energy Use","/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Scenarios/auc:Scenario[auc:ScenarioType/auc:CurrentBuilding]/auc:AllResourceTotals/auc:AllResourceTotal","auc:SiteEnergyUse","","",""

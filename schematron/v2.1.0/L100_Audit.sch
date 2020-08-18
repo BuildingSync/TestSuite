@@ -128,6 +128,8 @@
       <sch:assert test="(auc:EnergyResource/text() != 'Electricity') or //auc:TimeSeriesData/auc:TimeSeries[auc:ResourceUseID/@IDref = current()/@ID and auc:ReadingType/text() = 'Peak' and auc:IntervalFrequency/text() = 'Month']/auc:EndTimestamp" role="">TimeSeries data for ResourceUse must include an EndTimestamp</sch:assert>
       <sch:assert test="(auc:EnergyResource/text() != 'Electricity') or //auc:TimeSeriesData/auc:TimeSeries[auc:ResourceUseID/@IDref = current()/@ID and auc:ReadingType/text() = 'Peak' and auc:IntervalFrequency/text() = 'Month']/auc:IntervalReading" role="">TimeSeries data for ResourceUse must include an IntervalReading</sch:assert>
       <sch:assert test="auc:AnnualFuelUseNativeUnits" role="">auc:AnnualFuelUseNativeUnits</sch:assert>
+      <sch:assert test="(auc:EnergyResource/text() != 'Electricity') or auc:PeakResourceUnits" role="">(auc:EnergyResource/text() != 'Electricity') or auc:PeakResourceUnits</sch:assert>
+      <sch:assert test="(auc:EnergyResource/text() != 'Electricity') or auc:AnnualPeakNativeUnits" role="">(auc:EnergyResource/text() != 'Electricity') or auc:AnnualPeakNativeUnits</sch:assert>
     </sch:rule>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Utilities/auc:Utility">
       <sch:assert test="auc:UtilityAccountNumber" role="">auc:UtilityAccountNumber</sch:assert>

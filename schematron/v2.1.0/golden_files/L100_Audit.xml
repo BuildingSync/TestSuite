@@ -250,6 +250,8 @@
                   <auc:ResourceUnits>kWh</auc:ResourceUnits>
                   <auc:EndUse>All end uses</auc:EndUse>
                   <auc:AnnualFuelUseNativeUnits>123</auc:AnnualFuelUseNativeUnits>
+                  <auc:PeakResourceUnits>kW</auc:PeakResourceUnits>
+                  <auc:AnnualPeakNativeUnits>123</auc:AnnualPeakNativeUnits>
                   <auc:UtilityIDs>
                     <auc:UtilityID IDref="Utility-Electricity" />
                   </auc:UtilityIDs>
