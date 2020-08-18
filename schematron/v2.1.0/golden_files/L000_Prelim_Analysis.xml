@@ -87,6 +87,7 @@
               </auc:LinkedPremises>
             </auc:Scenario>
           </auc:Scenarios>
+          <auc:ASHRAEAuditLevel>Preliminary Energy-Use Analysis</auc:ASHRAEAuditLevel>
         </auc:Report>
       </auc:Reports>
     </auc:Facility>

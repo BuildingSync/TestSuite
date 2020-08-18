@@ -2,6 +2,8 @@
 <sch:schema xmlns:sch="http://purl.oclc.org/dsdl/schematron">
   <sch:ns prefix="auc" uri="http://buildingsync.net/schemas/bedes-auc/2019"/>
   <sch:phase id="preliminary_analysis" see="ASHRAE 211 5.2.3">
+    <sch:active pattern="document_structure_prerequisites_report"/>
+    <sch:active pattern="report"/>
     <sch:active pattern="document_structure_prerequisites_measured_scenario"/>
     <sch:active pattern="measured_scenario"/>
     <sch:active pattern="document_structure_prerequisites_benchmark_scenario"/>
@@ -9,6 +11,18 @@
     <sch:active pattern="document_structure_prerequisites_building_information"/>
     <sch:active pattern="building_information"/>
   </sch:phase>
+  <sch:pattern see="" id="document_structure_prerequisites_report">
+    <sch:title>Document Structure Prerequisites Report</sch:title>
+    <sch:rule context="/">
+      <sch:assert test="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report" role="ERROR">/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="" id="report">
+    <sch:title>Report</sch:title>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report">
+      <sch:assert test="auc:ASHRAEAuditLevel/text()='Preliminary Energy-Use Analysis'" role="">auc:ASHRAEAuditLevel/text()='Preliminary Energy-Use Analysis'</sch:assert>
+    </sch:rule>
+  </sch:pattern>
   <sch:pattern see="" id="document_structure_prerequisites_measured_scenario">
     <sch:title>Document Structure Prerequisites Measured Scenario</sch:title>
     <sch:rule context="/">
