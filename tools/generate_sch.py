@@ -80,10 +80,12 @@ def make_pattern_for_testing_contexts(pattern):
     Given a pattern, it returns a new pattern which makes assertions that every
     rule context in the original pattern exists.
 
-    :param pattern: dict, schematron pattern in dictionary format
+    :param pattern: dict, schematron pattern in dictionary format; Note that rules are expected to have key 'generate_context_test' with a bool value to indicate if a test should be generated for its context
     :returns: dict, a new schematron pattern in dictionary format
     """
-    collected_contexts = {rule['context']: True for rule in pattern['rules']}
+    collected_contexts = {rule['context']: True for rule in pattern['rules'] if rule['generate_context_test']}
+    if len(collected_contexts) == 0:
+        return None
 
     # create a "prerequisites" pattern to store our structure assertions
     title = f'Document Structure Prerequisites {pattern["title"]}'
@@ -121,13 +123,16 @@ def generate_tests_for_rule_contexts(orig_sch_dict):
     """
     new_sch_dict = copy.deepcopy(orig_sch_dict)
     for phase_idx, phase in enumerate(orig_sch_dict['phases']):
+        num_inserted_patterns = 0
         for orig_pattern_idx, pattern in enumerate(phase['patterns']):
             prereq_pattern = make_pattern_for_testing_contexts(pattern)
+            if prereq_pattern is None:
+                continue
 
             # insert the prerequisite pattern right before the original one
-            # *2 b/c we've already duplicated each previous pattern up to this point
-            prereq_insert_idx = (orig_pattern_idx * 2)
+            prereq_insert_idx = (orig_pattern_idx + num_inserted_patterns)
             new_sch_dict['phases'][phase_idx]['patterns'].insert(prereq_insert_idx, prereq_pattern)
+            num_inserted_patterns += 1
 
     return new_sch_dict
 
@@ -179,10 +184,16 @@ def generate_sch(csv_file, output_file=None, exemplary_xml_file=None, dry_run=Fa
 
         # handle new rule
         if row['rule context']:
+            generate_context_test = row.get('generate context test', '').lower().strip()
+            if generate_context_test not in ['true', 'false']:
+                raise Exception(f'Missing required value of "true" or "false" for column "generate context test" in row {i + 2}')
+            generate_context_test = generate_context_test == 'true'
+
             new_rule = {
                 'title': row['rule title'],
                 'context': row['rule context'],
-                'asserts': []
+                'asserts': [],
+                'generate_context_test': generate_context_test
             }
             if not row['assert test']:
                 raise Exception(f'New rule row is missing new assert test (row {i + 2})')  # +1 b/c 0-based, +1 b/c csv header
