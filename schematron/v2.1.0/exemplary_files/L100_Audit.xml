@@ -69,6 +69,8 @@
                 </auc:SpatialUnit>
               </auc:SpatialUnits>
 
+              <auc:PrimaryContactID IDref="Contact-A" />
+
               <!-- 6.1.1.1.h -->
               <auc:FloorsAboveGrade>2</auc:FloorsAboveGrade>
               <auc:FloorsBelowGrade>2</auc:FloorsBelowGrade>

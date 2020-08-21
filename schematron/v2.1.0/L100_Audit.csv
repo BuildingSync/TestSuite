@@ -20,6 +20,7 @@
 "","","","","","","","auc:PremisesNotes","Premises Notes should exist and it should include requirements specified by ASHRAE 211 sections 6.1.1.1.m, 6.1.1.2.a, 6.1.1.2.c, 6.1.1.2.d and 6.1.1.2.e
 ","",""
 "","","","","","","","auc:HistoricalLandmark","","",""
+"","","","","","","","auc:PrimaryContactID[@IDref = //auc:Contacts/auc:Contact/@ID]","","",""
 "","","Contact Information","ASHRAE 211 6.1.1.1.b and 6.1.1.1.c","Client Contact Information","/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Contacts/auc:Contact[auc:ContactRoles/auc:ContactRole/text() = 'Owner']","true","auc:ContactName","","",""
 "","","","","","","","auc:ContactTelephoneNumbers/auc:ContactTelephoneNumber/auc:TelephoneNumber","","WARNING",""
 "","","","","","","","auc:ContactEmailAddresses/auc:ContactEmailAddress/auc:EmailAddress","","WARNING",""
