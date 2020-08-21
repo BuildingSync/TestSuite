@@ -4,7 +4,7 @@ from lxml import etree, isoschematron
 
 from .constants import SVRL_NSMAP, SCH_NSMAP
 
-Failure = namedtuple('Failure', ['line', 'element', 'message', 'role'])
+Failure = namedtuple('Failure', ['line', 'element', 'message', 'role', 'location', 'test'])
 
 
 def _get_unfired_rules(schematron, phase):
@@ -117,7 +117,9 @@ def validate_schematron(schematron, document, result_path=None, phase=None, stri
                 line=0,
                 element=None,
                 message=f'Rule was NOT used for validation: {rule}',
-                role='ERROR'
+                role='ERROR',
+                location=None,
+                test=None
             ))
 
     failed_asserts = schematron.validation_report.xpath(
@@ -128,18 +130,21 @@ def validate_schematron(schematron, document, result_path=None, phase=None, stri
         # location stores an xpath to the element which failed validation
         location = failed_assert.get('location')
         failed_element = document_tree.xpath(location)[0]
+        readable_xpath = document_tree.getpath(failed_element)
         tag = failed_element.tag.replace("{http://buildingsync.net/schemas/bedes-auc/2019}", "auc:")
         error_message = failed_assert[0].text
         failures.append(Failure(
             line=failed_element.sourceline,
             element=tag,
             message=error_message,
-            role=failed_assert.get('role', 'ERROR')
+            role=failed_assert.get('role', 'ERROR'),
+            location=readable_xpath,
+            test=failed_assert.get('test'),
         ))
     return failures
 
 
-def print_failure(filename, failure, colored=False):
+def print_failure(filename, failure, colored=False, verbose=False):
     """
     Pretty prints a failure
 
@@ -160,6 +165,8 @@ def print_failure(filename, failure, colored=False):
         }
         return f'\033[{color_map.get(severity, WHITE)}{message}\033[{RESET}'
     message = f'[{failure.role}] {filename}:{failure.line}: {failure.element}: {failure.message}'
+    if verbose:
+        message += f'\n    location: {failure.location}\n    test: {failure.test}'
     if colored:
         message = color_string(message, failure.role)
     print(message)

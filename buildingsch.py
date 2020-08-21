@@ -20,7 +20,7 @@ def validate_schematrons(args):
         for f in failures:
             if f.role == 'ERROR':
                 num_errors += 1
-            print_failure(doc, f, colored=args.color)
+            print_failure(doc, f, colored=args.color, verbose=args.verbose)
 
     if num_errors > 0:
         sys.exit(1)
@@ -102,6 +102,12 @@ parser_validate.add_argument(
     '--strict',
     action='store_true',
     help='reports, as errors, rules that were not applied to the document (ie context did not match)'
+)
+parser_validate.add_argument(
+    '-v',
+    '--verbose',
+    action='store_true',
+    help='increase verbosity of report'
 )
 parser_validate.set_defaults(func=validate_schematrons)
 
