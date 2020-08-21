@@ -80,7 +80,7 @@ def validate_schematron(schematron, document, result_path=None, phase=None, stri
     :returns: Failure[], list of failures
     """
     try:
-        schematron_tree = etree.fromstring(schematron)
+        schematron_tree = etree.ElementTree(etree.fromstring(schematron))
     except etree.XMLSyntaxError:
         schematron_tree = etree.parse(schematron)
 
@@ -93,7 +93,7 @@ def validate_schematron(schematron, document, result_path=None, phase=None, stri
 
     if isinstance(document, str):
         try:
-            document_tree = etree.fromstring(document)
+            document_tree = etree.ElementTree(etree.fromstring(document))
         except etree.XMLSyntaxError:
             document_tree = etree.parse(document)
     elif isinstance(document, etree._ElementTree):
