@@ -715,6 +715,8 @@
               <auc:UtilityAccountNumber>12345</auc:UtilityAccountNumber>
             </auc:Utility>
           </auc:Utilities>
+
+          <auc:AuditorContactID IDref="Contact-B" />
         </auc:Report>
       </auc:Reports>
 
