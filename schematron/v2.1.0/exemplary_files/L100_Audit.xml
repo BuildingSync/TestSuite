@@ -659,7 +659,18 @@
               <auc:RateSchedules>
                 <auc:RateSchedule ID="RateSchedule-A">
                   <auc:TypeOfRateStructure>
-                    <auc:Other />
+                    <auc:FlatRate>
+                      <auc:RatePeriods>
+                        <auc:RatePeriod>
+                          <auc:ApplicableStartDateForEnergyRate>--01-01</auc:ApplicableStartDateForEnergyRate>
+                          <auc:ApplicableEndDateForEnergyRate>--01-01</auc:ApplicableEndDateForEnergyRate>
+                          <auc:ApplicableStartDateForDemandRate>--01-01</auc:ApplicableStartDateForDemandRate>
+                          <auc:ApplicableEndDateForDemandRate>--01-01</auc:ApplicableEndDateForDemandRate>
+                          <auc:EnergyCostRate>123</auc:EnergyCostRate>
+                          <auc:ElectricDemandRate>123</auc:ElectricDemandRate>
+                        </auc:RatePeriod>
+                      </auc:RatePeriods>
+                    </auc:FlatRate>
                   </auc:TypeOfRateStructure>
                 </auc:RateSchedule>
               </auc:RateSchedules>
@@ -674,7 +685,26 @@
               <auc:RateSchedules>
                 <auc:RateSchedule ID="RateSchedule-B">
                   <auc:TypeOfRateStructure>
-                    <auc:Other />
+                    <auc:TimeOfUseRate>
+                      <auc:RatePeriods>
+                        <auc:RatePeriod>
+                          <auc:ApplicableStartDateForEnergyRate>--01-01</auc:ApplicableStartDateForEnergyRate>
+                          <auc:ApplicableEndDateForEnergyRate>--01-01</auc:ApplicableEndDateForEnergyRate>
+                          <auc:TimeOfUsePeriods>
+                            <auc:TimeOfUsePeriod>
+                              <auc:ApplicableStartTimeForEnergyRate>00:00:00</auc:ApplicableStartTimeForEnergyRate>
+                              <auc:ApplicableEndTimeForEnergyRate>12:00:00</auc:ApplicableEndTimeForEnergyRate>
+                              <auc:EnergyCostRate>123</auc:EnergyCostRate>
+                            </auc:TimeOfUsePeriod>
+                            <auc:TimeOfUsePeriod>
+                              <auc:ApplicableStartTimeForEnergyRate>12:00:00</auc:ApplicableStartTimeForEnergyRate>
+                              <auc:ApplicableEndTimeForEnergyRate>24:00:00</auc:ApplicableEndTimeForEnergyRate>
+                              <auc:EnergyCostRate>123</auc:EnergyCostRate>
+                            </auc:TimeOfUsePeriod>
+                          </auc:TimeOfUsePeriods>
+                        </auc:RatePeriod>
+                      </auc:RatePeriods>
+                    </auc:TimeOfUseRate>
                   </auc:TypeOfRateStructure>
                 </auc:RateSchedule>
               </auc:RateSchedules>

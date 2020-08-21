@@ -12,6 +12,10 @@
   <sch:phase id="historical_energy_use" see="ASHRAE 211 6.1.2">
     <sch:active pattern="document_structure_prerequisites_monthly_utility_data"/>
     <sch:active pattern="monthly_utility_data"/>
+    <sch:active pattern="document_structure_prerequisites_utility_info"/>
+    <sch:active pattern="utility_info"/>
+    <sch:active pattern="utility_rate_schedule_-_all_resource_types"/>
+    <sch:active pattern="utility_rate_schedule_-_electricity"/>
     <sch:active pattern="document_structure_prerequisites_annual_energy_use"/>
     <sch:active pattern="annual_energy_use"/>
   </sch:phase>
@@ -106,7 +110,6 @@
     <sch:rule context="/">
       <sch:assert test="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Scenarios/auc:Scenario[auc:ScenarioType/auc:CurrentBuilding/auc:CalculationMethod/auc:Measured]/auc:ResourceUses" role="ERROR">/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Scenarios/auc:Scenario[auc:ScenarioType/auc:CurrentBuilding/auc:CalculationMethod/auc:Measured]/auc:ResourceUses</sch:assert>
       <sch:assert test="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Scenarios/auc:Scenario[auc:ScenarioType/auc:CurrentBuilding/auc:CalculationMethod/auc:Measured]/auc:ResourceUses/auc:ResourceUse" role="ERROR">/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Scenarios/auc:Scenario[auc:ScenarioType/auc:CurrentBuilding/auc:CalculationMethod/auc:Measured]/auc:ResourceUses/auc:ResourceUse</sch:assert>
-      <sch:assert test="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Utilities/auc:Utility" role="ERROR">/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Utilities/auc:Utility</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern see="ASHRAE 211 6.1.2.1" id="monthly_utility_data">
@@ -131,10 +134,81 @@
       <sch:assert test="(auc:EnergyResource/text() != 'Electricity') or auc:PeakResourceUnits" role="">(auc:EnergyResource/text() != 'Electricity') or auc:PeakResourceUnits</sch:assert>
       <sch:assert test="(auc:EnergyResource/text() != 'Electricity') or auc:AnnualPeakNativeUnits" role="">(auc:EnergyResource/text() != 'Electricity') or auc:AnnualPeakNativeUnits</sch:assert>
     </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="" id="document_structure_prerequisites_utility_info">
+    <sch:title>Document Structure Prerequisites Utility Info</sch:title>
+    <sch:rule context="/">
+      <sch:assert test="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Utilities/auc:Utility" role="ERROR">/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Utilities/auc:Utility</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="ASHRAE 211 6.1.2.1" id="utility_info">
+    <sch:title>Utility Info</sch:title>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Utilities/auc:Utility">
       <sch:assert test="auc:UtilityAccountNumber" role="">auc:UtilityAccountNumber</sch:assert>
       <sch:assert test="auc:RateSchedules/auc:RateSchedule/auc:TypeOfRateStructure/*" role="">auc:RateSchedules/auc:RateSchedule/auc:TypeOfRateStructure/*</sch:assert>
       <sch:assert test="count(//auc:ResourceUses/auc:ResourceUse/auc:UtilityIDs/auc:UtilityID[@IDref = current()/@ID]) = 1" role="">Each auc:Utility should have exactly 1 auc:ResourceUse linked to it (ie not 0, not 2+)</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="ASHRAE 211 6.1.2.1" id="utility_rate_schedule_-_all_resource_types">
+    <sch:title>Utility Rate Schedule - All Resource Types</sch:title>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Utilities/auc:Utility/auc:RateSchedules/auc:RateSchedule/auc:TypeOfRateStructure[auc:FlatRate]">
+      <sch:assert test="auc:FlatRate/auc:RatePeriods/auc:RatePeriod" role="">auc:FlatRate/auc:RatePeriods/auc:RatePeriod</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Utilities/auc:Utility/auc:RateSchedules/auc:RateSchedule/auc:TypeOfRateStructure/auc:FlatRate/auc:RatePeriods/auc:RatePeriod">
+      <sch:assert test="auc:ApplicableStartDateForEnergyRate" role="">auc:ApplicableStartDateForEnergyRate</sch:assert>
+      <sch:assert test="auc:ApplicableEndDateForEnergyRate" role="">auc:ApplicableEndDateForEnergyRate</sch:assert>
+      <sch:assert test="auc:EnergyCostRate" role="">auc:EnergyCostRate</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Utilities/auc:Utility/auc:RateSchedules/auc:RateSchedule/auc:TypeOfRateStructure[auc:TimeOfUseRate]">
+      <sch:assert test="auc:TimeOfUseRate/auc:RatePeriods/auc:RatePeriod" role="">auc:TimeOfUseRate/auc:RatePeriods/auc:RatePeriod</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Utilities/auc:Utility/auc:RateSchedules/auc:RateSchedule/auc:TypeOfRateStructure/auc:TimeOfUseRate/auc:RatePeriods/auc:RatePeriod">
+      <sch:assert test="auc:ApplicableStartDateForEnergyRate" role="">auc:ApplicableStartDateForEnergyRate</sch:assert>
+      <sch:assert test="auc:ApplicableEndDateForEnergyRate" role="">auc:ApplicableEndDateForEnergyRate</sch:assert>
+      <sch:assert test="count(auc:TimeOfUsePeriods/auc:TimeOfUsePeriod) &gt;= 2" role="">count(auc:TimeOfUsePeriods/auc:TimeOfUsePeriod) &gt;= 2</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Utilities/auc:Utility/auc:RateSchedules/auc:RateSchedule/auc:TypeOfRateStructure/auc:TimeOfUseRate/auc:RatePeriods/auc:RatePeriod/auc:TimeOfUsePeriods/auc:TimeOfUsePeriod">
+      <sch:assert test="auc:ApplicableStartTimeForEnergyRate" role="">auc:ApplicableStartTimeForEnergyRate</sch:assert>
+      <sch:assert test="auc:ApplicableEndTimeForEnergyRate" role="">auc:ApplicableEndTimeForEnergyRate</sch:assert>
+      <sch:assert test="auc:EnergyCostRate" role="">auc:EnergyCostRate</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Utilities/auc:Utility/auc:RateSchedules/auc:RateSchedule/auc:TypeOfRateStructure[auc:TieredRate]">
+      <sch:assert test="auc:TieredRate/auc:RatePeriods/auc:RatePeriod" role="">auc:TieredRate/auc:RatePeriods/auc:RatePeriod</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Utilities/auc:Utility/auc:RateSchedules/auc:RateSchedule/auc:TypeOfRateStructure/auc:TieredRate/auc:RatePeriods/auc:RatePeriod">
+      <sch:assert test="auc:ApplicableStartDateForEnergyRate" role="">auc:ApplicableStartDateForEnergyRate</sch:assert>
+      <sch:assert test="auc:ApplicableEndDateForEnergyRate" role="">auc:ApplicableEndDateForEnergyRate</sch:assert>
+      <sch:assert test="count(auc:RateTiers/auc:RateTier) &gt;= 2" role="">count(auc:RateTiers/auc:RateTier) &gt;= 2</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Utilities/auc:Utility/auc:RateSchedules/auc:RateSchedule/auc:TypeOfRateStructure/auc:TieredRate/auc:RatePeriods/auc:RatePeriod/auc:RateTiers/auc:RateTier">
+      <sch:assert test="auc:EnergyCostRate" role="">auc:EnergyCostRate</sch:assert>
+      <sch:assert test="auc:MaxkWhUsage" role="">auc:MaxkWhUsage</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="ASHRAE 211 6.1.2.1" id="utility_rate_schedule_-_electricity">
+    <sch:title>Utility Rate Schedule - Electricity</sch:title>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Utilities/auc:Utility[@ID = //auc:ResourceUse[auc:EnergyResource/text() = 'Electricity']/auc:UtilityIDs/auc:UtilityID/@IDref]/auc:RateSchedules/auc:RateSchedule/auc:TypeOfRateStructure/auc:FlatRate/auc:RatePeriods/auc:RatePeriod">
+      <sch:assert test="auc:ApplicableStartDateForDemandRate" role="">auc:ApplicableStartDateForDemandRate must be defined if the parent auc:Utility's linked resource is of type Electricity</sch:assert>
+      <sch:assert test="auc:ApplicableEndDateForDemandRate" role="">auc:ApplicableEndDateForDemandRate must be defined if the parent auc:Utility's linked resource is of type Electricity</sch:assert>
+      <sch:assert test="auc:ElectricDemandRate" role="">auc:ElectricDemandRate must be defined if the parent auc:Utility's linked resource is of type Electricity</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Utilities/auc:Utility[@ID = //auc:ResourceUse[auc:EnergyResource/text() = 'Electricity']/auc:UtilityIDs/auc:UtilityID/@IDref]/auc:RateSchedules/auc:RateSchedule/auc:TypeOfRateStructure/auc:TimeOfUseRate/auc:RatePeriods/auc:RatePeriod">
+      <sch:assert test="auc:ApplicableStartDateForDemandRate" role="">auc:ApplicableStartDateForDemandRate must be defined if the parent auc:Utility's linked resource is of type Electricity</sch:assert>
+      <sch:assert test="auc:ApplicableEndDateForDemandRate" role="">auc:ApplicableEndDateForDemandRate must be defined if the parent auc:Utility's linked resource is of type Electricity</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Utilities/auc:Utility[@ID = //auc:ResourceUse[auc:EnergyResource/text() = 'Electricity']/auc:UtilityIDs/auc:UtilityID/@IDref]/auc:RateSchedules/auc:RateSchedule/auc:TypeOfRateStructure/auc:TimeOfUseRate/auc:RatePeriods/auc:RatePeriod/auc:TimeOfUsePeriods/auc:TimeOfUsePeriod">
+      <sch:assert test="auc:ApplicableStartTimeForDemandRate" role="">auc:ApplicableStartTimeForDemandRate must be defined if the parent auc:Utility's linked resource is of type Electricity</sch:assert>
+      <sch:assert test="auc:ApplicableEndTimeForDemandRate" role="">auc:ApplicableEndTimeForDemandRate must be defined if the parent auc:Utility's linked resource is of type Electricity</sch:assert>
+      <sch:assert test="auc:ElectricDemandRate" role="">auc:ElectricDemandRate must be defined if the parent auc:Utility's linked resource is of type Electricity</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Utilities/auc:Utility[@ID = //auc:ResourceUse[auc:EnergyResource/text() = 'Electricity']/auc:UtilityIDs/auc:UtilityID/@IDref]/auc:RateSchedules/auc:RateSchedule/auc:TypeOfRateStructure/auc:TieredRates/auc:TieredRate/auc:RatePeriods/auc:RatePeriod">
+      <sch:assert test="auc:ApplicableStartDateForDemandRate" role="">auc:ApplicableStartDateForDemandRate must be defined if the parent auc:Utility's linked resource is of type Electricity</sch:assert>
+      <sch:assert test="auc:ApplicableEndDateForDemandRate" role="">auc:ApplicableEndDateForDemandRate must be defined if the parent auc:Utility's linked resource is of type Electricity</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Utilities/auc:Utility[@ID = //auc:ResourceUse[auc:EnergyResource/text() = 'Electricity']/auc:UtilityIDs/auc:UtilityID/@IDref]/auc:RateSchedules/auc:RateSchedule/auc:TypeOfRateStructure/auc:TieredRates/auc:TieredRate/auc:RatePeriods/auc:RatePeriod/auc:RateTiers/auc:RateTier">
+      <sch:assert test="auc:MaxkWUsage" role="">auc:MaxkWUsage must be defined if the parent auc:Utility's linked resource is of type Electricity</sch:assert>
+      <sch:assert test="auc:ElectricDemandRate" role="">auc:ElectricDemandRate must be defined if the parent auc:Utility's linked resource is of type Electricity</sch:assert>
+      <sch:assert test="auc:DemandWindow" role="">auc:DemandWindow must be defined if the parent auc:Utility's linked resource is of type Electricity</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern see="" id="document_structure_prerequisites_annual_energy_use">

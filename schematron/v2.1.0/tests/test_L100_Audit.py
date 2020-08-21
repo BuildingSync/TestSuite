@@ -2,10 +2,13 @@ from copy import deepcopy
 import os
 
 
-from tools.constants import BSYNC_NSMAP
+import pytest
+from lxml import etree
+
+from tools.constants import BSYNC_NSMAP, BSYNC_NS
 from tools.validate_sch import validate_schematron
 
-from conftest import AssertFailureRolesMixin, SCH_DIR, exemplary_tree, remove_element
+from conftest import AssertFailureRolesMixin, SCH_DIR, exemplary_tree, remove_element, replace_element
 
 
 class TestL100Audit(AssertFailureRolesMixin):
@@ -83,4 +86,179 @@ class TestL100Audit(AssertFailureRolesMixin):
         # -- Assert
         self.assert_failure_messages(failures, {
             'ERROR': ['Each auc:Utility should have exactly 1 auc:ResourceUse linked to it (ie not 0, not 2+)']
+        })
+
+    @pytest.mark.parametrize("target_element,expected_message", [
+        ("auc:ApplicableStartDateForDemandRate",
+         "auc:ApplicableStartDateForDemandRate must be defined if the parent auc:Utility's linked resource is of type Electricity"),
+        ("auc:ApplicableEndDateForDemandRate",
+         "auc:ApplicableEndDateForDemandRate must be defined if the parent auc:Utility's linked resource is of type Electricity"),
+        ("auc:ElectricDemandRate",
+         "auc:ElectricDemandRate must be defined if the parent auc:Utility's linked resource is of type Electricity")])
+    def test_is_invalid_when_elec_utility_flat_rate_is_missing_elec_specific_requirements(self, target_element, expected_message):
+        """Test that the electricity-specific RatePeriod requirements for FlatRate RateSchedule are working"""
+        # -- Setup
+        tree = exemplary_tree('L100_Audit')
+
+        # make sure it's valid
+        failures = validate_schematron(self.schematron, tree)
+        self.assert_failure_messages(failures, {})
+
+        # remove the electricity specific required element
+        xpath = '//auc:Utilities/auc:Utility[@ID = //auc:ResourceUse[auc:EnergyResource/text() = "Electricity"]/auc:UtilityIDs/auc:UtilityID/@IDref]' \
+                f'/auc:RateSchedules/auc:RateSchedule/auc:TypeOfRateStructure/auc:FlatRate/auc:RatePeriods/auc:RatePeriod/{target_element}'
+        remove_element(tree, xpath)
+
+        # -- Act
+        failures = validate_schematron(self.schematron, tree)
+
+        # -- Assert
+        self.assert_failure_messages(failures, {
+            'ERROR': [expected_message]
+        })
+
+    @pytest.mark.parametrize("target_element,expected_message", [
+        ("auc:ApplicableStartDateForDemandRate",
+         "auc:ApplicableStartDateForDemandRate must be defined if the parent auc:Utility's linked resource is of type Electricity"),
+        ("auc:ApplicableEndDateForDemandRate",
+         "auc:ApplicableEndDateForDemandRate must be defined if the parent auc:Utility's linked resource is of type Electricity"),
+        ("auc:TimeOfUsePeriods/auc:TimeOfUsePeriod[1]/auc:ApplicableStartTimeForDemandRate",
+         "auc:ApplicableStartTimeForDemandRate must be defined if the parent auc:Utility's linked resource is of type Electricity"),
+        ("auc:TimeOfUsePeriods/auc:TimeOfUsePeriod[1]/auc:ApplicableEndTimeForDemandRate",
+         "auc:ApplicableEndTimeForDemandRate must be defined if the parent auc:Utility's linked resource is of type Electricity"),
+        ("auc:TimeOfUsePeriods/auc:TimeOfUsePeriod[1]/auc:ElectricDemandRate",
+         "auc:ElectricDemandRate must be defined if the parent auc:Utility's linked resource is of type Electricity")])
+    def test_is_invalid_when_elec_utility_time_of_use_rate_is_missing_elec_specific_requirements(self, target_element, expected_message):
+        """Test that the electricity-specific RatePeriod requirements for TimeOfUse RateSchedule are working"""
+        # -- Setup
+        tree = exemplary_tree('L100_Audit')
+
+        # make sure it's valid
+        failures = validate_schematron(self.schematron, tree)
+        self.assert_failure_messages(failures, {})
+
+        # replace the existing rate schedule with a valid TimeOfUseRate schedule
+        valid_tou_rate_raw = f'''
+        <auc:TimeOfUseRate xmlns:auc="{BSYNC_NS}">
+            <auc:RatePeriods>
+                <auc:RatePeriod>
+                    <auc:ApplicableStartDateForEnergyRate>--01-01</auc:ApplicableStartDateForEnergyRate>
+                    <auc:ApplicableEndDateForEnergyRate>--01-01</auc:ApplicableEndDateForEnergyRate>
+                    <auc:ApplicableStartDateForDemandRate>--01-01</auc:ApplicableStartDateForDemandRate>
+                    <auc:ApplicableEndDateForDemandRate>--01-01</auc:ApplicableEndDateForDemandRate>
+                    <auc:TimeOfUsePeriods>
+                        <auc:TimeOfUsePeriod>
+                            <auc:ApplicableStartTimeForEnergyRate>00:00:00</auc:ApplicableStartTimeForEnergyRate>
+                            <auc:ApplicableEndTimeForEnergyRate>12:00:00</auc:ApplicableEndTimeForEnergyRate>
+                            <auc:ApplicableStartTimeForDemandRate>00:00:00</auc:ApplicableStartTimeForDemandRate>
+                            <auc:ApplicableEndTimeForDemandRate>12:00:00</auc:ApplicableEndTimeForDemandRate>
+                            <auc:EnergyCostRate>123</auc:EnergyCostRate>
+                            <auc:ElectricDemandRate>123</auc:ElectricDemandRate>
+                        </auc:TimeOfUsePeriod>
+                        <auc:TimeOfUsePeriod>
+                            <auc:ApplicableStartTimeForEnergyRate>12:00:00</auc:ApplicableStartTimeForEnergyRate>
+                            <auc:ApplicableEndTimeForEnergyRate>24:00:00</auc:ApplicableEndTimeForEnergyRate>
+                            <auc:ApplicableStartTimeForDemandRate>00:00:00</auc:ApplicableStartTimeForDemandRate>
+                            <auc:ApplicableEndTimeForDemandRate>12:00:00</auc:ApplicableEndTimeForDemandRate>
+                            <auc:EnergyCostRate>123</auc:EnergyCostRate>
+                            <auc:ElectricDemandRate>123</auc:ElectricDemandRate>
+                        </auc:TimeOfUsePeriod>
+                    </auc:TimeOfUsePeriods>
+                </auc:RatePeriod>
+            </auc:RatePeriods>
+        </auc:TimeOfUseRate>
+        '''
+        valid_tou_rate_elem = etree.fromstring(valid_tou_rate_raw)
+        xpath_to_replace = '//auc:Utilities/auc:Utility[@ID = //auc:ResourceUse[auc:EnergyResource/text() = "Electricity"]/auc:UtilityIDs/auc:UtilityID/@IDref]' \
+                           '/auc:RateSchedules/auc:RateSchedule/auc:TypeOfRateStructure/auc:FlatRate'
+        replace_element(tree, xpath_to_replace, valid_tou_rate_elem)
+
+        # verify updated tree is valid
+        failures = validate_schematron(self.schematron, tree)
+        self.assert_failure_messages(failures, {})
+
+        # finally, remove the target element to invalidate the document
+        xpath = '//auc:Utilities/auc:Utility[@ID = //auc:ResourceUse[auc:EnergyResource/text() = "Electricity"]/auc:UtilityIDs/auc:UtilityID/@IDref]' \
+                f'/auc:RateSchedules/auc:RateSchedule/auc:TypeOfRateStructure/auc:TimeOfUseRate/auc:RatePeriods/auc:RatePeriod/{target_element}'
+        remove_element(tree, xpath)
+
+        # -- Act
+        failures = validate_schematron(self.schematron, tree)
+
+        # -- Assert
+        self.assert_failure_messages(failures, {
+            'ERROR': [expected_message]
+        })
+
+    @pytest.mark.parametrize("target_element,expected_message", [
+        ("auc:ApplicableStartDateForDemandRate",
+         "auc:ApplicableStartDateForDemandRate must be defined if the parent auc:Utility's linked resource is of type Electricity"),
+        ("auc:ApplicableEndDateForDemandRate",
+         "auc:ApplicableEndDateForDemandRate must be defined if the parent auc:Utility's linked resource is of type Electricity"),
+        ("auc:RateTiers/auc:RateTier[1]/auc:MaxkWUsage",
+         "auc:MaxkWUsage must be defined if the parent auc:Utility's linked resource is of type Electricity"),
+        ("auc:RateTiers/auc:RateTier[1]/auc:ElectricDemandRate",
+         "auc:ElectricDemandRate must be defined if the parent auc:Utility's linked resource is of type Electricity"),
+        ("auc:RateTiers/auc:RateTier[1]/auc:DemandWindow",
+         "auc:DemandWindow must be defined if the parent auc:Utility's linked resource is of type Electricity")])
+    def test_is_invalid_when_elec_utility_tiered_rate_is_missing_elec_specific_requirements(self, target_element, expected_message):
+        """Test that the electricity-specific RatePeriod requirements for TieredRates RateSchedule are working"""
+        # -- Setup
+        tree = exemplary_tree('L100_Audit')
+
+        # make sure it's valid
+        failures = validate_schematron(self.schematron, tree)
+        self.assert_failure_messages(failures, {})
+
+        # replace the existing rate schedule with a valid TieredRates schedule
+        valid_tiered_raw = f'''
+        <auc:TieredRates xmlns:auc="{BSYNC_NS}">
+            <auc:TieredRate>
+                <auc:RatePeriods>
+                    <auc:RatePeriod>
+                        <auc:ApplicableStartDateForEnergyRate>--01-01</auc:ApplicableStartDateForEnergyRate>
+                        <auc:ApplicableEndDateForEnergyRate>--01-01</auc:ApplicableEndDateForEnergyRate>
+                        <auc:ApplicableStartDateForDemandRate>--01-01</auc:ApplicableStartDateForDemandRate>
+                        <auc:ApplicableEndDateForDemandRate>--01-01</auc:ApplicableEndDateForDemandRate>
+                        <auc:RateTiers>
+                            <auc:RateTier>
+                                <auc:MaxkWhUsage>123</auc:MaxkWhUsage>
+                                <auc:MaxkWUsage>123</auc:MaxkWUsage>
+                                <auc:EnergyCostRate>123</auc:EnergyCostRate>
+                                <auc:ElectricDemandRate>123</auc:ElectricDemandRate>
+                                <auc:DemandWindow>123</auc:DemandWindow>
+                            </auc:RateTier>
+                            <auc:RateTier>
+                                <auc:MaxkWhUsage>123</auc:MaxkWhUsage>
+                                <auc:MaxkWUsage>123</auc:MaxkWUsage>
+                                <auc:EnergyCostRate>123</auc:EnergyCostRate>
+                                <auc:ElectricDemandRate>123</auc:ElectricDemandRate>
+                                <auc:DemandWindow>123</auc:DemandWindow>
+                            </auc:RateTier>
+                        </auc:RateTiers>
+                    </auc:RatePeriod>
+                </auc:RatePeriods>
+            </auc:TieredRate>
+        </auc:TieredRates>
+        '''
+        valid_tiered_raw = etree.fromstring(valid_tiered_raw)
+        xpath_to_replace = '//auc:Utilities/auc:Utility[@ID = //auc:ResourceUse[auc:EnergyResource/text() = "Electricity"]/auc:UtilityIDs/auc:UtilityID/@IDref]' \
+                           '/auc:RateSchedules/auc:RateSchedule/auc:TypeOfRateStructure/auc:FlatRate'
+        replace_element(tree, xpath_to_replace, valid_tiered_raw)
+
+        # verify updated tree is valid
+        failures = validate_schematron(self.schematron, tree)
+        self.assert_failure_messages(failures, {})
+
+        # finally, remove the target element to invalidate the document
+        xpath = '//auc:Utilities/auc:Utility[@ID = //auc:ResourceUse[auc:EnergyResource/text() = "Electricity"]/auc:UtilityIDs/auc:UtilityID/@IDref]' \
+                f'/auc:RateSchedules/auc:RateSchedule/auc:TypeOfRateStructure/auc:TieredRates/auc:TieredRate/auc:RatePeriods/auc:RatePeriod/{target_element}'
+        remove_element(tree, xpath)
+
+        # -- Act
+        failures = validate_schematron(self.schematron, tree)
+
+        # -- Assert
+        self.assert_failure_messages(failures, {
+            'ERROR': [expected_message]
         })

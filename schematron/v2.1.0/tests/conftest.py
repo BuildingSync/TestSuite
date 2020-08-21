@@ -82,3 +82,13 @@ def remove_element(tree, xpath):
     elem.getparent().remove(elem)
 
     return tree
+
+
+def replace_element(tree, xpath_to_replace, new_element):
+    elems = tree.xpath(xpath_to_replace, namespaces=BSYNC_NSMAP)
+    assert len(elems) == 1
+    elem = elems[0]
+    parent_elem = elem.getparent()
+    parent_elem[parent_elem.index(elem)] = new_element
+
+    return tree
