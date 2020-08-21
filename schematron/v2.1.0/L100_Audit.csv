@@ -29,6 +29,7 @@
 "","","","","","","","auc:ContactTelephoneNumbers/auc:ContactTelephoneNumber/auc:TelephoneNumber","","WARNING",""
 "","","","","","","","auc:ContactEmailAddresses/auc:ContactEmailAddress/auc:EmailAddress","","WARNING",""
 "","","Space Functions","ASHRAE 211 6.1.1.1.g/5.3.4","Space Functions","/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType/text() = 'Space function']","true","auc:OccupancyClassification","","",""
+"","","","","","","","auc:OriginalOccupancyClassification","","",""
 "","","","","","","","auc:FloorAreas/auc:FloorArea[auc:FloorAreaType/text() = 'Gross']/auc:FloorAreaValue","","",""
 "","","","","","","","auc:FloorAreas/auc:FloorArea[auc:FloorAreaType/text() = 'Conditioned']/auc:FloorAreaValue","","",""
 "","","","","","","","auc:FloorAreas/auc:FloorArea[auc:FloorAreaType/text() = 'Gross']/auc:FloorAreaValue >= auc:FloorAreas/auc:FloorArea[auc:FloorAreaType/text() = 'Conditioned']/auc:FloorAreaValue","Conditioned floor area cannot be greater than Gross floor area","",""

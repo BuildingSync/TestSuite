@@ -104,6 +104,7 @@
                 <auc:Section ID="Section-Space-A">
                   <auc:SectionType>Space function</auc:SectionType>
                   <auc:OccupancyClassification>Office</auc:OccupancyClassification>
+                  <auc:OriginalOccupancyClassification>Office</auc:OriginalOccupancyClassification>
 
                   <!-- 6.1.1.1.g/5.3.4.d -->
                   <auc:OccupancyLevels>
