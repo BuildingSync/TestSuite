@@ -7,7 +7,7 @@ from conftest import SCH_DIR
 
 
 class TestL000PrelimAnalysis(AssertFailureRolesMixin):
-    schematron = os.path.join(SCH_DIR, 'L000_Prelim_Analysis.sch')
+    schematron = os.path.join(SCH_DIR, 'v2-1-0_L000_Prelim_Analysis.sch')
     exemplary_file = os.path.join(SCH_DIR, 'exemplary_files', 'L000_Prelim_Analysis.xml')
 
     def test_exemplary_file_is_valid(self):
