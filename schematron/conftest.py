@@ -6,6 +6,9 @@ from lxml import etree
 
 from tools.constants import BSYNC_NSMAP
 
+v2_0_0_SCH_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'v2.0.0')
+v2_1_0_SCH_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'v2.1.0')
+
 
 class AssertFailureRolesMixin:
     def assert_failure_counts(self, actual_failures, expected_dict):
