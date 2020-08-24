@@ -6,7 +6,7 @@ from schematron.conftest import AssertFailureRolesMixin, v2_0_0_SCH_DIR
 
 
 class TestV200L100OpenStudio(AssertFailureRolesMixin):
-    schematron = os.path.join(v2_0_0_SCH_DIR, 'v2-0-0-L100_OpenStudio_Simulation.sch')
+    schematron = os.path.join(v2_0_0_SCH_DIR, 'v2-0-0_L100_OpenStudio_Simulation.sch')
     example_file_1 = os.path.join(v2_0_0_SCH_DIR, 'examples', 'L100_OpenStudio_Simulation_01.xml')
 
     def test_example_file_1_is_valid_with_info_messages(self):
