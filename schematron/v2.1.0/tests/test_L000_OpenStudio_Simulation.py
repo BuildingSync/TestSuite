@@ -1,7 +1,8 @@
 import os
 
 from tools.validate_sch import validate_schematron
-from conftest import AssertFailureRolesMixin, SCH_DIR, exemplary_tree, remove_element
+from schematron.conftest import AssertFailureRolesMixin, exemplary_tree, remove_element
+from conftest import SCH_DIR
 
 
 class TestL000OpenStudioSimulation01(AssertFailureRolesMixin):
@@ -18,7 +19,7 @@ class TestL000OpenStudioSimulation01(AssertFailureRolesMixin):
 
     def test_fails_when_no_address(self):
         # -- Setup
-        tree = exemplary_tree(self.exemplary_file_name)
+        tree = exemplary_tree(self.exemplary_file_name, 'v2.1.0')
 
         # verify it's valid
         failures = validate_schematron(self.schematron, tree)
@@ -38,7 +39,7 @@ class TestL000OpenStudioSimulation01(AssertFailureRolesMixin):
 
     def test_fails_when_package_of_measures_scenario_missing(self):
         # -- Setup
-        tree = exemplary_tree(self.exemplary_file_name)
+        tree = exemplary_tree(self.exemplary_file_name, 'v2.1.0')
 
         # verify it's valid
         failures = validate_schematron(self.schematron, tree)
@@ -59,7 +60,7 @@ class TestL000OpenStudioSimulation01(AssertFailureRolesMixin):
 
     def test_fails_when_package_of_measures_scenario_missing_reference_case(self):
         # -- Setup
-        tree = exemplary_tree(self.exemplary_file_name)
+        tree = exemplary_tree(self.exemplary_file_name, 'v2.1.0')
 
         # verify it's valid
         failures = validate_schematron(self.schematron, tree)
@@ -93,7 +94,7 @@ class TestL000OpenStudioSimulation02(AssertFailureRolesMixin):
 
     def test_fails_when_no_climate_zone_type(self):
         # -- Setup
-        tree = exemplary_tree(self.exemplary_file_name)
+        tree = exemplary_tree(self.exemplary_file_name, 'v2.1.0')
 
         # verify it's valid
         failures = validate_schematron(self.schematron, tree)

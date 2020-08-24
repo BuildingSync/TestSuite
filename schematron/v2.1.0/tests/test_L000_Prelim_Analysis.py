@@ -2,7 +2,8 @@ import os
 
 
 from tools.validate_sch import validate_schematron
-from conftest import AssertFailureRolesMixin, SCH_DIR, exemplary_tree, remove_element
+from schematron.conftest import AssertFailureRolesMixin, exemplary_tree, remove_element
+from conftest import SCH_DIR
 
 
 class TestL000PrelimAnalysis(AssertFailureRolesMixin):
@@ -18,7 +19,7 @@ class TestL000PrelimAnalysis(AssertFailureRolesMixin):
 
     def test_fails_when_measured_scenario_missing(self):
         # -- Setup
-        tree = exemplary_tree('L000_Prelim_Analysis')
+        tree = exemplary_tree('L000_Prelim_Analysis', 'v2.1.0')
 
         # verify it's valid
         failures = validate_schematron(self.schematron, tree)
@@ -40,7 +41,7 @@ class TestL000PrelimAnalysis(AssertFailureRolesMixin):
 
     def test_fails_when_measured_scenario_not_linked_to_building(self):
         # -- Setup
-        tree = exemplary_tree('L000_Prelim_Analysis')
+        tree = exemplary_tree('L000_Prelim_Analysis', 'v2.1.0')
 
         # verify it's valid
         failures = validate_schematron(self.schematron, tree)
@@ -61,7 +62,7 @@ class TestL000PrelimAnalysis(AssertFailureRolesMixin):
 
     def test_fails_when_benchmark_scenario_missing(self):
         # -- Setup
-        tree = exemplary_tree('L000_Prelim_Analysis')
+        tree = exemplary_tree('L000_Prelim_Analysis', 'v2.1.0')
 
         # verify it's valid
         failures = validate_schematron(self.schematron, tree)
@@ -83,7 +84,7 @@ class TestL000PrelimAnalysis(AssertFailureRolesMixin):
 
     def test_fails_when_benchmark_scenario_not_linked_to_building(self):
         # -- Setup
-        tree = exemplary_tree('L000_Prelim_Analysis')
+        tree = exemplary_tree('L000_Prelim_Analysis', 'v2.1.0')
 
         # verify it's valid
         failures = validate_schematron(self.schematron, tree)
@@ -104,7 +105,7 @@ class TestL000PrelimAnalysis(AssertFailureRolesMixin):
 
     def test_fails_when_no_address_or_climate_zone_type(self):
         # -- Setup
-        tree = exemplary_tree('L000_Prelim_Analysis')
+        tree = exemplary_tree('L000_Prelim_Analysis', 'v2.1.0')
 
         # verify it's valid
         failures = validate_schematron(self.schematron, tree)
