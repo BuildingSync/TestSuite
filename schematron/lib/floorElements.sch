@@ -35,78 +35,30 @@
       <let name="open" value="count(auc:FloorArea[auc:FloorAreaType = 'Open'])"/>
       <let name="lot" value="count(auc:FloorArea[auc:FloorAreaType = 'Lot'])"/>
       <let name="custom" value="count(auc:FloorArea[auc:FloorAreaType = 'Custom'])"/>
-      <assert test="1 &gt;= $tenant" role="ERROR">
-        element 'auc:FloorAreaType' with value 'Tenant' is ALLOWED NO MORE THAN ONCE for '<name/>'
-      </assert>
-      <assert test="1 &gt;= $common" role="ERROR">
-        element 'auc:FloorAreaType' with value 'Common' is ALLOWED NO MORE THAN ONCE for '<name/>'
-      </assert>
-      <assert test="1 &gt;= $gross" role="ERROR">
-        element 'auc:FloorAreaType' with value 'Gross' is ALLOWED NO MORE THAN ONCE for '<name/>'
-      </assert>
-      <assert test="1 &gt;= $net" role="ERROR">
-        element 'auc:FloorAreaType' with value 'Net' is ALLOWED NO MORE THAN ONCE for '<name/>'
-      </assert>
-      <assert test="1 &gt;= $finished" role="ERROR">
-        element 'auc:FloorAreaType' with value 'Finished' is ALLOWED NO MORE THAN ONCE for '<name/>'
-      </assert>
-      <assert test="1 &gt;= $footprint" role="ERROR">
-        element 'auc:FloorAreaType' with value 'Footprint' is ALLOWED NO MORE THAN ONCE for '<name/>'
-      </assert>
-      <assert test="1 &gt;= $rentable" role="ERROR">
-        element 'auc:FloorAreaType' with value 'Rentable' is ALLOWED NO MORE THAN ONCE for '<name/>'
-      </assert>
-      <assert test="1 &gt;= $occupied" role="ERROR">
-        element 'auc:FloorAreaType' with value 'Occupied' is ALLOWED NO MORE THAN ONCE for '<name/>'
-      </assert>
-      <assert test="1 &gt;= $lighted" role="ERROR">
-        element 'auc:FloorAreaType' with value 'Lighted' is ALLOWED NO MORE THAN ONCE for '<name/>'
-      </assert>
-      <assert test="1 &gt;= $daylit" role="ERROR">
-        element 'auc:FloorAreaType' with value 'Daylit' is ALLOWED NO MORE THAN ONCE for '<name/>'
-      </assert>
-      <assert test="1 &gt;= $heated" role="ERROR">
-        element 'auc:FloorAreaType' with value 'Heated' is ALLOWED NO MORE THAN ONCE for '<name/>'
-      </assert>
-      <assert test="1 &gt;= $cooled" role="ERROR">
-        element 'auc:FloorAreaType' with value 'Cooled' is ALLOWED NO MORE THAN ONCE for '<name/>'
-      </assert>
-      <assert test="1 &gt;= $conditioned" role="ERROR">
-        element 'auc:FloorAreaType' with value 'Conditioned' is ALLOWED NO MORE THAN ONCE for '<name/>'
-      </assert>
-      <assert test="1 &gt;= $unconditioned" role="ERROR">
-        element 'auc:FloorAreaType' with value 'Unconditioned' is ALLOWED NO MORE THAN ONCE for '<name/>'
-      </assert>
-      <assert test="1 &gt;= $semiConditioned" role="ERROR">
-        element 'auc:FloorAreaType' with value 'Semi-conditioned' is ALLOWED NO MORE THAN ONCE for '<name/>'
-      </assert>
-      <assert test="1 &gt;= $heatedCooled" role="ERROR">
-        element 'auc:FloorAreaType' with value 'Heated and Cooled' is ALLOWED NO MORE THAN ONCE for '<name/>'
-      </assert>
-      <assert test="1 &gt;= $heatedOnly" role="ERROR">
-        element 'auc:FloorAreaType' with value 'Heated only' is ALLOWED NO MORE THAN ONCE for '<name/>'
-      </assert>
-      <assert test="1 &gt;= $cooledOnly" role="ERROR">
-        element 'auc:FloorAreaType' with value 'Cooled only' is ALLOWED NO MORE THAN ONCE for '<name/>'
-      </assert>
-      <assert test="1 &gt;= $ventilated" role="ERROR">
-        element 'auc:FloorAreaType' with value 'Ventilated' is ALLOWED NO MORE THAN ONCE for '<name/>'
-      </assert>
-      <assert test="1 &gt;= $enclosed" role="ERROR">
-        element 'auc:FloorAreaType' with value 'Enclosed' is ALLOWED NO MORE THAN ONCE for '<name/>'
-      </assert>
-      <assert test="1 &gt;= $nonEnclosed" role="ERROR">
-        element 'auc:FloorAreaType' with value 'Non-Enclosed' is ALLOWED NO MORE THAN ONCE for '<name/>'
-      </assert>
-      <assert test="1 &gt;= $open" role="ERROR">
-        element 'auc:FloorAreaType' with value 'Open' is ALLOWED NO MORE THAN ONCE for '<name/>'
-      </assert>
-      <assert test="1 &gt;= $lot" role="ERROR">
-        element 'auc:FloorAreaType' with value 'Lot' is ALLOWED NO MORE THAN ONCE for '<name/>'
-      </assert>
-      <assert test="1 &gt;= $custom" role="ERROR">
-        element 'auc:FloorAreaType' with value 'Custom' is ALLOWED NO MORE THAN ONCE for '<name/>'
-      </assert>
+      <assert test="1 &gt;= $tenant" role="ERROR">element 'auc:FloorAreaType' with value 'Tenant' is ALLOWED NO MORE THAN ONCE for '<name/>'</assert>
+      <assert test="1 &gt;= $common" role="ERROR">element 'auc:FloorAreaType' with value 'Common' is ALLOWED NO MORE THAN ONCE for '<name/>'</assert>
+      <assert test="1 &gt;= $gross" role="ERROR">element 'auc:FloorAreaType' with value 'Gross' is ALLOWED NO MORE THAN ONCE for '<name/>'</assert>
+      <assert test="1 &gt;= $net" role="ERROR">element 'auc:FloorAreaType' with value 'Net' is ALLOWED NO MORE THAN ONCE for '<name/>'</assert>
+      <assert test="1 &gt;= $finished" role="ERROR">element 'auc:FloorAreaType' with value 'Finished' is ALLOWED NO MORE THAN ONCE for '<name/>'</assert>
+      <assert test="1 &gt;= $footprint" role="ERROR">element 'auc:FloorAreaType' with value 'Footprint' is ALLOWED NO MORE THAN ONCE for '<name/>'</assert>
+      <assert test="1 &gt;= $rentable" role="ERROR">element 'auc:FloorAreaType' with value 'Rentable' is ALLOWED NO MORE THAN ONCE for '<name/>'</assert>
+      <assert test="1 &gt;= $occupied" role="ERROR">element 'auc:FloorAreaType' with value 'Occupied' is ALLOWED NO MORE THAN ONCE for '<name/>'</assert>
+      <assert test="1 &gt;= $lighted" role="ERROR">element 'auc:FloorAreaType' with value 'Lighted' is ALLOWED NO MORE THAN ONCE for '<name/>'</assert>
+      <assert test="1 &gt;= $daylit" role="ERROR">element 'auc:FloorAreaType' with value 'Daylit' is ALLOWED NO MORE THAN ONCE for '<name/>'</assert>
+      <assert test="1 &gt;= $heated" role="ERROR">element 'auc:FloorAreaType' with value 'Heated' is ALLOWED NO MORE THAN ONCE for '<name/>'</assert>
+      <assert test="1 &gt;= $cooled" role="ERROR">element 'auc:FloorAreaType' with value 'Cooled' is ALLOWED NO MORE THAN ONCE for '<name/>'</assert>
+      <assert test="1 &gt;= $conditioned" role="ERROR">element 'auc:FloorAreaType' with value 'Conditioned' is ALLOWED NO MORE THAN ONCE for '<name/>'</assert>
+      <assert test="1 &gt;= $unconditioned" role="ERROR">element 'auc:FloorAreaType' with value 'Unconditioned' is ALLOWED NO MORE THAN ONCE for '<name/>'</assert>
+      <assert test="1 &gt;= $semiConditioned" role="ERROR">element 'auc:FloorAreaType' with value 'Semi-conditioned' is ALLOWED NO MORE THAN ONCE for '<name/>'</assert>
+      <assert test="1 &gt;= $heatedCooled" role="ERROR">element 'auc:FloorAreaType' with value 'Heated and Cooled' is ALLOWED NO MORE THAN ONCE for '<name/>'</assert>
+      <assert test="1 &gt;= $heatedOnly" role="ERROR">element 'auc:FloorAreaType' with value 'Heated only' is ALLOWED NO MORE THAN ONCE for '<name/>'</assert>
+      <assert test="1 &gt;= $cooledOnly" role="ERROR">element 'auc:FloorAreaType' with value 'Cooled only' is ALLOWED NO MORE THAN ONCE for '<name/>'</assert>
+      <assert test="1 &gt;= $ventilated" role="ERROR">element 'auc:FloorAreaType' with value 'Ventilated' is ALLOWED NO MORE THAN ONCE for '<name/>'</assert>
+      <assert test="1 &gt;= $enclosed" role="ERROR">element 'auc:FloorAreaType' with value 'Enclosed' is ALLOWED NO MORE THAN ONCE for '<name/>'</assert>
+      <assert test="1 &gt;= $nonEnclosed" role="ERROR">element 'auc:FloorAreaType' with value 'Non-Enclosed' is ALLOWED NO MORE THAN ONCE for '<name/>'</assert>
+      <assert test="1 &gt;= $open" role="ERROR">element 'auc:FloorAreaType' with value 'Open' is ALLOWED NO MORE THAN ONCE for '<name/>'</assert>
+      <assert test="1 &gt;= $lot" role="ERROR">element 'auc:FloorAreaType' with value 'Lot' is ALLOWED NO MORE THAN ONCE for '<name/>'</assert>
+      <assert test="1 &gt;= $custom" role="ERROR">element 'auc:FloorAreaType' with value 'Custom' is ALLOWED NO MORE THAN ONCE for '<name/>'</assert>
     </rule>
   </pattern>
   <!--
@@ -116,9 +68,7 @@
 -->
   <pattern abstract="true" id="fa.haveTypeAndValue">
     <rule context="$parent">
-      <assert test="auc:FloorAreaType and auc:FloorAreaValue" role="ERROR">
-        elements 'auc:FloorAreaType' and 'auc:FloorAreaValue' are REQUIRED EXACTLY ONCE for: '<name/>'
-      </assert>
+      <assert test="auc:FloorAreaType and auc:FloorAreaValue" role="ERROR">elements 'auc:FloorAreaType' and 'auc:FloorAreaValue' are REQUIRED EXACTLY ONCE for: '<name/>'</assert>
     </rule>
   </pattern>
   <!--
@@ -129,9 +79,7 @@
 -->
   <pattern abstract="true" id="fa.oneOfType">
     <rule context="$parent">
-      <assert test="count(auc:FloorArea[auc:FloorAreaType = $floorAreaType]) = 1" role="ERROR">
-        element 'auc:FloorAreaType' with value '<value-of select="$floorAreaType"/>' is REQUIRED EXACTLY ONCE within element 'auc:FloorArea' for '<name/>'.  Currently occurs: <value-of select="count(auc:FloorArea[auc:FloorAreaType = $floorAreaType])"/>
-      </assert>
+      <assert test="count(auc:FloorArea[auc:FloorAreaType = $floorAreaType]) = 1" role="ERROR">element 'auc:FloorAreaType' with value '<value-of select="$floorAreaType"/>' is REQUIRED EXACTLY ONCE within element 'auc:FloorArea' for '<name/>'.  Currently occurs: <value-of select="count(auc:FloorArea[auc:FloorAreaType = $floorAreaType])"/></assert>
     </rule>
   </pattern>
   <!--
@@ -142,9 +90,7 @@
 -->
   <pattern abstract="true" id="fa.noneDefinedWarn">
     <rule context="$parent">
-      <assert test="count(auc:FloorArea/auc:FloorAreaType[text() = $floorAreaType]) != 0" role="WARNING">
-        element 'auc:FloorAreaType' with value '<value-of select="$floorAreaType"/>' is RECOMMENDED for: '<name/>'
-      </assert>
+      <assert test="count(auc:FloorArea/auc:FloorAreaType[text() = $floorAreaType]) != 0" role="WARNING">element 'auc:FloorAreaType' with value '<value-of select="$floorAreaType"/>' is RECOMMENDED for: '<name/>'</assert>
     </rule>
   </pattern>
   <!--
@@ -182,33 +128,15 @@
       <let name="endTextPosition1UCA" value="number(not(string($unconditionedAreaValue) != 'NaN')) * string-length(string($unconditionedAreaValueComputed))"/>
       <let name="endTextPosition2UCA" value="number(not(string($unconditionedAreaValue) = 'NaN')) * string-length(string($unconditionedAreaValue))"/>
       <let name="unconditionedArea" value="number(concat(substring($unconditionedAreaValueComputed, 1, $endTextPosition1UCA),                                                          substring($unconditionedAreaValue, 1, $endTextPosition2UCA)))"/>
-      <assert test="$conditionedArea &gt;= $cooledOnlyArea + $heatedOnlyArea + $heatedCooledArea + $ventilatedArea" role="ERROR">
-        Conditioned Floor Area (<value-of select="$conditionedArea"/>) must be greater than or equal to: Heated and Cooled (<value-of select="$heatedCooledArea"/>) + Heated only (<value-of select="$heatedOnlyArea"/>) + Cooled only (<value-of select="$cooledOnlyArea"/>) + Ventilated (<value-of select="$ventilatedArea"/>)
-      </assert>
-      <assert test="$grossArea &gt;= $conditionedArea + $unconditionedArea and $unconditionedArea &gt;= 0" role="ERROR">
-        Gross Floor Area (<value-of select="$grossArea"/>) must be greater than or equal to: Conditioned (<value-of select="$conditionedArea"/>) + Unconditioned (<value-of select="$unconditionedArea"/>) AND Unconditioned Floor Area must be &gt; 0
-      </assert>
-      <assert test="false()" role="INFO">
-        'Gross' Floor Area: <value-of select="$grossArea"/>
-      </assert>
-      <assert test="false()" role="INFO">
-        'Cooled only' Floor Area: <value-of select="$cooledOnlyArea"/>
-      </assert>
-      <assert test="false()" role="INFO">
-        'Heated only' Floor Area: <value-of select="$heatedOnlyArea"/>
-      </assert>
-      <assert test="false()" role="INFO">
-        'Heated and Cooled' Floor Area: <value-of select="$heatedCooledArea"/>
-      </assert>
-      <assert test="false()" role="INFO">
-        'Ventilated' Floor Area: <value-of select="$ventilatedArea"/>
-      </assert>
-      <assert test="false()" role="INFO">
-        'Conditioned' Floor Area: <value-of select="$conditionedArea"/>
-      </assert>
-      <assert test="false()" role="INFO">
-        'Unconditioned' Floor Area: <value-of select="$unconditionedArea"/>
-      </assert>
+      <assert test="$conditionedArea &gt;= $cooledOnlyArea + $heatedOnlyArea + $heatedCooledArea + $ventilatedArea" role="ERROR">Conditioned Floor Area (<value-of select="$conditionedArea"/>) must be greater than or equal to: Heated and Cooled (<value-of select="$heatedCooledArea"/>) + Heated only (<value-of select="$heatedOnlyArea"/>) + Cooled only (<value-of select="$cooledOnlyArea"/>) + Ventilated (<value-of select="$ventilatedArea"/>)</assert>
+      <assert test="$grossArea &gt;= $conditionedArea + $unconditionedArea and $unconditionedArea &gt;= 0" role="ERROR">Gross Floor Area (<value-of select="$grossArea"/>) must be greater than or equal to: Conditioned (<value-of select="$conditionedArea"/>) + Unconditioned (<value-of select="$unconditionedArea"/>) AND Unconditioned Floor Area must be &gt; 0</assert>
+      <assert test="false()" role="INFO">'Gross' Floor Area: <value-of select="$grossArea"/></assert>
+      <assert test="false()" role="INFO">'Cooled only' Floor Area: <value-of select="$cooledOnlyArea"/></assert>
+      <assert test="false()" role="INFO">'Heated only' Floor Area: <value-of select="$heatedOnlyArea"/></assert>
+      <assert test="false()" role="INFO">'Heated and Cooled' Floor Area: <value-of select="$heatedCooledArea"/></assert>
+      <assert test="false()" role="INFO">'Ventilated' Floor Area: <value-of select="$ventilatedArea"/></assert>
+      <assert test="false()" role="INFO">'Conditioned' Floor Area: <value-of select="$conditionedArea"/></assert>
+      <assert test="false()" role="INFO">'Unconditioned' Floor Area: <value-of select="$unconditionedArea"/></assert>
     </rule>
   </pattern>
   <!--
@@ -218,12 +146,8 @@
 -->
   <pattern abstract="true" id="fa.dontUse">
     <rule context="$parent">
-      <assert test="not (auc:FloorArea/auc:FloorAreaType[text()='Heated'])" role="ERROR">
-        element 'auc:FloorAreaType' with value 'Heated' within element 'auc:FloorArea' SHOULD NOT BE USED for: '<name/>'
-      </assert>
-      <assert test="not (auc:FloorArea/auc:FloorAreaType[text()='Cooled'])" role="ERROR">
-        element 'auc:FloorAreaType' with value 'Cooled' within element 'auc:FloorArea' SHOULD NOT BE USED for: '<name/>'
-      </assert>
+      <assert test="not (auc:FloorArea/auc:FloorAreaType[text()='Heated'])" role="ERROR">element 'auc:FloorAreaType' with value 'Heated' within element 'auc:FloorArea' SHOULD NOT BE USED for: '<name/>'</assert>
+      <assert test="not (auc:FloorArea/auc:FloorAreaType[text()='Cooled'])" role="ERROR">element 'auc:FloorAreaType' with value 'Cooled' within element 'auc:FloorArea' SHOULD NOT BE USED for: '<name/>'</assert>
     </rule>
   </pattern>
   <!--
@@ -238,9 +162,7 @@
       <let name="heated" value="count(auc:FloorArea/auc:FloorAreaType[text()='Heated only'])"/>
       <let name="cooled" value="count(auc:FloorArea/auc:FloorAreaType[text()='Cooled only'])"/>
       <let name="ventilated" value="count(auc:FloorArea/auc:FloorAreaType[text()='Ventilated'])"/>
-      <assert test="$conditioned + $heatedCooled + $heated + $cooled + $ventilated &gt; 0" role="ERROR">
-        element 'auc:FloorAreaType' with value 'Conditioned' or 'Heated and Cooled' or 'Heated only' or 'Cooled only' or 'Ventilated' is REQUIRED AT LEAST ONCE for '<name/>'
-      </assert>
+      <assert test="$conditioned + $heatedCooled + $heated + $cooled + $ventilated &gt; 0" role="ERROR">element 'auc:FloorAreaType' with value 'Conditioned' or 'Heated and Cooled' or 'Heated only' or 'Cooled only' or 'Ventilated' is REQUIRED AT LEAST ONCE for '<name/>'</assert>
     </rule>
   </pattern>
   <!--
@@ -252,15 +174,9 @@
     <rule context="$parent">
       <let name="buildingGrossArea" value="number(auc:FloorAreas/auc:FloorArea[auc:FloorAreaType='Gross']/auc:FloorAreaValue)"/>
       <let name="allSpaceFunctionSectionsGrossArea" value="number(sum(//auc:Section[auc:SectionType/text()='Space function']/auc:FloorAreas/auc:FloorArea[auc:FloorAreaType='Gross']/auc:FloorAreaValue))"/>
-      <assert test="$buildingGrossArea &gt;= $allSpaceFunctionSectionsGrossArea" role="ERROR">
-        auc:Building Gross Floor (<value-of select="$buildingGrossArea"/>) Area MUST BE GREATER THAN OR EQUAL TO the sum of all Gross Floor areas from elements auc:Section[auc:SectionType='Space function'] (<value-of select="$allSpaceFunctionSectionsGrossArea"/>)
-      </assert>
-      <assert test="false()" role="INFO">
-        Building Gross Floor Area: <value-of select="$buildingGrossArea"/>
-      </assert>
-      <assert test="false()" role="INFO">
-        Sum of all auc:Section[auc:SectionType='Space function'] Gross Floor Area: <value-of select="$allSpaceFunctionSectionsGrossArea"/>
-      </assert>
+      <assert test="$buildingGrossArea &gt;= $allSpaceFunctionSectionsGrossArea" role="ERROR">auc:Building Gross Floor (<value-of select="$buildingGrossArea"/>) Area MUST BE GREATER THAN OR EQUAL TO the sum of all Gross Floor areas from elements auc:Section[auc:SectionType='Space function'] (<value-of select="$allSpaceFunctionSectionsGrossArea"/>)</assert>
+      <assert test="false()" role="INFO">Building Gross Floor Area: <value-of select="$buildingGrossArea"/></assert>
+      <assert test="false()" role="INFO">Sum of all auc:Section[auc:SectionType='Space function'] Gross Floor Area: <value-of select="$allSpaceFunctionSectionsGrossArea"/></assert>
     </rule>
   </pattern>
   <!--  Check that either a auc:FloorAreaValue or auc:FloorAreaPercentage is specifed, but not both
@@ -271,9 +187,7 @@
     <rule context="$parent">
       <let name="value" value="count(auc:FloorAreaValue)"/>
       <let name="percent" value="count(auc:FloorAreaPercentage)"/>
-      <assert test="$value + $percent = 1" role="ERROR">
-        either element 'auc:FloorAreaValue' OR 'auc:FloorAreaPercentage' MUST BE SPECIFIED for: '<name/>'
-      </assert>
+      <assert test="$value + $percent = 1" role="ERROR">either element 'auc:FloorAreaValue' OR 'auc:FloorAreaPercentage' MUST BE SPECIFIED for: '<name/>'</assert>
     </rule>
   </pattern>
 </schema>
