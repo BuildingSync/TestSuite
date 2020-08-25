@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<auc:BuildingSync xmlns:auc="http://buildingsync.net/schemas/bedes-auc/2019" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://buildingsync.net/schemas/bedes-auc/2019 https://raw.githubusercontent.com/BuildingSync/schema/1c73127d389b779c6b74029be72c6e9ff3187113/BuildingSync.xsd">
+  <auc:Facilities>
+    <auc:Facility>
+      <auc:Sites>
+        <auc:Site>
+          <auc:Address>
+            <auc:City>Chicago</auc:City>
+            <auc:State>IL</auc:State>
+          </auc:Address>
+          <auc:Buildings>
+            <auc:Building ID="Willis_Tower">
+              <auc:PremisesName>Willis Tower</auc:PremisesName>
+              <auc:Address>
+                <auc:StreetAddressDetail>
+                  <auc:Simplified>
+                    <auc:StreetAddress>233 S Wacker Dr</auc:StreetAddress>
+                  </auc:Simplified>
+                </auc:StreetAddressDetail>
+                <auc:City>Chicago</auc:City>
+                <auc:State>IL</auc:State>
+                <auc:PostalCode>60606</auc:PostalCode>
+              </auc:Address>
+              <auc:BuildingClassification>Commercial</auc:BuildingClassification>
+              <auc:OccupancyClassification>Office</auc:OccupancyClassification>
+              <auc:FloorAreas>
+                <auc:FloorArea>
+                  <auc:FloorAreaType>Gross</auc:FloorAreaType>
+                  <auc:FloorAreaValue>4477800.0</auc:FloorAreaValue>
+                </auc:FloorArea>
+              </auc:FloorAreas>
+              <auc:YearOfConstruction>1973</auc:YearOfConstruction>
+            </auc:Building>
+          </auc:Buildings>
+        </auc:Site>
+      </auc:Sites>
+      <auc:Systems/>
+      <auc:Measures>
+        <auc:Measure/>
+      </auc:Measures>
+      <auc:Reports>
+        <auc:Report>
+          <auc:Scenarios>
+            <auc:Scenario ID="Baseline">
+              <auc:ScenarioName>Baseline</auc:ScenarioName>
+              <auc:ScenarioType>
+                <auc:PackageOfMeasures>
+                  <auc:ReferenceCase IDref="Baseline"/>
+                </auc:PackageOfMeasures>
+              </auc:ScenarioType>
+            </auc:Scenario>
+          </auc:Scenarios>
+        </auc:Report>
+      </auc:Reports>
+      <auc:Contacts>
+        <auc:Contact>
+          <auc:ContactRoles>
+            <auc:ContactRole>Energy Auditor</auc:ContactRole>
+          </auc:ContactRoles>
+          <auc:ContactName>The Energy Auditor</auc:ContactName>
+          <auc:ContactTelephoneNumbers>
+            <auc:ContactTelephoneNumber>
+              <auc:TelephoneNumber>123-456-7890</auc:TelephoneNumber>
+            </auc:ContactTelephoneNumber>
+          </auc:ContactTelephoneNumbers>
+          <auc:ContactEmailAddresses>
+            <auc:ContactEmailAddress>
+              <auc:EmailAddress>abc123@gmail.com</auc:EmailAddress>
+            </auc:ContactEmailAddress>
+          </auc:ContactEmailAddresses>
+        </auc:Contact>
+        <auc:Contact>
+          <auc:ContactRoles>
+            <auc:ContactRole>Owner</auc:ContactRole>
+          </auc:ContactRoles>
+          <auc:ContactName>The Owner</auc:ContactName>
+          <auc:ContactTelephoneNumbers>
+            <auc:ContactTelephoneNumber>
+              <auc:TelephoneNumber>123-456-7890</auc:TelephoneNumber>
+            </auc:ContactTelephoneNumber>
+          </auc:ContactTelephoneNumbers>
+          <auc:ContactEmailAddresses>
+            <auc:ContactEmailAddress>
+              <auc:EmailAddress>abc123@gmail.com</auc:EmailAddress>
+            </auc:ContactEmailAddress>
+          </auc:ContactEmailAddresses>
+        </auc:Contact>
+      </auc:Contacts>
+    </auc:Facility>
+  </auc:Facilities>
+</auc:BuildingSync>

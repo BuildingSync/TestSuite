@@ -6,6 +6,7 @@ from lxml import etree
 
 from tools.constants import BSYNC_NSMAP
 
+SCH_LIB_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'lib')
 v2_0_0_SCH_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'v2.0.0')
 v2_1_0_SCH_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'v2.1.0')
 
@@ -94,3 +95,13 @@ def replace_element(tree, xpath_to_replace, new_element):
     parent_elem[parent_elem.index(elem)] = new_element
 
     return tree
+
+
+def sch_from_imported_pattern(lib_filename, pattern_id):
+    return f"""<schema xmlns="http://purl.oclc.org/dsdl/schematron">
+    <ns prefix="auc" uri="http://buildingsync.net/schemas/bedes-auc/2019"/>
+    <phase id="Tests">
+        <active pattern="{pattern_id}"/>
+    </phase>
+    <include href="{SCH_LIB_DIR}/{lib_filename}#{pattern_id}"/>
+</schema>"""
