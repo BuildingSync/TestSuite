@@ -80,9 +80,9 @@ def validate_schematron(schematron, document, result_path=None, phase=None, stri
     :returns: Failure[], list of failures
     """
     try:
-        schematron_tree = etree.ElementTree(etree.fromstring(schematron))
-    except etree.XMLSyntaxError:
         schematron_tree = etree.parse(schematron)
+    except OSError:
+        schematron_tree = etree.ElementTree(etree.fromstring(schematron))
 
     schematron = isoschematron.Schematron(
         schematron_tree,
