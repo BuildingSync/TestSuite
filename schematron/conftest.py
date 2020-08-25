@@ -98,10 +98,41 @@ def replace_element(tree, xpath_to_replace, new_element):
 
 
 def sch_from_imported_pattern(lib_filename, pattern_id):
+    """
+    Creates a schematron document which only contains the specified pattern
+
+    :param lib_filename: str, filename to use (e.g. buildingElements.sch)
+    :param pattern_id: str, pattern ID to use from file
+    :return: str
+    """
     return f"""<schema xmlns="http://purl.oclc.org/dsdl/schematron">
     <ns prefix="auc" uri="http://buildingsync.net/schemas/bedes-auc/2019"/>
     <phase id="Tests">
         <active pattern="{pattern_id}"/>
     </phase>
+    <include href="{SCH_LIB_DIR}/{lib_filename}#{pattern_id}"/>
+</schema>"""
+
+
+def sch_from_imported_abstract_pattern(lib_filename, pattern_id, params):
+    """
+    Creates a schematron document which only includes the specified abastract pattern
+
+    :param lib_filename: str, filename to use (e.g. buildingElements.sch)
+    :param pattern_id: str, pattern ID to use from file
+    :param params: dict, parameters for abstract pattern, where keys are the parameter name and values are their values
+    :return: str
+    """
+    pattern_instance_id = f'inst.{pattern_id}'
+    param_strings = [f'<param name="{key}" value="{val}"/>' for key, val in params.items()]
+    joined_param_strings = '\n        '.join(param_strings)
+    return f"""<schema xmlns="http://purl.oclc.org/dsdl/schematron">
+    <ns prefix="auc" uri="http://buildingsync.net/schemas/bedes-auc/2019"/>
+    <phase id="Tests">
+        <active pattern="{pattern_instance_id}"/>
+    </phase>
+    <pattern id="{pattern_instance_id}" is-a="{pattern_id}">
+        {joined_param_strings}
+    </pattern>
     <include href="{SCH_LIB_DIR}/{lib_filename}#{pattern_id}"/>
 </schema>"""
