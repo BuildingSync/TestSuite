@@ -8,13 +8,12 @@ from lxml import etree
 from tools.constants import BSYNC_NSMAP, BSYNC_NS
 from tools.validate_sch import validate_schematron
 
-from schematron.conftest import AssertFailureRolesMixin, exemplary_tree, remove_element, replace_element
-from conftest import SCH_DIR
+from schematron.conftest import AssertFailureRolesMixin, exemplary_tree, remove_element, replace_element, v2_1_0_SCH_DIR
 
 
 class TestL100Audit(AssertFailureRolesMixin):
-    schematron = os.path.join(SCH_DIR, 'v2-1-0_L100_Audit.sch')
-    exemplary_file = os.path.join(SCH_DIR, 'exemplary_files', 'L100_Audit.xml')
+    schematron = os.path.join(v2_1_0_SCH_DIR, 'v2-1-0_L100_Audit.sch')
+    exemplary_file = os.path.join(v2_1_0_SCH_DIR, 'exemplary_files', 'L100_Audit.xml')
 
     def test_exemplary_file_is_valid(self):
         # -- Act
