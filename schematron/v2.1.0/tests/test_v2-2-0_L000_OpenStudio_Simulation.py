@@ -5,7 +5,7 @@ from schematron.conftest import AssertFailureRolesMixin, exemplary_tree, remove_
 
 
 class TestL000OpenStudioSimulation01(AssertFailureRolesMixin):
-    schematron = os.path.join(v2_1_0_SCH_DIR, 'v2-1-0_L000_OpenStudio_Simulation.sch')
+    schematron = os.path.join(v2_1_0_SCH_DIR, 'v2-2-0_L000_OpenStudio_Simulation.sch')
     exemplary_file_name = 'L000_OpenStudio_Simulation_01'
     exemplary_file = os.path.join(v2_1_0_SCH_DIR, 'exemplary_files', f"{exemplary_file_name}.xml")
 
@@ -80,7 +80,7 @@ class TestL000OpenStudioSimulation01(AssertFailureRolesMixin):
 
 
 class TestL000OpenStudioSimulation02(AssertFailureRolesMixin):
-    schematron = os.path.join(v2_1_0_SCH_DIR, 'v2-1-0_L000_OpenStudio_Simulation.sch')
+    schematron = os.path.join(v2_1_0_SCH_DIR, 'v2-2-0_L000_OpenStudio_Simulation.sch')
     exemplary_file_name = 'L000_OpenStudio_Simulation_02'
     exemplary_file = os.path.join(v2_1_0_SCH_DIR, 'exemplary_files', f"{exemplary_file_name}.xml")
 
