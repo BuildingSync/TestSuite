@@ -578,27 +578,6 @@
               </auc:AllResourceTotals>
             </auc:Scenario>
 
-            <!-- Current energy use -->
-            <auc:Scenario ID="Scenario-B">
-              <auc:ScenarioType>
-                <auc:CurrentBuilding>
-                  <!-- Not sure what to include here -->
-                </auc:CurrentBuilding>
-              </auc:ScenarioType>
-              <auc:AllResourceTotals>
-                <auc:AllResourceTotal ID="AllResourceTotal-B">
-                  <!-- 6.1.2.2.a -->
-                  <auc:SiteEnergyUse>123</auc:SiteEnergyUse>
-                  <!-- 6.1.2.2.a -->
-                  <auc:SiteEnergyUseIntensity>123</auc:SiteEnergyUseIntensity>
-                  <!-- 6.1.2.2.b -->
-                  <auc:EnergyCost>123</auc:EnergyCost>
-                  <!-- 6.1.2.2.b -->
-                  <auc:EnergyCostIndex>123</auc:EnergyCostIndex>
-                </auc:AllResourceTotal>
-              </auc:AllResourceTotals>
-            </auc:Scenario>
-
             <!-- Target energy use -->
             <!-- 6.1.4 -->
             <auc:Scenario ID="Scenario-C">
