@@ -11,14 +11,11 @@ class TestV200L100OpenStudio(AssertFailureRolesMixin):
 
     def test_example_file_1_is_valid_with_info_messages(self):
         # -- Act
-        _ = validate_schematron(self.schematron, self.example_file_1)
+        failures = validate_schematron(self.schematron, self.example_file_1)
 
         # -- Assert
-        # TODO: Do we want to check all of the [INFO] reports here?
-        # self.assert_failure_messages(failures, {
-        #     'INFO': [
-        #         "Number of 'auc:City' elements defined at the 'auc:Site' = 0, 'auc:Building' = 1",
-        #         "Number of 'auc:State' elements defined at the 'auc:Site' = 0, 'auc:Building' = 1",
-        #         "Number of 'auc:ClimateZoneType//auc:ClimateZone' elements defined at the 'auc:Site' = 0, 'auc:Building' = 0"
-        #     ]
-        # })
+        # check that there are no warnings or errors - there are many infos
+        errors = [f for f in failures if f.role == 'ERROR']
+        assert len(errors) == 0, f'There should be no ERRORs: {errors}'
+        warnings = [f for f in failures if f.role == 'WARNING']
+        assert len(warnings) == 0, f'There should be no WARNINGS: {warnings}'
