@@ -645,9 +645,9 @@
                       <auc:RatePeriods>
                         <auc:RatePeriod>
                           <auc:ApplicableStartDateForEnergyRate>--01-01</auc:ApplicableStartDateForEnergyRate>
-                          <auc:ApplicableEndDateForEnergyRate>--01-01</auc:ApplicableEndDateForEnergyRate>
+                          <auc:ApplicableEndDateForEnergyRate>--12-01</auc:ApplicableEndDateForEnergyRate>
                           <auc:ApplicableStartDateForDemandRate>--01-01</auc:ApplicableStartDateForDemandRate>
-                          <auc:ApplicableEndDateForDemandRate>--01-01</auc:ApplicableEndDateForDemandRate>
+                          <auc:ApplicableEndDateForDemandRate>--12-01</auc:ApplicableEndDateForDemandRate>
                           <auc:EnergyCostRate>123</auc:EnergyCostRate>
                           <auc:ElectricDemandRate>123</auc:ElectricDemandRate>
                         </auc:RatePeriod>
@@ -671,7 +671,7 @@
                       <auc:RatePeriods>
                         <auc:RatePeriod>
                           <auc:ApplicableStartDateForEnergyRate>--01-01</auc:ApplicableStartDateForEnergyRate>
-                          <auc:ApplicableEndDateForEnergyRate>--01-01</auc:ApplicableEndDateForEnergyRate>
+                          <auc:ApplicableEndDateForEnergyRate>--12-01</auc:ApplicableEndDateForEnergyRate>
                           <auc:TimeOfUsePeriods>
                             <auc:TimeOfUsePeriod>
                               <auc:ApplicableStartTimeForEnergyRate>00:00:00</auc:ApplicableStartTimeForEnergyRate>
