@@ -2,12 +2,12 @@ import os
 
 
 from tools.validate_sch import validate_schematron
-from schematron.conftest import AssertFailureRolesMixin, exemplary_tree, remove_element, v2_1_0_SCH_DIR
+from schematron.conftest import AssertFailureRolesMixin, exemplary_tree, remove_element, v2_2_0_SCH_DIR
 
 
 class TestL000PrelimAnalysis(AssertFailureRolesMixin):
-    schematron = os.path.join(v2_1_0_SCH_DIR, 'v2-2-0_L000_Prelim_Analysis.sch')
-    exemplary_file = os.path.join(v2_1_0_SCH_DIR, 'exemplary_files', 'L000_Prelim_Analysis.xml')
+    schematron = os.path.join(v2_2_0_SCH_DIR, 'v2-2-0_L000_Prelim_Analysis.sch')
+    exemplary_file = os.path.join(v2_2_0_SCH_DIR, 'exemplary_files', 'L000_Prelim_Analysis.xml')
 
     def test_exemplary_file_is_valid(self):
         # -- Act
@@ -18,7 +18,7 @@ class TestL000PrelimAnalysis(AssertFailureRolesMixin):
 
     def test_fails_when_measured_scenario_missing(self):
         # -- Setup
-        tree = exemplary_tree('L000_Prelim_Analysis', 'v2.1.0')
+        tree = exemplary_tree('L000_Prelim_Analysis', 'v2.2.0')
 
         # verify it's valid
         failures = validate_schematron(self.schematron, tree)
@@ -40,7 +40,7 @@ class TestL000PrelimAnalysis(AssertFailureRolesMixin):
 
     def test_fails_when_measured_scenario_not_linked_to_building(self):
         # -- Setup
-        tree = exemplary_tree('L000_Prelim_Analysis', 'v2.1.0')
+        tree = exemplary_tree('L000_Prelim_Analysis', 'v2.2.0')
 
         # verify it's valid
         failures = validate_schematron(self.schematron, tree)
@@ -61,7 +61,7 @@ class TestL000PrelimAnalysis(AssertFailureRolesMixin):
 
     def test_fails_when_benchmark_scenario_missing(self):
         # -- Setup
-        tree = exemplary_tree('L000_Prelim_Analysis', 'v2.1.0')
+        tree = exemplary_tree('L000_Prelim_Analysis', 'v2.2.0')
 
         # verify it's valid
         failures = validate_schematron(self.schematron, tree)
@@ -83,7 +83,7 @@ class TestL000PrelimAnalysis(AssertFailureRolesMixin):
 
     def test_fails_when_benchmark_scenario_not_linked_to_building(self):
         # -- Setup
-        tree = exemplary_tree('L000_Prelim_Analysis', 'v2.1.0')
+        tree = exemplary_tree('L000_Prelim_Analysis', 'v2.2.0')
 
         # verify it's valid
         failures = validate_schematron(self.schematron, tree)
@@ -104,7 +104,7 @@ class TestL000PrelimAnalysis(AssertFailureRolesMixin):
 
     def test_fails_when_no_address_or_climate_zone_type(self):
         # -- Setup
-        tree = exemplary_tree('L000_Prelim_Analysis', 'v2.1.0')
+        tree = exemplary_tree('L000_Prelim_Analysis', 'v2.2.0')
 
         # verify it's valid
         failures = validate_schematron(self.schematron, tree)

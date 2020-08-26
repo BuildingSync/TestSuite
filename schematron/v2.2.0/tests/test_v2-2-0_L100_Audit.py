@@ -8,12 +8,12 @@ from lxml import etree
 from tools.constants import BSYNC_NSMAP, BSYNC_NS
 from tools.validate_sch import validate_schematron
 
-from schematron.conftest import AssertFailureRolesMixin, exemplary_tree, remove_element, replace_element, v2_1_0_SCH_DIR
+from schematron.conftest import AssertFailureRolesMixin, exemplary_tree, remove_element, replace_element, v2_2_0_SCH_DIR
 
 
 class TestL100Audit(AssertFailureRolesMixin):
-    schematron = os.path.join(v2_1_0_SCH_DIR, 'v2-2-0_L100_Audit.sch')
-    exemplary_file = os.path.join(v2_1_0_SCH_DIR, 'exemplary_files', 'L100_Audit.xml')
+    schematron = os.path.join(v2_2_0_SCH_DIR, 'v2-2-0_L100_Audit.sch')
+    exemplary_file = os.path.join(v2_2_0_SCH_DIR, 'exemplary_files', 'L100_Audit.xml')
 
     def test_exemplary_file_is_valid(self):
         # -- Act
@@ -24,7 +24,7 @@ class TestL100Audit(AssertFailureRolesMixin):
 
     def test_is_valid_when_only_resource_use_is_electricity(self):
         # -- Setup
-        tree = exemplary_tree('L100_Audit', 'v2.1.0')
+        tree = exemplary_tree('L100_Audit', 'v2.2.0')
 
         # make sure it's valid
         failures = validate_schematron(self.schematron, tree)
@@ -42,7 +42,7 @@ class TestL100Audit(AssertFailureRolesMixin):
 
     def test_is_invalid_when_only_resource_use_is_not_electricity(self):
         # -- Setup
-        tree = exemplary_tree('L100_Audit', 'v2.1.0')
+        tree = exemplary_tree('L100_Audit', 'v2.2.0')
 
         # make sure it's valid
         failures = validate_schematron(self.schematron, tree)
@@ -62,7 +62,7 @@ class TestL100Audit(AssertFailureRolesMixin):
 
     def test_is_invalid_when_multiple_resource_uses_point_to_same_utility(self):
         # -- Setup
-        tree = exemplary_tree('L100_Audit', 'v2.1.0')
+        tree = exemplary_tree('L100_Audit', 'v2.2.0')
 
         # make sure it's valid
         failures = validate_schematron(self.schematron, tree)
@@ -98,7 +98,7 @@ class TestL100Audit(AssertFailureRolesMixin):
     def test_is_invalid_when_elec_utility_flat_rate_is_missing_elec_specific_requirements(self, target_element, expected_message):
         """Test that the electricity-specific RatePeriod requirements for FlatRate RateSchedule are working"""
         # -- Setup
-        tree = exemplary_tree('L100_Audit', 'v2.1.0')
+        tree = exemplary_tree('L100_Audit', 'v2.2.0')
 
         # make sure it's valid
         failures = validate_schematron(self.schematron, tree)
@@ -131,7 +131,7 @@ class TestL100Audit(AssertFailureRolesMixin):
     def test_is_invalid_when_elec_utility_time_of_use_rate_is_missing_elec_specific_requirements(self, target_element, expected_message):
         """Test that the electricity-specific RatePeriod requirements for TimeOfUse RateSchedule are working"""
         # -- Setup
-        tree = exemplary_tree('L100_Audit', 'v2.1.0')
+        tree = exemplary_tree('L100_Audit', 'v2.2.0')
 
         # make sure it's valid
         failures = validate_schematron(self.schematron, tree)
@@ -204,7 +204,7 @@ class TestL100Audit(AssertFailureRolesMixin):
     def test_is_invalid_when_elec_utility_tiered_rate_is_missing_elec_specific_requirements(self, target_element, expected_message):
         """Test that the electricity-specific RatePeriod requirements for TieredRates RateSchedule are working"""
         # -- Setup
-        tree = exemplary_tree('L100_Audit', 'v2.1.0')
+        tree = exemplary_tree('L100_Audit', 'v2.2.0')
 
         # make sure it's valid
         failures = validate_schematron(self.schematron, tree)
