@@ -42,6 +42,7 @@
 "","","","","","","","//auc:LightingSystem[auc:LinkedPremises/auc:Section/auc:LinkedSectionID/@IDref = current()/@ID]/auc:LampType//auc:LampLabel","auc:Section[auc:SectionType='Space function'] must have a linked auc:LightingSystem with auc:LampLabel defined","WARNING",""
 "Historical Energy Use","ASHRAE 211 6.1.2","Monthly Utility Data","ASHRAE 211 6.1.2.1","Monthly Utility Data - Rules","/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Scenarios/auc:Scenario[auc:ScenarioType/auc:CurrentBuilding/auc:CalculationMethod/auc:Measured]/auc:ResourceUses","true","auc:ResourceUse[auc:EnergyResource/text() = 'Electricity']","There must be at least one Electricity ResourceUse","",""
 "","","","","","/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Scenarios/auc:Scenario[auc:ScenarioType/auc:CurrentBuilding/auc:CalculationMethod/auc:Measured]/auc:ResourceUses/auc:ResourceUse","true","auc:EnergyResource","","",""
+"","","","","","","","auc:ResourceUseNotes","","",""
 "","","","","","","","auc:EndUse/text() =""All end uses""","","",""
 "","","","","","","","auc:ResourceUnits","","",""
 "","","","","","","","//auc:Utilities/auc:Utility[@ID = current()/auc:UtilityIDs/auc:UtilityID/@IDref]","Resource use must be associated with a utility","",""

@@ -125,6 +125,7 @@
     </sch:rule>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Scenarios/auc:Scenario[auc:ScenarioType/auc:CurrentBuilding/auc:CalculationMethod/auc:Measured]/auc:ResourceUses/auc:ResourceUse">
       <sch:assert test="auc:EnergyResource" role="">auc:EnergyResource</sch:assert>
+      <sch:assert test="auc:ResourceUseNotes" role="">auc:ResourceUseNotes</sch:assert>
       <sch:assert test="auc:EndUse/text() =&quot;All end uses&quot;" role="">auc:EndUse/text() ="All end uses"</sch:assert>
       <sch:assert test="auc:ResourceUnits" role="">auc:ResourceUnits</sch:assert>
       <sch:assert test="//auc:Utilities/auc:Utility[@ID = current()/auc:UtilityIDs/auc:UtilityID/@IDref]" role="">Resource use must be associated with a utility</sch:assert>
