@@ -250,6 +250,15 @@
                 <!-- 6.1.2 (covers multiple subsections) -->
                 <auc:ResourceUse ID="ResourceUse-Electricity">
                   <auc:EnergyResource>Electricity</auc:EnergyResource>
+                  <auc:ResourceUseNotes>
+                    Sampling Methodology
+                    -------------------
+                    Notes on meter sampling methods (if sampling was used)
+
+                    Irregularities
+                    --------------
+                    Notes on any irregularities in meter readings
+                  </auc:ResourceUseNotes>
                   <auc:ResourceUnits>kWh</auc:ResourceUnits>
                   <auc:EndUse>All end uses</auc:EndUse>
                   <auc:AnnualFuelUseNativeUnits>123</auc:AnnualFuelUseNativeUnits>
@@ -262,6 +271,15 @@
 
                 <auc:ResourceUse ID="ResourceUse-NG">
                   <auc:EnergyResource>Natural gas</auc:EnergyResource>
+                  <auc:ResourceUseNotes>
+                    Sampling Methodology
+                    -------------------
+                    Notes on meter sampling methods (if sampling was used)
+
+                    Irregularities
+                    --------------
+                    Notes on any irregularities in meter readings
+                  </auc:ResourceUseNotes>
                   <auc:ResourceUnits>therms</auc:ResourceUnits>
                   <auc:EndUse>All end uses</auc:EndUse>
                   <auc:AnnualFuelUseNativeUnits>123</auc:AnnualFuelUseNativeUnits>
