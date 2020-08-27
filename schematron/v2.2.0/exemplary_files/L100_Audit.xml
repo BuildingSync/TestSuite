@@ -4,7 +4,7 @@
   This file is intended to document all of the required elements and attributes
   for a Level 1 audit.
 -->
-<auc:BuildingSync xmlns:auc="http://buildingsync.net/schemas/bedes-auc/2019" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://buildingsync.net/schemas/bedes-auc/2019 https://raw.githubusercontent.com/BuildingSync/schema/v2.1.0/BuildingSync.xsd" version="2.1.0">
+<auc:BuildingSync xmlns:auc="http://buildingsync.net/schemas/bedes-auc/2019" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://buildingsync.net/schemas/bedes-auc/2019 https://raw.githubusercontent.com/BuildingSync/schema/v2.2.0-pr1/BuildingSync.xsd" version="2.2.0">
   <auc:Facilities>
     <auc:Facility ID="Facility-A">
       <auc:Sites>
@@ -154,7 +154,7 @@
         <auc:HVACSystems>
           <!-- 6.1.1.1.g/5.3.4.g (for every space function) -->
           <auc:HVACSystem ID="HVAC-A">
-            <auc:PrimaryHVACSystemType>Packaged Terminal Air Conditioner</auc:PrimaryHVACSystemType>
+            <auc:PrincipalHVACSystemType>Packaged Terminal Air Conditioner</auc:PrincipalHVACSystemType>
             <auc:LinkedPremises>
               <auc:Section>
                 <auc:LinkedSectionID IDref="Section-Space-A"></auc:LinkedSectionID>
