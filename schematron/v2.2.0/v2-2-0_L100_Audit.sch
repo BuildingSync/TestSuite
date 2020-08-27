@@ -230,6 +230,12 @@
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Scenarios/auc:Scenario[auc:ScenarioType/auc:CurrentBuilding]/auc:AllResourceTotals/auc:AllResourceTotal">
       <sch:assert test="auc:SiteEnergyUse" role="">auc:SiteEnergyUse</sch:assert>
       <sch:assert test="auc:SiteEnergyUseIntensity" role="">auc:SiteEnergyUseIntensity</sch:assert>
+      <sch:assert test="auc:BuildingEnergyUse" role="">auc:BuildingEnergyUse</sch:assert>
+      <sch:assert test="auc:BuildingEnergyUseIntensity" role="">auc:BuildingEnergyUseIntensity</sch:assert>
+      <sch:assert test="auc:ImportedEnergyConsistentUnits" role="">auc:ImportedEnergyConsistentUnits</sch:assert>
+      <sch:assert test="auc:OnsiteEnergyProductionConsistentUnits" role="">auc:OnsiteEnergyProductionConsistentUnits</sch:assert>
+      <sch:assert test="auc:ExportedEnergyConsistentUnits" role="">auc:ExportedEnergyConsistentUnits</sch:assert>
+      <sch:assert test="auc:NetIncreaseInStoredEnergyConsistentUnits" role="">auc:NetIncreaseInStoredEnergyConsistentUnits</sch:assert>
       <sch:assert test="auc:EnergyCost" role="">auc:EnergyCost</sch:assert>
       <sch:assert test="auc:EnergyCostIndex" role="">auc:EnergyCostIndex</sch:assert>
     </sch:rule>

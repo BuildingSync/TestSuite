@@ -784,6 +784,12 @@
                 <auc:AllResourceTotal ID="AllResourceTotal-A">
                   <auc:SiteEnergyUse>123</auc:SiteEnergyUse>
                   <auc:SiteEnergyUseIntensity>123</auc:SiteEnergyUseIntensity>
+                  <auc:BuildingEnergyUse>123</auc:BuildingEnergyUse>
+                  <auc:BuildingEnergyUseIntensity>123</auc:BuildingEnergyUseIntensity>
+                  <auc:ImportedEnergyConsistentUnits>123</auc:ImportedEnergyConsistentUnits>
+                  <auc:OnsiteEnergyProductionConsistentUnits>123</auc:OnsiteEnergyProductionConsistentUnits>
+                  <auc:ExportedEnergyConsistentUnits>123</auc:ExportedEnergyConsistentUnits>
+                  <auc:NetIncreaseInStoredEnergyConsistentUnits>123</auc:NetIncreaseInStoredEnergyConsistentUnits>
                   <auc:EnergyCost>123</auc:EnergyCost>
                   <auc:EnergyCostIndex>123</auc:EnergyCostIndex>
                 </auc:AllResourceTotal>
