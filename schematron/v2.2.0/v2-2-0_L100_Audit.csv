@@ -56,6 +56,8 @@
 "","","","","","","","","","(auc:EnergyResource/text() != 'Electricity') or //auc:TimeSeriesData/auc:TimeSeries[auc:ResourceUseID/@IDref = current()/@ID and auc:ReadingType/text() = 'Peak' and auc:IntervalFrequency/text() = 'Month']/auc:EndTimestamp","TimeSeries data for Electricity ResourceUse must include an EndTimestamp for Peak ReadingType","",""
 "","","","","","","","","","(auc:EnergyResource/text() != 'Electricity') or //auc:TimeSeriesData/auc:TimeSeries[auc:ResourceUseID/@IDref = current()/@ID and auc:ReadingType/text() = 'Peak' and auc:IntervalFrequency/text() = 'Month']/auc:IntervalReading","TimeSeries data for Electricity ResourceUse must include an IntervalReading for Peak ReadingType","",""
 "","","","","","","","","","auc:AnnualFuelUseNativeUnits","","",""
+"","","","","","","","","","auc:AnnualFuelUseConsistentUnits","","",""
+"","","","","","","","","","auc:AnnualFuelCost","","",""
 "","","","","","","","","","count(auc:AnnualFuelUseLinkedTimeSeriesIDs/auc:LinkedTimeSeriesID) >= 12 ","","",""
 "","","","","","","","","","(auc:EnergyResource/text() != 'Electricity') or auc:PeakResourceUnits","","",""
 "","","","","","","","","","(auc:EnergyResource/text() != 'Electricity') or auc:AnnualPeakNativeUnits","","",""

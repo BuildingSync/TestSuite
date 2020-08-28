@@ -279,6 +279,7 @@
                   </auc:AnnualFuelUseLinkedTimeSeriesIDs>
                   <auc:PeakResourceUnits>kW</auc:PeakResourceUnits>
                   <auc:AnnualPeakNativeUnits>123</auc:AnnualPeakNativeUnits>
+                  <auc:AnnualFuelCost>123</auc:AnnualFuelCost>
                   <auc:UtilityIDs>
                     <auc:UtilityID IDref="Utility-Electricity" />
                   </auc:UtilityIDs>
@@ -313,6 +314,7 @@
                     <auc:LinkedTimeSeriesID IDref="Scenario-A-NG-TS11"/>
                     <auc:LinkedTimeSeriesID IDref="Scenario-A-NG-TS12"/>
                   </auc:AnnualFuelUseLinkedTimeSeriesIDs>
+                  <auc:AnnualFuelCost>123</auc:AnnualFuelCost>
                   <auc:UtilityIDs>
                     <auc:UtilityID IDref="Utility-NG" />
                   </auc:UtilityIDs>
@@ -347,6 +349,7 @@
                     <auc:LinkedTimeSeriesID IDref="Scenario-A-ElecGen-TS11"/>
                     <auc:LinkedTimeSeriesID IDref="Scenario-A-ElecGen-TS12"/>
                   </auc:AnnualFuelUseLinkedTimeSeriesIDs>
+                  <auc:AnnualFuelCost>123</auc:AnnualFuelCost>
                   <auc:UtilityIDs>
                     <auc:UtilityID IDref="Utility-ElecGen" />
                   </auc:UtilityIDs>
