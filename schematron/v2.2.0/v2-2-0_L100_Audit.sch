@@ -233,8 +233,10 @@
   <sch:pattern see="ASHRAE 211 6.1.2.2" id="annual_energy_use">
     <sch:title>Annual Energy Use</sch:title>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Scenarios/auc:Scenario[auc:ScenarioType/auc:CurrentBuilding]/auc:AllResourceTotals/auc:AllResourceTotal">
-      <sch:assert test="auc:SiteEnergyUse" role="">auc:SiteEnergyUse</sch:assert>
-      <sch:assert test="auc:SiteEnergyUseIntensity" role="">auc:SiteEnergyUseIntensity</sch:assert>
+      <sch:let name="calculatedSiteEnergyUse" value="number(auc:ImportedEnergyConsistentUnits/text()) - number(auc:ExportedEnergyConsistentUnits/text()) - translate(number(auc:NetIncreaseInStoredEnergyConsistentUnits), 'aN', '0')"/>
+      <sch:let name="calculatedSiteEnergyUseIntensity" value="format-number(auc:SiteEnergyUse div //auc:Building/auc:FloorAreas/auc:FloorArea[auc:FloorAreaType/text() = 'Gross']/auc:FloorAreaValue, &quot;#.##&quot;)"/>
+      <sch:assert test="auc:SiteEnergyUse = $calculatedSiteEnergyUse" role="">auc:SiteEnergyUse (which is <sch:value-of select="auc:SiteEnergyUse/text()"/>) should equal auc:ImportedEnergyConsistentUnits - auc:ExportedEnergyConsistentUnits - auc:NetIncreaseInStoredEnergyConsistentUnits (which is <sch:value-of select="$calculatedSiteEnergyUse"/>)</sch:assert>
+      <sch:assert test="format-number(auc:SiteEnergyUseIntensity, &quot;#.##&quot;) = $calculatedSiteEnergyUseIntensity" role="">auc:SiteEnergyUseIntensity (which is <sch:value-of select="auc:SiteEnergyUseIntensity"/>) should approximately equal auc:SiteEnergyUse divided by the auc:Building's Gross floor area (which is <sch:value-of select="$calculatedSiteEnergyUseIntensity"/>)</sch:assert>
       <sch:assert test="auc:BuildingEnergyUse" role="">auc:BuildingEnergyUse</sch:assert>
       <sch:assert test="auc:BuildingEnergyUseIntensity" role="">auc:BuildingEnergyUseIntensity</sch:assert>
       <sch:assert test="auc:ImportedEnergyConsistentUnits" role="">auc:ImportedEnergyConsistentUnits</sch:assert>
