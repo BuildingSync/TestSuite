@@ -1039,13 +1039,13 @@
               <!-- 6.1.2.2 -->
               <auc:AllResourceTotals>
                 <auc:AllResourceTotal ID="AllResourceTotal-A">
-                  <auc:SiteEnergyUse>80</auc:SiteEnergyUse>
-                  <auc:SiteEnergyUseIntensity>0.65</auc:SiteEnergyUseIntensity>
-                  <auc:BuildingEnergyUse>1476080</auc:BuildingEnergyUse>
-                  <auc:BuildingEnergyUseIntensity>12000.65</auc:BuildingEnergyUseIntensity>
+                  <auc:SiteEnergyUse>90</auc:SiteEnergyUse>
+                  <auc:SiteEnergyUseIntensity>0.73</auc:SiteEnergyUseIntensity>
+                  <auc:BuildingEnergyUse>1476090</auc:BuildingEnergyUse>
+                  <auc:BuildingEnergyUseIntensity>12000.73</auc:BuildingEnergyUseIntensity>
                   <auc:ImportedEnergyConsistentUnits>100</auc:ImportedEnergyConsistentUnits>
                   <auc:OnsiteEnergyProductionConsistentUnits>1476000</auc:OnsiteEnergyProductionConsistentUnits>
-                  <auc:ExportedEnergyConsistentUnits>10</auc:ExportedEnergyConsistentUnits>
+                  <auc:ExportedEnergyConsistentUnits>0</auc:ExportedEnergyConsistentUnits>
                   <auc:NetIncreaseInStoredEnergyConsistentUnits>10</auc:NetIncreaseInStoredEnergyConsistentUnits>
                   <auc:EnergyCost>123</auc:EnergyCost>
                   <auc:EnergyCostIndex>123</auc:EnergyCostIndex>
