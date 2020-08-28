@@ -41,6 +41,7 @@
   <sch:pattern see="ASHRAE 211 6.1.1.1 and 6.1.1.2" id="misc_building_info">
     <sch:title>Misc Building Info</sch:title>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building">
+      <sch:let name="buildingDoesNotHaveResidents" value="auc:BuildingClassification/text() != 'Mixed use commercial' and auc:BuildingClassification/text() != 'Residential'"/>
       <sch:assert test="auc:PremisesName" role="">auc:PremisesName</sch:assert>
       <sch:assert test="auc:Address/auc:City" role="">auc:Address/auc:City</sch:assert>
       <sch:assert test="auc:Address/auc:State" role="">auc:Address/auc:State</sch:assert>
@@ -50,15 +51,15 @@
       <sch:assert test="auc:FloorsBelowGrade" role="">auc:FloorsBelowGrade</sch:assert>
       <sch:assert test="auc:ConditionedFloorsAboveGrade" role="">auc:ConditionedFloorsAboveGrade</sch:assert>
       <sch:assert test="auc:ConditionedFloorsBelowGrade" role="">auc:ConditionedFloorsBelowGrade</sch:assert>
-      <sch:assert test="auc:FloorAreas/auc:FloorArea[auc:FloorAreaType/text() = 'Gross']" role="">auc:FloorAreas/auc:FloorArea[auc:FloorAreaType/text() = 'Gross']</sch:assert>
-      <sch:assert test="auc:FloorAreas/auc:FloorArea[auc:FloorAreaType/text() = 'Conditioned']" role="">auc:FloorAreas/auc:FloorArea[auc:FloorAreaType/text() = 'Conditioned']</sch:assert>
+      <sch:assert test="auc:FloorAreas/auc:FloorArea[auc:FloorAreaType/text() = 'Gross']/auc:FloorAreaValue" role="">auc:FloorAreas/auc:FloorArea[auc:FloorAreaType/text() = 'Gross']/auc:FloorAreaValue</sch:assert>
+      <sch:assert test="auc:FloorAreas/auc:FloorArea[auc:FloorAreaType/text() = 'Conditioned']/auc:FloorAreaValue" role="">auc:FloorAreas/auc:FloorArea[auc:FloorAreaType/text() = 'Conditioned']/auc:FloorAreaValue</sch:assert>
       <sch:assert test="auc:BuildingClassification" role="">auc:BuildingClassification</sch:assert>
       <sch:assert test="auc:OccupancyClassification" role="">auc:OccupancyClassification</sch:assert>
       <sch:assert test="auc:YearOfConstruction" role="">auc:YearOfConstruction</sch:assert>
       <sch:assert test="auc:YearOfLastMajorRemodel" role="WARNING">auc:YearOfLastMajorRemodel</sch:assert>
       <sch:assert test="auc:YearOfLastEnergyAudit" role="WARNING">auc:YearOfLastEnergyAudit</sch:assert>
-      <sch:assert test="(auc:BuildingClassification/text() != 'Mixed use commercial' and auc:BuildingClassification/text() != 'Residential') or auc:SpatialUnits/auc:SpatialUnit[auc:SpatialUnitType/text() = 'Apartment units']/auc:NumberOfUnits" role="">If BuildingClassification implies residents (Mixed use commercial or Residential), number of apartments units must be defined at auc:SpatialUnits/auc:SpatialUnit[auc:SpatialUnitType = 'Apartment units']/auc:NumberOfUnits.</sch:assert>
-      <sch:assert test="(auc:BuildingClassification/text() != 'Mixed use commercial' and auc:BuildingClassification/text() != 'Residential') or auc:SpatialUnits/auc:SpatialUnit[auc:SpatialUnitType/text() = 'Apartment units']/auc:SpatialUnitOccupiedPercentage" role="">If BuildingClassificatoin implies residents (Mixed use commercial or Residential), number of apartments units must be defined at auc:SpatialUnits/auc:SpatialUnit[auc:SpatialUnitType = 'Apartment units']/auc:SpatialUnitOccupiedPercentage.</sch:assert>
+      <sch:assert test="$buildingDoesNotHaveResidents or auc:SpatialUnits/auc:SpatialUnit[auc:SpatialUnitType/text() = 'Apartment units']/auc:NumberOfUnits" role="">If BuildingClassification implies residents (Mixed use commercial or Residential), number of apartments units must be defined at auc:SpatialUnits/auc:SpatialUnit[auc:SpatialUnitType = 'Apartment units']/auc:NumberOfUnits.</sch:assert>
+      <sch:assert test="$buildingDoesNotHaveResidents or auc:SpatialUnits/auc:SpatialUnit[auc:SpatialUnitType/text() = 'Apartment units']/auc:SpatialUnitOccupiedPercentage" role="">If BuildingClassification implies residents (Mixed use commercial or Residential), the percentage occupied must be defined at auc:SpatialUnits/auc:SpatialUnit[auc:SpatialUnitType = 'Apartment units']/auc:SpatialUnitOccupiedPercentage.</sch:assert>
       <sch:assert test="auc:PremisesNotes" role="">Premises Notes should exist and it should include requirements specified by ASHRAE 211 sections 6.1.1.1.m, 6.1.1.2.a, 6.1.1.2.c, 6.1.1.2.d and 6.1.1.2.e
 </sch:assert>
       <sch:assert test="auc:HistoricalLandmark" role="">auc:HistoricalLandmark</sch:assert>
@@ -127,7 +128,7 @@
     </sch:rule>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Scenarios/auc:Scenario[auc:ScenarioType/auc:CurrentBuilding/auc:CalculationMethod/auc:Measured]/auc:ResourceUses/auc:ResourceUse">
       <sch:assert test="auc:EnergyResource" role="">auc:EnergyResource</sch:assert>
-      <sch:assert test="auc:ResourceUseNotes" role="">auc:ResourceUseNotes</sch:assert>
+      <sch:assert test="auc:ResourceUseNotes" role="">Resource use must include ResourceUseNotes for documenting irregularities in monthy energy use patterns</sch:assert>
       <sch:assert test="auc:EndUse/text() =&quot;All end uses&quot;" role="">auc:EndUse/text() ="All end uses"</sch:assert>
       <sch:assert test="auc:ResourceUnits" role="">auc:ResourceUnits</sch:assert>
       <sch:assert test="//auc:Utilities/auc:Utility[@ID = current()/auc:UtilityIDs/auc:UtilityID/@IDref]" role="">Resource use must be associated with a utility</sch:assert>
@@ -189,15 +190,15 @@
       <sch:assert test="auc:ApplicableEndTimeForEnergyRate" role="">auc:ApplicableEndTimeForEnergyRate</sch:assert>
       <sch:assert test="auc:EnergyCostRate" role="">auc:EnergyCostRate</sch:assert>
     </sch:rule>
-    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Utilities/auc:Utility/auc:RateSchedules/auc:RateSchedule/auc:TypeOfRateStructure[auc:TieredRate]">
-      <sch:assert test="auc:TieredRate/auc:RatePeriods/auc:RatePeriod" role="">auc:TieredRate/auc:RatePeriods/auc:RatePeriod</sch:assert>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Utilities/auc:Utility/auc:RateSchedules/auc:RateSchedule/auc:TypeOfRateStructure[auc:TieredRates]">
+      <sch:assert test="auc:TieredRates/auc:TieredRate/auc:RatePeriods/auc:RatePeriod" role="">auc:TieredRates/auc:TieredRate/auc:RatePeriods/auc:RatePeriod</sch:assert>
     </sch:rule>
-    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Utilities/auc:Utility/auc:RateSchedules/auc:RateSchedule/auc:TypeOfRateStructure/auc:TieredRate/auc:RatePeriods/auc:RatePeriod">
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Utilities/auc:Utility/auc:RateSchedules/auc:RateSchedule/auc:TypeOfRateStructure/auc:TieredRates/auc:TieredRate/auc:RatePeriods/auc:RatePeriod">
       <sch:assert test="auc:ApplicableStartDateForEnergyRate" role="">auc:ApplicableStartDateForEnergyRate</sch:assert>
       <sch:assert test="auc:ApplicableEndDateForEnergyRate" role="">auc:ApplicableEndDateForEnergyRate</sch:assert>
       <sch:assert test="count(auc:RateTiers/auc:RateTier) &gt;= 2" role="">count(auc:RateTiers/auc:RateTier) &gt;= 2</sch:assert>
     </sch:rule>
-    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Utilities/auc:Utility/auc:RateSchedules/auc:RateSchedule/auc:TypeOfRateStructure/auc:TieredRate/auc:RatePeriods/auc:RatePeriod/auc:RateTiers/auc:RateTier">
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Utilities/auc:Utility/auc:RateSchedules/auc:RateSchedule/auc:TypeOfRateStructure/auc:TieredRates/auc:TieredRate/auc:RatePeriods/auc:RatePeriod/auc:RateTiers/auc:RateTier">
       <sch:assert test="auc:EnergyCostRate" role="">auc:EnergyCostRate</sch:assert>
       <sch:assert test="auc:MaxkWhUsage" role="">auc:MaxkWhUsage</sch:assert>
     </sch:rule>
@@ -242,7 +243,7 @@
       <sch:let name="calculatedImportedEnergyConsistentUnits" value="sum(//auc:ResourceUse/auc:AnnualFuelUseConsistentUnits/text()) - $calculatedOnsiteEnergyProductionConsistentUnits - $calculatedExportedEnergyConsistentUnits"/>
       <sch:let name="calculatedSiteEnergyUse" value="number(auc:ImportedEnergyConsistentUnits/text()) - number(auc:ExportedEnergyConsistentUnits/text()) - number(auc:NetIncreaseInStoredEnergyConsistentUnits)"/>
       <sch:let name="calculatedSiteEnergyUseIntensity" value="format-number(auc:SiteEnergyUse div //auc:Building/auc:FloorAreas/auc:FloorArea[auc:FloorAreaType/text() = 'Gross']/auc:FloorAreaValue, &quot;#.##&quot;)"/>
-      <sch:let name="calculatedBuildingEnergyUse" value="number(auc:ImportedEnergyConsistentUnits/text()) + number(auc:OnsiteEnergyProductionConsistentUnits/text()) - number(auc:ExportedEnergyConsistentUnits/text()) - translate(number(auc:NetIncreaseInStoredEnergyConsistentUnits), 'aN', '0')"/>
+      <sch:let name="calculatedBuildingEnergyUse" value="number(auc:ImportedEnergyConsistentUnits/text()) + number(auc:OnsiteEnergyProductionConsistentUnits/text()) - number(auc:ExportedEnergyConsistentUnits/text()) - number(auc:NetIncreaseInStoredEnergyConsistentUnits)"/>
       <sch:let name="calculatedBuildingEnergyUseIntensity" value="format-number(auc:BuildingEnergyUse div //auc:Building/auc:FloorAreas/auc:FloorArea[auc:FloorAreaType/text() = 'Gross']/auc:FloorAreaValue, &quot;#.##&quot;)"/>
       <sch:assert test="auc:OnsiteEnergyProductionConsistentUnits = $calculatedOnsiteEnergyProductionConsistentUnits" role="">auc:OnsiteEnergyProductionConsistentUnits (which is <sch:value-of select="auc:OnsiteEnergyProductionConsistentUnits/text()"/>) should equal the sum of all auc:AnnualFuelUseConsistentUnits for auc:ResourceUses that are generated (which is <sch:value-of select="$calculatedOnsiteEnergyProductionConsistentUnits"/>)</sch:assert>
       <sch:assert test="auc:ExportedEnergyConsistentUnits = $calculatedExportedEnergyConsistentUnits" role="">auc:ExportedEnergyConsistentUnits (which is <sch:value-of select="auc:ExportedEnergyConsistentUnits/text()"/>) should equal the sum of all auc:AnnualFuelUseConsistentUnits for auc:ResourceUses that are exported (which is <sch:value-of select="$calculatedExportedEnergyConsistentUnits"/>)</sch:assert>

@@ -376,3 +376,52 @@ class TestL100Audit(AssertFailureRolesMixin):
         # other calculated values
         expected_message = f'auc:ExportedEnergyConsistentUnits (which is {bad_value}) should equal the sum of all auc:AnnualFuelUseConsistentUnits for auc:ResourceUses that are exported (which is {correct_value})'
         assert expected_message == failures[0].message
+
+    def test_is_invalid_when_residential_and_no_spatial_units(self):
+        # -- Setup
+        tree = exemplary_tree('L100_Audit', 'v2.2.0')
+
+        # make sure it's valid
+        failures = validate_schematron(self.schematron, tree)
+        self.assert_failure_messages(failures, {})
+
+        # verify classification is Mixed use commercial or Residential
+        elem = tree.xpath('//auc:Buildings/auc:Building/auc:BuildingClassification', namespaces=BSYNC_NSMAP)
+        assert len(elem) == 1
+        elem = elem[0]
+        assert elem.text in ['Mixed use commercial', 'Residential']
+        # remove spatial units
+        remove_element(tree, '//auc:Building/auc:SpatialUnits')
+
+        # -- Act
+        failures = validate_schematron(self.schematron, tree)
+
+        # -- Assert
+        self.assert_failure_messages(failures, {
+            'ERROR': [
+                "If BuildingClassification implies residents (Mixed use commercial or Residential), number of apartments units must be defined at auc:SpatialUnits/auc:SpatialUnit[auc:SpatialUnitType = 'Apartment units']/auc:NumberOfUnits.",
+                "If BuildingClassification implies residents (Mixed use commercial or Residential), the percentage occupied must be defined at auc:SpatialUnits/auc:SpatialUnit[auc:SpatialUnitType = 'Apartment units']/auc:SpatialUnitOccupiedPercentage.",
+            ]
+        })
+
+    def test_is_valid_when_not_residential_and_no_spatial_units(self):
+        # -- Setup
+        tree = exemplary_tree('L100_Audit', 'v2.2.0')
+
+        # make sure it's valid
+        failures = validate_schematron(self.schematron, tree)
+        self.assert_failure_messages(failures, {})
+
+        # change BuildingClassification
+        elem = tree.xpath('//auc:Buildings/auc:Building/auc:BuildingClassification', namespaces=BSYNC_NSMAP)
+        assert len(elem) == 1
+        elem = elem[0]
+        elem.text = 'Commercial'
+        # remove spatial units
+        remove_element(tree, '//auc:Building/auc:SpatialUnits')
+
+        # -- Act
+        failures = validate_schematron(self.schematron, tree)
+
+        # -- Assert
+        self.assert_failure_messages(failures, {})

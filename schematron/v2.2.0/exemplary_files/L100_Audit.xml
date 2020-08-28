@@ -1189,18 +1189,28 @@
               <auc:RateSchedules>
                 <auc:RateSchedule ID="RateSchedule-C">
                   <auc:TypeOfRateStructure>
-                    <auc:FlatRate>
-                      <auc:RatePeriods>
-                        <auc:RatePeriod>
-                          <auc:ApplicableStartDateForEnergyRate>--01-01</auc:ApplicableStartDateForEnergyRate>
-                          <auc:ApplicableEndDateForEnergyRate>--12-01</auc:ApplicableEndDateForEnergyRate>
-                          <auc:ApplicableStartDateForDemandRate>--01-01</auc:ApplicableStartDateForDemandRate>
-                          <auc:ApplicableEndDateForDemandRate>--12-01</auc:ApplicableEndDateForDemandRate>
-                          <auc:EnergyCostRate>123</auc:EnergyCostRate>
-                          <auc:ElectricDemandRate>123</auc:ElectricDemandRate>
-                        </auc:RatePeriod>
-                      </auc:RatePeriods>
-                    </auc:FlatRate>
+                    <auc:TieredRates>
+                      <auc:TieredRate>
+                        <auc:RatePeriods>
+                          <auc:RatePeriod>
+                            <auc:ApplicableStartDateForEnergyRate>--01-01</auc:ApplicableStartDateForEnergyRate>
+                            <auc:ApplicableEndDateForEnergyRate>--12-01</auc:ApplicableEndDateForEnergyRate>
+                            <auc:ApplicableStartDateForDemandRate>--01-01</auc:ApplicableStartDateForDemandRate>
+                            <auc:ApplicableEndDateForDemandRate>--12-01</auc:ApplicableEndDateForDemandRate>
+                            <auc:RateTiers>
+                              <auc:RateTier>
+                                <auc:MaxkWhUsage>123</auc:MaxkWhUsage>
+                                <auc:EnergyCostRate>123</auc:EnergyCostRate>
+                              </auc:RateTier>
+                              <auc:RateTier>
+                                <auc:MaxkWhUsage>123</auc:MaxkWhUsage>
+                                <auc:EnergyCostRate>123</auc:EnergyCostRate>
+                              </auc:RateTier>
+                            </auc:RateTiers>
+                          </auc:RatePeriod>
+                        </auc:RatePeriods>
+                      </auc:TieredRate>
+                    </auc:TieredRates>
                   </auc:TypeOfRateStructure>
                 </auc:RateSchedule>
               </auc:RateSchedules>
