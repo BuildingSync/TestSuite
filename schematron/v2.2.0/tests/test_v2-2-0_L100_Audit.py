@@ -46,9 +46,11 @@ class TestL100Audit(AssertFailureRolesMixin):
         failures = validate_schematron(self.schematron, tree)
 
         # -- Assert
-        self.assert_failure_messages(failures, {
-            'ERROR': ['Each auc:Utility should have exactly 1 auc:ResourceUse linked to it (ie not 0, not 2+)']
-        })
+        # only look at first failure as it's the one we should have caused
+        # additional failures might be triggered b/c of downstream effects of
+        # duplicating elements used for calculated values
+        expected_message = 'Each auc:Utility should have exactly 1 auc:ResourceUse linked to it (ie not 0, not 2+)'
+        assert expected_message == failures[0].message
 
     @pytest.mark.parametrize("target_element,expected_message", [
         ("auc:ApplicableStartDateForDemandRate",

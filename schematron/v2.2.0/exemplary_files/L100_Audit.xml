@@ -262,6 +262,7 @@
                   <auc:ResourceUnits>kWh</auc:ResourceUnits>
                   <auc:EndUse>All end uses</auc:EndUse>
                   <auc:AnnualFuelUseNativeUnits>1476</auc:AnnualFuelUseNativeUnits>
+                  <auc:AnnualFuelUseConsistentUnits>1476000</auc:AnnualFuelUseConsistentUnits>
                   <auc:AnnualFuelUseLinkedTimeSeriesIDs>
                     <auc:LinkedTimeSeriesID IDref="Scenario-A-TS1"/>
                     <auc:LinkedTimeSeriesID IDref="Scenario-A-TS2"/>
@@ -297,6 +298,7 @@
                   <auc:ResourceUnits>therms</auc:ResourceUnits>
                   <auc:EndUse>All end uses</auc:EndUse>
                   <auc:AnnualFuelUseNativeUnits>1476</auc:AnnualFuelUseNativeUnits>
+                  <auc:AnnualFuelUseConsistentUnits>1476000</auc:AnnualFuelUseConsistentUnits>
                   <auc:AnnualFuelUseLinkedTimeSeriesIDs>
                     <auc:LinkedTimeSeriesID IDref="Scenario-A-NG-TS1"/>
                     <auc:LinkedTimeSeriesID IDref="Scenario-A-NG-TS2"/>
@@ -1039,11 +1041,11 @@
               <!-- 6.1.2.2 -->
               <auc:AllResourceTotals>
                 <auc:AllResourceTotal ID="AllResourceTotal-A">
-                  <auc:SiteEnergyUse>90</auc:SiteEnergyUse>
-                  <auc:SiteEnergyUseIntensity>0.73</auc:SiteEnergyUseIntensity>
-                  <auc:BuildingEnergyUse>1476090</auc:BuildingEnergyUse>
-                  <auc:BuildingEnergyUseIntensity>12000.73</auc:BuildingEnergyUseIntensity>
-                  <auc:ImportedEnergyConsistentUnits>100</auc:ImportedEnergyConsistentUnits>
+                  <auc:SiteEnergyUse>2951990</auc:SiteEnergyUse>
+                  <auc:SiteEnergyUseIntensity>23999.92</auc:SiteEnergyUseIntensity>
+                  <auc:BuildingEnergyUse>4427990</auc:BuildingEnergyUse>
+                  <auc:BuildingEnergyUseIntensity>35999.92</auc:BuildingEnergyUseIntensity>
+                  <auc:ImportedEnergyConsistentUnits>2952000</auc:ImportedEnergyConsistentUnits>
                   <auc:OnsiteEnergyProductionConsistentUnits>1476000</auc:OnsiteEnergyProductionConsistentUnits>
                   <auc:ExportedEnergyConsistentUnits>0</auc:ExportedEnergyConsistentUnits>
                   <auc:NetIncreaseInStoredEnergyConsistentUnits>10</auc:NetIncreaseInStoredEnergyConsistentUnits>
