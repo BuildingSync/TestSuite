@@ -264,7 +264,7 @@ class TestL100Audit(AssertFailureRolesMixin):
         elem = tree.xpath('//auc:Scenario[auc:ScenarioType/auc:CurrentBuilding]/auc:AllResourceTotals/auc:AllResourceTotal/auc:SiteEnergyUseIntensity', namespaces=BSYNC_NSMAP)
         assert len(elem) == 1
         elem = elem[0]
-        correct_value = elem.text
+        correct_value = '23999.918699187'
         bad_value = '12345'
         elem.text = bad_value
 
@@ -273,7 +273,7 @@ class TestL100Audit(AssertFailureRolesMixin):
 
         # -- Assert
         self.assert_failure_messages(failures, {
-            'ERROR': [f'auc:SiteEnergyUseIntensity (which is {bad_value}) should approximately equal auc:SiteEnergyUse divided by the auc:Building\'s Gross floor area (which is {correct_value})']
+            'ERROR': [f'auc:SiteEnergyUseIntensity (which is {bad_value}) should approximately equal auc:SiteEnergyUse divided by the auc:Building\'s Gross floor area (which is {correct_value}); the difference, 11654.918699187 is too large (should be less than 617.25)']
         })
 
     def test_is_invalid_when_building_energy_use_is_wrong(self):
@@ -313,7 +313,7 @@ class TestL100Audit(AssertFailureRolesMixin):
         elem = tree.xpath('//auc:Scenario[auc:ScenarioType/auc:CurrentBuilding]/auc:AllResourceTotals/auc:AllResourceTotal/auc:BuildingEnergyUseIntensity', namespaces=BSYNC_NSMAP)
         assert len(elem) == 1
         elem = elem[0]
-        correct_value = elem.text
+        correct_value = '35999.918699187'
         bad_value = '12345'
         elem.text = bad_value
 
@@ -322,7 +322,7 @@ class TestL100Audit(AssertFailureRolesMixin):
 
         # -- Assert
         self.assert_failure_messages(failures, {
-            'ERROR': [f'auc:BuildingEnergyUseIntensity (which is {bad_value}) should approximately equal auc:BuildingEnergyUse divided by the auc:Building\'s Gross floor area (which is {correct_value})']
+            'ERROR': [f'auc:BuildingEnergyUseIntensity (which is {bad_value}) should approximately equal auc:BuildingEnergyUse divided by the auc:Building\'s Gross floor area (which is {correct_value}); the difference, 23654.918699187 is too large (should be less than 1199.996)']
         })
 
     def test_is_invalid_when_onsite_energy_production_is_wrong(self):
