@@ -125,7 +125,6 @@
       <sch:assert test="auc:ResourceUse[auc:EnergyResource/text() = 'Electricity']" role="">There must be at least one Electricity ResourceUse</sch:assert>
     </sch:rule>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Scenarios/auc:Scenario[auc:ScenarioType/auc:CurrentBuilding/auc:CalculationMethod/auc:Measured]/auc:ResourceUses/auc:ResourceUse">
-      <sch:let name="calculatedFuelUse" value="sum(//auc:TimeSeriesData/auc:TimeSeries[@ID = current()/auc:AnnualFuelUseLinkedTimeSeriesIDs/auc:LinkedTimeSeriesID/@IDref]/auc:IntervalReading/text())"/>
       <sch:assert test="auc:EnergyResource" role="">auc:EnergyResource</sch:assert>
       <sch:assert test="auc:ResourceUseNotes" role="">auc:ResourceUseNotes</sch:assert>
       <sch:assert test="auc:EndUse/text() =&quot;All end uses&quot;" role="">auc:EndUse/text() ="All end uses"</sch:assert>
@@ -142,7 +141,6 @@
       <sch:assert test="(auc:EnergyResource/text() != 'Electricity') or //auc:TimeSeriesData/auc:TimeSeries[auc:ResourceUseID/@IDref = current()/@ID and auc:ReadingType/text() = 'Peak' and auc:IntervalFrequency/text() = 'Month']/auc:IntervalReading" role="">TimeSeries data for Electricity ResourceUse must include an IntervalReading for Peak ReadingType</sch:assert>
       <sch:assert test="auc:AnnualFuelUseNativeUnits" role="">auc:AnnualFuelUseNativeUnits</sch:assert>
       <sch:assert test="count(auc:AnnualFuelUseLinkedTimeSeriesIDs/auc:LinkedTimeSeriesID) &gt;= 12 " role="">count(auc:AnnualFuelUseLinkedTimeSeriesIDs/auc:LinkedTimeSeriesID) &gt;= 12 </sch:assert>
-      <sch:assert test="auc:AnnualFuelUseNativeUnits = $calculatedFuelUse" role="">auc:AnnualFuelUseNativeUnits should equal the sum of auc:IntervalReadings of all auc:LinkedTimeSeriesIDs (auc:AnnualFuelUseNativeUnits is <sch:value-of select="auc:AnnualFuelUseNativeUnits/text()"/>, calculated <sch:value-of select="$calculatedFuelUse"/>)</sch:assert>
       <sch:assert test="(auc:EnergyResource/text() != 'Electricity') or auc:PeakResourceUnits" role="">(auc:EnergyResource/text() != 'Electricity') or auc:PeakResourceUnits</sch:assert>
       <sch:assert test="(auc:EnergyResource/text() != 'Electricity') or auc:AnnualPeakNativeUnits" role="">(auc:EnergyResource/text() != 'Electricity') or auc:AnnualPeakNativeUnits</sch:assert>
     </sch:rule>

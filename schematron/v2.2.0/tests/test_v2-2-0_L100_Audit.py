@@ -262,28 +262,3 @@ class TestL100Audit(AssertFailureRolesMixin):
         self.assert_failure_messages(failures, {
             'ERROR': [expected_message]
         })
-
-    def test_is_invalid_when_annual_use_does_not_equal_time_series_sum(self):
-        # -- Setup
-        tree = exemplary_tree('L100_Audit', 'v2.2.0')
-
-        # make sure it's valid
-        failures = validate_schematron(self.schematron, tree)
-        self.assert_failure_messages(failures, {})
-
-        # change the value of AnnualUseNativeUnits to something incorrect
-        elem = tree.xpath('//auc:ResourceUses/auc:ResourceUse[1]/auc:AnnualFuelUseNativeUnits', namespaces=BSYNC_NSMAP)
-        assert len(elem) == 1
-        elem = elem[0]
-        correct_value = elem.text
-        bad_value = "-100"
-        assert correct_value != bad_value
-        elem.text = bad_value
-
-        # -- Act
-        failures = validate_schematron(self.schematron, tree)
-
-        # -- Assert
-        self.assert_failure_messages(failures, {
-            'ERROR': [f'auc:AnnualFuelUseNativeUnits should equal the sum of auc:IntervalReadings of all auc:LinkedTimeSeriesIDs (auc:AnnualFuelUseNativeUnits is {bad_value}, calculated {correct_value})']
-        })
