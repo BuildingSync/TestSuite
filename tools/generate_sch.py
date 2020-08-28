@@ -2,6 +2,7 @@
 import copy
 import csv
 import os
+import re
 
 from lxml import etree
 
@@ -75,6 +76,50 @@ def get_rule_warnings(tree, xpath):
     return warnings
 
 
+def add_assert_description(assert_elem, description):
+    """
+    Adds the description data to the assert element. Note that any elements in the
+    description string are assumed to be schematron elements (rather than BuildingSync
+    or some other namespace)
+
+    :param assert_elem: etree.Element, the assert element who's content is to be updated
+    :param description: str, the description string. any elements will be parsed from the string
+    """
+    # find any elements in the description, instantiate them as etree elements
+    # and record their character span in the original text
+    p = re.compile("<.*?/>")
+    inserted_elements = []
+    matches = p.finditer(description)
+    for match in matches:
+        elem_text = match.group()
+        some_elem = etree.fromstring(elem_text)
+        # turn it into a namespaced element and append it
+        inserted_elem = etree.SubElement(assert_elem, qname(some_elem.tag), **{k: v for (k, v) in some_elem.items()})
+        inserted_elements.append({
+            'element': inserted_elem,
+            'text_span': match.span()
+        })
+
+    if not inserted_elements:
+        assert_elem.text = description
+    else:
+        # add text up to first inserted element
+        prev_span = inserted_elements[0]['text_span']
+        assert_elem.text = description[:prev_span[0]]
+
+        # for each remaining element, add the text between the end of the previous
+        # element and beginning of the current element
+        prev_elem = inserted_elements[0]['element']
+        for inserted_elem in inserted_elements[1:]:
+            current_span = inserted_elem['text_span']
+            prev_elem.tail = description[prev_span[1]:current_span[0]]
+            prev_span = current_span
+            prev_elem = inserted_elem['element']
+
+        # add remaining text after last element
+        prev_elem.tail = description[prev_span[1]:]
+
+
 def make_pattern_for_testing_contexts(pattern):
     """
     Given a pattern, it returns a new pattern which makes assertions that every
@@ -98,6 +143,7 @@ def make_pattern_for_testing_contexts(pattern):
 
     prereq_pattern['rules'] = [
         {
+            'variables': [],
             'context': '/',
             'asserts': [{
                 'test': assertion,
@@ -193,12 +239,20 @@ def generate_sch(csv_file, output_file=None, exemplary_xml_file=None, dry_run=Fa
                 'title': row['rule title'],
                 'context': row['rule context'],
                 'asserts': [],
+                'variables': [],
                 'generate_context_test': generate_context_test
             }
             if not row['assert test']:
                 raise Exception(f'New rule row is missing new assert test (row {i + 2})')  # +1 b/c 0-based, +1 b/c csv header
             current_rule = new_rule
             current_pattern['rules'].append(current_rule)
+
+        if row.get('let name'):
+            new_variable = {
+                'name': row['let name'],
+                'value': row['let value'],
+            }
+            current_rule['variables'].append(new_variable)
 
         # every row must include an assert statement
         if not row['assert test']:
@@ -240,12 +294,15 @@ def generate_sch(csv_file, output_file=None, exemplary_xml_file=None, dry_run=Fa
 
                 rule_elem = etree.SubElement(pattern_elem, qname('rule'), context=rule['context'])
 
+                for variable in rule['variables']:
+                    etree.SubElement(rule_elem, qname('let'), name=variable['name'], value=variable['value'])
+
                 for assert_ in rule['asserts']:
                     assert_elem = etree.SubElement(rule_elem, qname('assert'), test=assert_['test'], role=assert_['role'])
                     description = assert_['description']
                     if not description:
                         description = assert_['test']
-                    assert_elem.text = description
+                    add_assert_description(assert_elem, description)
 
     for pattern in collected_patterns:
         root.append(pattern)
