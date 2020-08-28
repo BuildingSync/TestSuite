@@ -812,8 +812,8 @@
                 <auc:AllResourceTotal ID="AllResourceTotal-A">
                   <auc:SiteEnergyUse>80</auc:SiteEnergyUse>
                   <auc:SiteEnergyUseIntensity>0.65</auc:SiteEnergyUseIntensity>
-                  <auc:BuildingEnergyUse>123</auc:BuildingEnergyUse>
-                  <auc:BuildingEnergyUseIntensity>123</auc:BuildingEnergyUseIntensity>
+                  <auc:BuildingEnergyUse>90</auc:BuildingEnergyUse>
+                  <auc:BuildingEnergyUseIntensity>0.73</auc:BuildingEnergyUseIntensity>
                   <auc:ImportedEnergyConsistentUnits>100</auc:ImportedEnergyConsistentUnits>
                   <auc:OnsiteEnergyProductionConsistentUnits>10</auc:OnsiteEnergyProductionConsistentUnits>
                   <auc:ExportedEnergyConsistentUnits>10</auc:ExportedEnergyConsistentUnits>

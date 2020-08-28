@@ -311,3 +311,52 @@ class TestL100Audit(AssertFailureRolesMixin):
         self.assert_failure_messages(failures, {
             'ERROR': [f'auc:SiteEnergyUseIntensity (which is {bad_value}) should approximately equal auc:SiteEnergyUse divided by the auc:Building\'s Gross floor area (which is {correct_value})']
         })
+
+    def test_is_invalid_when_building_energy_use_is_wrong(self):
+        # -- Setup
+        tree = exemplary_tree('L100_Audit', 'v2.2.0')
+
+        # make sure it's valid
+        failures = validate_schematron(self.schematron, tree)
+        self.assert_failure_messages(failures, {})
+
+        # replace BuildingEnergyUse with a bad value
+        elem = tree.xpath('//auc:Scenario[auc:ScenarioType/auc:CurrentBuilding]/auc:AllResourceTotals/auc:AllResourceTotal/auc:BuildingEnergyUse', namespaces=BSYNC_NSMAP)
+        assert len(elem) == 1
+        elem = elem[0]
+        correct_value = elem.text
+        bad_value = '12345'
+        elem.text = bad_value
+
+        # -- Act
+        failures = validate_schematron(self.schematron, tree)
+
+        # -- Assert
+        # first failure should be the error message
+        # note that we only check this one, but changing BuildingEnergyUse will break
+        # other calculation checks as well (e.g. BuildingEnergyUseIntensity)
+        assert failures[0].message == f'auc:BuildingEnergyUse (which is {bad_value}) should equal auc:ImportedEnergyConsistentUnits + auc:OnsiteEnergyProductionConsistentUnits - auc:ExportedEnergyConsistentUnits - auc:NetIncreaseInStoredEnergyConsistentUnits (which is {correct_value})'
+
+    def test_is_invalid_when_building_energy_use_intensity_is_wrong(self):
+        # -- Setup
+        tree = exemplary_tree('L100_Audit', 'v2.2.0')
+
+        # make sure it's valid
+        failures = validate_schematron(self.schematron, tree)
+        self.assert_failure_messages(failures, {})
+
+        # replace BuildingEnergyUse with a bad value
+        elem = tree.xpath('//auc:Scenario[auc:ScenarioType/auc:CurrentBuilding]/auc:AllResourceTotals/auc:AllResourceTotal/auc:BuildingEnergyUseIntensity', namespaces=BSYNC_NSMAP)
+        assert len(elem) == 1
+        elem = elem[0]
+        correct_value = elem.text
+        bad_value = '12345'
+        elem.text = bad_value
+
+        # -- Act
+        failures = validate_schematron(self.schematron, tree)
+
+        # -- Assert
+        self.assert_failure_messages(failures, {
+            'ERROR': [f'auc:BuildingEnergyUseIntensity (which is {bad_value}) should approximately equal auc:BuildingEnergyUse divided by the auc:Building\'s Gross floor area (which is {correct_value})']
+        })
