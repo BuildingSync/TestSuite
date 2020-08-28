@@ -261,7 +261,21 @@
                   </auc:ResourceUseNotes>
                   <auc:ResourceUnits>kWh</auc:ResourceUnits>
                   <auc:EndUse>All end uses</auc:EndUse>
-                  <auc:AnnualFuelUseNativeUnits>123</auc:AnnualFuelUseNativeUnits>
+                  <auc:AnnualFuelUseNativeUnits>1476</auc:AnnualFuelUseNativeUnits>
+                  <auc:AnnualFuelUseLinkedTimeSeriesIDs>
+                    <auc:LinkedTimeSeriesID IDref="Scenario-A-TS1"/>
+                    <auc:LinkedTimeSeriesID IDref="Scenario-A-TS2"/>
+                    <auc:LinkedTimeSeriesID IDref="Scenario-A-TS3"/>
+                    <auc:LinkedTimeSeriesID IDref="Scenario-A-TS4"/>
+                    <auc:LinkedTimeSeriesID IDref="Scenario-A-TS5"/>
+                    <auc:LinkedTimeSeriesID IDref="Scenario-A-TS6"/>
+                    <auc:LinkedTimeSeriesID IDref="Scenario-A-TS7"/>
+                    <auc:LinkedTimeSeriesID IDref="Scenario-A-TS8"/>
+                    <auc:LinkedTimeSeriesID IDref="Scenario-A-TS9"/>
+                    <auc:LinkedTimeSeriesID IDref="Scenario-A-TS10"/>
+                    <auc:LinkedTimeSeriesID IDref="Scenario-A-TS11"/>
+                    <auc:LinkedTimeSeriesID IDref="Scenario-A-TS12"/>
+                  </auc:AnnualFuelUseLinkedTimeSeriesIDs>
                   <auc:PeakResourceUnits>kW</auc:PeakResourceUnits>
                   <auc:AnnualPeakNativeUnits>123</auc:AnnualPeakNativeUnits>
                   <auc:UtilityIDs>
@@ -282,7 +296,21 @@
                   </auc:ResourceUseNotes>
                   <auc:ResourceUnits>therms</auc:ResourceUnits>
                   <auc:EndUse>All end uses</auc:EndUse>
-                  <auc:AnnualFuelUseNativeUnits>123</auc:AnnualFuelUseNativeUnits>
+                  <auc:AnnualFuelUseNativeUnits>1476</auc:AnnualFuelUseNativeUnits>
+                  <auc:AnnualFuelUseLinkedTimeSeriesIDs>
+                    <auc:LinkedTimeSeriesID IDref="Scenario-A-NG-TS1"/>
+                    <auc:LinkedTimeSeriesID IDref="Scenario-A-NG-TS2"/>
+                    <auc:LinkedTimeSeriesID IDref="Scenario-A-NG-TS3"/>
+                    <auc:LinkedTimeSeriesID IDref="Scenario-A-NG-TS4"/>
+                    <auc:LinkedTimeSeriesID IDref="Scenario-A-NG-TS5"/>
+                    <auc:LinkedTimeSeriesID IDref="Scenario-A-NG-TS6"/>
+                    <auc:LinkedTimeSeriesID IDref="Scenario-A-NG-TS7"/>
+                    <auc:LinkedTimeSeriesID IDref="Scenario-A-NG-TS8"/>
+                    <auc:LinkedTimeSeriesID IDref="Scenario-A-NG-TS9"/>
+                    <auc:LinkedTimeSeriesID IDref="Scenario-A-NG-TS10"/>
+                    <auc:LinkedTimeSeriesID IDref="Scenario-A-NG-TS11"/>
+                    <auc:LinkedTimeSeriesID IDref="Scenario-A-NG-TS12"/>
+                  </auc:AnnualFuelUseLinkedTimeSeriesIDs>
                   <auc:UtilityIDs>
                     <auc:UtilityID IDref="Utility-NG" />
                   </auc:UtilityIDs>
