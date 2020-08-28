@@ -307,6 +307,12 @@
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Scenarios/auc:Scenario/auc:ScenarioType/auc:PackageOfMeasures">
       <sch:assert test="//auc:Scenario[auc:ScenarioType/auc:CurrentBuilding/auc:CalculationMethod/auc:Measured and @ID = current()/auc:ReferenceCase/@IDref]" role="">Package of Measures must be linked to the Measured Scenario (ie auc:PackageOfMeasures/auc:ReferenceCase/@IDref must contain the ID of the Scenario of type auc:CurrentBuilding/auc:CalculationMethod/auc:Measured)</sch:assert>
       <sch:assert test="auc:MeasureIDs/auc:MeasureID" role="">auc:MeasureIDs/auc:MeasureID</sch:assert>
+      <sch:assert test="auc:CostCategory" role="">auc:CostCategory</sch:assert>
+      <sch:assert test="auc:SimpleImpactAnalysis/auc:ImpactOnOccupantComfort" role="">auc:SimpleImpactAnalysis/auc:ImpactOnOccupantComfort</sch:assert>
+      <sch:assert test="auc:SimpleImpactAnalysis/auc:EstimatedCost" role="">auc:SimpleImpactAnalysis/auc:EstimatedCost</sch:assert>
+      <sch:assert test="auc:SimpleImpactAnalysis/auc:EstimatedAnnualSavings" role="">auc:SimpleImpactAnalysis/auc:EstimatedAnnualSavings</sch:assert>
+      <sch:assert test="auc:SimpleImpactAnalysis/auc:EstimatedROI" role="">auc:SimpleImpactAnalysis/auc:EstimatedROI</sch:assert>
+      <sch:assert test="auc:SimpleImpactAnalysis/auc:Priority" role="">auc:SimpleImpactAnalysis/auc:Priority</sch:assert>
     </sch:rule>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Scenarios/auc:Scenario/auc:ScenarioType/auc:PackageOfMeasures/auc:MeasureIDs/auc:MeasureID">
       <sch:assert test="//auc:Measures/auc:Measure[@ID = current()/@IDref]" role="">Each Measure in this Package should be linked</sch:assert>

@@ -1108,6 +1108,14 @@
                   <auc:MeasureIDs>
                     <auc:MeasureID IDref="Measure-LowCost-A" />
                   </auc:MeasureIDs>
+                  <auc:CostCategory>Low-Cost or No-Cost</auc:CostCategory>
+                  <auc:SimpleImpactAnalysis>
+                    <auc:ImpactOnOccupantComfort>Notes on impact on occupant comfort go here</auc:ImpactOnOccupantComfort>
+                    <auc:EstimatedCost>Low</auc:EstimatedCost>
+                    <auc:EstimatedAnnualSavings>Medium</auc:EstimatedAnnualSavings>
+                    <auc:EstimatedROI>High</auc:EstimatedROI>
+                    <auc:Priority>Low</auc:Priority>
+                  </auc:SimpleImpactAnalysis>
                 </auc:PackageOfMeasures>
               </auc:ScenarioType>
             </auc:Scenario>
