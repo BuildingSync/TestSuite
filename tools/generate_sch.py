@@ -255,15 +255,13 @@ def generate_sch(csv_file, output_file=None, exemplary_xml_file=None, dry_run=Fa
             current_rule['variables'].append(new_variable)
 
         # every row must include an assert statement
-        if not row['assert test']:
-            raise Exception(f'Row is missing new assert test (row {i + 2})')  # +1 b/c 0-based, +1 b/c csv header
-
-        new_assert = {
-            'test': row['assert test'],
-            'description': row['assert description'],
-            'role': row['assert severity']
-        }
-        current_rule['asserts'].append(new_assert)
+        if row['assert test']:
+            new_assert = {
+                'test': row['assert test'],
+                'description': row['assert description'],
+                'role': row['assert severity']
+            }
+            current_rule['asserts'].append(new_assert)
 
     sch_dict = generate_tests_for_rule_contexts(sch_dict)
 
