@@ -22,44 +22,6 @@ class TestL100Audit(AssertFailureRolesMixin):
         # -- Assert
         self.assert_failure_messages(failures, {})
 
-    def test_is_valid_when_only_resource_use_is_electricity(self):
-        # -- Setup
-        tree = exemplary_tree('L100_Audit', 'v2.2.0')
-
-        # make sure it's valid
-        failures = validate_schematron(self.schematron, tree)
-        self.assert_failure_messages(failures, {})
-
-        # remove any resource uses that aren't electricity (and their linked utilities)
-        remove_element(tree, '//auc:Utility[@ID = //auc:ResourceUse[auc:EnergyResource/text() != "Electricity"]/auc:UtilityIDs/auc:UtilityID/@IDref]')
-        remove_element(tree, '//auc:ResourceUses/auc:ResourceUse[auc:EnergyResource/text() != "Electricity"]')
-
-        # -- Act
-        failures = validate_schematron(self.schematron, tree)
-
-        # -- Assert
-        self.assert_failure_messages(failures, {})
-
-    def test_is_invalid_when_only_resource_use_is_not_electricity(self):
-        # -- Setup
-        tree = exemplary_tree('L100_Audit', 'v2.2.0')
-
-        # make sure it's valid
-        failures = validate_schematron(self.schematron, tree)
-        self.assert_failure_messages(failures, {})
-
-        # remove any resource uses that are electricity (as well as it's linked auc:Utility)
-        remove_element(tree, '//auc:Utility[@ID = //auc:ResourceUse[auc:EnergyResource/text() = "Electricity"]/auc:UtilityIDs/auc:UtilityID/@IDref]')
-        remove_element(tree, '//auc:ResourceUses/auc:ResourceUse[auc:EnergyResource/text() = "Electricity"]')
-
-        # -- Act
-        failures = validate_schematron(self.schematron, tree)
-
-        # -- Assert
-        self.assert_failure_messages(failures, {
-            'ERROR': ['There must be at least one Electricity ResourceUse']
-        })
-
     def test_is_invalid_when_multiple_resource_uses_point_to_same_utility(self):
         # -- Setup
         tree = exemplary_tree('L100_Audit', 'v2.2.0')
@@ -360,3 +322,29 @@ class TestL100Audit(AssertFailureRolesMixin):
         self.assert_failure_messages(failures, {
             'ERROR': [f'auc:BuildingEnergyUseIntensity (which is {bad_value}) should approximately equal auc:BuildingEnergyUse divided by the auc:Building\'s Gross floor area (which is {correct_value})']
         })
+
+    def test_is_invalid_when_onsite_energy_production_is_wrong(self):
+        # -- Setup
+        tree = exemplary_tree('L100_Audit', 'v2.2.0')
+
+        # make sure it's valid
+        failures = validate_schematron(self.schematron, tree)
+        self.assert_failure_messages(failures, {})
+
+        # replace OnsiteEnergyProductionConsistentUnits with a bad value
+        elem = tree.xpath('//auc:Scenario[auc:ScenarioType/auc:CurrentBuilding]/auc:AllResourceTotals/auc:AllResourceTotal/auc:OnsiteEnergyProductionConsistentUnits', namespaces=BSYNC_NSMAP)
+        assert len(elem) == 1
+        elem = elem[0]
+        correct_value = elem.text
+        bad_value = '12345'
+        elem.text = bad_value
+
+        # -- Act
+        failures = validate_schematron(self.schematron, tree)
+
+        # -- Assert
+        # first failure should be the error message
+        # note that we only check this one, but changing SiteEnergyUse will break
+        # other calculation checks as well (e.g. SiteEnergyUseIntensity)
+        expected_message = f'auc:OnsiteEnergyProductionConsistentUnits (which is {bad_value}) should equal the sum of all auc:AnnualFuelUseConsistentUnits for auc:ResourceUses that are generated (which is {correct_value})'
+        assert expected_message == failures[0].message

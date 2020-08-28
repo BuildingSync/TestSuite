@@ -315,6 +315,40 @@
                     <auc:UtilityID IDref="Utility-NG" />
                   </auc:UtilityIDs>
                 </auc:ResourceUse>
+
+                <auc:ResourceUse ID="ResourceUse-ElecGen">
+                  <auc:EnergyResource>Electricity-Onsite generated</auc:EnergyResource>
+                  <auc:ResourceUseNotes>
+                    Sampling Methodology
+                    -------------------
+                    Notes on meter sampling methods (if sampling was used)
+
+                    Irregularities
+                    --------------
+                    Notes on any irregularities in meter readings
+                  </auc:ResourceUseNotes>
+                  <auc:ResourceUnits>therms</auc:ResourceUnits>
+                  <auc:EndUse>All end uses</auc:EndUse>
+                  <auc:AnnualFuelUseNativeUnits>1476</auc:AnnualFuelUseNativeUnits>
+                  <auc:AnnualFuelUseConsistentUnits>1476000</auc:AnnualFuelUseConsistentUnits>
+                  <auc:AnnualFuelUseLinkedTimeSeriesIDs>
+                    <auc:LinkedTimeSeriesID IDref="Scenario-A-ElecGen-TS1"/>
+                    <auc:LinkedTimeSeriesID IDref="Scenario-A-ElecGen-TS2"/>
+                    <auc:LinkedTimeSeriesID IDref="Scenario-A-ElecGen-TS3"/>
+                    <auc:LinkedTimeSeriesID IDref="Scenario-A-ElecGen-TS4"/>
+                    <auc:LinkedTimeSeriesID IDref="Scenario-A-ElecGen-TS5"/>
+                    <auc:LinkedTimeSeriesID IDref="Scenario-A-ElecGen-TS6"/>
+                    <auc:LinkedTimeSeriesID IDref="Scenario-A-ElecGen-TS7"/>
+                    <auc:LinkedTimeSeriesID IDref="Scenario-A-ElecGen-TS8"/>
+                    <auc:LinkedTimeSeriesID IDref="Scenario-A-ElecGen-TS9"/>
+                    <auc:LinkedTimeSeriesID IDref="Scenario-A-ElecGen-TS10"/>
+                    <auc:LinkedTimeSeriesID IDref="Scenario-A-ElecGen-TS11"/>
+                    <auc:LinkedTimeSeriesID IDref="Scenario-A-ElecGen-TS12"/>
+                  </auc:AnnualFuelUseLinkedTimeSeriesIDs>
+                  <auc:UtilityIDs>
+                    <auc:UtilityID IDref="Utility-ElecGen" />
+                  </auc:UtilityIDs>
+                </auc:ResourceUse>
               </auc:ResourceUses>
 
               <!-- 6.1.2 (total and peak monthly use - should exist for every resource use) -->
@@ -805,6 +839,201 @@
                   <auc:IntervalReading>123</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-NG" />
                 </auc:TimeSeries>
+
+                <!-- Electricity Generated TOTAL use -->
+                <auc:TimeSeries ID="Scenario-A-ElecGen-TS1">
+                  <auc:ReadingType>Total</auc:ReadingType>
+                  <auc:StartTimestamp>2019-01-01T00:00:00</auc:StartTimestamp>
+                  <auc:EndTimestamp>2019-02-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalFrequency>Month</auc:IntervalFrequency>
+                  <auc:IntervalReading>123</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="ResourceUse-ElecGen" />
+                </auc:TimeSeries>
+                <auc:TimeSeries ID="Scenario-A-ElecGen-TS2">
+                  <auc:ReadingType>Total</auc:ReadingType>
+                  <auc:StartTimestamp>2019-02-01T00:00:00</auc:StartTimestamp>
+                  <auc:EndTimestamp>2019-03-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalFrequency>Month</auc:IntervalFrequency>
+                  <auc:IntervalReading>123</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="ResourceUse-ElecGen" />
+                </auc:TimeSeries>
+                <auc:TimeSeries ID="Scenario-A-ElecGen-TS3">
+                  <auc:ReadingType>Total</auc:ReadingType>
+                  <auc:StartTimestamp>2019-03-01T00:00:00</auc:StartTimestamp>
+                  <auc:EndTimestamp>2019-04-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalFrequency>Month</auc:IntervalFrequency>
+                  <auc:IntervalReading>123</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="ResourceUse-ElecGen" />
+                </auc:TimeSeries>
+                <auc:TimeSeries ID="Scenario-A-ElecGen-TS4">
+                  <auc:ReadingType>Total</auc:ReadingType>
+                  <auc:StartTimestamp>2019-04-01T00:00:00</auc:StartTimestamp>
+                  <auc:EndTimestamp>2019-05-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalFrequency>Month</auc:IntervalFrequency>
+                  <auc:IntervalReading>123</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="ResourceUse-ElecGen" />
+                </auc:TimeSeries>
+                <auc:TimeSeries ID="Scenario-A-ElecGen-TS5">
+                  <auc:ReadingType>Total</auc:ReadingType>
+                  <auc:StartTimestamp>2019-05-01T00:00:00</auc:StartTimestamp>
+                  <auc:EndTimestamp>2019-06-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalFrequency>Month</auc:IntervalFrequency>
+                  <auc:IntervalReading>123</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="ResourceUse-ElecGen" />
+                </auc:TimeSeries>
+                <auc:TimeSeries ID="Scenario-A-ElecGen-TS6">
+                  <auc:ReadingType>Total</auc:ReadingType>
+                  <auc:StartTimestamp>2019-06-01T00:00:00</auc:StartTimestamp>
+                  <auc:EndTimestamp>2019-07-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalFrequency>Month</auc:IntervalFrequency>
+                  <auc:IntervalReading>123</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="ResourceUse-ElecGen" />
+                </auc:TimeSeries>
+                <auc:TimeSeries ID="Scenario-A-ElecGen-TS7">
+                  <auc:ReadingType>Total</auc:ReadingType>
+                  <auc:StartTimestamp>2019-07-01T00:00:00</auc:StartTimestamp>
+                  <auc:EndTimestamp>2019-08-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalFrequency>Month</auc:IntervalFrequency>
+                  <auc:IntervalReading>123</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="ResourceUse-ElecGen" />
+                </auc:TimeSeries>
+                <auc:TimeSeries ID="Scenario-A-ElecGen-TS8">
+                  <auc:ReadingType>Total</auc:ReadingType>
+                  <auc:StartTimestamp>2019-08-01T00:00:00</auc:StartTimestamp>
+                  <auc:EndTimestamp>2019-09-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalFrequency>Month</auc:IntervalFrequency>
+                  <auc:IntervalReading>123</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="ResourceUse-ElecGen" />
+                </auc:TimeSeries>
+                <auc:TimeSeries ID="Scenario-A-ElecGen-TS9">
+                  <auc:ReadingType>Total</auc:ReadingType>
+                  <auc:StartTimestamp>2019-09-01T00:00:00</auc:StartTimestamp>
+                  <auc:EndTimestamp>2019-10-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalFrequency>Month</auc:IntervalFrequency>
+                  <auc:IntervalReading>123</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="ResourceUse-ElecGen" />
+                </auc:TimeSeries>
+                <auc:TimeSeries ID="Scenario-A-ElecGen-TS10">
+                  <auc:ReadingType>Total</auc:ReadingType>
+                  <auc:StartTimestamp>2019-10-01T00:00:00</auc:StartTimestamp>
+                  <auc:EndTimestamp>2019-11-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalFrequency>Month</auc:IntervalFrequency>
+                  <auc:IntervalReading>123</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="ResourceUse-ElecGen" />
+                </auc:TimeSeries>
+                <auc:TimeSeries ID="Scenario-A-ElecGen-TS11">
+                  <auc:ReadingType>Total</auc:ReadingType>
+                  <auc:StartTimestamp>2019-11-01T00:00:00</auc:StartTimestamp>
+                  <auc:EndTimestamp>2019-12-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalFrequency>Month</auc:IntervalFrequency>
+                  <auc:IntervalReading>123</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="ResourceUse-ElecGen" />
+                </auc:TimeSeries>
+                <auc:TimeSeries ID="Scenario-A-ElecGen-TS12">
+                  <auc:ReadingType>Total</auc:ReadingType>
+                  <auc:StartTimestamp>2019-12-01T00:00:00</auc:StartTimestamp>
+                  <auc:EndTimestamp>2020-01-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalFrequency>Month</auc:IntervalFrequency>
+                  <auc:IntervalReading>123</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="ResourceUse-ElecGen" />
+                </auc:TimeSeries>
+                <!-- Electricity Generated COST -->
+                <auc:TimeSeries ID="Scenario-A-ElecGen-TS13">
+                  <auc:ReadingType>Cost</auc:ReadingType>
+                  <auc:StartTimestamp>2019-01-01T00:00:00</auc:StartTimestamp>
+                  <auc:EndTimestamp>2019-02-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalFrequency>Month</auc:IntervalFrequency>
+                  <auc:IntervalReading>123</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="ResourceUse-ElecGen" />
+                </auc:TimeSeries>
+                <auc:TimeSeries ID="Scenario-A-ElecGen-TS14">
+                  <auc:ReadingType>Cost</auc:ReadingType>
+                  <auc:StartTimestamp>2019-02-01T00:00:00</auc:StartTimestamp>
+                  <auc:EndTimestamp>2019-03-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalFrequency>Month</auc:IntervalFrequency>
+                  <auc:IntervalReading>123</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="ResourceUse-ElecGen" />
+                </auc:TimeSeries>
+                <auc:TimeSeries ID="Scenario-A-ElecGen-TS15">
+                  <auc:ReadingType>Cost</auc:ReadingType>
+                  <auc:StartTimestamp>2019-03-01T00:00:00</auc:StartTimestamp>
+                  <auc:EndTimestamp>2019-04-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalFrequency>Month</auc:IntervalFrequency>
+                  <auc:IntervalReading>123</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="ResourceUse-ElecGen" />
+                </auc:TimeSeries>
+                <auc:TimeSeries ID="Scenario-A-ElecGen-TS16">
+                  <auc:ReadingType>Cost</auc:ReadingType>
+                  <auc:StartTimestamp>2019-04-01T00:00:00</auc:StartTimestamp>
+                  <auc:EndTimestamp>2019-05-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalFrequency>Month</auc:IntervalFrequency>
+                  <auc:IntervalReading>123</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="ResourceUse-ElecGen" />
+                </auc:TimeSeries>
+                <auc:TimeSeries ID="Scenario-A-ElecGen-TS17">
+                  <auc:ReadingType>Cost</auc:ReadingType>
+                  <auc:StartTimestamp>2019-05-01T00:00:00</auc:StartTimestamp>
+                  <auc:EndTimestamp>2019-06-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalFrequency>Month</auc:IntervalFrequency>
+                  <auc:IntervalReading>123</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="ResourceUse-ElecGen" />
+                </auc:TimeSeries>
+                <auc:TimeSeries ID="Scenario-A-ElecGen-TS18">
+                  <auc:ReadingType>Cost</auc:ReadingType>
+                  <auc:StartTimestamp>2019-06-01T00:00:00</auc:StartTimestamp>
+                  <auc:EndTimestamp>2019-07-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalFrequency>Month</auc:IntervalFrequency>
+                  <auc:IntervalReading>123</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="ResourceUse-ElecGen" />
+                </auc:TimeSeries>
+                <auc:TimeSeries ID="Scenario-A-ElecGen-TS19">
+                  <auc:ReadingType>Cost</auc:ReadingType>
+                  <auc:StartTimestamp>2019-07-01T00:00:00</auc:StartTimestamp>
+                  <auc:EndTimestamp>2019-08-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalFrequency>Month</auc:IntervalFrequency>
+                  <auc:IntervalReading>123</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="ResourceUse-ElecGen" />
+                </auc:TimeSeries>
+                <auc:TimeSeries ID="Scenario-A-ElecGen-TS20">
+                  <auc:ReadingType>Cost</auc:ReadingType>
+                  <auc:StartTimestamp>2019-08-01T00:00:00</auc:StartTimestamp>
+                  <auc:EndTimestamp>2019-09-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalFrequency>Month</auc:IntervalFrequency>
+                  <auc:IntervalReading>123</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="ResourceUse-ElecGen" />
+                </auc:TimeSeries>
+                <auc:TimeSeries ID="Scenario-A-ElecGen-TS21">
+                  <auc:ReadingType>Cost</auc:ReadingType>
+                  <auc:StartTimestamp>2019-09-01T00:00:00</auc:StartTimestamp>
+                  <auc:EndTimestamp>2019-10-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalFrequency>Month</auc:IntervalFrequency>
+                  <auc:IntervalReading>123</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="ResourceUse-ElecGen" />
+                </auc:TimeSeries>
+                <auc:TimeSeries ID="Scenario-A-ElecGen-TS22">
+                  <auc:ReadingType>Cost</auc:ReadingType>
+                  <auc:StartTimestamp>2019-10-01T00:00:00</auc:StartTimestamp>
+                  <auc:EndTimestamp>2019-11-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalFrequency>Month</auc:IntervalFrequency>
+                  <auc:IntervalReading>123</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="ResourceUse-ElecGen" />
+                </auc:TimeSeries>
+                <auc:TimeSeries ID="Scenario-A-ElecGen-TS23">
+                  <auc:ReadingType>Cost</auc:ReadingType>
+                  <auc:StartTimestamp>2019-11-01T00:00:00</auc:StartTimestamp>
+                  <auc:EndTimestamp>2019-12-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalFrequency>Month</auc:IntervalFrequency>
+                  <auc:IntervalReading>123</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="ResourceUse-ElecGen" />
+                </auc:TimeSeries>
+                <auc:TimeSeries ID="Scenario-A-ElecGen-TS24">
+                  <auc:ReadingType>Cost</auc:ReadingType>
+                  <auc:StartTimestamp>2019-12-01T00:00:00</auc:StartTimestamp>
+                  <auc:EndTimestamp>2020-01-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalFrequency>Month</auc:IntervalFrequency>
+                  <auc:IntervalReading>123</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="ResourceUse-ElecGen" />
+                </auc:TimeSeries>
               </auc:TimeSeriesData>
 
               <!-- 6.1.2.2 -->
@@ -812,10 +1041,10 @@
                 <auc:AllResourceTotal ID="AllResourceTotal-A">
                   <auc:SiteEnergyUse>80</auc:SiteEnergyUse>
                   <auc:SiteEnergyUseIntensity>0.65</auc:SiteEnergyUseIntensity>
-                  <auc:BuildingEnergyUse>90</auc:BuildingEnergyUse>
-                  <auc:BuildingEnergyUseIntensity>0.73</auc:BuildingEnergyUseIntensity>
+                  <auc:BuildingEnergyUse>1476080</auc:BuildingEnergyUse>
+                  <auc:BuildingEnergyUseIntensity>12000.65</auc:BuildingEnergyUseIntensity>
                   <auc:ImportedEnergyConsistentUnits>100</auc:ImportedEnergyConsistentUnits>
-                  <auc:OnsiteEnergyProductionConsistentUnits>10</auc:OnsiteEnergyProductionConsistentUnits>
+                  <auc:OnsiteEnergyProductionConsistentUnits>1476000</auc:OnsiteEnergyProductionConsistentUnits>
                   <auc:ExportedEnergyConsistentUnits>10</auc:ExportedEnergyConsistentUnits>
                   <auc:NetIncreaseInStoredEnergyConsistentUnits>10</auc:NetIncreaseInStoredEnergyConsistentUnits>
                   <auc:EnergyCost>123</auc:EnergyCost>
@@ -933,6 +1162,32 @@
                         </auc:RatePeriod>
                       </auc:RatePeriods>
                     </auc:TimeOfUseRate>
+                  </auc:TypeOfRateStructure>
+                </auc:RateSchedule>
+              </auc:RateSchedules>
+
+              <!-- 6.1.2.1.b -->
+              <auc:UtilityAccountNumber>12345</auc:UtilityAccountNumber>
+            </auc:Utility>
+
+            <auc:Utility ID="Utility-ElecGen">
+
+              <!-- 6.1.2.1.c -->
+              <auc:RateSchedules>
+                <auc:RateSchedule ID="RateSchedule-C">
+                  <auc:TypeOfRateStructure>
+                    <auc:FlatRate>
+                      <auc:RatePeriods>
+                        <auc:RatePeriod>
+                          <auc:ApplicableStartDateForEnergyRate>--01-01</auc:ApplicableStartDateForEnergyRate>
+                          <auc:ApplicableEndDateForEnergyRate>--12-01</auc:ApplicableEndDateForEnergyRate>
+                          <auc:ApplicableStartDateForDemandRate>--01-01</auc:ApplicableStartDateForDemandRate>
+                          <auc:ApplicableEndDateForDemandRate>--12-01</auc:ApplicableEndDateForDemandRate>
+                          <auc:EnergyCostRate>123</auc:EnergyCostRate>
+                          <auc:ElectricDemandRate>123</auc:ElectricDemandRate>
+                        </auc:RatePeriod>
+                      </auc:RatePeriods>
+                    </auc:FlatRate>
                   </auc:TypeOfRateStructure>
                 </auc:RateSchedule>
               </auc:RateSchedules>
