@@ -241,11 +241,11 @@
       <sch:let name="calculatedOnsiteEnergyProductionConsistentUnits" value="sum(//auc:ResourceUse/auc:EnergyResource['generated' = substring(text(), string-length(text()) - string-length('generated') + 1 )]/../auc:AnnualFuelUseConsistentUnits/text())"/>
       <sch:let name="calculatedExportedEnergyConsistentUnits" value="sum(//auc:ResourceUse/auc:EnergyResource['exported' = substring(text(), string-length(text()) - string-length('exported') + 1 )]/../auc:AnnualFuelUseConsistentUnits/text())"/>
       <sch:let name="calculatedImportedEnergyConsistentUnits" value="sum(//auc:ResourceUse/auc:AnnualFuelUseConsistentUnits/text()) - $calculatedOnsiteEnergyProductionConsistentUnits - $calculatedExportedEnergyConsistentUnits"/>
-      <sch:let name="calculatedSiteEnergyUse" value="number(auc:ImportedEnergyConsistentUnits/text()) - number(auc:ExportedEnergyConsistentUnits/text()) - number(auc:NetIncreaseInStoredEnergyConsistentUnits)"/>
+      <sch:let name="calculatedSiteEnergyUse" value="1000 * (number(auc:ImportedEnergyConsistentUnits/text()) - number(auc:ExportedEnergyConsistentUnits/text()) - number(auc:NetIncreaseInStoredEnergyConsistentUnits))"/>
       <sch:let name="calculatedSiteEnergyUseIntensity" value="auc:SiteEnergyUse div //auc:Building/auc:FloorAreas/auc:FloorArea[auc:FloorAreaType/text() = 'Gross']/auc:FloorAreaValue"/>
       <sch:let name="calculatedSiteEnergyUseIntensityEpsilon" value="auc:SiteEnergyUseIntensity * 0.05"/>
       <sch:let name="calculatedSiteEnergyUseIntensityDelta" value="translate(auc:SiteEnergyUseIntensity - $calculatedSiteEnergyUseIntensity, '-', '')"/>
-      <sch:let name="calculatedBuildingEnergyUse" value="number(auc:ImportedEnergyConsistentUnits/text()) + number(auc:OnsiteEnergyProductionConsistentUnits/text()) - number(auc:ExportedEnergyConsistentUnits/text()) - number(auc:NetIncreaseInStoredEnergyConsistentUnits)"/>
+      <sch:let name="calculatedBuildingEnergyUse" value="1000 * (number(auc:ImportedEnergyConsistentUnits/text()) + number(auc:OnsiteEnergyProductionConsistentUnits/text()) - number(auc:ExportedEnergyConsistentUnits/text()) - number(auc:NetIncreaseInStoredEnergyConsistentUnits))"/>
       <sch:let name="calculatedBuildingEnergyUseIntensity" value="auc:BuildingEnergyUse div //auc:Building/auc:FloorAreas/auc:FloorArea[auc:FloorAreaType/text() = 'Gross']/auc:FloorAreaValue"/>
       <sch:let name="calculatedBuildingEnergyUseIntensityEpsilon" value="auc:SiteEnergyUseIntensity * 0.05"/>
       <sch:let name="calculatedBuildingEnergyUseIntensityDelta" value="translate(auc:BuildingEnergyUseIntensity - $calculatedBuildingEnergyUseIntensity, '-', '')"/>
