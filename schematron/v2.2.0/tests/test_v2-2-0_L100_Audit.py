@@ -323,7 +323,7 @@ class TestL100Audit(AssertFailureRolesMixin):
 
         # -- Assert
         self.assert_failure_messages(failures, {
-            'ERROR': [f'auc:SiteEnergyUseIntensity (which is {bad_value}) should approximately equal auc:SiteEnergyUse divided by the auc:Building\'s Gross floor area (which is {correct_value}); the difference, 11654.918699187 is too large (should be less than 617.25)']
+            'ERROR': [f'auc:SiteEnergyUseIntensity (which is {bad_value}) should approximately equal auc:SiteEnergyUse divided by the auc:Building\'s Gross floor area (which is {correct_value}); the difference, 11654.918699187 is too large (should be less than 246.9)']
         })
 
     def test_is_invalid_when_building_energy_use_is_wrong(self):
@@ -372,7 +372,7 @@ class TestL100Audit(AssertFailureRolesMixin):
 
         # -- Assert
         self.assert_failure_messages(failures, {
-            'ERROR': [f'auc:BuildingEnergyUseIntensity (which is {bad_value}) should approximately equal auc:BuildingEnergyUse divided by the auc:Building\'s Gross floor area (which is {correct_value}); the difference, 23654.918699187 is too large (should be less than 1199.996)']
+            'ERROR': [f'auc:BuildingEnergyUseIntensity (which is {bad_value}) should approximately equal auc:BuildingEnergyUse divided by the auc:Building\'s Gross floor area (which is {correct_value}); the difference, 23654.918699187 is too large (should be less than 479.9984)']
         })
 
     def test_is_invalid_when_onsite_energy_production_is_wrong(self):
