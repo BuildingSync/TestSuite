@@ -427,6 +427,32 @@ class TestL100Audit(AssertFailureRolesMixin):
         expected_message = f'auc:ExportedEnergyConsistentUnits (which is {bad_value}) should equal the sum of all auc:AnnualFuelUseConsistentUnits for auc:ResourceUses that are exported (which is {correct_value})'
         assert expected_message == failures[0].message
 
+    def test_is_invalid_when_imported_energy_is_wrong(self):
+        # -- Setup
+        tree = exemplary_tree('L100_Audit', 'v2.2.0')
+
+        # make sure it's valid
+        failures = validate_schematron(self.schematron, tree)
+        self.assert_failure_messages(failures, {})
+
+        # replace ImportedEnergyConsistentUnits with a bad value
+        elem = tree.xpath('//auc:Scenario[auc:ScenarioType/auc:CurrentBuilding]/auc:AllResourceTotals/auc:AllResourceTotal/auc:ImportedEnergyConsistentUnits', namespaces=BSYNC_NSMAP)
+        assert len(elem) == 1
+        elem = elem[0]
+        correct_value = elem.text
+        bad_value = '12345'
+        elem.text = bad_value
+
+        # -- Act
+        failures = validate_schematron(self.schematron, tree)
+
+        # -- Assert
+        # first failure should be the error message
+        # note that we only check this one, but changing this element will break
+        # other calculated values
+        expected_message = f'auc:ImportedEnergyConsistentUnits (which is {bad_value}) should equal the sum of all auc:AnnualFuelUseConsistentUnits for auc:ResourceUses that are not generated or exported (which is {correct_value})'
+        assert expected_message == failures[0].message
+
     def test_is_invalid_when_residential_and_no_spatial_units(self):
         # -- Setup
         tree = exemplary_tree('L100_Audit', 'v2.2.0')
