@@ -78,11 +78,11 @@ def exemplary_tree(name, version):
     return etree.parse(exemplary_file)
 
 
-def remove_element(tree, xpath):
+def remove_element(tree, xpath, expected_removals=1):
     elems = tree.xpath(xpath, namespaces=BSYNC_NSMAP)
-    assert len(elems) == 1
-    elem = elems[0]
-    elem.getparent().remove(elem)
+    assert len(elems) == expected_removals
+    for elem in elems:
+        elem.getparent().remove(elem)
 
     return tree
 

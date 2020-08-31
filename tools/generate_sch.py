@@ -242,8 +242,7 @@ def generate_sch(csv_file, output_file=None, exemplary_xml_file=None, dry_run=Fa
                 'variables': [],
                 'generate_context_test': generate_context_test
             }
-            if not row['assert test']:
-                raise Exception(f'New rule row is missing new assert test (row {i + 2})')  # +1 b/c 0-based, +1 b/c csv header
+
             current_rule = new_rule
             current_pattern['rules'].append(current_rule)
 
