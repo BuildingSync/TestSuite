@@ -1,0 +1,9 @@
+source 'http://rubygems.org'
+ruby '~>2.2'
+
+gem 'schematron-nokogiri'
+gem 'rake', '12.3.1'
+gem 'rexml', '3.2.2'
+
+gem 'rspec', '~> 3.8'
+gem 'rubocop', '~> 0.54.0'

@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<auc:BuildingSync xmlns:auc="http://buildingsync.net/schemas/bedes-auc/2019" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://buildingsync.net/schemas/bedes-auc/2019 https://raw.githubusercontent.com/BuildingSync/schema/v2.0/BuildingSync.xsd">
+  <auc:Facilities>
+    <auc:Facility>
+      <auc:Sites>
+        <auc:Site>
+          <auc:Address>
+            <auc:City>Chicago</auc:City>
+            <auc:State>IL</auc:State>
+          </auc:Address>
+          <auc:Buildings>
+            <auc:Building ID="Willis_Tower">
+              <auc:PremisesName>Willis Tower</auc:PremisesName>
+              <auc:BuildingClassification>Commercial</auc:BuildingClassification>
+              <auc:OccupancyClassification>Office</auc:OccupancyClassification>
+              <auc:FloorAreas>
+                <auc:FloorArea>
+                  <auc:FloorAreaType>Gross</auc:FloorAreaType>
+                  <auc:FloorAreaValue>4477800.0</auc:FloorAreaValue>
+                </auc:FloorArea>
+              </auc:FloorAreas>
+              <auc:YearOfConstruction>1973</auc:YearOfConstruction>
+            </auc:Building>
+          </auc:Buildings>
+        </auc:Site>
+      </auc:Sites>
+      <auc:Systems/>
+      <auc:Measures>
+        <auc:Measure/>
+      </auc:Measures>
+      <auc:Reports>
+        <auc:Report>
+          <auc:Scenarios>
+            <auc:Scenario ID="Baseline-Measured">
+              <auc:ScenarioName>Baseline Measured</auc:ScenarioName>
+              <auc:ScenarioType>
+                <auc:CurrentBuilding>
+                  <auc:CalculationMethod>
+                    <auc:Measured/>
+                  </auc:CalculationMethod>
+                </auc:CurrentBuilding>
+              </auc:ScenarioType>
+              <auc:ResourceUses>
+                <auc:ResourceUse ID="Baseline-Measured-Electricity">
+                  <auc:EnergyResource>Electricity</auc:EnergyResource>
+                  <auc:ResourceUnits>kBtu</auc:ResourceUnits>
+                  <auc:EndUse>All end uses</auc:EndUse>
+                  <auc:AnnualFuelUseNativeUnits>788356.3679918047</auc:AnnualFuelUseNativeUnits>
+                  <auc:AnnualFuelUseConsistentUnits>788.3563679918047</auc:AnnualFuelUseConsistentUnits>
+                  <auc:PeakResourceUnits>kW</auc:PeakResourceUnits>
+                  <auc:AnnualPeakNativeUnits>106.49817999999999</auc:AnnualPeakNativeUnits>
+                  <auc:AnnualPeakConsistentUnits>106.49817999999999</auc:AnnualPeakConsistentUnits>
+                </auc:ResourceUse>
+                <auc:ResourceUse ID="Baseline-Measured-NaturalGas">
+                  <auc:EnergyResource>Natural gas</auc:EnergyResource>
+                  <auc:ResourceUnits>kBtu</auc:ResourceUnits>
+                  <auc:AnnualFuelUseNativeUnits>295368.2492032391</auc:AnnualFuelUseNativeUnits>
+                  <auc:AnnualFuelUseConsistentUnits>295.3682492032391</auc:AnnualFuelUseConsistentUnits>
+                </auc:ResourceUse>
+                <auc:ResourceUse ID="Baseline-Measured-Onsite-Solar">
+                  <auc:EnergyResource/>
+                  <auc:ResourceUnits>kWh</auc:ResourceUnits>
+                  <auc:AnnualFuelUseNativeUnits>100</auc:AnnualFuelUseNativeUnits>
+                  <auc:AnnualFuelUseConsistentUnits>0.34</auc:AnnualFuelUseConsistentUnits>
+                </auc:ResourceUse>
+              </auc:ResourceUses>
+              <auc:TimeSeriesData>
+                <auc:TimeSeries>
+                  <auc:ReadingType>Total</auc:ReadingType>
+                  <auc:TimeSeriesReadingQuantity>Energy</auc:TimeSeriesReadingQuantity>
+                  <auc:StartTimestamp>2017-01-01T00:00:00</auc:StartTimestamp>
+                  <auc:EndTimestamp>2017-02-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalFrequency>Month</auc:IntervalFrequency>
+                  <auc:IntervalReading>58165.863321001336</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="Baseline-Measured-Electricity"/>
+                </auc:TimeSeries>
+                <auc:TimeSeries>
+                  <auc:ReadingType>Total</auc:ReadingType>
+                  <auc:TimeSeriesReadingQuantity>Energy</auc:TimeSeriesReadingQuantity>
+                  <auc:StartTimestamp>2017-02-01T00:00:00</auc:StartTimestamp>
+                  <auc:EndTimestamp>2017-03-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalFrequency>Month</auc:IntervalFrequency>
+                  <auc:IntervalReading>54977.71510155922</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="Baseline-Measured-Electricity"/>
+                </auc:TimeSeries>
+                <auc:TimeSeries>
+                  <auc:ReadingType>Total</auc:ReadingType>
+                  <auc:TimeSeriesReadingQuantity>Energy</auc:TimeSeriesReadingQuantity>
+                  <auc:StartTimestamp>2017-03-01T00:00:00</auc:StartTimestamp>
+                  <auc:EndTimestamp>2017-04-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalFrequency>Month</auc:IntervalFrequency>
+                  <auc:IntervalReading>60612.990222972825</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="Baseline-Measured-Electricity"/>
+                </auc:TimeSeries>
+                <auc:TimeSeries>
+                  <auc:ReadingType>Total</auc:ReadingType>
+                  <auc:TimeSeriesReadingQuantity>Energy</auc:TimeSeriesReadingQuantity>
+                  <auc:StartTimestamp>2017-04-01T00:00:00</auc:StartTimestamp>
+                  <auc:EndTimestamp>2017-05-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalFrequency>Month</auc:IntervalFrequency>
+                  <auc:IntervalReading>64092.84066212514</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="Baseline-Measured-Electricity"/>
+                </auc:TimeSeries>
+                <auc:TimeSeries>
+                  <auc:ReadingType>Total</auc:ReadingType>
+                  <auc:TimeSeriesReadingQuantity>Energy</auc:TimeSeriesReadingQuantity>
+                  <auc:StartTimestamp>2017-05-01T00:00:00</auc:StartTimestamp>
+                  <auc:EndTimestamp>2017-06-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalFrequency>Month</auc:IntervalFrequency>
+                  <auc:IntervalReading>66046.52750776887</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="Baseline-Measured-Electricity"/>
+                </auc:TimeSeries>
+                <auc:TimeSeries>
+                  <auc:ReadingType>Total</auc:ReadingType>
+                  <auc:TimeSeriesReadingQuantity>Energy</auc:TimeSeriesReadingQuantity>
+                  <auc:StartTimestamp>2017-06-01T00:00:00</auc:StartTimestamp>
+                  <auc:EndTimestamp>2017-07-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalFrequency>Month</auc:IntervalFrequency>
+                  <auc:IntervalReading>71844.97629885229</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="Baseline-Measured-Electricity"/>
+                </auc:TimeSeries>
+                <auc:TimeSeries>
+                  <auc:ReadingType>Total</auc:ReadingType>
+                  <auc:TimeSeriesReadingQuantity>Energy</auc:TimeSeriesReadingQuantity>
+                  <auc:StartTimestamp>2017-07-01T00:00:00</auc:StartTimestamp>
+                  <auc:EndTimestamp>2017-08-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalFrequency>Month</auc:IntervalFrequency>
+                  <auc:IntervalReading>75729.59088390837</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="Baseline-Measured-Electricity"/>
+                </auc:TimeSeries>
+                <auc:TimeSeries>
+                  <auc:ReadingType>Total</auc:ReadingType>
+                  <auc:TimeSeriesReadingQuantity>Energy</auc:TimeSeriesReadingQuantity>
+                  <auc:StartTimestamp>2017-08-01T00:00:00</auc:StartTimestamp>
+                  <auc:EndTimestamp>2017-09-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalFrequency>Month</auc:IntervalFrequency>
+                  <auc:IntervalReading>71963.70234524869</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="Baseline-Measured-Electricity"/>
+                </auc:TimeSeries>
+                <auc:TimeSeries>
+                  <auc:ReadingType>Total</auc:ReadingType>
+                  <auc:TimeSeriesReadingQuantity>Energy</auc:TimeSeriesReadingQuantity>
+                  <auc:StartTimestamp>2017-09-01T00:00:00</auc:StartTimestamp>
+                  <auc:EndTimestamp>2017-10-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalFrequency>Month</auc:IntervalFrequency>
+                  <auc:IntervalReading>74362.16746101037</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="Baseline-Measured-Electricity"/>
+                </auc:TimeSeries>
+                <auc:TimeSeries>
+                  <auc:ReadingType>Total</auc:ReadingType>
+                  <auc:TimeSeriesReadingQuantity>Energy</auc:TimeSeriesReadingQuantity>
+                  <auc:StartTimestamp>2017-10-01T00:00:00</auc:StartTimestamp>
+                  <auc:EndTimestamp>2017-11-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalFrequency>Month</auc:IntervalFrequency>
+                  <auc:IntervalReading>70722.18047616803</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="Baseline-Measured-Electricity"/>
+                </auc:TimeSeries>
+                <auc:TimeSeries>
+                  <auc:ReadingType>Total</auc:ReadingType>
+                  <auc:TimeSeriesReadingQuantity>Energy</auc:TimeSeriesReadingQuantity>
+                  <auc:StartTimestamp>2017-11-01T00:00:00</auc:StartTimestamp>
+                  <auc:EndTimestamp>2017-12-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalFrequency>Month</auc:IntervalFrequency>
+                  <auc:IntervalReading>59920.081647063234</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="Baseline-Measured-Electricity"/>
+                </auc:TimeSeries>
+                <auc:TimeSeries>
+                  <auc:ReadingType>Total</auc:ReadingType>
+                  <auc:TimeSeriesReadingQuantity>Energy</auc:TimeSeriesReadingQuantity>
+                  <auc:StartTimestamp>2017-12-01T00:00:00</auc:StartTimestamp>
+                  <auc:EndTimestamp>2018-01-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalFrequency>Month</auc:IntervalFrequency>
+                  <auc:IntervalReading>59915.40787160601</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="Baseline-Measured-Electricity"/>
+                </auc:TimeSeries>
+                <auc:TimeSeries>
+                  <auc:ReadingType>Total</auc:ReadingType>
+                  <auc:TimeSeriesReadingQuantity>Energy</auc:TimeSeriesReadingQuantity>
+                  <auc:StartTimestamp>2017-01-01T00:00:00</auc:StartTimestamp>
+                  <auc:EndTimestamp>2017-02-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalFrequency>Month</auc:IntervalFrequency>
+                  <auc:IntervalReading>49262.71900291504</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="Baseline-Measured-NaturalGas"/>
+                </auc:TimeSeries>
+                <auc:TimeSeries>
+                  <auc:ReadingType>Total</auc:ReadingType>
+                  <auc:TimeSeriesReadingQuantity>Energy</auc:TimeSeriesReadingQuantity>
+                  <auc:StartTimestamp>2017-02-01T00:00:00</auc:StartTimestamp>
+                  <auc:EndTimestamp>2017-03-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalFrequency>Month</auc:IntervalFrequency>
+                  <auc:IntervalReading>33013.617159228415</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="Baseline-Measured-NaturalGas"/>
+                </auc:TimeSeries>
+                <auc:TimeSeries>
+                  <auc:ReadingType>Total</auc:ReadingType>
+                  <auc:TimeSeriesReadingQuantity>Energy</auc:TimeSeriesReadingQuantity>
+                  <auc:StartTimestamp>2017-03-01T00:00:00</auc:StartTimestamp>
+                  <auc:EndTimestamp>2017-04-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalFrequency>Month</auc:IntervalFrequency>
+                  <auc:IntervalReading>30357.67245920005</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="Baseline-Measured-NaturalGas"/>
+                </auc:TimeSeries>
+                <auc:TimeSeries>
+                  <auc:ReadingType>Total</auc:ReadingType>
+                  <auc:TimeSeriesReadingQuantity>Energy</auc:TimeSeriesReadingQuantity>
+                  <auc:StartTimestamp>2017-04-01T00:00:00</auc:StartTimestamp>
+                  <auc:EndTimestamp>2017-05-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalFrequency>Month</auc:IntervalFrequency>
+                  <auc:IntervalReading>24450.73399283941</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="Baseline-Measured-NaturalGas"/>
+                </auc:TimeSeries>
+                <auc:TimeSeries>
+                  <auc:ReadingType>Total</auc:ReadingType>
+                  <auc:TimeSeriesReadingQuantity>Energy</auc:TimeSeriesReadingQuantity>
+                  <auc:StartTimestamp>2017-05-01T00:00:00</auc:StartTimestamp>
+                  <auc:EndTimestamp>2017-06-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalFrequency>Month</auc:IntervalFrequency>
+                  <auc:IntervalReading>20290.328655908914</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="Baseline-Measured-NaturalGas"/>
+                </auc:TimeSeries>
+                <auc:TimeSeries>
+                  <auc:ReadingType>Total</auc:ReadingType>
+                  <auc:TimeSeriesReadingQuantity>Energy</auc:TimeSeriesReadingQuantity>
+                  <auc:StartTimestamp>2017-06-01T00:00:00</auc:StartTimestamp>
+                  <auc:EndTimestamp>2017-07-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalFrequency>Month</auc:IntervalFrequency>
+                  <auc:IntervalReading>13072.862413633458</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="Baseline-Measured-NaturalGas"/>
+                </auc:TimeSeries>
+                <auc:TimeSeries>
+                  <auc:ReadingType>Total</auc:ReadingType>
+                  <auc:TimeSeriesReadingQuantity>Energy</auc:TimeSeriesReadingQuantity>
+                  <auc:StartTimestamp>2017-07-01T00:00:00</auc:StartTimestamp>
+                  <auc:EndTimestamp>2017-08-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalFrequency>Month</auc:IntervalFrequency>
+                  <auc:IntervalReading>10653.919384539437</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="Baseline-Measured-NaturalGas"/>
+                </auc:TimeSeries>
+                <auc:TimeSeries>
+                  <auc:ReadingType>Total</auc:ReadingType>
+                  <auc:TimeSeriesReadingQuantity>Energy</auc:TimeSeriesReadingQuantity>
+                  <auc:StartTimestamp>2017-08-01T00:00:00</auc:StartTimestamp>
+                  <auc:EndTimestamp>2017-09-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalFrequency>Month</auc:IntervalFrequency>
+                  <auc:IntervalReading>10891.347573177922</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="Baseline-Measured-NaturalGas"/>
+                </auc:TimeSeries>
+                <auc:TimeSeries>
+                  <auc:ReadingType>Total</auc:ReadingType>
+                  <auc:TimeSeriesReadingQuantity>Energy</auc:TimeSeriesReadingQuantity>
+                  <auc:StartTimestamp>2017-09-01T00:00:00</auc:StartTimestamp>
+                  <auc:EndTimestamp>2017-10-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalFrequency>Month</auc:IntervalFrequency>
+                  <auc:IntervalReading>11572.477390348682</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="Baseline-Measured-NaturalGas"/>
+                </auc:TimeSeries>
+                <auc:TimeSeries>
+                  <auc:ReadingType>Total</auc:ReadingType>
+                  <auc:TimeSeriesReadingQuantity>Energy</auc:TimeSeriesReadingQuantity>
+                  <auc:StartTimestamp>2017-10-01T00:00:00</auc:StartTimestamp>
+                  <auc:EndTimestamp>2017-11-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalFrequency>Month</auc:IntervalFrequency>
+                  <auc:IntervalReading>17806.147374423726</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="Baseline-Measured-NaturalGas"/>
+                </auc:TimeSeries>
+                <auc:TimeSeries>
+                  <auc:ReadingType>Total</auc:ReadingType>
+                  <auc:TimeSeriesReadingQuantity>Energy</auc:TimeSeriesReadingQuantity>
+                  <auc:StartTimestamp>2017-11-01T00:00:00</auc:StartTimestamp>
+                  <auc:EndTimestamp>2017-12-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalFrequency>Month</auc:IntervalFrequency>
+                  <auc:IntervalReading>28026.573120816665</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="Baseline-Measured-NaturalGas"/>
+                </auc:TimeSeries>
+                <auc:TimeSeries>
+                  <auc:ReadingType>Total</auc:ReadingType>
+                  <auc:TimeSeriesReadingQuantity>Energy</auc:TimeSeriesReadingQuantity>
+                  <auc:StartTimestamp>2017-12-01T00:00:00</auc:StartTimestamp>
+                  <auc:EndTimestamp>2018-01-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalFrequency>Month</auc:IntervalFrequency>
+                  <auc:IntervalReading>45967.83182574106</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="Baseline-Measured-NaturalGas"/>
+                </auc:TimeSeries>
+              </auc:TimeSeriesData>
+              <auc:AllResourceTotals>
+                <auc:AllResourceTotal>
+                  <auc:EndUse>All end uses</auc:EndUse>
+                  <auc:SiteEnergyUse>1083724.6171950437</auc:SiteEnergyUse>
+                  <auc:SiteEnergyUseIntensity>50.10291738712601</auc:SiteEnergyUseIntensity>
+                  <auc:SourceEnergyUse>2816893.5252287216</auc:SourceEnergyUse>
+                  <auc:SourceEnergyUseIntensity>130.2307831085429</auc:SourceEnergyUseIntensity>
+                </auc:AllResourceTotal>
+              </auc:AllResourceTotals>
+              <auc:LinkedPremises>
+                <auc:Building>
+                  <auc:LinkedBuildingID IDref="Willis_Tower"/>
+                </auc:Building>
+              </auc:LinkedPremises>
+            </auc:Scenario>
+            <auc:Scenario ID="Benchmark">
+              <auc:ScenarioName>Benchmark</auc:ScenarioName>
+              <auc:ScenarioType>
+                <auc:Benchmark>
+                  <auc:BenchmarkType>
+                    <auc:CBECS>
+                      <auc:ClimateZone>5</auc:ClimateZone>
+                    </auc:CBECS>
+                  </auc:BenchmarkType>
+                  <auc:BenchmarkTool>Other</auc:BenchmarkTool>
+                  <auc:BenchmarkYear>2015</auc:BenchmarkYear>
+                  <auc:BenchmarkValue>54</auc:BenchmarkValue>
+                </auc:Benchmark>
+              </auc:ScenarioType>
+              <auc:LinkedPremises>
+                <auc:Building>
+                  <auc:LinkedBuildingID IDref="Willis_Tower"/>
+                </auc:Building>
+              </auc:LinkedPremises>
+            </auc:Scenario>
+          </auc:Scenarios>
+        </auc:Report>
+      </auc:Reports>
+    </auc:Facility>
+  </auc:Facilities>
+</auc:BuildingSync>
