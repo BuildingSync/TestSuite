@@ -22,6 +22,56 @@ class TestL100Audit(AssertFailureRolesMixin):
         # -- Assert
         self.assert_failure_messages(failures, {})
 
+    def test_is_valid_when_only_resource_use_is_electricity(self):
+        # -- Setup
+        tree = exemplary_tree('L100_Audit', 'v2.2.0')
+
+        # make sure it's valid
+        failures = validate_schematron(self.schematron, tree)
+        self.assert_failure_messages(failures, {})
+
+        # remove any resource uses that aren't electricity (and their linked utilities)
+        remove_element(
+            tree,
+            '//auc:Utility[@ID = //auc:ResourceUse[auc:EnergyResource/text() != "Electricity"]/auc:UtilityIDs/auc:UtilityID/@IDref]',
+            expected_removals=2)
+        remove_element(
+            tree,
+            '//auc:ResourceUses/auc:ResourceUse[auc:EnergyResource/text() != "Electricity"]',
+            expected_removals=2)
+
+        # -- Act
+        failures = validate_schematron(self.schematron, tree)
+
+        # -- Assert
+        # need to ignore errors that are related to calculated elements we broke when
+        # removing resources.
+        failures = [f for f in failures if f.element != 'auc:AllResourceTotal']
+        self.assert_failure_messages(failures, {})
+
+    def test_is_invalid_when_only_resource_use_is_not_electricity(self):
+        # -- Setup
+        tree = exemplary_tree('L100_Audit', 'v2.2.0')
+
+        # make sure it's valid
+        failures = validate_schematron(self.schematron, tree)
+        self.assert_failure_messages(failures, {})
+
+        # remove any resource uses that are electricity (as well as it's linked auc:Utility)
+        remove_element(tree, '//auc:Utility[@ID = //auc:ResourceUse[auc:EnergyResource/text() = "Electricity"]/auc:UtilityIDs/auc:UtilityID/@IDref]')
+        remove_element(tree, '//auc:ResourceUses/auc:ResourceUse[auc:EnergyResource/text() = "Electricity"]')
+
+        # -- Act
+        failures = validate_schematron(self.schematron, tree)
+
+        # -- Assert
+        # need to ignore errors that are related to calculated elements we broke when
+        # removing resources.
+        failures = [f for f in failures if f.element != 'auc:AllResourceTotal']
+        self.assert_failure_messages(failures, {
+            'ERROR': ['There must be at least one Electricity ResourceUse']
+        })
+
     def test_is_invalid_when_multiple_resource_uses_point_to_same_utility(self):
         # -- Setup
         tree = exemplary_tree('L100_Audit', 'v2.2.0')
