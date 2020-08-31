@@ -1,15 +1,57 @@
 # Overview
 
-This repository hosts test files and examples for the BuildingSync schema.  As newer versions of the schema are released, this repository will be updated to include relevant changes.  Currently, all example files are based on [schema2.0.0](https://github.com/BuildingSync/schema/releases/tag/v2.0).
+This repo contains a collection of example BuildingSync files and tools for writing and validating BuildingSync use cases as schematron files.
 
-## System Requirements 
+## Command line validation
+### Setup
+Python 3 must be installed before continuing. Check your version with `python --version`.
+```bash
+# Copy repo
+git clone https://github.com/BuildingSync/TestSuite.git
+
+# Install dependencies
+cd TestSuite
+python -m pip install -r requirements.txt
+
+# Test that it works, you should see a message describing the usage
+./buildingsch.py
+```
+
+## Development
+### Generate Schematron
+First create a CSV file that meets the required structure:
+```
+phase title,phase see,pattern title,pattern see,rule title,rule context,assert test,assert description,assert severity,notes
+```
+See the CSV files in this repo for examples.
+
+Hierarchy is implied by the lack of text in a column. If no phase data is added to a row, it's considered to be the same phase as the row above. If no pattern data is present, it's assumed to be the same pattern as above. If no rule context is given, it's assumed to be the same as the one above.
+
+The generator expects a "exemplary" xml file which should pass the validation. This is used to make sure all rules are applied (schematron will skip rules if the rule context doesn't match or if it only matches nodes that have already been matched within that pattern). If no exemplary file is provided no rule context checks will be made.
+```bash
+./buildingsch.py generate path_to_csv [path_to_exemplary_xml]
+```
+
+Generate all schematron files by using the following command
+```bash
+./buildingsch.py generate_all
+```
+
+### Testing
+```bash
+tox
+```
+
+## Ruby tests and validation
+We are currently migrating from Ruby to Python, so there is still some remaining Ruby code.
+### System Requirements
 
 In order to run the OpenStudio simulation tests you must have a stable version of the following:
-* `OpenStudio>2.0` 
-* `Ruby v2.2.4` via an `rbenv` environment 
+* `OpenStudio>2.0`
+* `Ruby v2.2.4` via an `rbenv` environment
 * `Bundler v1.17.2`
 
-## Setup
+### Setup
 Place a file called `openstudio.rb` into the the directory of your `Ruby2.2.4` installation `/foo/bar/.rbenv/versions/2.2.4/lib/ruby/2.2.4`
 
 The `openstudio.rb` file should contain one line referencing the location of the Ruby folder of your OpenStudio installation:
@@ -37,7 +79,7 @@ The LOD spec is a comprehensive guide developed by the AIA and BIMForm to help B
 A MVD in BuildingSync is intended to provide a narrower focus for which the data stored in a BuildingSync document is intended. It is analogous to the MVD introduced above. The two primary MVDs developed so far are:
     - Audit – To ensure alignment of data contained in the BuildingSync document with portions of the ASHRAE 211 Standard
     - OpenStudio Simulation – To ensure alignment of data contained in the BuildingSync document with requirements necessary to utilize the BuildingSync-gem for automatically generating and simulating an energy model using OpenStudio.
-    
+
 ### MLOD definitions
 The MLOD definitions are intended to provide expectations of informational requirements at differing levels of abstraction.  For example, in BuildingSync, a Building element can be defined to capture high-level information, but narrower levels of abstraction regarding architectural and mechanical space configurations (Section, ThermalZone, or Space elements) can be defined as child elements of the Building to provide more specific information.  This is analogous to the LOD spec introduced above.
 
