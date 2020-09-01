@@ -317,7 +317,7 @@ class TestL100Audit(AssertFailureRolesMixin):
         correct_site_eui = '31.0559796437659'
         bad_value = '45'
         difference = '13.9440203562341'
-        difference_allowable = '0.9'
+        difference_allowable = '2.25'
         elem.text = bad_value
 
         # -- Act
@@ -368,7 +368,7 @@ class TestL100Audit(AssertFailureRolesMixin):
         correct_building_eui = '34.7291893856779'
         bad_value = '40'
         difference = '5.270810614322066'
-        difference_allowable = '0.6212'
+        difference_allowable = '1.553'
         elem.text = bad_value
 
         # -- Act
