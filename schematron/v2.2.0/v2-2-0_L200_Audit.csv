@@ -1,5 +1,5 @@
 "phase title","phase see","pattern title","pattern see","rule title","rule context","generate context test","let name","let value","assert test","assert description","assert severity","notes"
-"Facility Description","ASHRAE 211 6.1.1","Misc Building Info","ASHRAE 211 6.1.1.1 and 6.1.1.2","Basic Building Info","/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building","true","","","auc:PremisesName","","",""
+"Facility Description","ASHRAE 211 6.1.1 and 6.2.1.1","Misc Building Info","ASHRAE 211 6.1.1.1, 6.1.1.2, and 6.2.1.1","Basic Building Info","/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building","true","","","auc:PremisesName","","",""
 "","","","","","","","","","auc:Address/auc:City","","",""
 "","","","","","","","","","auc:Address/auc:State","","",""
 "","","","","","","","","","auc:Address/auc:PostalCode","","",""
@@ -15,6 +15,7 @@
 "","","","","","","","","","auc:YearOfConstruction","","",""
 "","","","","","","","","","auc:YearOfLastMajorRemodel","","WARNING",""
 "","","","","","","","","","auc:YearOfLastEnergyAudit","","WARNING",""
+"","","","","","","","","","auc:RetrocommissioningDate","","WARNING",""
 "","","","","","","","buildingDoesNotHaveResidents","auc:BuildingClassification/text() != 'Mixed use commercial' and auc:BuildingClassification/text() != 'Residential'","$buildingDoesNotHaveResidents or auc:SpatialUnits/auc:SpatialUnit[auc:SpatialUnitType/text() = 'Apartment units']/auc:NumberOfUnits","If BuildingClassification implies residents (Mixed use commercial or Residential), number of apartments units must be defined at auc:SpatialUnits/auc:SpatialUnit[auc:SpatialUnitType = 'Apartment units']/auc:NumberOfUnits.","",""
 "","","","","","","","","","$buildingDoesNotHaveResidents or auc:SpatialUnits/auc:SpatialUnit[auc:SpatialUnitType/text() = 'Apartment units']/auc:SpatialUnitOccupiedPercentage","If BuildingClassification implies residents (Mixed use commercial or Residential), the percentage occupied must be defined at auc:SpatialUnits/auc:SpatialUnit[auc:SpatialUnitType = 'Apartment units']/auc:SpatialUnitOccupiedPercentage.","",""
 "","","","","","","","","","auc:PremisesNotes","Premises Notes should exist and it should include requirements specified by ASHRAE 211 sections 6.1.1.1.m, 6.1.1.2.a, 6.1.1.2.c, 6.1.1.2.d and 6.1.1.2.e
