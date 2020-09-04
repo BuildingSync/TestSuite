@@ -15,6 +15,9 @@
     <sch:active pattern="document_structure_prerequisites_occupancy_schedules"/>
     <sch:active pattern="occupancy_schedules"/>
   </sch:phase>
+  <sch:phase id="multigeneration_and_onsite_renewable_energy_systems" see="ASHRAE 211 6.2.1.1 (f)">
+    <sch:active pattern="generation_systems"/>
+  </sch:phase>
   <sch:pattern see="" id="document_structure_prerequisites_misc_building_info">
     <sch:title>Document Structure Prerequisites Misc Building Info</sch:title>
     <sch:rule context="/">
@@ -130,6 +133,21 @@
     <sch:title>Occupancy Schedules</sch:title>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Schedules/auc:Schedule/auc:ScheduleDetails/auc:ScheduleDetail[auc:ScheduleCategory/text() = 'Occupied']">
       <sch:assert test="auc:PartialOperationPercentage" role="">auc:PartialOperationPercentage</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="" id="generation_systems">
+    <sch:title>Generation Systems</sch:title>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:OnsiteStorageTransmissionGenerationSystems/auc:OnsiteStorageTransmissionGenerationSystem/auc:EnergyConversionType/auc:Generation/auc:OnsiteGenerationType/auc:PV">
+      <sch:assert test="auc:PhotovoltaicSystemMaximumPowerOutput" role="">auc:PhotovoltaicSystemMaximumPowerOutput</sch:assert>
+      <sch:assert test="auc:PhotovoltaicSystemInverterEfficiency" role="">auc:PhotovoltaicSystemInverterEfficiency</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:OnsiteStorageTransmissionGenerationSystems/auc:OnsiteStorageTransmissionGenerationSystem/auc:EnergyConversionType/auc:Generation/auc:OnsiteGenerationType/auc:Other">
+      <sch:assert test="auc:OtherEnergyGenerationTechnology" role="">auc:OtherEnergyGenerationTechnology</sch:assert>
+      <sch:assert test="auc:OutputResourceType" role="">auc:OutputResourceType</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:OnsiteStorageTransmissionGenerationSystems/auc:OnsiteStorageTransmissionGenerationSystem[auc:EnergyConversionType/auc:Storage/auc:EnergyStorageTechnology]">
+      <sch:assert test="auc:Capacity" role="">auc:Capacity</sch:assert>
+      <sch:assert test="auc:CapacityUnits" role="">auc:CapacityUnits</sch:assert>
     </sch:rule>
   </sch:pattern>
 </sch:schema>

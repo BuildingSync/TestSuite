@@ -40,3 +40,18 @@ class TestL200Audit(AssertFailureRolesMixin):
         self.assert_failure_messages(failures, {
             'ERROR': ['All auc:ScheduleDetail within an auc:ScheduleDetails should have the same auc:ScheduleCategory']
         })
+
+    def test_runs_generation_storage_systems_tests_when_they_exist(self):
+        # -- Setup
+        tree = exemplary_tree('L200_Audit', 'v2.2.0')
+
+        # -- Act
+        failures = validate_schematron(
+            self.schematron,
+            tree,
+            phase='multigeneration_and_onsite_renewable_energy_systems',
+            # using strict here requires that all rule contexts are fired (ie none can be skipped)
+            strict_context=True)
+
+        # -- Assert
+        self.assert_failure_messages(failures, {})

@@ -4,7 +4,8 @@
   This file is intended to document all of the required elements and attributes
   for a Level 2 audit.
 -->
-<auc:BuildingSync xmlns:auc="http://buildingsync.net/schemas/bedes-auc/2019" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://buildingsync.net/schemas/bedes-auc/2019 https://raw.githubusercontent.com/BuildingSync/schema/v2.2.0-pr1/BuildingSync.xsd" version="2.2.0">
+<auc:BuildingSync xmlns:auc="http://buildingsync.net/schemas/bedes-auc/2019"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://buildingsync.net/schemas/bedes-auc/2019 https://raw.githubusercontent.com/BuildingSync/schema/develop/BuildingSync.xsd" version="2.2.0">
   <auc:Facilities>
     <auc:Facility ID="Facility-A">
       <auc:Sites>
@@ -197,7 +198,7 @@
 
         <!-- 6.2.1.1.f.1 -->
         <auc:OnsiteStorageTransmissionGenerationSystems>
-          <auc:OnsiteStorageTransmissionGenerationSystem ID="OnsiteGenerationSystem">
+          <auc:OnsiteStorageTransmissionGenerationSystem ID="PVSystem">
             <auc:EnergyConversionType>
               <auc:Generation>
                 <auc:OnsiteGenerationType>
@@ -208,6 +209,29 @@
                 </auc:OnsiteGenerationType>
               </auc:Generation>
             </auc:EnergyConversionType>
+          </auc:OnsiteStorageTransmissionGenerationSystem>
+
+          <auc:OnsiteStorageTransmissionGenerationSystem ID="MictoturbineSystem">
+            <auc:EnergyConversionType>
+              <auc:Generation>
+                <auc:OnsiteGenerationType>
+                  <auc:Other>
+                    <auc:OtherEnergyGenerationTechnology>Microturbine</auc:OtherEnergyGenerationTechnology>
+                    <auc:OutputResourceType>Electricity</auc:OutputResourceType>
+                  </auc:Other>
+                </auc:OnsiteGenerationType>
+              </auc:Generation>
+            </auc:EnergyConversionType>
+          </auc:OnsiteStorageTransmissionGenerationSystem>
+
+          <auc:OnsiteStorageTransmissionGenerationSystem ID="BatterySystem">
+            <auc:EnergyConversionType>
+              <auc:Storage>
+                <auc:EnergyStorageTechnology>Battery</auc:EnergyStorageTechnology>
+              </auc:Storage>
+            </auc:EnergyConversionType>
+            <auc:Capacity>123</auc:Capacity>
+            <auc:CapacityUnits>kW</auc:CapacityUnits>
           </auc:OnsiteStorageTransmissionGenerationSystem>
         </auc:OnsiteStorageTransmissionGenerationSystems>
       </auc:Systems>
