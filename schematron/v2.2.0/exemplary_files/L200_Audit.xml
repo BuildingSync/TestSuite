@@ -2,7 +2,7 @@
 <!--
   Work in progress
   This file is intended to document all of the required elements and attributes
-  for a Level 1 audit.
+  for a Level 2 audit.
 -->
 <auc:BuildingSync xmlns:auc="http://buildingsync.net/schemas/bedes-auc/2019" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://buildingsync.net/schemas/bedes-auc/2019 https://raw.githubusercontent.com/BuildingSync/schema/v2.2.0-pr1/BuildingSync.xsd" version="2.2.0">
   <auc:Facilities>
@@ -96,6 +96,8 @@
               <auc:YearOfConstruction>1993</auc:YearOfConstruction>
               <!-- 6.1.1.1.l (recommended) -->
               <auc:YearOfLastEnergyAudit>2018</auc:YearOfLastEnergyAudit>
+              <!-- 6.2.1.1 (recommended) -->
+              <auc:RetrocommissioningDate>2020-03-01</auc:RetrocommissioningDate>
               <!-- 6.1.1.1.i -->
               <auc:YearOfLastMajorRemodel>2016</auc:YearOfLastMajorRemodel>
 
@@ -192,7 +194,137 @@
             </auc:LinkedPremises>
           </auc:PlugLoad>
         </auc:PlugLoads>
+
+        <!-- 6.2.1.1.f.1 -->
+        <auc:OnsiteStorageTransmissionGenerationSystems>
+          <auc:OnsiteStorageTransmissionGenerationSystem ID="OnsiteGenerationSystem">
+            <auc:EnergyConversionType>
+              <auc:Generation>
+                <auc:OnsiteGenerationType>
+                  <auc:PV>
+                    <auc:PhotovoltaicSystemMaximumPowerOutput>123</auc:PhotovoltaicSystemMaximumPowerOutput>
+                    <auc:PhotovoltaicSystemInverterEfficiency>123</auc:PhotovoltaicSystemInverterEfficiency>
+                  </auc:PV>
+                </auc:OnsiteGenerationType>
+              </auc:Generation>
+            </auc:EnergyConversionType>
+          </auc:OnsiteStorageTransmissionGenerationSystem>
+        </auc:OnsiteStorageTransmissionGenerationSystems>
       </auc:Systems>
+
+      <auc:Schedules>
+        <auc:Schedule ID="OccupancySchedule">
+          <auc:ScheduleDetails>
+            <auc:ScheduleDetail>
+              <auc:DayType>Weekday</auc:DayType>
+              <auc:ScheduleCategory>Occupied</auc:ScheduleCategory>
+              <auc:DayStartTime>09:00:00</auc:DayStartTime>
+              <auc:DayEndTime>17:00:00</auc:DayEndTime>
+              <auc:PartialOperationPercentage>80</auc:PartialOperationPercentage>
+            </auc:ScheduleDetail>
+            <auc:ScheduleDetail>
+              <auc:DayType>Weekend</auc:DayType>
+              <auc:ScheduleCategory>Occupied</auc:ScheduleCategory>
+              <auc:DayStartTime>09:00:00</auc:DayStartTime>
+              <auc:DayEndTime>17:00:00</auc:DayEndTime>
+              <auc:PartialOperationPercentage>80</auc:PartialOperationPercentage>
+            </auc:ScheduleDetail>
+            <auc:ScheduleDetail>
+              <auc:DayType>Holiday</auc:DayType>
+              <auc:ScheduleCategory>Occupied</auc:ScheduleCategory>
+              <auc:DayStartTime>09:00:00</auc:DayStartTime>
+              <auc:DayEndTime>17:00:00</auc:DayEndTime>
+              <auc:PartialOperationPercentage>80</auc:PartialOperationPercentage>
+            </auc:ScheduleDetail>
+          </auc:ScheduleDetails>
+          <auc:LinkedPremises>
+            <auc:Building>
+              <auc:LinkedBuildingID IDref="Building-A"></auc:LinkedBuildingID>
+            </auc:Building>
+          </auc:LinkedPremises>
+        </auc:Schedule>
+        <auc:Schedule ID="LightingSchedule">
+          <auc:ScheduleDetails>
+            <auc:ScheduleDetail>
+              <auc:DayType>Weekday</auc:DayType>
+              <auc:ScheduleCategory>Lighting</auc:ScheduleCategory>
+              <auc:DayStartTime>09:00:00</auc:DayStartTime>
+              <auc:DayEndTime>17:00:00</auc:DayEndTime>
+            </auc:ScheduleDetail>
+            <auc:ScheduleDetail>
+              <auc:DayType>Weekend</auc:DayType>
+              <auc:ScheduleCategory>Lighting</auc:ScheduleCategory>
+              <auc:DayStartTime>09:00:00</auc:DayStartTime>
+              <auc:DayEndTime>17:00:00</auc:DayEndTime>
+            </auc:ScheduleDetail>
+            <auc:ScheduleDetail>
+              <auc:DayType>Holiday</auc:DayType>
+              <auc:ScheduleCategory>Lighting</auc:ScheduleCategory>
+              <auc:DayStartTime>09:00:00</auc:DayStartTime>
+              <auc:DayEndTime>17:00:00</auc:DayEndTime>
+            </auc:ScheduleDetail>
+          </auc:ScheduleDetails>
+          <auc:LinkedPremises>
+            <auc:Building>
+              <auc:LinkedBuildingID IDref="Building-A"></auc:LinkedBuildingID>
+            </auc:Building>
+          </auc:LinkedPremises>
+        </auc:Schedule>
+        <auc:Schedule ID="ProcessLoadSchedule">
+          <auc:ScheduleDetails>
+            <auc:ScheduleDetail>
+              <auc:DayType>Weekday</auc:DayType>
+              <auc:ScheduleCategory>Operational</auc:ScheduleCategory>
+              <auc:DayStartTime>09:00:00</auc:DayStartTime>
+              <auc:DayEndTime>17:00:00</auc:DayEndTime>
+            </auc:ScheduleDetail>
+            <auc:ScheduleDetail>
+              <auc:DayType>Weekend</auc:DayType>
+              <auc:ScheduleCategory>Operational</auc:ScheduleCategory>
+              <auc:DayStartTime>09:00:00</auc:DayStartTime>
+              <auc:DayEndTime>17:00:00</auc:DayEndTime>
+            </auc:ScheduleDetail>
+            <auc:ScheduleDetail>
+              <auc:DayType>Holiday</auc:DayType>
+              <auc:ScheduleCategory>Operational</auc:ScheduleCategory>
+              <auc:DayStartTime>09:00:00</auc:DayStartTime>
+              <auc:DayEndTime>17:00:00</auc:DayEndTime>
+            </auc:ScheduleDetail>
+          </auc:ScheduleDetails>
+          <auc:LinkedPremises>
+            <auc:Building>
+              <auc:LinkedBuildingID IDref="Building-A"></auc:LinkedBuildingID>
+            </auc:Building>
+          </auc:LinkedPremises>
+        </auc:Schedule>
+        <auc:Schedule ID="PlugLoadSchedule">
+          <auc:ScheduleDetails>
+            <auc:ScheduleDetail>
+              <auc:DayType>Weekday</auc:DayType>
+              <auc:ScheduleCategory>Operational</auc:ScheduleCategory>
+              <auc:DayStartTime>09:00:00</auc:DayStartTime>
+              <auc:DayEndTime>17:00:00</auc:DayEndTime>
+            </auc:ScheduleDetail>
+            <auc:ScheduleDetail>
+              <auc:DayType>Weekend</auc:DayType>
+              <auc:ScheduleCategory>Operational</auc:ScheduleCategory>
+              <auc:DayStartTime>09:00:00</auc:DayStartTime>
+              <auc:DayEndTime>17:00:00</auc:DayEndTime>
+            </auc:ScheduleDetail>
+            <auc:ScheduleDetail>
+              <auc:DayType>Holiday</auc:DayType>
+              <auc:ScheduleCategory>Operational</auc:ScheduleCategory>
+              <auc:DayStartTime>09:00:00</auc:DayStartTime>
+              <auc:DayEndTime>17:00:00</auc:DayEndTime>
+            </auc:ScheduleDetail>
+          </auc:ScheduleDetails>
+          <auc:LinkedPremises>
+            <auc:Building>
+              <auc:LinkedBuildingID IDref="Building-A"></auc:LinkedBuildingID>
+            </auc:Building>
+          </auc:LinkedPremises>
+        </auc:Schedule>
+      </auc:Schedules>
 
       <auc:Measures>
         <!-- Low cost measure -->
