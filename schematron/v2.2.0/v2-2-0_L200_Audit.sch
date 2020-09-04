@@ -9,6 +9,12 @@
     <sch:active pattern="document_structure_prerequisites_space_functions"/>
     <sch:active pattern="space_functions"/>
   </sch:phase>
+  <sch:phase id="schedules" see="ASHRAE 211 6.2.1.1 (e)">
+    <sch:active pattern="document_structure_prerequisites_general_schedule_requirements"/>
+    <sch:active pattern="general_schedule_requirements"/>
+    <sch:active pattern="document_structure_prerequisites_occupancy_schedules"/>
+    <sch:active pattern="occupancy_schedules"/>
+  </sch:phase>
   <sch:pattern see="" id="document_structure_prerequisites_misc_building_info">
     <sch:title>Document Structure Prerequisites Misc Building Info</sch:title>
     <sch:rule context="/">
@@ -89,6 +95,39 @@
       <sch:assert test="//auc:HVACSystem[auc:LinkedPremises/auc:Section/auc:LinkedSectionID/@IDref = current()/@ID]/auc:PrincipalHVACSystemType" role="">auc:Section[auc:SectionType='Space function'] must have a linked auc:HVACSystem/auc:PrincipalHVACSystem</sch:assert>
       <sch:assert test="//auc:LightingSystem[auc:LinkedPremises/auc:Section/auc:LinkedSectionID/@IDref = current()/@ID]/auc:LampType" role="">auc:Section[auc:SectionType='Space function'] must have a linked auc:LightingSystem with auc:LampType defined</sch:assert>
       <sch:assert test="//auc:LightingSystem[auc:LinkedPremises/auc:Section/auc:LinkedSectionID/@IDref = current()/@ID]/auc:LampType//auc:LampLabel" role="WARNING">auc:Section[auc:SectionType='Space function'] must have a linked auc:LightingSystem with auc:LampLabel defined</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="" id="document_structure_prerequisites_general_schedule_requirements">
+    <sch:title>Document Structure Prerequisites General Schedule Requirements</sch:title>
+    <sch:rule context="/">
+      <sch:assert test="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Schedules/auc:Schedule/auc:ScheduleDetails" role="ERROR">/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Schedules/auc:Schedule/auc:ScheduleDetails</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="" id="general_schedule_requirements">
+    <sch:title>General Schedule Requirements</sch:title>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Schedules/auc:Schedule/auc:ScheduleDetails">
+      <sch:let name="scheduleCategory" value="auc:ScheduleDetail[1]/auc:ScheduleCategory"/>
+      <sch:assert test="auc:ScheduleDetail" role="">There shoudl be at least one auc:ScheduleDetail in every auc:ScheduleDetails</sch:assert>
+      <sch:assert test="count(auc:ScheduleDetail/auc:ScheduleCategory) = count(auc:ScheduleDetail)" role="">Every auc:ScheduleDetail should have an auc:ScheduleCategory</sch:assert>
+      <sch:assert test="count(auc:ScheduleDetail[auc:ScheduleCategory/text() = $scheduleCategory]) = count(auc:ScheduleDetail)" role="">All auc:ScheduleDetail within an auc:ScheduleDetails should have the same auc:ScheduleCategory</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="" id="document_structure_prerequisites_occupancy_schedules">
+    <sch:title>Document Structure Prerequisites Occupancy Schedules</sch:title>
+    <sch:rule context="/">
+      <sch:assert test="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Schedules/auc:Schedule/auc:ScheduleDetails[auc:ScheduleDetail/auc:ScheduleCategory/text() = 'Occupied']" role="ERROR">/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Schedules/auc:Schedule/auc:ScheduleDetails[auc:ScheduleDetail/auc:ScheduleCategory/text() = 'Occupied']</sch:assert>
+      <sch:assert test="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Schedules/auc:Schedule/auc:ScheduleDetails/auc:ScheduleDetail[auc:ScheduleCategory/text() = 'Occupied']" role="ERROR">/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Schedules/auc:Schedule/auc:ScheduleDetails/auc:ScheduleDetail[auc:ScheduleCategory/text() = 'Occupied']</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="" id="occupancy_schedules">
+    <sch:title>Occupancy Schedules</sch:title>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Schedules/auc:Schedule/auc:ScheduleDetails[auc:ScheduleDetail/auc:ScheduleCategory/text() = 'Occupied']">
+      <sch:assert test="auc:ScheduleDetail/auc:DayType/text() = 'Weekday'" role="">auc:ScheduleDetail/auc:DayType/text() = 'Weekday'</sch:assert>
+      <sch:assert test="auc:ScheduleDetail/auc:DayType/text() = 'Weekend'" role="">auc:ScheduleDetail/auc:DayType/text() = 'Weekend'</sch:assert>
+      <sch:assert test="auc:ScheduleDetail/auc:DayType/text() = 'Holiday'" role="">auc:ScheduleDetail/auc:DayType/text() = 'Holiday'</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Schedules/auc:Schedule/auc:ScheduleDetails/auc:ScheduleDetail[auc:ScheduleCategory/text() = 'Occupied']">
+      <sch:assert test="auc:PartialOperationPercentage" role="">auc:PartialOperationPercentage</sch:assert>
     </sch:rule>
   </sch:pattern>
 </sch:schema>
