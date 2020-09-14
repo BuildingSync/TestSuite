@@ -21,6 +21,10 @@
   <sch:phase id="building_envelope" see="ASHRAE 211 6.2.1.2">
     <sch:active pattern="document_structure_prerequisites_roof"/>
     <sch:active pattern="roof"/>
+    <sch:active pattern="document_structure_prerequisites_walls_-_general_requirements"/>
+    <sch:active pattern="walls_-_general_requirements"/>
+    <sch:active pattern="document_structure_prerequisites_walls_-_building_sides"/>
+    <sch:active pattern="walls_-_building_sides"/>
   </sch:phase>
   <sch:pattern see="" id="document_structure_prerequisites_misc_building_info">
     <sch:title>Document Structure Prerequisites Misc Building Info</sch:title>
@@ -171,6 +175,68 @@
       <sch:assert test="//auc:RoofSystem[@ID = current()/auc:RoofID/@IDref]" role="">Every auc:RoofID within auc:SectionType of "Whole building" must link to a valid auc:RoofSystem's ID</sch:assert>
       <sch:assert test="auc:RoofID/auc:RoofArea" role="">auc:RoofID/auc:RoofArea</sch:assert>
       <sch:assert test="auc:RoofID/auc:RoofCondition" role="">auc:RoofID/auc:RoofCondition</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="" id="document_structure_prerequisites_walls_-_general_requirements">
+    <sch:title>Document Structure Prerequisites Walls - General Requirements</sch:title>
+    <sch:rule context="/">
+      <sch:assert test="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building" role="ERROR">/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building</sch:assert>
+      <sch:assert test="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:WallSystems/auc:WallSystem" role="ERROR">/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:WallSystems/auc:WallSystem</sch:assert>
+      <sch:assert test="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType/text() = &quot;Whole building&quot;]" role="ERROR">/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType/text() = "Whole building"]</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="ASHRAE 211 6.2.1.2 (b)" id="walls_-_general_requirements">
+    <sch:title>Walls - General Requirements</sch:title>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building">
+      <sch:assert test="auc:TotalExteriorAboveGradeWallArea" role="">auc:TotalExteriorAboveGradeWallArea</sch:assert>
+      <sch:assert test="auc:TotalExteriorBelowGradeWallArea" role="">auc:TotalExteriorBelowGradeWallArea</sch:assert>
+      <sch:assert test="auc:OverallWindowToWallRatio" role="">auc:OverallWindowToWallRatio</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:WallSystems/auc:WallSystem">
+      <sch:assert test="auc:ExteriorWallConstruction" role="">auc:ExteriorWallConstruction</sch:assert>
+      <sch:assert test="auc:WallRValue or auc:WallUFactor" role="">auc:WallRValue or auc:WallUFactor</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType/text() = &quot;Whole building&quot;]">
+      <sch:assert test="auc:FootprintShape" role="">auc:FootprintShape</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="" id="document_structure_prerequisites_walls_-_building_sides">
+    <sch:title>Document Structure Prerequisites Walls - Building Sides</sch:title>
+    <sch:rule context="/">
+      <sch:assert test="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType/text() = &quot;Whole building&quot;]/auc:Sides/auc:Side" role="ERROR">/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType/text() = "Whole building"]/auc:Sides/auc:Side</sch:assert>
+      <sch:assert test="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType/text() = &quot;Whole building&quot;]/auc:Sides/auc:Side/auc:WallIDs/auc:WallID" role="ERROR">/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType/text() = "Whole building"]/auc:Sides/auc:Side/auc:WallIDs/auc:WallID</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="" id="walls_-_building_sides">
+    <sch:title>Walls - Building Sides</sch:title>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType/text() = &quot;Whole building&quot; and auc:FootprintShape/text() = 'Other']">
+      <sch:assert test="auc:NumberOfSides" role="">Must provide auc:NumberOfSides if auc:FootprintShape is Other</sch:assert>
+      <sch:assert test="auc:NumberOfSides = count(auc:Sides/auc:Side)" role="">auc:NumberOfSides = count(auc:Sides/auc:Side)</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType/text() = &quot;Whole building&quot; and auc:FootprintShape/text() = 'Rectangular']">
+      <sch:assert test="count(auc:Sides/auc:Side) = 4" role="">Incorrect number of auc:Side elements for footprint shape "Rectangular" (found <sch:value-of select="count(auc:Sides/auc:Side)"/>)</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType/text() = &quot;Whole building&quot; and auc:FootprintShape/text() = 'L-Shape']">
+      <sch:assert test="count(auc:Sides/auc:Side) = 6" role="">Incorrect number of auc:Side elements for footprint shape "L-Shape" (found <sch:value-of select="count(auc:Sides/auc:Side)"/>)</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType/text() = &quot;Whole building&quot; and auc:FootprintShape/text() = 'U-Shape']">
+      <sch:assert test="count(auc:Sides/auc:Side) = 8" role="">Incorrect number of auc:Side elements for footprint shape "U-Shape" (found <sch:value-of select="count(auc:Sides/auc:Side)"/>)</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType/text() = &quot;Whole building&quot; and auc:FootprintShape/text() = 'T-Shape']">
+      <sch:assert test="count(auc:Sides/auc:Side) = 8" role="">Incorrect number of auc:Side elements for footprint shape "T-Shape" (found <sch:value-of select="count(auc:Sides/auc:Side)"/>)</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType/text() = &quot;Whole building&quot; and auc:FootprintShape/text() = 'H-Shape']">
+      <sch:assert test="count(auc:Sides/auc:Side) = 12" role="">Incorrect number of auc:Side elements for footprint shape "H-Shape" (found <sch:value-of select="count(auc:Sides/auc:Side)"/>)</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType/text() = &quot;Whole building&quot; and auc:FootprintShape/text() = 'O-Shape']">
+      <sch:assert test="count(auc:Sides/auc:Side) = 8" role="">Incorrect number of auc:Side elements for footprint shape "O-Shape" (found <sch:value-of select="count(auc:Sides/auc:Side)"/>)</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType/text() = &quot;Whole building&quot;]/auc:Sides/auc:Side">
+      <sch:assert test="auc:WallIDs" role="">auc:WallIDs</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType/text() = &quot;Whole building&quot;]/auc:Sides/auc:Side/auc:WallIDs/auc:WallID">
+      <sch:assert test="//auc:WallSystem[@ID = current()/@IDref]" role="">auc:WallID in auc:Side should link to an auc:WallSystem's ID</sch:assert>
+      <sch:assert test="auc:WallArea" role="">auc:WallArea</sch:assert>
     </sch:rule>
   </sch:pattern>
 </sch:schema>

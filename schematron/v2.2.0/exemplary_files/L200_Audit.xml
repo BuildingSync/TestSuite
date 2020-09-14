@@ -93,6 +93,10 @@
                 </auc:FloorArea>
               </auc:FloorAreas>
 
+              <auc:TotalExteriorAboveGradeWallArea>123</auc:TotalExteriorAboveGradeWallArea>
+              <auc:TotalExteriorBelowGradeWallArea>123</auc:TotalExteriorBelowGradeWallArea>
+              <auc:OverallWindowToWallRatio>0.2</auc:OverallWindowToWallRatio>
+
               <!-- 6.1.1.1.i -->
               <auc:YearOfConstruction>1993</auc:YearOfConstruction>
               <!-- 6.1.1.1.l (recommended) -->
@@ -148,6 +152,41 @@
 
                 <auc:Section>
                   <auc:SectionType>Whole building</auc:SectionType>
+                  <auc:FootprintShape>Rectangular</auc:FootprintShape>
+                  <auc:Sides>
+                    <auc:Side>
+                      <auc:SideNumber>A1</auc:SideNumber>
+                      <auc:WallIDs>
+                        <auc:WallID IDref="Wall-A">
+                          <auc:WallArea>123</auc:WallArea>
+                        </auc:WallID>
+                      </auc:WallIDs>
+                    </auc:Side>
+                    <auc:Side>
+                      <auc:SideNumber>B1</auc:SideNumber>
+                      <auc:WallIDs>
+                        <auc:WallID IDref="Wall-A">
+                          <auc:WallArea>123</auc:WallArea>
+                        </auc:WallID>
+                      </auc:WallIDs>
+                    </auc:Side>
+                    <auc:Side>
+                      <auc:SideNumber>C1</auc:SideNumber>
+                      <auc:WallIDs>
+                        <auc:WallID IDref="Wall-A">
+                          <auc:WallArea>123</auc:WallArea>
+                        </auc:WallID>
+                      </auc:WallIDs>
+                    </auc:Side>
+                    <auc:Side>
+                      <auc:SideNumber>D1</auc:SideNumber>
+                      <auc:WallIDs>
+                        <auc:WallID IDref="Wall-A">
+                          <auc:WallArea>123</auc:WallArea>
+                        </auc:WallID>
+                      </auc:WallIDs>
+                    </auc:Side>
+                  </auc:Sides>
                   <auc:Roofs>
                     <auc:Roof>
                       <auc:RoofID IDref="Roof-A">
@@ -195,6 +234,13 @@
             </auc:LinkedPremises>
           </auc:LightingSystem>
         </auc:LightingSystems>
+
+        <auc:WallSystems>
+          <auc:WallSystem ID="Wall-A">
+            <auc:ExteriorWallConstruction>Concrete poured</auc:ExteriorWallConstruction>
+            <auc:WallRValue>1</auc:WallRValue>
+          </auc:WallSystem>
+        </auc:WallSystems>
 
         <auc:RoofSystems>
           <auc:RoofSystem ID="Roof-A">
