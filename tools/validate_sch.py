@@ -84,6 +84,12 @@ def validate_schematron(schematron, document, result_path=None, phase=None, stri
     except OSError:
         schematron_tree = etree.ElementTree(etree.fromstring(schematron))
 
+    if phase is not None:
+        # as an extra precaution, verify there's a phase with the given ID
+        phase_elem = schematron_tree.xpath(f'//sch:phase[@id = "{phase}"]', namespaces=SCH_NSMAP)
+        if len(phase_elem) == 0:
+            raise Exception(f'Found no phase with provided id of "{phase}"')
+
     schematron = isoschematron.Schematron(
         schematron_tree,
         phase=phase,

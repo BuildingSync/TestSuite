@@ -165,6 +165,27 @@ class TestValidateSchematron:
         assert len(failures) == 1
         assert failures[0].message == 'Attr should be hello'
 
+    def test_when_phase_is_specified_and_it_does_not_exist_validation_fails(self):
+        # -- Setup
+        doc = '''<root>
+            <child attr="world"/>
+        </root>'''
+        # create sch that uses phases - each of which should fail against the document
+        sch = '''<sch:schema xmlns:sch="http://purl.oclc.org/dsdl/schematron">
+            <sch:phase id="phaseA">
+                <sch:active pattern="patternA"/>
+            </sch:phase>
+            <sch:pattern id="patternA">
+                <sch:rule context="/root/child">
+                    <sch:assert test="@attr = 'hello'" role="ERROR">Attr should be hello</sch:assert>
+                </sch:rule>
+            </sch:pattern>
+        </sch:schema>'''
+
+        # -- Act, Assert
+        with pytest.raises(Exception) as e:
+            validate_schematron(sch, doc, phase='bogus_phase_id')
+
     def test_when_using_strict_context_it_returns_failures_for_unfired_rules(self):
         # -- Setup
         doc = '''<root>
