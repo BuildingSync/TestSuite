@@ -18,6 +18,10 @@
   <sch:phase id="multigeneration_and_onsite_renewable_energy_systems" see="ASHRAE 211 6.2.1.1 (f)">
     <sch:active pattern="generation_systems"/>
   </sch:phase>
+  <sch:phase id="building_envelope" see="ASHRAE 211 6.2.1.2">
+    <sch:active pattern="document_structure_prerequisites_roof"/>
+    <sch:active pattern="roof"/>
+  </sch:phase>
   <sch:pattern see="" id="document_structure_prerequisites_misc_building_info">
     <sch:title>Document Structure Prerequisites Misc Building Info</sch:title>
     <sch:rule context="/">
@@ -148,6 +152,25 @@
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:OnsiteStorageTransmissionGenerationSystems/auc:OnsiteStorageTransmissionGenerationSystem[auc:EnergyConversionType/auc:Storage/auc:EnergyStorageTechnology]">
       <sch:assert test="auc:Capacity" role="">auc:Capacity</sch:assert>
       <sch:assert test="auc:CapacityUnits" role="">auc:CapacityUnits</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="" id="document_structure_prerequisites_roof">
+    <sch:title>Document Structure Prerequisites Roof</sch:title>
+    <sch:rule context="/">
+      <sch:assert test="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:RoofSystems/auc:RoofSystem" role="ERROR">/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:RoofSystems/auc:RoofSystem</sch:assert>
+      <sch:assert test="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType = &quot;Whole building&quot;]/auc:Roofs/auc:Roof" role="ERROR">/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType = "Whole building"]/auc:Roofs/auc:Roof</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="ASHRAE 211 6.2.1.2 (a)" id="roof">
+    <sch:title>Roof</sch:title>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:RoofSystems/auc:RoofSystem">
+      <sch:assert test="auc:RoofConstruction" role="">auc:RoofConstruction</sch:assert>
+      <sch:assert test="auc:RoofRValue or auc:RoofUFactor" role="">auc:RoofRValue or auc:RoofUFactor</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType = &quot;Whole building&quot;]/auc:Roofs/auc:Roof">
+      <sch:assert test="//auc:RoofSystem[@ID = current()/auc:RoofID/@IDref]" role="">Every auc:RoofID within auc:SectionType of "Whole building" must link to a valid auc:RoofSystem's ID</sch:assert>
+      <sch:assert test="auc:RoofID/auc:RoofArea" role="">auc:RoofID/auc:RoofArea</sch:assert>
+      <sch:assert test="auc:RoofID/auc:RoofCondition" role="">auc:RoofID/auc:RoofCondition</sch:assert>
     </sch:rule>
   </sch:pattern>
 </sch:schema>

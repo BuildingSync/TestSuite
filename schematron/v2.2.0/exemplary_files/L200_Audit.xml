@@ -145,6 +145,18 @@
 
                   </auc:FloorAreas>
                 </auc:Section>
+
+                <auc:Section>
+                  <auc:SectionType>Whole building</auc:SectionType>
+                  <auc:Roofs>
+                    <auc:Roof>
+                      <auc:RoofID IDref="Roof-A">
+                        <auc:RoofArea>123</auc:RoofArea>
+                        <auc:RoofCondition>Excellent</auc:RoofCondition>
+                      </auc:RoofID>
+                    </auc:Roof>
+                  </auc:Roofs>
+                </auc:Section>
               </auc:Sections>
 
             </auc:Building>
@@ -183,6 +195,13 @@
             </auc:LinkedPremises>
           </auc:LightingSystem>
         </auc:LightingSystems>
+
+        <auc:RoofSystems>
+          <auc:RoofSystem ID="Roof-A">
+            <auc:RoofConstruction>Wood frame</auc:RoofConstruction>
+            <auc:RoofRValue>1</auc:RoofRValue>
+          </auc:RoofSystem>
+        </auc:RoofSystems>
 
         <auc:PlugLoads>
           <!-- 6.1.1.1.g/5.3.4.e (for every space function) -->

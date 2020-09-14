@@ -57,3 +57,8 @@
 "","","","","","","","","","auc:OutputResourceType","","",""
 "","","","","","/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:OnsiteStorageTransmissionGenerationSystems/auc:OnsiteStorageTransmissionGenerationSystem[auc:EnergyConversionType/auc:Storage/auc:EnergyStorageTechnology]","false","","","auc:Capacity","","",""
 "","","","","","","","","","auc:CapacityUnits","","",""
+"Building Envelope","ASHRAE 211 6.2.1.2","Roof","ASHRAE 211 6.2.1.2 (a)","","/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:RoofSystems/auc:RoofSystem","true","","","auc:RoofConstruction","","",""
+"","","","","","","","","","auc:RoofRValue or auc:RoofUFactor","","",""
+"","","","","","/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType = ""Whole building""]/auc:Roofs/auc:Roof","true","","","//auc:RoofSystem[@ID = current()/auc:RoofID/@IDref]","Every auc:RoofID within auc:SectionType of ""Whole building"" must link to a valid auc:RoofSystem's ID","",""
+"","","","","","","","","","auc:RoofID/auc:RoofArea","","",""
+"","","","","","","","","","auc:RoofID/auc:RoofCondition","","",""
