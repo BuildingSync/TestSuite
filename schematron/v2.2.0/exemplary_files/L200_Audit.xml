@@ -298,19 +298,19 @@
           <auc:ScheduleDetails>
             <auc:ScheduleDetail>
               <auc:DayType>Weekday</auc:DayType>
-              <auc:ScheduleCategory>Operational</auc:ScheduleCategory>
+              <auc:ScheduleCategory>Miscellaneous equipment</auc:ScheduleCategory>
               <auc:DayStartTime>09:00:00</auc:DayStartTime>
               <auc:DayEndTime>17:00:00</auc:DayEndTime>
             </auc:ScheduleDetail>
             <auc:ScheduleDetail>
               <auc:DayType>Weekend</auc:DayType>
-              <auc:ScheduleCategory>Operational</auc:ScheduleCategory>
+              <auc:ScheduleCategory>Miscellaneous equipment</auc:ScheduleCategory>
               <auc:DayStartTime>09:00:00</auc:DayStartTime>
               <auc:DayEndTime>17:00:00</auc:DayEndTime>
             </auc:ScheduleDetail>
             <auc:ScheduleDetail>
               <auc:DayType>Holiday</auc:DayType>
-              <auc:ScheduleCategory>Operational</auc:ScheduleCategory>
+              <auc:ScheduleCategory>Miscellaneous equipment</auc:ScheduleCategory>
               <auc:DayStartTime>09:00:00</auc:DayStartTime>
               <auc:DayEndTime>17:00:00</auc:DayEndTime>
             </auc:ScheduleDetail>
@@ -325,19 +325,19 @@
           <auc:ScheduleDetails>
             <auc:ScheduleDetail>
               <auc:DayType>Weekday</auc:DayType>
-              <auc:ScheduleCategory>Operational</auc:ScheduleCategory>
+              <auc:ScheduleCategory>Miscellaneous equipment</auc:ScheduleCategory>
               <auc:DayStartTime>09:00:00</auc:DayStartTime>
               <auc:DayEndTime>17:00:00</auc:DayEndTime>
             </auc:ScheduleDetail>
             <auc:ScheduleDetail>
               <auc:DayType>Weekend</auc:DayType>
-              <auc:ScheduleCategory>Operational</auc:ScheduleCategory>
+              <auc:ScheduleCategory>Miscellaneous equipment</auc:ScheduleCategory>
               <auc:DayStartTime>09:00:00</auc:DayStartTime>
               <auc:DayEndTime>17:00:00</auc:DayEndTime>
             </auc:ScheduleDetail>
             <auc:ScheduleDetail>
               <auc:DayType>Holiday</auc:DayType>
-              <auc:ScheduleCategory>Operational</auc:ScheduleCategory>
+              <auc:ScheduleCategory>Miscellaneous equipment</auc:ScheduleCategory>
               <auc:DayStartTime>09:00:00</auc:DayStartTime>
               <auc:DayEndTime>17:00:00</auc:DayEndTime>
             </auc:ScheduleDetail>
