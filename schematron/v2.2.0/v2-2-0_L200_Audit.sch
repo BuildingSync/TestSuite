@@ -38,6 +38,13 @@
     <sch:active pattern="document_structure_prerequisites_foundation_system"/>
     <sch:active pattern="foundation_system"/>
   </sch:phase>
+  <sch:phase id="building_envelope_-_enclosure_tightness" see="ASHRAE 211 6.2.1.2 (e)">
+    <sch:active pattern="document_structure_prerequisites_air_infiltration_general_requirements"/>
+    <sch:active pattern="air_infiltration_general_requirements"/>
+    <sch:active pattern="air_infiltration_blower_or_tracer_test"/>
+    <sch:active pattern="document_structure_prerequisites_water_infiltration"/>
+    <sch:active pattern="water_infiltration"/>
+  </sch:phase>
   <sch:pattern see="" id="document_structure_prerequisites_misc_building_info">
     <sch:title>Document Structure Prerequisites Misc Building Info</sch:title>
     <sch:rule context="/">
@@ -351,6 +358,41 @@
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType = &quot;Whole building&quot;]/auc:Foundations/auc:Foundation/auc:FoundationID">
       <sch:assert test="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:FoundationSystems/auc:FoundationSystem[@ID = current()/@IDref]" role="">auc:FoundationID must point to a valid auc:FoundationSystem</sch:assert>
       <sch:assert test="auc:FoundationArea" role="">auc:FoundationArea</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="" id="document_structure_prerequisites_air_infiltration_general_requirements">
+    <sch:title>Document Structure Prerequisites Air Infiltration General Requirements</sch:title>
+    <sch:rule context="/">
+      <sch:assert test="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:AirInfiltrationSystems/auc:AirInfiltrationSystem" role="ERROR">/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:AirInfiltrationSystems/auc:AirInfiltrationSystem</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="" id="air_infiltration_general_requirements">
+    <sch:title>Air Infiltration General Requirements</sch:title>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:AirInfiltrationSystems/auc:AirInfiltrationSystem">
+      <sch:assert test="auc:Tightness" role="">auc:Tightness</sch:assert>
+      <sch:assert test="auc:AirInfiltrationTest" role="">auc:AirInfiltrationTest</sch:assert>
+      <sch:assert test="auc:AirInfiltrationNotes" role="">auc:AirInfiltrationNotes</sch:assert>
+      <sch:assert test="auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = //auc:Sections/auc:Section[auc:SectionType = 'Whole building']/@ID]" role="">auc:AirInfiltrationSystem must be linked to auc:Section[auc:SectionType = 'Whole building']</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="" id="air_infiltration_blower_or_tracer_test">
+    <sch:title>Air Infiltration Blower or Tracer Test</sch:title>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:AirInfiltrationSystems/auc:AirInfiltrationSystem[auc:AirInfiltrationTest/text() = 'Blower door' or auc:AirInfiltrationTest/text() = 'Tracer gas']">
+      <sch:assert test="auc:AirInfiltrationValue" role="">auc:AirInfiltrationValue</sch:assert>
+      <sch:assert test="auc:AirInfiltrationValueUnits" role="">auc:AirInfiltrationValueUnits</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="" id="document_structure_prerequisites_water_infiltration">
+    <sch:title>Document Structure Prerequisites Water Infiltration</sch:title>
+    <sch:rule context="/">
+      <sch:assert test="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:WaterInfiltrationSystems/auc:WaterInfiltrationSystem" role="ERROR">/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:WaterInfiltrationSystems/auc:WaterInfiltrationSystem</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="" id="water_infiltration">
+    <sch:title>Water Infiltration</sch:title>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:WaterInfiltrationSystems/auc:WaterInfiltrationSystem">
+      <sch:assert test="auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = //auc:Sections/auc:Section[auc:SectionType = 'Whole building']/@ID]" role="">auc:WaterInfiltrationSystem must be linked to auc:Section[auc:SectionType = 'Whole building']</sch:assert>
+      <sch:assert test="auc:WaterInfiltrationNotes" role="">auc:WaterInfiltrationNotes</sch:assert>
     </sch:rule>
   </sch:pattern>
 </sch:schema>

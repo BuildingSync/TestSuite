@@ -383,6 +383,32 @@
             <auc:CapacityUnits>kW</auc:CapacityUnits>
           </auc:OnsiteStorageTransmissionGenerationSystem>
         </auc:OnsiteStorageTransmissionGenerationSystems>
+
+        <auc:AirInfiltrationSystems>
+          <auc:AirInfiltrationSystem ID="AirInfiltration-A">
+            <auc:AirInfiltrationNotes>Notes on the test conducted</auc:AirInfiltrationNotes>
+            <auc:Tightness>Very Tight</auc:Tightness>
+            <auc:AirInfiltrationValue>123</auc:AirInfiltrationValue>
+            <auc:AirInfiltrationValueUnits>CFM25</auc:AirInfiltrationValueUnits>
+            <auc:AirInfiltrationTest>Blower door</auc:AirInfiltrationTest>
+            <auc:LinkedPremises>
+              <auc:Section>
+                <auc:LinkedSectionID IDref="Section-Whole-building"></auc:LinkedSectionID>
+              </auc:Section>
+            </auc:LinkedPremises>
+          </auc:AirInfiltrationSystem>
+        </auc:AirInfiltrationSystems>
+
+        <auc:WaterInfiltrationSystems>
+          <auc:WaterInfiltrationSystem>
+            <auc:WaterInfiltrationNotes>Notes on the test conducted</auc:WaterInfiltrationNotes>
+            <auc:LinkedPremises>
+              <auc:Section>
+                <auc:LinkedSectionID IDref="Section-Whole-building"></auc:LinkedSectionID>
+              </auc:Section>
+            </auc:LinkedPremises>
+          </auc:WaterInfiltrationSystem>
+        </auc:WaterInfiltrationSystems>
       </auc:Systems>
 
       <auc:Schedules>
