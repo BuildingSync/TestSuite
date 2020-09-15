@@ -159,3 +159,140 @@ class TestL200Audit(AssertFailureRolesMixin):
 
         # -- Assert
         self.assert_failure_messages(failures, {})
+
+    def test_is_invalid_when_ground_coupling_is_slab_on_grade_and_invalid(self):
+        # -- Setup
+        tree = exemplary_tree('L200_Audit', 'v2.2.0')
+
+        # replace the ground coupling with another valid ground coupling
+        new_coupling_xml = f"""
+        <auc:GroundCoupling xmlns:auc="{BSYNC_NS}">
+            <auc:SlabOnGrade>
+                <auc:SlabUFactor>0.5</auc:SlabUFactor>
+            </auc:SlabOnGrade>
+        </auc:GroundCoupling>
+        """
+        new_coupling_tree = etree.fromstring(new_coupling_xml)
+        ground_coupling_xpath = '/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:FoundationSystems/auc:FoundationSystem/auc:GroundCouplings/auc:GroundCoupling'
+        replace_element(tree, ground_coupling_xpath, new_coupling_tree)
+
+        # verify it's valid
+        failures = validate_schematron(self.schematron, tree)
+        self.assert_failure_messages(failures, {})
+
+        # remove an element from the coupling
+        remove_xpath = ground_coupling_xpath + '/auc:SlabOnGrade/auc:SlabUFactor'
+        remove_element(tree, remove_xpath)
+
+        # -- Act
+        failures = validate_schematron(self.schematron, tree)
+
+        # -- Assert
+        self.assert_failure_messages(failures, {
+            'WARNING': ['auc:SlabRValue or auc:SlabUFactor']
+        })
+
+    def test_is_invalid_when_ground_coupling_is_basement_and_invalid(self):
+        # -- Setup
+        tree = exemplary_tree('L200_Audit', 'v2.2.0')
+
+        # replace the ground coupling with another valid ground coupling
+        new_coupling_xml = f"""
+        <auc:GroundCoupling xmlns:auc="{BSYNC_NS}">
+            <auc:Basement>
+                <auc:FoundationWallConstruction>Concrete poured</auc:FoundationWallConstruction>
+                <auc:FoundationWallUFactor>0.5</auc:FoundationWallUFactor>
+            </auc:Basement>
+        </auc:GroundCoupling>
+        """
+        new_coupling_tree = etree.fromstring(new_coupling_xml)
+        ground_coupling_xpath = '/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:FoundationSystems/auc:FoundationSystem/auc:GroundCouplings/auc:GroundCoupling'
+        replace_element(tree, ground_coupling_xpath, new_coupling_tree)
+
+        # verify it's valid
+        failures = validate_schematron(self.schematron, tree)
+        self.assert_failure_messages(failures, {})
+
+        # remove an element from the coupling
+        remove_xpath = ground_coupling_xpath + '/auc:Basement/auc:FoundationWallUFactor'
+        remove_element(tree, remove_xpath)
+
+        # -- Act
+        failures = validate_schematron(self.schematron, tree)
+
+        # -- Assert
+        self.assert_failure_messages(failures, {
+            'WARNING': ['auc:FoundationWallRValue or auc:FoundationWallUFactor']
+        })
+
+    def test_is_invalid_when_ground_coupling_is_crawlspace_ventilated_and_invalid(self):
+        # -- Setup
+        tree = exemplary_tree('L200_Audit', 'v2.2.0')
+
+        # replace the ground coupling with another valid ground coupling
+        new_coupling_xml = f"""
+        <auc:GroundCoupling xmlns:auc="{BSYNC_NS}">
+            <auc:Crawlspace>
+                <auc:CrawlspaceVenting>
+                    <auc:Ventilated>
+                        <auc:FloorUFactor>0.5</auc:FloorUFactor>
+                    </auc:Ventilated>
+                </auc:CrawlspaceVenting>
+            </auc:Crawlspace>
+        </auc:GroundCoupling>
+        """
+        new_coupling_tree = etree.fromstring(new_coupling_xml)
+        ground_coupling_xpath = '/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:FoundationSystems/auc:FoundationSystem/auc:GroundCouplings/auc:GroundCoupling'
+        replace_element(tree, ground_coupling_xpath, new_coupling_tree)
+
+        # verify it's valid
+        failures = validate_schematron(self.schematron, tree)
+        self.assert_failure_messages(failures, {})
+
+        # remove an element from the coupling
+        remove_xpath = ground_coupling_xpath + '/auc:Crawlspace/auc:CrawlspaceVenting/auc:Ventilated/auc:FloorUFactor'
+        remove_element(tree, remove_xpath)
+
+        # -- Act
+        failures = validate_schematron(self.schematron, tree)
+
+        # -- Assert
+        self.assert_failure_messages(failures, {
+            'WARNING': ['auc:FloorRValue or auc:FloorUFactor']
+        })
+
+    def test_is_invalid_when_ground_coupling_is_crawlspace_unventilated_and_invalid(self):
+        # -- Setup
+        tree = exemplary_tree('L200_Audit', 'v2.2.0')
+
+        # replace the ground coupling with another valid ground coupling
+        new_coupling_xml = f"""
+        <auc:GroundCoupling xmlns:auc="{BSYNC_NS}">
+            <auc:Crawlspace>
+                <auc:CrawlspaceVenting>
+                    <auc:Unventilated>
+                        <auc:FoundationWallUFactor>0.5</auc:FoundationWallUFactor>
+                    </auc:Unventilated>
+                </auc:CrawlspaceVenting>
+            </auc:Crawlspace>
+        </auc:GroundCoupling>
+        """
+        new_coupling_tree = etree.fromstring(new_coupling_xml)
+        ground_coupling_xpath = '/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:FoundationSystems/auc:FoundationSystem/auc:GroundCouplings/auc:GroundCoupling'
+        replace_element(tree, ground_coupling_xpath, new_coupling_tree)
+
+        # verify it's valid
+        failures = validate_schematron(self.schematron, tree)
+        self.assert_failure_messages(failures, {})
+
+        # remove an element from the coupling
+        remove_xpath = ground_coupling_xpath + '/auc:Crawlspace/auc:CrawlspaceVenting/auc:Unventilated/auc:FoundationWallUFactor'
+        remove_element(tree, remove_xpath)
+
+        # -- Act
+        failures = validate_schematron(self.schematron, tree)
+
+        # -- Assert
+        self.assert_failure_messages(failures, {
+            'WARNING': ['auc:FoundationWallRValue or auc:FoundationWallUFactor']
+        })

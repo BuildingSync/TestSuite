@@ -235,6 +235,13 @@
                       </auc:RoofID>
                     </auc:Roof>
                   </auc:Roofs>
+                  <auc:Foundations>
+                    <auc:Foundation>
+                      <auc:FoundationID IDref="Foundation-A">
+                        <auc:FoundationArea>123</auc:FoundationArea>
+                      </auc:FoundationID>
+                    </auc:Foundation>
+                  </auc:Foundations>
                 </auc:Section>
               </auc:Sections>
 
@@ -312,6 +319,19 @@
             <auc:FenestrationRValue>0.5</auc:FenestrationRValue>
           </auc:FenestrationSystem>
         </auc:FenestrationSystems>
+
+        <auc:FoundationSystems>
+          <auc:FoundationSystem ID="Foundation-A">
+            <auc:GroundCouplings>
+              <auc:GroundCoupling>
+                <auc:SlabOnGrade>
+                  <auc:SlabUFactor>0.5</auc:SlabUFactor>
+                </auc:SlabOnGrade>
+              </auc:GroundCoupling>
+            </auc:GroundCouplings>
+            <auc:FloorConstructionType>Concrete poured</auc:FloorConstructionType>
+          </auc:FoundationSystem>
+        </auc:FoundationSystems>
 
         <auc:PlugLoads>
           <!-- 6.1.1.1.g/5.3.4.e (for every space function) -->

@@ -34,6 +34,10 @@
     <sch:active pattern="document_structure_prerequisites_fenestration_doors"/>
     <sch:active pattern="fenestration_doors"/>
   </sch:phase>
+  <sch:phase id="building_envelope_-_floors_and_underground_walls" see="ASHRAE 211 6.2.1.2 (c)">
+    <sch:active pattern="document_structure_prerequisites_foundation_system"/>
+    <sch:active pattern="foundation_system"/>
+  </sch:phase>
   <sch:pattern see="" id="document_structure_prerequisites_misc_building_info">
     <sch:title>Document Structure Prerequisites Misc Building Info</sch:title>
     <sch:rule context="/">
@@ -312,6 +316,41 @@
       <sch:assert test="auc:FenestrationFrameMaterial" role="">auc:FenestrationFrameMaterial</sch:assert>
       <sch:assert test="auc:FenestrationRValue or auc:FenestrationUFactor" role="">auc:FenestrationRValue or auc:FenestrationUFactor</sch:assert>
       <sch:assert test="auc:FenestrationType/auc:Door/auc:DoorGlazedAreaFraction" role="">auc:FenestrationType/auc:Door/auc:DoorGlazedAreaFraction</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="" id="document_structure_prerequisites_foundation_system">
+    <sch:title>Document Structure Prerequisites Foundation system</sch:title>
+    <sch:rule context="/">
+      <sch:assert test="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:FoundationSystems/auc:FoundationSystem" role="ERROR">/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:FoundationSystems/auc:FoundationSystem</sch:assert>
+      <sch:assert test="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType = &quot;Whole building&quot;]" role="ERROR">/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType = "Whole building"]</sch:assert>
+      <sch:assert test="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType = &quot;Whole building&quot;]/auc:Foundations/auc:Foundation/auc:FoundationID" role="ERROR">/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType = "Whole building"]/auc:Foundations/auc:Foundation/auc:FoundationID</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="ASHRAE 211 6.2.1.2 (c)" id="foundation_system">
+    <sch:title>Foundation system</sch:title>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:FoundationSystems/auc:FoundationSystem">
+      <sch:assert test="auc:FloorConstructionType" role="">auc:FloorConstructionType</sch:assert>
+      <sch:assert test="auc:GroundCouplings/auc:GroundCoupling/*" role="">auc:GroundCouplings/auc:GroundCoupling/*</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:FoundationSystems/auc:FoundationSystem/auc:GroundCouplings/auc:GroundCoupling/auc:SlabOnGrade">
+      <sch:assert test="auc:SlabRValue or auc:SlabUFactor" role="WARNING">auc:SlabRValue or auc:SlabUFactor</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:FoundationSystems/auc:FoundationSystem/auc:GroundCouplings/auc:GroundCoupling/auc:Basement">
+      <sch:assert test="auc:FoundationWallConstruction" role="">auc:FoundationWallConstruction</sch:assert>
+      <sch:assert test="auc:FoundationWallRValue or auc:FoundationWallUFactor" role="WARNING">auc:FoundationWallRValue or auc:FoundationWallUFactor</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:FoundationSystems/auc:FoundationSystem/auc:GroundCouplings/auc:GroundCoupling/auc:Crawlspace/auc:CrawlspaceVenting/auc:Ventilated">
+      <sch:assert test="auc:FloorRValue or auc:FloorUFactor" role="WARNING">auc:FloorRValue or auc:FloorUFactor</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:FoundationSystems/auc:FoundationSystem/auc:GroundCouplings/auc:GroundCoupling/auc:Crawlspace/auc:CrawlspaceVenting/auc:Unventilated">
+      <sch:assert test="auc:FoundationWallRValue or auc:FoundationWallUFactor" role="WARNING">auc:FoundationWallRValue or auc:FoundationWallUFactor</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType = &quot;Whole building&quot;]">
+      <sch:assert test="count(auc:Foundations/auc:Foundation/auc:FoundationID) &gt;= 1" role="">count(auc:Foundations/auc:Foundation/auc:FoundationID) &gt;= 1</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType = &quot;Whole building&quot;]/auc:Foundations/auc:Foundation/auc:FoundationID">
+      <sch:assert test="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:FoundationSystems/auc:FoundationSystem[@ID = current()/@IDref]" role="">auc:FoundationID must point to a valid auc:FoundationSystem</sch:assert>
+      <sch:assert test="auc:FoundationArea" role="">auc:FoundationArea</sch:assert>
     </sch:rule>
   </sch:pattern>
 </sch:schema>
