@@ -18,13 +18,21 @@
   <sch:phase id="multigeneration_and_onsite_renewable_energy_systems" see="ASHRAE 211 6.2.1.1 (f)">
     <sch:active pattern="generation_systems"/>
   </sch:phase>
-  <sch:phase id="building_envelope" see="ASHRAE 211 6.2.1.2">
+  <sch:phase id="building_envelope_-_roof_and_walls" see="ASHRAE 211 6.2.1.2 (a) (b)">
     <sch:active pattern="document_structure_prerequisites_roof"/>
     <sch:active pattern="roof"/>
     <sch:active pattern="document_structure_prerequisites_walls_-_general_requirements"/>
     <sch:active pattern="walls_-_general_requirements"/>
     <sch:active pattern="document_structure_prerequisites_walls_-_building_sides"/>
     <sch:active pattern="walls_-_building_sides"/>
+  </sch:phase>
+  <sch:phase id="building_envelope_-_fenestration" see="ASHRAE 211 6.2.1.2 (c)">
+    <sch:active pattern="document_structure_prerequisites_fenestration_general_requirements"/>
+    <sch:active pattern="fenestration_general_requirements"/>
+    <sch:active pattern="document_structure_prerequisites_fenestration_windows"/>
+    <sch:active pattern="fenestration_windows"/>
+    <sch:active pattern="document_structure_prerequisites_fenestration_doors"/>
+    <sch:active pattern="fenestration_doors"/>
   </sch:phase>
   <sch:pattern see="" id="document_structure_prerequisites_misc_building_info">
     <sch:title>Document Structure Prerequisites Misc Building Info</sch:title>
@@ -237,6 +245,73 @@
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType/text() = &quot;Whole building&quot;]/auc:Sides/auc:Side/auc:WallIDs/auc:WallID">
       <sch:assert test="//auc:WallSystem[@ID = current()/@IDref]" role="">auc:WallID in auc:Side should link to an auc:WallSystem's ID</sch:assert>
       <sch:assert test="auc:WallArea" role="">auc:WallArea</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="" id="document_structure_prerequisites_fenestration_general_requirements">
+    <sch:title>Document Structure Prerequisites Fenestration General Requirements</sch:title>
+    <sch:rule context="/">
+      <sch:assert test="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building" role="ERROR">/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building</sch:assert>
+      <sch:assert test="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:FenestrationSystems/auc:FenestrationSystem[auc:FenestrationType/auc:Window]" role="ERROR">/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:FenestrationSystems/auc:FenestrationSystem[auc:FenestrationType/auc:Window]</sch:assert>
+      <sch:assert test="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:FenestrationSystems/auc:FenestrationSystem[auc:FenestrationType/auc:Door]" role="ERROR">/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:FenestrationSystems/auc:FenestrationSystem[auc:FenestrationType/auc:Door]</sch:assert>
+      <sch:assert test="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType/text() = &quot;Whole building&quot;]/auc:Sides/auc:Side" role="ERROR">/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType/text() = "Whole building"]/auc:Sides/auc:Side</sch:assert>
+      <sch:assert test="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType/text() = &quot;Whole building&quot;]/auc:Sides/auc:Side/auc:WindowIDs/auc:WindowID" role="ERROR">/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType/text() = "Whole building"]/auc:Sides/auc:Side/auc:WindowIDs/auc:WindowID</sch:assert>
+      <sch:assert test="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType/text() = &quot;Whole building&quot;]/auc:Sides/auc:Side/auc:DoorIDs/auc:DoorID" role="ERROR">/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType/text() = "Whole building"]/auc:Sides/auc:Side/auc:DoorIDs/auc:DoorID</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="" id="fenestration_general_requirements">
+    <sch:title>Fenestration General Requirements</sch:title>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building">
+      <sch:assert test="auc:OverallWindowToWallRatio" role="">auc:OverallWindowToWallRatio</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:FenestrationSystems/auc:FenestrationSystem[auc:FenestrationType/auc:Window]">
+      <sch:assert test="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType/text() = &quot;Whole building&quot;]/auc:Sides/auc:Side/auc:WindowIDs/auc:WindowID[@IDref = current()/@ID]" role="">Each auc:Window must be linked to an auc:Side</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:FenestrationSystems/auc:FenestrationSystem[auc:FenestrationType/auc:Door]">
+      <sch:assert test="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType/text() = &quot;Whole building&quot;]/auc:Sides/auc:Side/auc:DoorIDs/auc:DoorID[@IDref = current()/@ID]" role="">Each auc:Door must be linked to an auc:Side</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType/text() = &quot;Whole building&quot;]/auc:Sides/auc:Side">
+      <sch:assert test="auc:WindowIDs/auc:WindowID" role="WARNING">Found an auc:Side with no linked auc:Window</sch:assert>
+      <sch:assert test="auc:DoorIDs/auc:DoorID" role="WARNING">Found an auc:Side with no linked auc:Door</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType/text() = &quot;Whole building&quot;]/auc:Sides/auc:Side/auc:WindowIDs/auc:WindowID">
+      <sch:assert test="//auc:FenestrationSystems/auc:FenestrationSystem[auc:FenestrationType/auc:Window and @ID = current()/@IDref]" role="">An auc:Side element's auc:WindowIDs/auc:WindowID must point to a valid auc:FenestrationSystem</sch:assert>
+      <sch:assert test="auc:FenestrationArea or auc:WindowToWallRatio" role="">auc:FenestrationArea or auc:WindowToWallRatio</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType/text() = &quot;Whole building&quot;]/auc:Sides/auc:Side/auc:DoorIDs/auc:DoorID">
+      <sch:assert test="//auc:FenestrationSystems/auc:FenestrationSystem[auc:FenestrationType/auc:Door and @ID = current()/@IDref]" role="">An auc:Side element's auc:DoorIDs/auc:DoorID must point to a valid auc:FenestrationSystem</sch:assert>
+      <sch:assert test="auc:FenestrationArea" role="">auc:FenestrationArea</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="" id="document_structure_prerequisites_fenestration_windows">
+    <sch:title>Document Structure Prerequisites Fenestration Windows</sch:title>
+    <sch:rule context="/">
+      <sch:assert test="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:FenestrationSystems/auc:FenestrationSystem[auc:FenestrationType/auc:Window]" role="ERROR">/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:FenestrationSystems/auc:FenestrationSystem[auc:FenestrationType/auc:Window]</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="ASHRAE 211 6.2.1.2 (c)" id="fenestration_windows">
+    <sch:title>Fenestration Windows</sch:title>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:FenestrationSystems/auc:FenestrationSystem[auc:FenestrationType/auc:Window]">
+      <sch:assert test="auc:FenestrationFrameMaterial" role="">auc:FenestrationFrameMaterial</sch:assert>
+      <sch:assert test="auc:GlassType" role="">auc:GlassType</sch:assert>
+      <sch:assert test="auc:FenestrationGlassLayers" role="">auc:FenestrationGlassLayers</sch:assert>
+      <sch:assert test="auc:FenestrationRValue or auc:FenestrationUFactor" role="">auc:FenestrationRValue or auc:FenestrationUFactor</sch:assert>
+      <sch:assert test="auc:SolarHeatGainCoefficient" role="WARNING">auc:SolarHeatGainCoefficient</sch:assert>
+      <sch:assert test="auc:VisibleTransmittance" role="WARNING">auc:VisibleTransmittance</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="" id="document_structure_prerequisites_fenestration_doors">
+    <sch:title>Document Structure Prerequisites Fenestration Doors</sch:title>
+    <sch:rule context="/">
+      <sch:assert test="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:FenestrationSystems/auc:FenestrationSystem[auc:FenestrationType/auc:Door]" role="ERROR">/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:FenestrationSystems/auc:FenestrationSystem[auc:FenestrationType/auc:Door]</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="ASHRAE 211 6.2.1.2 (c)" id="fenestration_doors">
+    <sch:title>Fenestration Doors</sch:title>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:FenestrationSystems/auc:FenestrationSystem[auc:FenestrationType/auc:Door]">
+      <sch:assert test="auc:FenestrationType/auc:Door/auc:ExteriorDoorType" role="">auc:FenestrationType/auc:Door/auc:ExteriorDoorType</sch:assert>
+      <sch:assert test="auc:FenestrationFrameMaterial" role="">auc:FenestrationFrameMaterial</sch:assert>
+      <sch:assert test="auc:FenestrationRValue or auc:FenestrationUFactor" role="">auc:FenestrationRValue or auc:FenestrationUFactor</sch:assert>
+      <sch:assert test="auc:FenestrationType/auc:Door/auc:DoorGlazedAreaFraction" role="">auc:FenestrationType/auc:Door/auc:DoorGlazedAreaFraction</sch:assert>
     </sch:rule>
   </sch:pattern>
 </sch:schema>

@@ -23,9 +23,9 @@ sides_by_footprint = {
 }
 
 
-def _sides_factory(footprint_shape, wall_id='Wall-A'):
+def _sides_factory(footprint_shape, wall_id='Wall-A', window_id='Window-A', door_id='Door-A'):
     """
-    Returns an auc:Sides element containing valid auc:Sides all pointing to the same auc:WallSystem ID
+    Returns an auc:Sides element containing valid auc:Sides all pointing to the same wall, windows, and doors ID
     """
 
     side_names = sides_by_footprint.get(footprint_shape)
@@ -41,9 +41,18 @@ def _sides_factory(footprint_shape, wall_id='Wall-A'):
 
         wall_ids_elem = etree.SubElement(side_elem, qname('WallIDs'), nsmap=BSYNC_NSMAP)
         wall_id_elem = etree.SubElement(wall_ids_elem, qname('WallID'), nsmap=BSYNC_NSMAP, IDref=wall_id)
-
         wall_area_elem = etree.SubElement(wall_id_elem, qname('WallArea'), nsmap=BSYNC_NSMAP)
         wall_area_elem.text = '123'
+
+        window_ids_elem = etree.SubElement(side_elem, qname('WindowIDs'), nsmap=BSYNC_NSMAP)
+        window_id_elem = etree.SubElement(window_ids_elem, qname('WindowID'), nsmap=BSYNC_NSMAP, IDref=window_id)
+        window_area_elem = etree.SubElement(window_id_elem, qname('FenestrationArea'), nsmap=BSYNC_NSMAP)
+        window_area_elem.text = '123'
+
+        door_ids_elem = etree.SubElement(side_elem, qname('DoorIDs'), nsmap=BSYNC_NSMAP)
+        door_id_elem = etree.SubElement(door_ids_elem, qname('DoorID'), nsmap=BSYNC_NSMAP, IDref=door_id)
+        door_area_elem = etree.SubElement(door_id_elem, qname('FenestrationArea'), nsmap=BSYNC_NSMAP)
+        door_area_elem.text = '123'
 
     return sides_elem
 
@@ -135,3 +144,18 @@ class TestL200Audit(AssertFailureRolesMixin):
         self.assert_failure_messages(failures, {
             'ERROR': [f'Incorrect number of auc:Side elements for footprint shape "{footprint_shape}" (found {expected_sides - 1})']
         })
+
+    def test_all_fenestration_tests_are_run(self):
+        # -- Setup
+        tree = exemplary_tree('L200_Audit', 'v2.2.0')
+
+        # -- Act
+        failures = validate_schematron(
+            self.schematron,
+            tree,
+            phase='building_envelope_-_fenestration',
+            # using strict here requires that all rule contexts are fired (ie none can be skipped)
+            strict_context=True)
+
+        # -- Assert
+        self.assert_failure_messages(failures, {})

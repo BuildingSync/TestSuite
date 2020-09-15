@@ -5,7 +5,7 @@
   for a Level 2 audit.
 -->
 <auc:BuildingSync xmlns:auc="http://buildingsync.net/schemas/bedes-auc/2019"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://buildingsync.net/schemas/bedes-auc/2019 https://raw.githubusercontent.com/BuildingSync/schema/develop/BuildingSync.xsd" version="2.2.0">
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://buildingsync.net/schemas/bedes-auc/2019 https://raw.githubusercontent.com/BuildingSync/schema/develop/BuildingSync.xsd" version="2.2.0-pr1">
   <auc:Facilities>
     <auc:Facility ID="Facility-A">
       <auc:Sites>
@@ -150,7 +150,7 @@
                   </auc:FloorAreas>
                 </auc:Section>
 
-                <auc:Section>
+                <auc:Section ID="Section-Whole-building">
                   <auc:SectionType>Whole building</auc:SectionType>
                   <auc:FootprintShape>Rectangular</auc:FootprintShape>
                   <auc:Sides>
@@ -161,6 +161,16 @@
                           <auc:WallArea>123</auc:WallArea>
                         </auc:WallID>
                       </auc:WallIDs>
+                      <auc:WindowIDs>
+                        <auc:WindowID IDref="Window-A">
+                          <auc:FenestrationArea>123</auc:FenestrationArea>
+                        </auc:WindowID>
+                      </auc:WindowIDs>
+                      <auc:DoorIDs>
+                        <auc:DoorID IDref="Door-A">
+                          <auc:FenestrationArea>123</auc:FenestrationArea>
+                        </auc:DoorID>
+                      </auc:DoorIDs>
                     </auc:Side>
                     <auc:Side>
                       <auc:SideNumber>B1</auc:SideNumber>
@@ -169,6 +179,16 @@
                           <auc:WallArea>123</auc:WallArea>
                         </auc:WallID>
                       </auc:WallIDs>
+                      <auc:WindowIDs>
+                        <auc:WindowID IDref="Window-A">
+                          <auc:FenestrationArea>123</auc:FenestrationArea>
+                        </auc:WindowID>
+                      </auc:WindowIDs>
+                      <auc:DoorIDs>
+                        <auc:DoorID IDref="Door-A">
+                          <auc:FenestrationArea>123</auc:FenestrationArea>
+                        </auc:DoorID>
+                      </auc:DoorIDs>
                     </auc:Side>
                     <auc:Side>
                       <auc:SideNumber>C1</auc:SideNumber>
@@ -177,6 +197,16 @@
                           <auc:WallArea>123</auc:WallArea>
                         </auc:WallID>
                       </auc:WallIDs>
+                      <auc:WindowIDs>
+                        <auc:WindowID IDref="Window-A">
+                          <auc:FenestrationArea>123</auc:FenestrationArea>
+                        </auc:WindowID>
+                      </auc:WindowIDs>
+                      <auc:DoorIDs>
+                        <auc:DoorID IDref="Door-A">
+                          <auc:FenestrationArea>123</auc:FenestrationArea>
+                        </auc:DoorID>
+                      </auc:DoorIDs>
                     </auc:Side>
                     <auc:Side>
                       <auc:SideNumber>D1</auc:SideNumber>
@@ -185,6 +215,16 @@
                           <auc:WallArea>123</auc:WallArea>
                         </auc:WallID>
                       </auc:WallIDs>
+                      <auc:WindowIDs>
+                        <auc:WindowID IDref="Window-A">
+                          <auc:FenestrationArea>123</auc:FenestrationArea>
+                        </auc:WindowID>
+                      </auc:WindowIDs>
+                      <auc:DoorIDs>
+                        <auc:DoorID IDref="Door-A">
+                          <auc:FenestrationArea>123</auc:FenestrationArea>
+                        </auc:DoorID>
+                      </auc:DoorIDs>
                     </auc:Side>
                   </auc:Sides>
                   <auc:Roofs>
@@ -248,6 +288,30 @@
             <auc:RoofRValue>1</auc:RoofRValue>
           </auc:RoofSystem>
         </auc:RoofSystems>
+
+        <auc:FenestrationSystems>
+          <auc:FenestrationSystem ID="Window-A">
+            <auc:FenestrationType>
+              <auc:Window></auc:Window>
+            </auc:FenestrationType>
+            <auc:FenestrationFrameMaterial>Steel</auc:FenestrationFrameMaterial>
+            <auc:GlassType>Low e</auc:GlassType>
+            <auc:FenestrationGlassLayers>Single pane</auc:FenestrationGlassLayers>
+            <auc:FenestrationRValue>0.5</auc:FenestrationRValue>
+            <auc:SolarHeatGainCoefficient>0.5</auc:SolarHeatGainCoefficient>
+            <auc:VisibleTransmittance>0.5</auc:VisibleTransmittance>
+          </auc:FenestrationSystem>
+          <auc:FenestrationSystem ID="Door-A">
+            <auc:FenestrationType>
+              <auc:Door>
+                <auc:ExteriorDoorType>Insulated metal</auc:ExteriorDoorType>
+                <auc:DoorGlazedAreaFraction>0.5</auc:DoorGlazedAreaFraction>
+              </auc:Door>
+            </auc:FenestrationType>
+            <auc:FenestrationFrameMaterial>Steel</auc:FenestrationFrameMaterial>
+            <auc:FenestrationRValue>0.5</auc:FenestrationRValue>
+          </auc:FenestrationSystem>
+        </auc:FenestrationSystems>
 
         <auc:PlugLoads>
           <!-- 6.1.1.1.g/5.3.4.e (for every space function) -->
@@ -517,7 +581,7 @@
                     --------------
                     Notes on any irregularities in meter readings
                   </auc:ResourceUseNotes>
-                  <auc:ResourceUnits>MMbtu</auc:ResourceUnits>
+                  <auc:ResourceUnits>MMBtu</auc:ResourceUnits>
                   <auc:EndUse>All end uses</auc:EndUse>
                   <auc:AnnualFuelUseNativeUnits>0.22</auc:AnnualFuelUseNativeUnits>
                   <auc:AnnualFuelUseConsistentUnits>0.22</auc:AnnualFuelUseConsistentUnits>
