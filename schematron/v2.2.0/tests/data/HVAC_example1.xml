@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<auc:BuildingSync xmlns:auc="http://buildingsync.net/schemas/bedes-auc/2019" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://buildingsync.net/schemas/bedes-auc/2019 https://raw.githubusercontent.com/BuildingSync/schema/develop/BuildingSync.xsd" version="2.1.0">
+  <auc:Facilities>
+    <auc:Facility ID="Facility-A">
+        <auc:Systems>
+            <auc:HVACSystems>
+                <auc:HVACSystem ID="HVAC-A">
+                    <auc:Plants>
+                        <auc:HeatingPlants>
+                            <auc:HeatingPlant ID="HeatingPlant-A">
+                                <auc:YearInstalled>2020</auc:YearInstalled>
+                            </auc:HeatingPlant>
+                        </auc:HeatingPlants>
+                        <auc:CoolingPlants>
+                            <auc:CoolingPlant ID="CoolingPlant-A">
+                                <auc:YearInstalled>2020</auc:YearInstalled>
+                            </auc:CoolingPlant>
+                        </auc:CoolingPlants>
+                        <auc:CondenserPlants>
+                            <auc:CondenserPlant ID="CondenserPlant-A">
+                                <auc:YearInstalled>2020</auc:YearInstalled>
+                            </auc:CondenserPlant>
+                        </auc:CondenserPlants>
+                    </auc:Plants>
+                    <auc:HeatingAndCoolingSystems>
+                        <auc:HeatingSources>
+                            <auc:HeatingSource ID="HeatingSource-A">
+                                <auc:YearInstalled>2020</auc:YearInstalled>
+                            </auc:HeatingSource>
+                        </auc:HeatingSources>
+                        <auc:CoolingSources>
+                            <auc:CoolingSource ID="CoolingSource-A">
+                                <auc:YearInstalled>2020</auc:YearInstalled>
+                            </auc:CoolingSource>
+                        </auc:CoolingSources>
+                        <auc:Deliveries>
+                            <auc:Delivery ID="Delivery-A">
+                                <auc:YearInstalled>2020</auc:YearInstalled>
+                            </auc:Delivery>
+                        </auc:Deliveries>
+                    </auc:HeatingAndCoolingSystems>
+                </auc:HVACSystem>
+            </auc:HVACSystems>
+        </auc:Systems>
+    </auc:Facility>
+  </auc:Facilities>
+</auc:BuildingSync>

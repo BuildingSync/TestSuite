@@ -296,3 +296,29 @@ class TestL200Audit(AssertFailureRolesMixin):
         self.assert_failure_messages(failures, {
             'WARNING': ['auc:FoundationWallRValue or auc:FoundationWallUFactor']
         })
+
+
+class TestL200AuditHvacSystems(AssertFailureRolesMixin):
+    schematron = os.path.join(v2_2_0_SCH_DIR, 'v2-2-0_L200_Audit.sch')
+    example_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'data', 'HVAC_example1.xml')
+
+    @pytest.mark.parametrize("xpath_to_remove", [
+        '//auc:CoolingPlant/auc:YearInstalled',
+        '//auc:HeatingPlant/auc:YearInstalled',
+        '//auc:CondenserPlant/auc:YearInstalled',
+        '//auc:HeatingAndCoolingSystems/auc:Deliveries/auc:Delivery/auc:YearInstalled',
+        '//auc:HeatingAndCoolingSystems/auc:CoolingSources/auc:CoolingSource[not(auc:CoolingSourceType/auc:CoolingPlantID)]/auc:YearInstalled',
+        '//auc:HeatingAndCoolingSystems/auc:HeatingSources/auc:HeatingSource[not(auc:HeatingSourceType/auc:HeatingPlantID)]/auc:YearInstalled',
+    ])
+    def test_is_invalid_when_missing_year_installed(self, xpath_to_remove):
+        # -- Setup
+        tree = etree.parse(self.example_file)
+        remove_element(tree, xpath_to_remove)
+
+        # -- Act
+        failures = validate_schematron(self.schematron, tree, phase='hvac_year_installed')
+
+        # -- Assert
+        self.assert_failure_messages(failures, {
+            'ERROR': ['auc:YearInstalled']
+        })

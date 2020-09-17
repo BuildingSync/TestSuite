@@ -45,6 +45,9 @@
     <sch:active pattern="document_structure_prerequisites_water_infiltration"/>
     <sch:active pattern="water_infiltration"/>
   </sch:phase>
+  <sch:phase id="hvac_year_installed" see="ASHRAE 211 6.2.1.3">
+    <sch:active pattern="year_installed"/>
+  </sch:phase>
   <sch:pattern see="" id="document_structure_prerequisites_misc_building_info">
     <sch:title>Document Structure Prerequisites Misc Building Info</sch:title>
     <sch:rule context="/">
@@ -393,6 +396,27 @@
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:WaterInfiltrationSystems/auc:WaterInfiltrationSystem">
       <sch:assert test="auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = //auc:Sections/auc:Section[auc:SectionType = 'Whole building']/@ID]" role="">auc:WaterInfiltrationSystem must be linked to auc:Section[auc:SectionType = 'Whole building']</sch:assert>
       <sch:assert test="auc:WaterInfiltrationNotes" role="">auc:WaterInfiltrationNotes</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="ASHRAE 211 6.2.1.3 (a)" id="year_installed">
+    <sch:title>Year Installed</sch:title>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:Plants/auc:HeatingPlants/auc:HeatingPlant">
+      <sch:assert test="auc:YearInstalled" role="">auc:YearInstalled</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:Plants/auc:CoolingPlants/auc:CoolingPlant">
+      <sch:assert test="auc:YearInstalled" role="">auc:YearInstalled</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:Plants/auc:CondenserPlants/auc:CondenserPlant">
+      <sch:assert test="auc:YearInstalled" role="">auc:YearInstalled</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:HeatingAndCoolingSystems/auc:Deliveries/auc:Delivery">
+      <sch:assert test="auc:YearInstalled" role="">auc:YearInstalled</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:HeatingAndCoolingSystems/auc:CoolingSources/auc:CoolingSource[not(auc:CoolingSourceType/auc:CoolingPlantID)]">
+      <sch:assert test="auc:YearInstalled" role="">auc:YearInstalled</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:HeatingAndCoolingSystems/auc:HeatingSources/auc:HeatingSource[not(auc:HeatingSourceType/auc:HeatingPlantID)]">
+      <sch:assert test="auc:YearInstalled" role="">auc:YearInstalled</sch:assert>
     </sch:rule>
   </sch:pattern>
 </sch:schema>
