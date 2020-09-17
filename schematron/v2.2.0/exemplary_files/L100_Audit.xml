@@ -296,7 +296,7 @@
                     --------------
                     Notes on any irregularities in meter readings
                   </auc:ResourceUseNotes>
-                  <auc:ResourceUnits>MMbtu</auc:ResourceUnits>
+                  <auc:ResourceUnits>MMBtu</auc:ResourceUnits>
                   <auc:EndUse>All end uses</auc:EndUse>
                   <auc:AnnualFuelUseNativeUnits>0.22</auc:AnnualFuelUseNativeUnits>
                   <auc:AnnualFuelUseConsistentUnits>0.22</auc:AnnualFuelUseConsistentUnits>
