@@ -303,9 +303,9 @@ class TestL200AuditHvacSystems(AssertFailureRolesMixin):
     example_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'data', 'HVAC_example1.xml')
 
     @pytest.mark.parametrize("xpath_to_remove", [
-        '//auc:CoolingPlant/auc:YearInstalled',
+        '//auc:CoolingPlant[1]/auc:YearInstalled',
         '//auc:HeatingPlant[1]/auc:YearInstalled',
-        '//auc:CondenserPlant/auc:YearInstalled',
+        '//auc:CondenserPlant[1]/auc:YearInstalled',
         '//auc:HeatingAndCoolingSystems/auc:Deliveries/auc:Delivery/auc:YearInstalled',
         '//auc:HeatingAndCoolingSystems/auc:CoolingSources/auc:CoolingSource[not(auc:CoolingSourceType/auc:CoolingPlantID)]/auc:YearInstalled',
         '//auc:HeatingAndCoolingSystems/auc:HeatingSources/auc:HeatingSource[not(auc:HeatingSourceType/auc:HeatingPlantID)]/auc:YearInstalled',
@@ -325,6 +325,7 @@ class TestL200AuditHvacSystems(AssertFailureRolesMixin):
 
     @pytest.mark.parametrize("xpath_to_remove, expected_message", [
         ('//auc:CoolingPlant/auc:DistrictChilledWater/auc:Capacity', 'auc:Capacity'),
+        ('//auc:CoolingPlant/auc:Chiller/auc:Capacity', 'auc:Capacity'),
         ('//auc:HeatingPlant/auc:Boiler/auc:InputCapacity', 'auc:InputCapacity'),
         ('//auc:HeatingPlant/auc:DistrictHeating/auc:OutputCapacity', 'auc:OutputCapacity'),
         ('//auc:HeatingPlant/auc:SolarThermal/auc:OutputCapacity', 'auc:OutputCapacity'),
@@ -346,9 +347,9 @@ class TestL200AuditHvacSystems(AssertFailureRolesMixin):
         })
 
     @pytest.mark.parametrize("xpath_to_remove, expected_message", [
-        ('//auc:CoolingPlant/auc:CoolingPlantCondition', 'auc:CoolingPlantCondition'),
+        ('//auc:CoolingPlant[1]/auc:CoolingPlantCondition', 'auc:CoolingPlantCondition'),
         ('//auc:HeatingPlant[1]/auc:HeatingPlantCondition', 'auc:HeatingPlantCondition'),
-        ('//auc:CondenserPlants/auc:CondenserPlant/auc:CondenserPlantCondition', 'auc:CondenserPlantCondition'),
+        ('//auc:CondenserPlants/auc:CondenserPlant[1]/auc:CondenserPlantCondition', 'auc:CondenserPlantCondition'),
         ('//auc:HeatingAndCoolingSystems/auc:Deliveries/auc:Delivery/auc:DeliveryCondition', 'auc:DeliveryCondition'),
         ('//auc:HeatingAndCoolingSystems/auc:CoolingSources/auc:CoolingSource[not(auc:CoolingSourceType/auc:CoolingPlantID)]/auc:CoolingSourceCondition', 'auc:CoolingSourceCondition'),
         ('//auc:HeatingAndCoolingSystems/auc:HeatingSources/auc:HeatingSource[not(auc:HeatingSourceType/auc:HeatingPlantID)]/auc:HeatingSourceCondition', 'auc:HeatingSourceCondition'),
@@ -360,6 +361,29 @@ class TestL200AuditHvacSystems(AssertFailureRolesMixin):
 
         # -- Act
         failures = validate_schematron(self.schematron, tree, phase='hvac_condition')
+
+        # -- Assert
+        self.assert_failure_messages(failures, {
+            'ERROR': [expected_message]
+        })
+
+    @pytest.mark.parametrize("xpath_to_remove, expected_message", [
+        ('//auc:HeatingPlant/auc:Boiler/auc:BoilerType', 'auc:BoilerType'),
+        ('//auc:HeatingPlant/auc:DistrictHeating/auc:DistrictHeatingType', 'auc:DistrictHeatingType'),
+        ('//auc:HeatingPlant/auc:SolarThermal/auc:AnnualHeatingEfficiencyValue', 'auc:AnnualHeatingEfficiencyValue'),
+        ('//auc:CoolingPlant/auc:DistrictChilledWater/auc:AnnualCoolingEfficiencyValue', 'auc:AnnualCoolingEfficiencyValue'),
+        ('//auc:CoolingPlant/auc:Chiller/auc:ChillerType', 'auc:ChillerType'),
+        ('//auc:CondenserPlant/auc:WaterCooled/auc:WaterCooledCondenserType', 'auc:WaterCooledCondenserType'),
+        ('//auc:CondenserPlant/auc:AirCooled/auc:CondenserFanSpeedOperation', 'auc:CondenserFanSpeedOperation'),
+        ('//auc:CondenserPlant/auc:GroundSource/auc:GroundSourceType', 'auc:GroundSourceType'),
+    ])
+    def test_is_invalid_when_plant_is_missing_required_info(self, xpath_to_remove, expected_message):
+        # -- Setup
+        tree = etree.parse(self.example_file)
+        remove_element(tree, xpath_to_remove)
+
+        # -- Act
+        failures = validate_schematron(self.schematron, tree, phase='hvac_central_plant')
 
         # -- Assert
         self.assert_failure_messages(failures, {

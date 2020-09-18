@@ -48,11 +48,14 @@
   <sch:phase id="hvac_year_installed" see="ASHRAE 211 6.2.1.3 (a)">
     <sch:active pattern="year_installed"/>
   </sch:phase>
-  <sch:phase id="hvac_design_capacity" see="ASHRAE 211 6.2.1.3 (b)">
+  <sch:phase id="hvac_design_capacity" see="ASHRAE 211 6.2.1.3 (a)">
     <sch:active pattern="design_capacity"/>
   </sch:phase>
-  <sch:phase id="hvac_condition" see="ASHRAE 211 6.2.1.3 (c)">
+  <sch:phase id="hvac_condition" see="ASHRAE 211 6.2.1.3 (a)">
     <sch:active pattern="condition"/>
+  </sch:phase>
+  <sch:phase id="hvac_central_plant" see="ASHRAE 211 6.2.1.3 (b)">
+    <sch:active pattern="heating_plants"/>
   </sch:phase>
   <sch:pattern see="" id="document_structure_prerequisites_misc_building_info">
     <sch:title>Document Structure Prerequisites Misc Building Info</sch:title>
@@ -431,6 +434,10 @@
       <sch:assert test="auc:Capacity" role="">auc:Capacity</sch:assert>
       <sch:assert test="auc:CapacityUnits" role="">auc:CapacityUnits</sch:assert>
     </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:Plants/auc:CoolingPlants/auc:CoolingPlant/auc:Chiller">
+      <sch:assert test="auc:Capacity" role="">auc:Capacity</sch:assert>
+      <sch:assert test="auc:CapacityUnits" role="">auc:CapacityUnits</sch:assert>
+    </sch:rule>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:Plants/auc:HeatingPlants/auc:HeatingPlant/auc:Boiler">
       <sch:assert test="auc:InputCapacity" role="">auc:InputCapacity</sch:assert>
       <sch:assert test="auc:OutputCapacity" role="">auc:OutputCapacity</sch:assert>
@@ -458,7 +465,7 @@
       <sch:assert test="auc:CapacityUnits" role="">auc:CapacityUnits</sch:assert>
     </sch:rule>
   </sch:pattern>
-  <sch:pattern see="ASHRAE 211 6.2.1.3 (c)" id="condition">
+  <sch:pattern see="ASHRAE 211 6.2.1.3 (a)" id="condition">
     <sch:title>Condition</sch:title>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:Plants/auc:HeatingPlants/auc:HeatingPlant">
       <sch:assert test="auc:HeatingPlantCondition" role="">auc:HeatingPlantCondition</sch:assert>
@@ -477,6 +484,62 @@
     </sch:rule>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:HeatingAndCoolingSystems/auc:HeatingSources/auc:HeatingSource[not(auc:HeatingSourceType/auc:HeatingPlantID)]">
       <sch:assert test="auc:HeatingSourceCondition" role="">auc:HeatingSourceCondition</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="ASHRAE 211 6.2.1.3 (b)" id="heating_plants">
+    <sch:title>Heating Plants</sch:title>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:Plants/auc:HeatingPlants/auc:HeatingPlant/auc:Boiler">
+      <sch:assert test="auc:BoilerType" role="">auc:BoilerType</sch:assert>
+      <sch:assert test="auc:CondensingOperation" role="">auc:CondensingOperation</sch:assert>
+      <sch:assert test="auc:HeatingStaging" role="">auc:HeatingStaging</sch:assert>
+      <sch:assert test="auc:AnnualHeatingEfficiencyValue" role="">auc:AnnualHeatingEfficiencyValue</sch:assert>
+      <sch:assert test="auc:AnnualHeatingEfficiencyUnits" role="">auc:AnnualHeatingEfficiencyUnits</sch:assert>
+      <sch:assert test="auc:ThermalEfficiency" role="">auc:ThermalEfficiency</sch:assert>
+      <sch:assert test="auc:CombustionEfficiency" role="">auc:CombustionEfficiency</sch:assert>
+      <sch:assert test="auc:Quantity" role="">auc:Quantity</sch:assert>
+      <sch:assert test="../auc:PrimaryFuel" role="">../auc:PrimaryFuel</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:Plants/auc:HeatingPlants/auc:HeatingPlant/auc:DistrictHeating">
+      <sch:assert test="auc:DistrictHeatingType" role="">auc:DistrictHeatingType</sch:assert>
+      <sch:assert test="auc:AnnualHeatingEfficiencyValue" role="">auc:AnnualHeatingEfficiencyValue</sch:assert>
+      <sch:assert test="auc:AnnualHeatingEfficiencyUnits" role="">auc:AnnualHeatingEfficiencyUnits</sch:assert>
+      <sch:assert test="auc:Quantity" role="">auc:Quantity</sch:assert>
+      <sch:assert test="../auc:PrimaryFuel" role="WARNING">../auc:PrimaryFuel</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:Plants/auc:HeatingPlants/auc:HeatingPlant/auc:SolarThermal">
+      <sch:assert test="auc:AnnualHeatingEfficiencyValue" role="">auc:AnnualHeatingEfficiencyValue</sch:assert>
+      <sch:assert test="auc:AnnualHeatingEfficiencyUnits" role="">auc:AnnualHeatingEfficiencyUnits</sch:assert>
+      <sch:assert test="auc:Quantity" role="">auc:Quantity</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:Plants/auc:CoolingPlants/auc:CoolingPlant/auc:Chiller">
+      <sch:assert test="auc:ChillerType" role="">auc:ChillerType</sch:assert>
+      <sch:assert test="auc:ChillerCompressorType" role="">auc:ChillerCompressorType</sch:assert>
+      <sch:assert test="auc:CompressorStaging" role="">auc:CompressorStaging</sch:assert>
+      <sch:assert test="auc:CompressorStaging/text() != 'Multiple discrete stages' or auc:NumberOfDiscreteCoolingStages" role="">auc:CompressorStaging/text() != 'Multiple discrete stages' or auc:NumberOfDiscreteCoolingStages</sch:assert>
+      <sch:assert test="auc:CoolingStageCapacity" role="WARNING">auc:CoolingStageCapacity</sch:assert>
+      <sch:assert test="auc:ChillerType/text() != 'Absorption' or auc:AbsorptionHeatSource" role="">auc:ChillerType/text() != 'Absorption' or auc:AbsorptionHeatSource</sch:assert>
+      <sch:assert test="auc:ChillerType/text() != 'Absorption' or auc:AbsorptionStages" role="">auc:ChillerType/text() != 'Absorption' or auc:AbsorptionStages</sch:assert>
+      <sch:assert test="auc:AnnualCoolingEfficiencyValue" role="">auc:AnnualCoolingEfficiencyValue</sch:assert>
+      <sch:assert test="auc:AnnualCoolingEfficiencyUnits" role="">auc:AnnualCoolingEfficiencyUnits</sch:assert>
+      <sch:assert test="auc:Quantity" role="">auc:Quantity</sch:assert>
+      <sch:assert test="../auc:PrimaryFuel" role="">../auc:PrimaryFuel</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:Plants/auc:CoolingPlants/auc:CoolingPlant/auc:DistrictChilledWater">
+      <sch:assert test="auc:AnnualCoolingEfficiencyValue" role="">auc:AnnualCoolingEfficiencyValue</sch:assert>
+      <sch:assert test="auc:AnnualCoolingEfficiencyUnits" role="">auc:AnnualCoolingEfficiencyUnits</sch:assert>
+      <sch:assert test="../auc:PrimaryFuel" role="WARNING">../auc:PrimaryFuel</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:Plants/auc:CondenserPlants/auc:CondenserPlant/auc:WaterCooled">
+      <sch:assert test="auc:WaterCooledCondenserType" role="">auc:WaterCooledCondenserType</sch:assert>
+      <sch:assert test="../auc:PrimaryFuel" role="">../auc:PrimaryFuel</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:Plants/auc:CondenserPlants/auc:CondenserPlant/auc:AirCooled">
+      <sch:assert test="auc:CondenserFanSpeedOperation" role="">auc:CondenserFanSpeedOperation</sch:assert>
+      <sch:assert test="../auc:PrimaryFuel" role="">../auc:PrimaryFuel</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:Plants/auc:CondenserPlants/auc:CondenserPlant/auc:GroundSource">
+      <sch:assert test="auc:GroundSourceType" role="">auc:GroundSourceType</sch:assert>
+      <sch:assert test="auc:WellCount" role="WARNING">auc:WellCount</sch:assert>
     </sch:rule>
   </sch:pattern>
 </sch:schema>

@@ -9,25 +9,42 @@
                         <auc:HeatingPlants>
                             <auc:HeatingPlant ID="HeatingPlant-A">
                                 <auc:Boiler>
+                                    <auc:BoilerType>Steam</auc:BoilerType>
+                                    <auc:CondensingOperation>Condensing</auc:CondensingOperation>
+                                    <auc:HeatingStaging>Single stage</auc:HeatingStaging>
                                     <auc:InputCapacity>123</auc:InputCapacity>
                                     <auc:OutputCapacity>123</auc:OutputCapacity>
                                     <auc:CapacityUnits>gpm</auc:CapacityUnits>
+                                    <auc:AnnualHeatingEfficiencyValue>123</auc:AnnualHeatingEfficiencyValue>
+                                    <auc:AnnualHeatingEfficiencyUnits>COP</auc:AnnualHeatingEfficiencyUnits>
+                                    <auc:CombustionEfficiency>123</auc:CombustionEfficiency>
+                                    <auc:ThermalEfficiency>123</auc:ThermalEfficiency>
+                                    <auc:Quantity>1</auc:Quantity>
                                 </auc:Boiler>
                                 <auc:HeatingPlantCondition>Good</auc:HeatingPlantCondition>
                                 <auc:YearInstalled>2020</auc:YearInstalled>
+                                <auc:PrimaryFuel>Electricity</auc:PrimaryFuel>
                             </auc:HeatingPlant>
                             <auc:HeatingPlant ID="HeatingPlant-B">
                                 <auc:DistrictHeating>
+                                    <auc:DistrictHeatingType>Hot water</auc:DistrictHeatingType>
                                     <auc:OutputCapacity>123</auc:OutputCapacity>
                                     <auc:CapacityUnits>gpm</auc:CapacityUnits>
+                                    <auc:AnnualHeatingEfficiencyValue>123</auc:AnnualHeatingEfficiencyValue>
+                                    <auc:AnnualHeatingEfficiencyUnits>COP</auc:AnnualHeatingEfficiencyUnits>
+                                    <auc:Quantity>1</auc:Quantity>
                                 </auc:DistrictHeating>
                                 <auc:HeatingPlantCondition>Good</auc:HeatingPlantCondition>
                                 <auc:YearInstalled>2020</auc:YearInstalled>
+                                <auc:PrimaryFuel>Electricity</auc:PrimaryFuel>
                             </auc:HeatingPlant>
                             <auc:HeatingPlant ID="HeatingPlant-C">
                                 <auc:SolarThermal>
                                     <auc:OutputCapacity>123</auc:OutputCapacity>
                                     <auc:CapacityUnits>gpm</auc:CapacityUnits>
+                                    <auc:AnnualHeatingEfficiencyValue>123</auc:AnnualHeatingEfficiencyValue>
+                                    <auc:AnnualHeatingEfficiencyUnits>COP</auc:AnnualHeatingEfficiencyUnits>
+                                    <auc:Quantity>1</auc:Quantity>
                                 </auc:SolarThermal>
                                 <auc:HeatingPlantCondition>Good</auc:HeatingPlantCondition>
                                 <auc:YearInstalled>2020</auc:YearInstalled>
@@ -36,17 +53,60 @@
                         <auc:CoolingPlants>
                             <auc:CoolingPlant ID="CoolingPlant-A">
                                 <auc:DistrictChilledWater>
+                                    <auc:AnnualCoolingEfficiencyValue>123</auc:AnnualCoolingEfficiencyValue>
+                                    <auc:AnnualCoolingEfficiencyUnits>COP</auc:AnnualCoolingEfficiencyUnits>
                                     <auc:Capacity>123</auc:Capacity>
                                     <auc:CapacityUnits>gpm</auc:CapacityUnits>
                                 </auc:DistrictChilledWater>
                                 <auc:CoolingPlantCondition>Good</auc:CoolingPlantCondition>
                                 <auc:YearInstalled>2020</auc:YearInstalled>
+                                <auc:PrimaryFuel>Other</auc:PrimaryFuel>
+                            </auc:CoolingPlant>
+                            <auc:CoolingPlant ID="CoolingPlant-B">
+                                <auc:Chiller>
+                                    <auc:ChillerType>Absorption</auc:ChillerType>
+                                    <auc:ChillerCompressorType>Reciprocating</auc:ChillerCompressorType>
+                                    <auc:CompressorStaging>Multiple discrete stages</auc:CompressorStaging>
+                                    <auc:NumberOfDiscreteCoolingStages>2</auc:NumberOfDiscreteCoolingStages>
+                                    <auc:CoolingStageCapacity>123</auc:CoolingStageCapacity>
+                                    <auc:AbsorptionHeatSource>Other</auc:AbsorptionHeatSource>
+                                    <auc:AbsorptionStages>Single effect</auc:AbsorptionStages>
+                                    <auc:AnnualCoolingEfficiencyValue>123</auc:AnnualCoolingEfficiencyValue>
+                                    <auc:AnnualCoolingEfficiencyUnits>COP</auc:AnnualCoolingEfficiencyUnits>
+                                    <auc:Capacity>123</auc:Capacity>
+                                    <auc:CapacityUnits>gpm</auc:CapacityUnits>
+                                    <auc:Quantity>1</auc:Quantity>
+                                </auc:Chiller>
+                                <auc:CoolingPlantCondition>Good</auc:CoolingPlantCondition>
+                                <auc:YearInstalled>2020</auc:YearInstalled>
+                                <auc:PrimaryFuel>Other</auc:PrimaryFuel>
                             </auc:CoolingPlant>
                         </auc:CoolingPlants>
                         <auc:CondenserPlants>
                             <auc:CondenserPlant ID="CondenserPlant-A">
+                                <auc:WaterCooled>
+                                    <auc:WaterCooledCondenserType>Cooling tower</auc:WaterCooledCondenserType>
+                                </auc:WaterCooled>
                                 <auc:CondenserPlantCondition>Good</auc:CondenserPlantCondition>
                                 <auc:YearInstalled>2020</auc:YearInstalled>
+                                <auc:PrimaryFuel>Electricity</auc:PrimaryFuel>
+                            </auc:CondenserPlant>
+                            <auc:CondenserPlant ID="CondenserPlant-B">
+                                <auc:AirCooled>
+                                    <auc:CondenserFanSpeedOperation>Stepped Speed</auc:CondenserFanSpeedOperation>
+                                </auc:AirCooled>
+                                <auc:CondenserPlantCondition>Good</auc:CondenserPlantCondition>
+                                <auc:YearInstalled>2020</auc:YearInstalled>
+                                <auc:PrimaryFuel>Electricity</auc:PrimaryFuel>
+                            </auc:CondenserPlant>
+                            <auc:CondenserPlant ID="CondenserPlant-C">
+                                <auc:GroundSource>
+                                    <auc:GroundSourceType>Open loop ground water</auc:GroundSourceType>
+                                    <auc:WellCount>1</auc:WellCount>
+                                </auc:GroundSource>
+                                <auc:CondenserPlantCondition>Good</auc:CondenserPlantCondition>
+                                <auc:YearInstalled>2020</auc:YearInstalled>
+                                <auc:PrimaryFuel>Electricity</auc:PrimaryFuel>
                             </auc:CondenserPlant>
                         </auc:CondenserPlants>
                     </auc:Plants>
