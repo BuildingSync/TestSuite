@@ -45,8 +45,14 @@
     <sch:active pattern="document_structure_prerequisites_water_infiltration"/>
     <sch:active pattern="water_infiltration"/>
   </sch:phase>
-  <sch:phase id="hvac_year_installed" see="ASHRAE 211 6.2.1.3">
+  <sch:phase id="hvac_year_installed" see="ASHRAE 211 6.2.1.3 (a)">
     <sch:active pattern="year_installed"/>
+  </sch:phase>
+  <sch:phase id="hvac_design_capacity" see="ASHRAE 211 6.2.1.3 (b)">
+    <sch:active pattern="design_capacity"/>
+  </sch:phase>
+  <sch:phase id="hvac_condition" see="ASHRAE 211 6.2.1.3 (c)">
+    <sch:active pattern="condition"/>
   </sch:phase>
   <sch:pattern see="" id="document_structure_prerequisites_misc_building_info">
     <sch:title>Document Structure Prerequisites Misc Building Info</sch:title>
@@ -417,6 +423,60 @@
     </sch:rule>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:HeatingAndCoolingSystems/auc:HeatingSources/auc:HeatingSource[not(auc:HeatingSourceType/auc:HeatingPlantID)]">
       <sch:assert test="auc:YearInstalled" role="">auc:YearInstalled</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="ASHRAE 211 6.2.1.3 (a)" id="design_capacity">
+    <sch:title>Design Capacity</sch:title>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:Plants/auc:CoolingPlants/auc:CoolingPlant/auc:DistrictChilledWater">
+      <sch:assert test="auc:Capacity" role="">auc:Capacity</sch:assert>
+      <sch:assert test="auc:CapacityUnits" role="">auc:CapacityUnits</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:Plants/auc:HeatingPlants/auc:HeatingPlant/auc:Boiler">
+      <sch:assert test="auc:InputCapacity" role="">auc:InputCapacity</sch:assert>
+      <sch:assert test="auc:OutputCapacity" role="">auc:OutputCapacity</sch:assert>
+      <sch:assert test="auc:CapacityUnits" role="">auc:CapacityUnits</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:Plants/auc:HeatingPlants/auc:HeatingPlant/auc:DistrictHeating">
+      <sch:assert test="auc:OutputCapacity" role="">auc:OutputCapacity</sch:assert>
+      <sch:assert test="auc:CapacityUnits" role="">auc:CapacityUnits</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:Plants/auc:HeatingPlants/auc:HeatingPlant/auc:SolarThermal">
+      <sch:assert test="auc:OutputCapacity" role="">auc:OutputCapacity</sch:assert>
+      <sch:assert test="auc:CapacityUnits" role="">auc:CapacityUnits</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:HeatingAndCoolingSystems/auc:Deliveries/auc:Delivery">
+      <sch:assert test="auc:Capacity" role="">auc:Capacity</sch:assert>
+      <sch:assert test="auc:CapacityUnits" role="">auc:CapacityUnits</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:HeatingAndCoolingSystems/auc:CoolingSources/auc:CoolingSource[not(auc:CoolingSourceType/auc:CoolingPlantID)]">
+      <sch:assert test="auc:Capacity" role="">auc:Capacity</sch:assert>
+      <sch:assert test="auc:CapacityUnits" role="">auc:CapacityUnits</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:HeatingAndCoolingSystems/auc:HeatingSources/auc:HeatingSource[not(auc:HeatingSourceType/auc:HeatingPlantID)]">
+      <sch:assert test="auc:InputCapacity" role="">auc:InputCapacity</sch:assert>
+      <sch:assert test="auc:OutputCapacity" role="">auc:OutputCapacity</sch:assert>
+      <sch:assert test="auc:CapacityUnits" role="">auc:CapacityUnits</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="ASHRAE 211 6.2.1.3 (c)" id="condition">
+    <sch:title>Condition</sch:title>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:Plants/auc:HeatingPlants/auc:HeatingPlant">
+      <sch:assert test="auc:HeatingPlantCondition" role="">auc:HeatingPlantCondition</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:Plants/auc:CoolingPlants/auc:CoolingPlant">
+      <sch:assert test="auc:CoolingPlantCondition" role="">auc:CoolingPlantCondition</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:Plants/auc:CondenserPlants/auc:CondenserPlant">
+      <sch:assert test="auc:CondenserPlantCondition" role="">auc:CondenserPlantCondition</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:HeatingAndCoolingSystems/auc:Deliveries/auc:Delivery">
+      <sch:assert test="auc:DeliveryCondition" role="">auc:DeliveryCondition</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:HeatingAndCoolingSystems/auc:CoolingSources/auc:CoolingSource[not(auc:CoolingSourceType/auc:CoolingPlantID)]">
+      <sch:assert test="auc:CoolingSourceCondition" role="">auc:CoolingSourceCondition</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:HeatingAndCoolingSystems/auc:HeatingSources/auc:HeatingSource[not(auc:HeatingSourceType/auc:HeatingPlantID)]">
+      <sch:assert test="auc:HeatingSourceCondition" role="">auc:HeatingSourceCondition</sch:assert>
     </sch:rule>
   </sch:pattern>
 </sch:schema>

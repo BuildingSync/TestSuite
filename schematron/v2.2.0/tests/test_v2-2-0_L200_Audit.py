@@ -304,7 +304,7 @@ class TestL200AuditHvacSystems(AssertFailureRolesMixin):
 
     @pytest.mark.parametrize("xpath_to_remove", [
         '//auc:CoolingPlant/auc:YearInstalled',
-        '//auc:HeatingPlant/auc:YearInstalled',
+        '//auc:HeatingPlant[1]/auc:YearInstalled',
         '//auc:CondenserPlant/auc:YearInstalled',
         '//auc:HeatingAndCoolingSystems/auc:Deliveries/auc:Delivery/auc:YearInstalled',
         '//auc:HeatingAndCoolingSystems/auc:CoolingSources/auc:CoolingSource[not(auc:CoolingSourceType/auc:CoolingPlantID)]/auc:YearInstalled',
@@ -321,4 +321,47 @@ class TestL200AuditHvacSystems(AssertFailureRolesMixin):
         # -- Assert
         self.assert_failure_messages(failures, {
             'ERROR': ['auc:YearInstalled']
+        })
+
+    @pytest.mark.parametrize("xpath_to_remove, expected_message", [
+        ('//auc:CoolingPlant/auc:DistrictChilledWater/auc:Capacity', 'auc:Capacity'),
+        ('//auc:HeatingPlant/auc:Boiler/auc:InputCapacity', 'auc:InputCapacity'),
+        ('//auc:HeatingPlant/auc:DistrictHeating/auc:OutputCapacity', 'auc:OutputCapacity'),
+        ('//auc:HeatingPlant/auc:SolarThermal/auc:OutputCapacity', 'auc:OutputCapacity'),
+        ('//auc:HeatingAndCoolingSystems/auc:Deliveries/auc:Delivery/auc:Capacity', 'auc:Capacity'),
+        ('//auc:HeatingAndCoolingSystems/auc:CoolingSources/auc:CoolingSource[not(auc:CoolingSourceType/auc:CoolingPlantID)]/auc:Capacity', 'auc:Capacity'),
+        ('//auc:HeatingAndCoolingSystems/auc:HeatingSources/auc:HeatingSource[not(auc:HeatingSourceType/auc:HeatingPlantID)]/auc:OutputCapacity', 'auc:OutputCapacity'),
+    ])
+    def test_is_invalid_when_missing_capacity(self, xpath_to_remove, expected_message):
+        # -- Setup
+        tree = etree.parse(self.example_file)
+        remove_element(tree, xpath_to_remove)
+
+        # -- Act
+        failures = validate_schematron(self.schematron, tree, phase='hvac_design_capacity')
+
+        # -- Assert
+        self.assert_failure_messages(failures, {
+            'ERROR': [expected_message]
+        })
+
+    @pytest.mark.parametrize("xpath_to_remove, expected_message", [
+        ('//auc:CoolingPlant/auc:CoolingPlantCondition', 'auc:CoolingPlantCondition'),
+        ('//auc:HeatingPlant[1]/auc:HeatingPlantCondition', 'auc:HeatingPlantCondition'),
+        ('//auc:CondenserPlants/auc:CondenserPlant/auc:CondenserPlantCondition', 'auc:CondenserPlantCondition'),
+        ('//auc:HeatingAndCoolingSystems/auc:Deliveries/auc:Delivery/auc:DeliveryCondition', 'auc:DeliveryCondition'),
+        ('//auc:HeatingAndCoolingSystems/auc:CoolingSources/auc:CoolingSource[not(auc:CoolingSourceType/auc:CoolingPlantID)]/auc:CoolingSourceCondition', 'auc:CoolingSourceCondition'),
+        ('//auc:HeatingAndCoolingSystems/auc:HeatingSources/auc:HeatingSource[not(auc:HeatingSourceType/auc:HeatingPlantID)]/auc:HeatingSourceCondition', 'auc:HeatingSourceCondition'),
+    ])
+    def test_is_invalid_when_missing_condition(self, xpath_to_remove, expected_message):
+        # -- Setup
+        tree = etree.parse(self.example_file)
+        remove_element(tree, xpath_to_remove)
+
+        # -- Act
+        failures = validate_schematron(self.schematron, tree, phase='hvac_condition')
+
+        # -- Assert
+        self.assert_failure_messages(failures, {
+            'ERROR': [expected_message]
         })

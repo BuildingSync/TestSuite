@@ -8,16 +8,44 @@
                     <auc:Plants>
                         <auc:HeatingPlants>
                             <auc:HeatingPlant ID="HeatingPlant-A">
+                                <auc:Boiler>
+                                    <auc:InputCapacity>123</auc:InputCapacity>
+                                    <auc:OutputCapacity>123</auc:OutputCapacity>
+                                    <auc:CapacityUnits>gpm</auc:CapacityUnits>
+                                </auc:Boiler>
+                                <auc:HeatingPlantCondition>Good</auc:HeatingPlantCondition>
+                                <auc:YearInstalled>2020</auc:YearInstalled>
+                            </auc:HeatingPlant>
+                            <auc:HeatingPlant ID="HeatingPlant-B">
+                                <auc:DistrictHeating>
+                                    <auc:OutputCapacity>123</auc:OutputCapacity>
+                                    <auc:CapacityUnits>gpm</auc:CapacityUnits>
+                                </auc:DistrictHeating>
+                                <auc:HeatingPlantCondition>Good</auc:HeatingPlantCondition>
+                                <auc:YearInstalled>2020</auc:YearInstalled>
+                            </auc:HeatingPlant>
+                            <auc:HeatingPlant ID="HeatingPlant-C">
+                                <auc:SolarThermal>
+                                    <auc:OutputCapacity>123</auc:OutputCapacity>
+                                    <auc:CapacityUnits>gpm</auc:CapacityUnits>
+                                </auc:SolarThermal>
+                                <auc:HeatingPlantCondition>Good</auc:HeatingPlantCondition>
                                 <auc:YearInstalled>2020</auc:YearInstalled>
                             </auc:HeatingPlant>
                         </auc:HeatingPlants>
                         <auc:CoolingPlants>
                             <auc:CoolingPlant ID="CoolingPlant-A">
+                                <auc:DistrictChilledWater>
+                                    <auc:Capacity>123</auc:Capacity>
+                                    <auc:CapacityUnits>gpm</auc:CapacityUnits>
+                                </auc:DistrictChilledWater>
+                                <auc:CoolingPlantCondition>Good</auc:CoolingPlantCondition>
                                 <auc:YearInstalled>2020</auc:YearInstalled>
                             </auc:CoolingPlant>
                         </auc:CoolingPlants>
                         <auc:CondenserPlants>
                             <auc:CondenserPlant ID="CondenserPlant-A">
+                                <auc:CondenserPlantCondition>Good</auc:CondenserPlantCondition>
                                 <auc:YearInstalled>2020</auc:YearInstalled>
                             </auc:CondenserPlant>
                         </auc:CondenserPlants>
@@ -25,17 +53,27 @@
                     <auc:HeatingAndCoolingSystems>
                         <auc:HeatingSources>
                             <auc:HeatingSource ID="HeatingSource-A">
+                                <auc:InputCapacity>123</auc:InputCapacity>
+                                <auc:OutputCapacity>123</auc:OutputCapacity>
+                                <auc:CapacityUnits>gpm</auc:CapacityUnits>
+                                <auc:HeatingSourceCondition>Good</auc:HeatingSourceCondition>
                                 <auc:YearInstalled>2020</auc:YearInstalled>
                             </auc:HeatingSource>
                         </auc:HeatingSources>
                         <auc:CoolingSources>
                             <auc:CoolingSource ID="CoolingSource-A">
+                                <auc:Capacity>123</auc:Capacity>
+                                <auc:CapacityUnits>gpm</auc:CapacityUnits>
+                                <auc:CoolingSourceCondition>Good</auc:CoolingSourceCondition>
                                 <auc:YearInstalled>2020</auc:YearInstalled>
                             </auc:CoolingSource>
                         </auc:CoolingSources>
                         <auc:Deliveries>
                             <auc:Delivery ID="Delivery-A">
+                                <auc:Capacity>123</auc:Capacity>
+                                <auc:CapacityUnits>gpm</auc:CapacityUnits>
                                 <auc:YearInstalled>2020</auc:YearInstalled>
+                                <auc:DeliveryCondition>Good</auc:DeliveryCondition>
                             </auc:Delivery>
                         </auc:Deliveries>
                     </auc:HeatingAndCoolingSystems>
