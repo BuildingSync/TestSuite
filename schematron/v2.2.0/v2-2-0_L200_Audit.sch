@@ -497,6 +497,9 @@
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:HeatingAndCoolingSystems/auc:HeatingSources/auc:HeatingSource[not(auc:HeatingSourceType/auc:HeatingPlantID)]">
       <sch:assert test="auc:HeatingSourceCondition" role="">auc:HeatingSourceCondition</sch:assert>
     </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:DuctSystems/auc:DuctSystem">
+      <sch:assert test="auc:DuctInsulationCondition" role="">auc:DuctInsulationCondition</sch:assert>
+    </sch:rule>
   </sch:pattern>
   <sch:pattern see="ASHRAE 211 6.2.1.3 (b)" id="heating_plants">
     <sch:title>Heating Plants</sch:title>

@@ -146,6 +146,7 @@
 "","","","","","/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:HeatingAndCoolingSystems/auc:Deliveries/auc:Delivery","false","","","auc:DeliveryCondition","","",""
 "","","","","","/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:HeatingAndCoolingSystems/auc:CoolingSources/auc:CoolingSource[not(auc:CoolingSourceType/auc:CoolingPlantID)]","false","","","auc:CoolingSourceCondition","","",""
 "","","","","","/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:HeatingAndCoolingSystems/auc:HeatingSources/auc:HeatingSource[not(auc:HeatingSourceType/auc:HeatingPlantID)]","false","","","auc:HeatingSourceCondition","","",""
+"","","","","","/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:DuctSystems/auc:DuctSystem","false","","","auc:DuctInsulationCondition","","",""
 "HVAC Central Plant","ASHRAE 211 6.2.1.3 (b)","Heating Plants","ASHRAE 211 6.2.1.3 (b)","","/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:Plants/auc:HeatingPlants/auc:HeatingPlant/auc:Boiler","false","","","auc:BoilerType","","",""
 "","","","","","","","","","auc:CondensingOperation","","",""
 "","","","","","","","","","auc:HeatingStaging","","",""

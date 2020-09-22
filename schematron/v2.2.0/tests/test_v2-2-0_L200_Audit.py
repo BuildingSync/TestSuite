@@ -353,6 +353,7 @@ class TestL200AuditHvacSystems(AssertFailureRolesMixin):
         ('//auc:HeatingAndCoolingSystems/auc:Deliveries/auc:Delivery[1]/auc:DeliveryCondition', 'auc:DeliveryCondition'),
         ('//auc:HeatingAndCoolingSystems/auc:CoolingSources/auc:CoolingSource[not(auc:CoolingSourceType/auc:CoolingPlantID)]/auc:CoolingSourceCondition', 'auc:CoolingSourceCondition'),
         ('//auc:HeatingAndCoolingSystems/auc:HeatingSources/auc:HeatingSource[not(auc:HeatingSourceType/auc:HeatingPlantID)]/auc:HeatingSourceCondition', 'auc:HeatingSourceCondition'),
+        ('//auc:DuctSystems/auc:DuctSystem/auc:DuctInsulationCondition', 'auc:DuctInsulationCondition'),
     ])
     def test_is_invalid_when_missing_condition(self, xpath_to_remove, expected_message):
         # -- Setup
