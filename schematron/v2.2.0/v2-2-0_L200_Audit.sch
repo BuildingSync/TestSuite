@@ -60,10 +60,14 @@
   <sch:phase id="hvac_distribution_system_sources" see="ASHRAE 211 6.2.1.3 (c)">
     <sch:active pattern="heating_and_cooling_sources"/>
   </sch:phase>
-  <sch:phase id="hvac_distribution_system_delivery_type" see="">
+  <sch:phase id="hvac_distribution_system_delivery_type_air_delivery" see="">
     <sch:active pattern="delivery_type"/>
     <sch:active pattern="central_fan"/>
     <sch:active pattern="zone_equipment"/>
+  </sch:phase>
+  <sch:phase id="hvac_distribution_system_delivery_outdoor_air_control" see="">
+    <sch:active pattern="central_air_distribution"/>
+    <sch:active pattern="heat_recovery_system"/>
   </sch:phase>
   <sch:pattern see="" id="document_structure_prerequisites_misc_building_info">
     <sch:title>Document Structure Prerequisites Misc Building Info</sch:title>
@@ -608,6 +612,25 @@
     </sch:rule>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:HeatingAndCoolingSystems/auc:Deliveries/auc:Delivery/auc:DeliveryType/auc:ZoneEquipment/auc:Radiant">
       <sch:assert test="auc:RadiantType" role="">auc:RadiantType</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="" id="central_air_distribution">
+    <sch:title>Central Air Distribution</sch:title>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:HeatingAndCoolingSystems/auc:Deliveries/auc:Delivery/auc:DeliveryType/auc:CentralAirDistribution/auc:FanBased">
+      <sch:assert test="auc:AirSideEconomizer" role="">auc:AirSideEconomizer</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:HeatingAndCoolingSystems/auc:Deliveries/auc:Delivery/auc:DeliveryType/auc:CentralAirDistribution/auc:FanBased/auc:AirSideEconomizer">
+      <sch:assert test="auc:AirSideEconomizerType" role="">auc:AirSideEconomizerType</sch:assert>
+      <sch:assert test="auc:AirSideEconomizerType != 'None' or auc:EconomizerControl" role="">auc:AirSideEconomizerType != 'None' or auc:EconomizerControl</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="" id="heat_recovery_system">
+    <sch:title>Heat Recovery System</sch:title>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HeatRecoverySystems/auc:HeatRecoverySystem">
+      <sch:assert test="auc:HeatRecoveryEfficiency or auc:EnergyRecoveryEfficiency" role="">auc:HeatRecoveryEfficiency or auc:EnergyRecoveryEfficiency</sch:assert>
+      <sch:assert test="auc:HeatRecoveryType" role="">auc:HeatRecoveryType</sch:assert>
+      <sch:assert test="auc:SystemIDReceivingHeat" role="">auc:SystemIDReceivingHeat</sch:assert>
+      <sch:assert test="auc:SystemIDProvidingHeat" role="">auc:SystemIDProvidingHeat</sch:assert>
     </sch:rule>
   </sch:pattern>
 </sch:schema>

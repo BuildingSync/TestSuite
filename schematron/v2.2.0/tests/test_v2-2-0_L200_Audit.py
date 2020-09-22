@@ -432,7 +432,7 @@ class TestL200AuditHvacSystems(AssertFailureRolesMixin):
         remove_element(tree, '//auc:Deliveries/auc:Delivery/auc:DeliveryType/auc:CentralAirDistribution/auc:AirDeliveryType')
 
         # -- Act
-        failures = validate_schematron(self.schematron, tree, phase='hvac_distribution_system_delivery_type')
+        failures = validate_schematron(self.schematron, tree, phase='hvac_distribution_system_delivery_type_air_delivery')
 
         # -- Assert
         self.assert_failure_messages(failures, {
@@ -451,7 +451,7 @@ class TestL200AuditHvacSystems(AssertFailureRolesMixin):
         remove_element(tree, f'//auc:Systems/auc:FanSystems/auc:FanSystem[auc:LinkedSystemIDs/auc:LinkedSystemID/@IDref = "{delivery_id}"]')
 
         # -- Act
-        failures = validate_schematron(self.schematron, tree, phase='hvac_distribution_system_delivery_type')
+        failures = validate_schematron(self.schematron, tree, phase='hvac_distribution_system_delivery_type_air_delivery')
 
         # -- Assert
         self.assert_failure_messages(failures, {
@@ -469,7 +469,24 @@ class TestL200AuditHvacSystems(AssertFailureRolesMixin):
         remove_element(tree, xpath_to_remove)
 
         # -- Act
-        failures = validate_schematron(self.schematron, tree, phase='hvac_distribution_system_delivery_type')
+        failures = validate_schematron(self.schematron, tree, phase='hvac_distribution_system_delivery_type_air_delivery')
+
+        # -- Assert
+        self.assert_failure_messages(failures, {
+            'ERROR': [expected_message]
+        })
+
+    @pytest.mark.parametrize("xpath_to_remove, expected_message", [
+        ('//auc:Deliveries/auc:Delivery/auc:DeliveryType/auc:CentralAirDistribution/auc:FanBased/auc:AirSideEconomizer', 'auc:AirSideEconomizer'),
+        ('//auc:HeatRecoverySystems/auc:HeatRecoverySystem/auc:HeatRecoveryType', 'auc:HeatRecoveryType'),
+    ])
+    def test_is_invalid_when_outdoor_air_control_is_missing_info(self, xpath_to_remove, expected_message):
+        # -- Setup
+        tree = etree.parse(self.example_file)
+        remove_element(tree, xpath_to_remove)
+
+        # -- Act
+        failures = validate_schematron(self.schematron, tree, phase='hvac_distribution_system_delivery_outdoor_air_control')
 
         # -- Assert
         self.assert_failure_messages(failures, {
