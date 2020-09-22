@@ -111,6 +111,7 @@
                         </auc:CondenserPlants>
                     </auc:Plants>
                     <auc:HeatingAndCoolingSystems>
+                        <auc:ZoningSystemType>Single zone</auc:ZoningSystemType>
                         <auc:HeatingSources>
                             <auc:HeatingSource ID="HeatingSource-A">
                                 <auc:InputCapacity>123</auc:InputCapacity>
@@ -130,15 +131,94 @@
                         </auc:CoolingSources>
                         <auc:Deliveries>
                             <auc:Delivery ID="Delivery-A">
+                                <auc:DeliveryType>
+                                    <auc:CentralAirDistribution>
+                                        <auc:AirDeliveryType>Central fan</auc:AirDeliveryType>
+                                        <auc:TerminalUnit>CAV terminal box no reheat</auc:TerminalUnit>
+                                        <auc:ReheatSource>Heating plant</auc:ReheatSource>
+                                        <auc:ReheatControlMethod>Single Maximum</auc:ReheatControlMethod>
+                                        <auc:ReheatPlantID IDref="HeatingPlant-A" />
+                                    </auc:CentralAirDistribution>
+                                </auc:DeliveryType>
+                                <auc:HeatingSourceID IDref="HeatingSource-A" />
+                                <auc:CoolingSourceID IDref="CoolingSource-A" />
                                 <auc:Capacity>123</auc:Capacity>
                                 <auc:CapacityUnits>gpm</auc:CapacityUnits>
                                 <auc:YearInstalled>2020</auc:YearInstalled>
+                                <auc:Quantity>1</auc:Quantity>
+                                <auc:DeliveryCondition>Good</auc:DeliveryCondition>
+                            </auc:Delivery>
+                            <auc:Delivery ID="Delivery-B">
+                                <auc:DeliveryType>
+                                    <auc:ZoneEquipment>
+                                        <auc:FanBased>
+                                            <auc:FanBasedDistributionType>
+                                                <auc:FanCoil>
+                                                    <auc:FanCoilType>Mini-split</auc:FanCoilType>
+                                                    <auc:HVACPipeConfiguration>1 pipe</auc:HVACPipeConfiguration>
+                                                </auc:FanCoil>
+                                            </auc:FanBasedDistributionType>
+                                        </auc:FanBased>
+                                    </auc:ZoneEquipment>
+                                </auc:DeliveryType>
+                                <auc:HeatingSourceID IDref="HeatingSource-A" />
+                                <auc:CoolingSourceID IDref="CoolingSource-A" />
+                                <auc:Capacity>123</auc:Capacity>
+                                <auc:CapacityUnits>gpm</auc:CapacityUnits>
+                                <auc:YearInstalled>2020</auc:YearInstalled>
+                                <auc:Quantity>1</auc:Quantity>
+                                <auc:DeliveryCondition>Good</auc:DeliveryCondition>
+                            </auc:Delivery>
+                            <auc:Delivery ID="Delivery-C">
+                                <auc:DeliveryType>
+                                    <auc:ZoneEquipment>
+                                        <auc:Convection>
+                                            <auc:ConvectionType>Chilled beam</auc:ConvectionType>
+                                        </auc:Convection>
+                                    </auc:ZoneEquipment>
+                                </auc:DeliveryType>
+                                <auc:HeatingSourceID IDref="HeatingSource-A" />
+                                <auc:CoolingSourceID IDref="CoolingSource-A" />
+                                <auc:Capacity>123</auc:Capacity>
+                                <auc:CapacityUnits>gpm</auc:CapacityUnits>
+                                <auc:YearInstalled>2020</auc:YearInstalled>
+                                <auc:Quantity>1</auc:Quantity>
+                                <auc:DeliveryCondition>Good</auc:DeliveryCondition>
+                            </auc:Delivery>
+                            <auc:Delivery ID="Delivery-D">
+                                <auc:DeliveryType>
+                                    <auc:ZoneEquipment>
+                                        <auc:Radiant>
+                                            <auc:RadiantType>Radiator</auc:RadiantType>
+                                        </auc:Radiant>
+                                    </auc:ZoneEquipment>
+                                </auc:DeliveryType>
+                                <auc:HeatingSourceID IDref="HeatingSource-A" />
+                                <auc:CoolingSourceID IDref="CoolingSource-A" />
+                                <auc:Capacity>123</auc:Capacity>
+                                <auc:CapacityUnits>gpm</auc:CapacityUnits>
+                                <auc:YearInstalled>2020</auc:YearInstalled>
+                                <auc:Quantity>1</auc:Quantity>
                                 <auc:DeliveryCondition>Good</auc:DeliveryCondition>
                             </auc:Delivery>
                         </auc:Deliveries>
                     </auc:HeatingAndCoolingSystems>
+                    <auc:DuctSystems>
+                        <auc:DuctSystem ID="DuctSystem-A">
+                            <auc:DuctConfiguration>Single</auc:DuctConfiguration>
+                            <auc:HeatingDeliveryID IDref="Delivery-A" />
+                        </auc:DuctSystem>
+                    </auc:DuctSystems>
                 </auc:HVACSystem>
             </auc:HVACSystems>
+            <auc:FanSystems>
+                <auc:FanSystem ID="FanSystem-A">
+                    <auc:FanControlType>Stepped</auc:FanControlType>
+                    <auc:LinkedSystemIDs>
+                        <auc:LinkedSystemID IDref="Delivery-A" />
+                    </auc:LinkedSystemIDs>
+                </auc:FanSystem>
+            </auc:FanSystems>
         </auc:Systems>
     </auc:Facility>
   </auc:Facilities>

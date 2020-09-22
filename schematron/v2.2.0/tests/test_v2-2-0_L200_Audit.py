@@ -306,7 +306,7 @@ class TestL200AuditHvacSystems(AssertFailureRolesMixin):
         '//auc:CoolingPlant[1]/auc:YearInstalled',
         '//auc:HeatingPlant[1]/auc:YearInstalled',
         '//auc:CondenserPlant[1]/auc:YearInstalled',
-        '//auc:HeatingAndCoolingSystems/auc:Deliveries/auc:Delivery/auc:YearInstalled',
+        '//auc:HeatingAndCoolingSystems/auc:Deliveries/auc:Delivery[1]/auc:YearInstalled',
         '//auc:HeatingAndCoolingSystems/auc:CoolingSources/auc:CoolingSource[not(auc:CoolingSourceType/auc:CoolingPlantID)]/auc:YearInstalled',
         '//auc:HeatingAndCoolingSystems/auc:HeatingSources/auc:HeatingSource[not(auc:HeatingSourceType/auc:HeatingPlantID)]/auc:YearInstalled',
     ])
@@ -329,7 +329,7 @@ class TestL200AuditHvacSystems(AssertFailureRolesMixin):
         ('//auc:HeatingPlant/auc:Boiler/auc:InputCapacity', 'auc:InputCapacity'),
         ('//auc:HeatingPlant/auc:DistrictHeating/auc:OutputCapacity', 'auc:OutputCapacity'),
         ('//auc:HeatingPlant/auc:SolarThermal/auc:OutputCapacity', 'auc:OutputCapacity'),
-        ('//auc:HeatingAndCoolingSystems/auc:Deliveries/auc:Delivery/auc:Capacity', 'auc:Capacity'),
+        ('//auc:HeatingAndCoolingSystems/auc:Deliveries/auc:Delivery[1]/auc:Capacity', 'auc:Capacity'),
         ('//auc:HeatingAndCoolingSystems/auc:CoolingSources/auc:CoolingSource[not(auc:CoolingSourceType/auc:CoolingPlantID)]/auc:Capacity', 'auc:Capacity'),
         ('//auc:HeatingAndCoolingSystems/auc:HeatingSources/auc:HeatingSource[not(auc:HeatingSourceType/auc:HeatingPlantID)]/auc:OutputCapacity', 'auc:OutputCapacity'),
     ])
@@ -350,7 +350,7 @@ class TestL200AuditHvacSystems(AssertFailureRolesMixin):
         ('//auc:CoolingPlant[1]/auc:CoolingPlantCondition', 'auc:CoolingPlantCondition'),
         ('//auc:HeatingPlant[1]/auc:HeatingPlantCondition', 'auc:HeatingPlantCondition'),
         ('//auc:CondenserPlants/auc:CondenserPlant[1]/auc:CondenserPlantCondition', 'auc:CondenserPlantCondition'),
-        ('//auc:HeatingAndCoolingSystems/auc:Deliveries/auc:Delivery/auc:DeliveryCondition', 'auc:DeliveryCondition'),
+        ('//auc:HeatingAndCoolingSystems/auc:Deliveries/auc:Delivery[1]/auc:DeliveryCondition', 'auc:DeliveryCondition'),
         ('//auc:HeatingAndCoolingSystems/auc:CoolingSources/auc:CoolingSource[not(auc:CoolingSourceType/auc:CoolingPlantID)]/auc:CoolingSourceCondition', 'auc:CoolingSourceCondition'),
         ('//auc:HeatingAndCoolingSystems/auc:HeatingSources/auc:HeatingSource[not(auc:HeatingSourceType/auc:HeatingPlantID)]/auc:HeatingSourceCondition', 'auc:HeatingSourceCondition'),
     ])
@@ -384,6 +384,92 @@ class TestL200AuditHvacSystems(AssertFailureRolesMixin):
 
         # -- Act
         failures = validate_schematron(self.schematron, tree, phase='hvac_central_plant')
+
+        # -- Assert
+        self.assert_failure_messages(failures, {
+            'ERROR': [expected_message]
+        })
+
+    def test_is_invalid_when_delivery_is_missing_heating_and_cooling_source(self):
+        # -- Setup
+        tree = etree.parse(self.example_file)
+        remove_element(tree, '//auc:Delivery[1]/auc:HeatingSourceID')
+        remove_element(tree, '//auc:Delivery[1]/auc:CoolingSourceID')
+
+        # -- Act
+        failures = validate_schematron(self.schematron, tree, phase='hvac_distribution_system_sources')
+
+        # -- Assert
+        self.assert_failure_messages(failures, {
+            'ERROR': ['auc:HeatingSourceID or auc:CoolingSourceID']
+        })
+
+    @pytest.mark.parametrize("xpath_to_source_id, expected_message", [
+        ('//auc:Delivery[1]/auc:HeatingSourceID', 'auc:HeatingSourceID must point to a valid auc:HeatingSource'),
+        ('//auc:Delivery[1]/auc:CoolingSourceID', 'auc:CoolingSourceID must point to a valid auc:CoolingSource'),
+    ])
+    def test_is_invalid_when_delivery_heating_or_cooling_source_points_to_bad_source(self, xpath_to_source_id, expected_message):
+        # -- Setup
+        tree = etree.parse(self.example_file)
+
+        # switch the id to something invalid
+        source_id_elem = tree.xpath(xpath_to_source_id, namespaces=BSYNC_NSMAP)
+        assert len(source_id_elem) == 1
+        source_id_elem = source_id_elem[0]
+        source_id_elem.set('IDref', 'bogus')
+
+        # -- Act
+        failures = validate_schematron(self.schematron, tree, phase='hvac_distribution_system_sources')
+
+        # -- Assert
+        self.assert_failure_messages(failures, {
+            'ERROR': [expected_message]
+        })
+
+    def test_is_invalid_when_central_air_distribution_is_invalid(self):
+        # -- Setup
+        tree = etree.parse(self.example_file)
+        remove_element(tree, '//auc:Deliveries/auc:Delivery/auc:DeliveryType/auc:CentralAirDistribution/auc:AirDeliveryType')
+
+        # -- Act
+        failures = validate_schematron(self.schematron, tree, phase='hvac_distribution_system_delivery_type')
+
+        # -- Assert
+        self.assert_failure_messages(failures, {
+            'ERROR': ['auc:AirDeliveryType']
+        })
+
+    def test_is_invalid_when_air_distribution_delivery_type_is_central_fan_and_not_linked_to_fan_system(self):
+        # -- Setup
+        tree = etree.parse(self.example_file)
+
+        # remove the linked fan to make it invalid
+        delivery_elem = tree.xpath('//auc:Deliveries/auc:Delivery[auc:DeliveryType/auc:CentralAirDistribution/auc:AirDeliveryType]', namespaces=BSYNC_NSMAP)
+        assert len(delivery_elem) == 1
+        delivery_elem = delivery_elem[0]
+        delivery_id = delivery_elem.attrib['ID']
+        remove_element(tree, f'//auc:Systems/auc:FanSystems/auc:FanSystem[auc:LinkedSystemIDs/auc:LinkedSystemID/@IDref = "{delivery_id}"]')
+
+        # -- Act
+        failures = validate_schematron(self.schematron, tree, phase='hvac_distribution_system_delivery_type')
+
+        # -- Assert
+        self.assert_failure_messages(failures, {
+            'ERROR': ['auc:Delivery ID must be linked to a valid auc:FanSystem']
+        })
+
+    @pytest.mark.parametrize("xpath_to_remove, expected_message", [
+        ('//auc:Delivery/auc:DeliveryType/auc:ZoneEquipment/auc:FanBased/auc:FanBasedDistributionType/auc:FanCoil/auc:FanCoilType', 'auc:FanCoilType'),
+        ('//auc:Delivery/auc:DeliveryType/auc:ZoneEquipment/auc:Convection/auc:ConvectionType', 'auc:ConvectionType'),
+        ('//auc:Delivery/auc:DeliveryType/auc:ZoneEquipment/auc:Radiant/auc:RadiantType', 'auc:RadiantType'),
+    ])
+    def test_is_invalid_when_delivery_type_zone_equipment_and_missing_info(self, xpath_to_remove, expected_message):
+        # -- Setup
+        tree = etree.parse(self.example_file)
+        remove_element(tree, xpath_to_remove)
+
+        # -- Act
+        failures = validate_schematron(self.schematron, tree, phase='hvac_distribution_system_delivery_type')
 
         # -- Assert
         self.assert_failure_messages(failures, {

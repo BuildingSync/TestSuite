@@ -57,6 +57,14 @@
   <sch:phase id="hvac_central_plant" see="ASHRAE 211 6.2.1.3 (b)">
     <sch:active pattern="heating_plants"/>
   </sch:phase>
+  <sch:phase id="hvac_distribution_system_sources" see="ASHRAE 211 6.2.1.3 (c)">
+    <sch:active pattern="heating_and_cooling_sources"/>
+  </sch:phase>
+  <sch:phase id="hvac_distribution_system_delivery_type" see="">
+    <sch:active pattern="delivery_type"/>
+    <sch:active pattern="central_fan"/>
+    <sch:active pattern="zone_equipment"/>
+  </sch:phase>
   <sch:pattern see="" id="document_structure_prerequisites_misc_building_info">
     <sch:title>Document Structure Prerequisites Misc Building Info</sch:title>
     <sch:rule context="/">
@@ -540,6 +548,66 @@
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:Plants/auc:CondenserPlants/auc:CondenserPlant/auc:GroundSource">
       <sch:assert test="auc:GroundSourceType" role="">auc:GroundSourceType</sch:assert>
       <sch:assert test="auc:WellCount" role="WARNING">auc:WellCount</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="" id="heating_and_cooling_sources">
+    <sch:title>Heating and Cooling Sources</sch:title>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:HeatingAndCoolingSystems">
+      <sch:assert test="auc:ZoningSystemType" role="">auc:ZoningSystemType</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:HeatingAndCoolingSystems/auc:Deliveries/auc:Delivery">
+      <sch:assert test="auc:DeliveryType" role="">auc:DeliveryType</sch:assert>
+      <sch:assert test="auc:HeatingSourceID or auc:CoolingSourceID" role="">auc:HeatingSourceID or auc:CoolingSourceID</sch:assert>
+      <sch:assert test="auc:Quantity" role="">auc:Quantity</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:HeatingAndCoolingSystems/auc:Deliveries/auc:Delivery/auc:HeatingSourceID">
+      <sch:assert test="//auc:HeatingSource[@ID = current()/@IDref]" role="">auc:HeatingSourceID must point to a valid auc:HeatingSource</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:HeatingAndCoolingSystems/auc:Deliveries/auc:Delivery/auc:CoolingSourceID">
+      <sch:assert test="//auc:CoolingSource[@ID = current()/@IDref]" role="">auc:CoolingSourceID must point to a valid auc:CoolingSource</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="" id="delivery_type">
+    <sch:title>Delivery Type</sch:title>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:HeatingAndCoolingSystems/auc:Deliveries/auc:Delivery/auc:DeliveryType/auc:CentralAirDistribution">
+      <sch:assert test="auc:AirDeliveryType" role="">auc:AirDeliveryType</sch:assert>
+      <sch:assert test="auc:TerminalUnit" role="">auc:TerminalUnit</sch:assert>
+      <sch:assert test="auc:ReheatSource" role="">auc:ReheatSource</sch:assert>
+      <sch:assert test="auc:ReheatSource/text() = 'None' or auc:ReheatControlMethod" role="">auc:ReheatSource/text() = 'None' or auc:ReheatControlMethod</sch:assert>
+      <sch:assert test="auc:ReheatSource/text() != 'Heating plant' or auc:ReheatPlantID" role="">auc:ReheatSource/text() != 'Heating plant' or auc:ReheatPlantID</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="" id="central_fan">
+    <sch:title>Central Fan</sch:title>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:HeatingAndCoolingSystems/auc:Deliveries/auc:Delivery/auc:DeliveryType/auc:CentralAirDistribution[auc:AirDeliveryType/text() = 'Central fan']">
+      <sch:let name="deliveryID" value="current()/ancestor::auc:Delivery/@ID"/>
+      <sch:assert test="//auc:Systems/auc:FanSystems/auc:FanSystem[auc:LinkedSystemIDs/auc:LinkedSystemID/@IDref = $deliveryID]" role="">auc:Delivery ID must be linked to a valid auc:FanSystem</sch:assert>
+      <sch:assert test="current()/ancestor::auc:HVACSystem/auc:DuctSystems/auc:DuctSystem[auc:HeatingDeliveryID/@IDref = $deliveryID or auc:CoolingDeliveryID/@IDref = $deliveryID]" role="">current()/ancestor::auc:HVACSystem/auc:DuctSystems/auc:DuctSystem[auc:HeatingDeliveryID/@IDref = $deliveryID or auc:CoolingDeliveryID/@IDref = $deliveryID]</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:FanSystems/auc:FanSystem">
+      <sch:assert test="auc:FanControlType" role="">auc:FanControlType</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:DuctSystems/auc:DuctSystem">
+      <sch:assert test="auc:DuctConfiguration" role="">auc:DuctConfiguration</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="" id="zone_equipment">
+    <sch:title>Zone Equipment</sch:title>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:HeatingAndCoolingSystems/auc:Deliveries/auc:Delivery/auc:DeliveryType/auc:ZoneEquipment">
+      <sch:assert test="count(current()/*) &gt;= 1" role="">count(current()/*) &gt;= 1</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:HeatingAndCoolingSystems/auc:Deliveries/auc:Delivery/auc:DeliveryType/auc:ZoneEquipment/auc:FanBased">
+      <sch:assert test="auc:FanBasedDistributionType/auc:FanCoil" role="">auc:FanBasedDistributionType/auc:FanCoil</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:HeatingAndCoolingSystems/auc:Deliveries/auc:Delivery/auc:DeliveryType/auc:ZoneEquipment/auc:FanBased/auc:FanBasedDistributionType/auc:FanCoil">
+      <sch:assert test="auc:FanCoilType" role="">auc:FanCoilType</sch:assert>
+      <sch:assert test="auc:HVACPipeConfiguration" role="">auc:HVACPipeConfiguration</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:HeatingAndCoolingSystems/auc:Deliveries/auc:Delivery/auc:DeliveryType/auc:ZoneEquipment/auc:Convection">
+      <sch:assert test="auc:ConvectionType" role="">auc:ConvectionType</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:HeatingAndCoolingSystems/auc:Deliveries/auc:Delivery/auc:DeliveryType/auc:ZoneEquipment/auc:Radiant">
+      <sch:assert test="auc:RadiantType" role="">auc:RadiantType</sch:assert>
     </sch:rule>
   </sch:pattern>
 </sch:schema>
