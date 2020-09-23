@@ -81,6 +81,9 @@
     <sch:active pattern="document_structure_prerequisites_zone_controls"/>
     <sch:active pattern="zone_controls"/>
   </sch:phase>
+  <sch:phase id="hvac_building_automation_system" see="ASHRAE 211 6.2.1.3 (d)">
+    <sch:active pattern="bas"/>
+  </sch:phase>
   <sch:pattern see="" id="document_structure_prerequisites_misc_building_info">
     <sch:title>Document Structure Prerequisites Misc Building Info</sch:title>
     <sch:rule context="/">
@@ -706,6 +709,21 @@
     <sch:title>Zone Controls</sch:title>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType='Space function']">
       <sch:assert test="auc:ThermalZoneLayout" role="">auc:ThermalZoneLayout</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="" id="bas">
+    <sch:title>BAS</sch:title>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building">
+      <sch:assert test="auc:BuildingAutomationSystem" role="">auc:BuildingAutomationSystem</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:Plants/auc:HeatingPlants/auc:HeatingPlant">
+      <sch:assert test="auc:BuildingAutomationSystem" role="">auc:BuildingAutomationSystem</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:Plants/auc:CoolingPlants/auc:CoolingPlant">
+      <sch:assert test="auc:BuildingAutomationSystem" role="">auc:BuildingAutomationSystem</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:Plants/auc:CondenserPlants/auc:CondenserPlant">
+      <sch:assert test="auc:BuildingAutomationSystem" role="">auc:BuildingAutomationSystem</sch:assert>
     </sch:rule>
   </sch:pattern>
 </sch:schema>

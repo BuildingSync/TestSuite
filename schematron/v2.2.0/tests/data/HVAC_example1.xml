@@ -24,6 +24,7 @@
                                 <auc:HeatingPlantCondition>Good</auc:HeatingPlantCondition>
                                 <auc:YearInstalled>2020</auc:YearInstalled>
                                 <auc:PrimaryFuel>Electricity</auc:PrimaryFuel>
+                                <auc:BuildingAutomationSystem>true</auc:BuildingAutomationSystem>
                                 <auc:ControlSystemTypes>
                                     <auc:ControlSystemType>
                                         <auc:Digital></auc:Digital>
@@ -42,6 +43,7 @@
                                 <auc:HeatingPlantCondition>Good</auc:HeatingPlantCondition>
                                 <auc:YearInstalled>2020</auc:YearInstalled>
                                 <auc:PrimaryFuel>Electricity</auc:PrimaryFuel>
+                                <auc:BuildingAutomationSystem>true</auc:BuildingAutomationSystem>
                                 <auc:ControlSystemTypes>
                                     <auc:ControlSystemType>
                                         <auc:Digital></auc:Digital>
@@ -58,6 +60,7 @@
                                 </auc:SolarThermal>
                                 <auc:HeatingPlantCondition>Good</auc:HeatingPlantCondition>
                                 <auc:YearInstalled>2020</auc:YearInstalled>
+                                <auc:BuildingAutomationSystem>true</auc:BuildingAutomationSystem>
                                 <auc:ControlSystemTypes>
                                     <auc:ControlSystemType>
                                         <auc:Digital></auc:Digital>
@@ -76,6 +79,7 @@
                                 <auc:CoolingPlantCondition>Good</auc:CoolingPlantCondition>
                                 <auc:YearInstalled>2020</auc:YearInstalled>
                                 <auc:PrimaryFuel>Other</auc:PrimaryFuel>
+                                <auc:BuildingAutomationSystem>true</auc:BuildingAutomationSystem>
                                 <auc:ControlSystemTypes>
                                     <auc:ControlSystemType>
                                         <auc:Digital></auc:Digital>
@@ -100,6 +104,7 @@
                                 <auc:CoolingPlantCondition>Good</auc:CoolingPlantCondition>
                                 <auc:YearInstalled>2020</auc:YearInstalled>
                                 <auc:PrimaryFuel>Other</auc:PrimaryFuel>
+                                <auc:BuildingAutomationSystem>true</auc:BuildingAutomationSystem>
                                 <auc:ControlSystemTypes>
                                     <auc:ControlSystemType>
                                         <auc:Digital></auc:Digital>
@@ -115,6 +120,7 @@
                                 <auc:CondenserPlantCondition>Good</auc:CondenserPlantCondition>
                                 <auc:YearInstalled>2020</auc:YearInstalled>
                                 <auc:PrimaryFuel>Electricity</auc:PrimaryFuel>
+                                <auc:BuildingAutomationSystem>true</auc:BuildingAutomationSystem>
                                 <auc:ControlSystemTypes>
                                     <auc:ControlSystemType>
                                         <auc:Digital></auc:Digital>
@@ -128,6 +134,7 @@
                                 <auc:CondenserPlantCondition>Good</auc:CondenserPlantCondition>
                                 <auc:YearInstalled>2020</auc:YearInstalled>
                                 <auc:PrimaryFuel>Electricity</auc:PrimaryFuel>
+                                <auc:BuildingAutomationSystem>true</auc:BuildingAutomationSystem>
                                 <auc:ControlSystemTypes>
                                     <auc:ControlSystemType>
                                         <auc:Digital></auc:Digital>
@@ -142,6 +149,7 @@
                                 <auc:CondenserPlantCondition>Good</auc:CondenserPlantCondition>
                                 <auc:YearInstalled>2020</auc:YearInstalled>
                                 <auc:PrimaryFuel>Electricity</auc:PrimaryFuel>
+                                <auc:BuildingAutomationSystem>true</auc:BuildingAutomationSystem>
                                 <auc:ControlSystemTypes>
                                     <auc:ControlSystemType>
                                         <auc:Digital></auc:Digital>

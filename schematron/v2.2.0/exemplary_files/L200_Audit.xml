@@ -78,6 +78,8 @@
               <auc:ConditionedFloorsAboveGrade>1</auc:ConditionedFloorsAboveGrade>
               <auc:ConditionedFloorsBelowGrade>1</auc:ConditionedFloorsBelowGrade>
 
+              <auc:BuildingAutomationSystem>true</auc:BuildingAutomationSystem>
+
               <!-- 6.1.1.2.b -->
               <auc:HistoricalLandmark>true</auc:HistoricalLandmark>
 

@@ -547,3 +547,21 @@ class TestL200AuditHvacSystems(AssertFailureRolesMixin):
         self.assert_failure_messages(failures, {
             'ERROR': [expected_message]
         })
+
+    @pytest.mark.parametrize("xpath_to_remove", [
+        ('//auc:HVACSystem/auc:Plants/auc:HeatingPlants/auc:HeatingPlant[1]/auc:BuildingAutomationSystem'),
+        ('//auc:HVACSystem/auc:Plants/auc:CoolingPlants/auc:CoolingPlant[1]/auc:BuildingAutomationSystem'),
+        ('//auc:HVACSystem/auc:Plants/auc:CondenserPlants/auc:CondenserPlant[1]/auc:BuildingAutomationSystem'),
+    ])
+    def test_is_invalid_when_missing_building_automation_system(self, xpath_to_remove):
+        # -- Setup
+        tree = etree.parse(self.example_file)
+        remove_element(tree, xpath_to_remove)
+
+        # -- Act
+        failures = validate_schematron(self.schematron, tree, phase='hvac_building_automation_system')
+
+        # -- Assert
+        self.assert_failure_messages(failures, {
+            'ERROR': ['auc:BuildingAutomationSystem']
+        })

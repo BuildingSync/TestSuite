@@ -227,3 +227,7 @@
 "","","","","","/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:HeatingAndCoolingSystems/auc:Deliveries/auc:Delivery","false","","","count(auc:Controls/auc:Control/*) >= 1","auc:Delivery must have at least one auc:Control child","",""
 "","","","","","","","","","auc:Controls/auc:Control/*/auc:ControlSystemType/*","auc:Delivery must have at least one auc:ControlSystemType child","",""
 "HVAC Zone Controls","ASHRAE 211 6.2.1.3 (d)","Zone Controls","","","/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType='Space function']","true","","","auc:ThermalZoneLayout","","",""
+"HVAC Building Automation System","ASHRAE 211 6.2.1.3 (d)","BAS","","","/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building","false","","","auc:BuildingAutomationSystem","","",""
+"","","","","","/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:Plants/auc:HeatingPlants/auc:HeatingPlant","false","","","auc:BuildingAutomationSystem","","",""
+"","","","","","/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:Plants/auc:CoolingPlants/auc:CoolingPlant","false","","","auc:BuildingAutomationSystem","","",""
+"","","","","","/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:Plants/auc:CondenserPlants/auc:CondenserPlant","false","","","auc:BuildingAutomationSystem","","",""
