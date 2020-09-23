@@ -511,3 +511,39 @@ class TestL200AuditHvacSystems(AssertFailureRolesMixin):
         self.assert_failure_messages(failures, {
             'ERROR': [expected_message]
         })
+
+    @pytest.mark.parametrize("xpath_to_remove, expected_message", [
+        ('//auc:HeatingPlant[1]/auc:ControlSystemTypes/auc:ControlSystemType/*', 'auc:HeatingPlant must have at least one auc:ControlSystemType child'),
+        ('//auc:CoolingPlant[1]/auc:ControlSystemTypes/auc:ControlSystemType/*', 'auc:CoolingPlant must have at least one auc:ControlSystemType child'),
+        ('//auc:CondenserPlant[1]/auc:ControlSystemTypes/auc:ControlSystemType/*', 'auc:CondenserPlant must have at least one auc:ControlSystemType child'),
+    ])
+    def test_is_invalid_when_plant_is_missing_controls(self, xpath_to_remove, expected_message):
+        # -- Setup
+        tree = etree.parse(self.example_file)
+        remove_element(tree, xpath_to_remove)
+
+        # -- Act
+        failures = validate_schematron(self.schematron, tree, phase='hvac_controls_type')
+
+        # -- Assert
+        self.assert_failure_messages(failures, {
+            'ERROR': [expected_message]
+        })
+
+    @pytest.mark.parametrize("xpath_to_remove, expected_message", [
+        ('//auc:HeatingAndCoolingSystems/auc:CoolingSources/auc:CoolingSource[not(auc:CoolingSourceType/auc:CoolingPlantID)]/auc:Controls/auc:Control/*/auc:ControlSystemType/*', 'auc:CoolingSource must have at least one auc:ControlSystemType child'),
+        ('//auc:HeatingAndCoolingSystems/auc:HeatingSources/auc:HeatingSource[not(auc:HeatingSourceType/auc:HeatingPlantID)]/auc:Controls/auc:Control/*/auc:ControlSystemType/*', 'auc:HeatingSource must have at least one auc:ControlSystemType child'),
+        ('//auc:HeatingAndCoolingSystems/auc:Deliveries/auc:Delivery[1]/auc:Controls/auc:Control/*/auc:ControlSystemType/*', 'auc:Delivery must have at least one auc:ControlSystemType child'),
+    ])
+    def test_is_invalid_when_source_or_delivery_is_missing_controls(self, xpath_to_remove, expected_message):
+        # -- Setup
+        tree = etree.parse(self.example_file)
+        remove_element(tree, xpath_to_remove)
+
+        # -- Act
+        failures = validate_schematron(self.schematron, tree, phase='hvac_controls_type')
+
+        # -- Assert
+        self.assert_failure_messages(failures, {
+            'ERROR': [expected_message]
+        })

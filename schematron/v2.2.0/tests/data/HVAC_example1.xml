@@ -24,6 +24,11 @@
                                 <auc:HeatingPlantCondition>Good</auc:HeatingPlantCondition>
                                 <auc:YearInstalled>2020</auc:YearInstalled>
                                 <auc:PrimaryFuel>Electricity</auc:PrimaryFuel>
+                                <auc:ControlSystemTypes>
+                                    <auc:ControlSystemType>
+                                        <auc:Digital></auc:Digital>
+                                    </auc:ControlSystemType>
+                                </auc:ControlSystemTypes>
                             </auc:HeatingPlant>
                             <auc:HeatingPlant ID="HeatingPlant-B">
                                 <auc:DistrictHeating>
@@ -37,6 +42,11 @@
                                 <auc:HeatingPlantCondition>Good</auc:HeatingPlantCondition>
                                 <auc:YearInstalled>2020</auc:YearInstalled>
                                 <auc:PrimaryFuel>Electricity</auc:PrimaryFuel>
+                                <auc:ControlSystemTypes>
+                                    <auc:ControlSystemType>
+                                        <auc:Digital></auc:Digital>
+                                    </auc:ControlSystemType>
+                                </auc:ControlSystemTypes>
                             </auc:HeatingPlant>
                             <auc:HeatingPlant ID="HeatingPlant-C">
                                 <auc:SolarThermal>
@@ -48,6 +58,11 @@
                                 </auc:SolarThermal>
                                 <auc:HeatingPlantCondition>Good</auc:HeatingPlantCondition>
                                 <auc:YearInstalled>2020</auc:YearInstalled>
+                                <auc:ControlSystemTypes>
+                                    <auc:ControlSystemType>
+                                        <auc:Digital></auc:Digital>
+                                    </auc:ControlSystemType>
+                                </auc:ControlSystemTypes>
                             </auc:HeatingPlant>
                         </auc:HeatingPlants>
                         <auc:CoolingPlants>
@@ -61,6 +76,11 @@
                                 <auc:CoolingPlantCondition>Good</auc:CoolingPlantCondition>
                                 <auc:YearInstalled>2020</auc:YearInstalled>
                                 <auc:PrimaryFuel>Other</auc:PrimaryFuel>
+                                <auc:ControlSystemTypes>
+                                    <auc:ControlSystemType>
+                                        <auc:Digital></auc:Digital>
+                                    </auc:ControlSystemType>
+                                </auc:ControlSystemTypes>
                             </auc:CoolingPlant>
                             <auc:CoolingPlant ID="CoolingPlant-B">
                                 <auc:Chiller>
@@ -80,6 +100,11 @@
                                 <auc:CoolingPlantCondition>Good</auc:CoolingPlantCondition>
                                 <auc:YearInstalled>2020</auc:YearInstalled>
                                 <auc:PrimaryFuel>Other</auc:PrimaryFuel>
+                                <auc:ControlSystemTypes>
+                                    <auc:ControlSystemType>
+                                        <auc:Digital></auc:Digital>
+                                    </auc:ControlSystemType>
+                                </auc:ControlSystemTypes>
                             </auc:CoolingPlant>
                         </auc:CoolingPlants>
                         <auc:CondenserPlants>
@@ -90,6 +115,11 @@
                                 <auc:CondenserPlantCondition>Good</auc:CondenserPlantCondition>
                                 <auc:YearInstalled>2020</auc:YearInstalled>
                                 <auc:PrimaryFuel>Electricity</auc:PrimaryFuel>
+                                <auc:ControlSystemTypes>
+                                    <auc:ControlSystemType>
+                                        <auc:Digital></auc:Digital>
+                                    </auc:ControlSystemType>
+                                </auc:ControlSystemTypes>
                             </auc:CondenserPlant>
                             <auc:CondenserPlant ID="CondenserPlant-B">
                                 <auc:AirCooled>
@@ -98,6 +128,11 @@
                                 <auc:CondenserPlantCondition>Good</auc:CondenserPlantCondition>
                                 <auc:YearInstalled>2020</auc:YearInstalled>
                                 <auc:PrimaryFuel>Electricity</auc:PrimaryFuel>
+                                <auc:ControlSystemTypes>
+                                    <auc:ControlSystemType>
+                                        <auc:Digital></auc:Digital>
+                                    </auc:ControlSystemType>
+                                </auc:ControlSystemTypes>
                             </auc:CondenserPlant>
                             <auc:CondenserPlant ID="CondenserPlant-C">
                                 <auc:GroundSource>
@@ -107,6 +142,11 @@
                                 <auc:CondenserPlantCondition>Good</auc:CondenserPlantCondition>
                                 <auc:YearInstalled>2020</auc:YearInstalled>
                                 <auc:PrimaryFuel>Electricity</auc:PrimaryFuel>
+                                <auc:ControlSystemTypes>
+                                    <auc:ControlSystemType>
+                                        <auc:Digital></auc:Digital>
+                                    </auc:ControlSystemType>
+                                </auc:ControlSystemTypes>
                             </auc:CondenserPlant>
                         </auc:CondenserPlants>
                     </auc:Plants>
@@ -118,6 +158,15 @@
                                 <auc:OutputCapacity>123</auc:OutputCapacity>
                                 <auc:CapacityUnits>gpm</auc:CapacityUnits>
                                 <auc:HeatingSourceCondition>Good</auc:HeatingSourceCondition>
+                                <auc:Controls>
+                                    <auc:Control>
+                                        <auc:OtherControlTechnology>
+                                            <auc:ControlSystemType>
+                                                <auc:Digital></auc:Digital>
+                                            </auc:ControlSystemType>
+                                        </auc:OtherControlTechnology>
+                                    </auc:Control>
+                                </auc:Controls>
                                 <auc:YearInstalled>2020</auc:YearInstalled>
                             </auc:HeatingSource>
                         </auc:HeatingSources>
@@ -126,6 +175,15 @@
                                 <auc:Capacity>123</auc:Capacity>
                                 <auc:CapacityUnits>gpm</auc:CapacityUnits>
                                 <auc:CoolingSourceCondition>Good</auc:CoolingSourceCondition>
+                                <auc:Controls>
+                                    <auc:Control>
+                                        <auc:OtherControlTechnology>
+                                            <auc:ControlSystemType>
+                                                <auc:Digital></auc:Digital>
+                                            </auc:ControlSystemType>
+                                        </auc:OtherControlTechnology>
+                                    </auc:Control>
+                                </auc:Controls>
                                 <auc:YearInstalled>2020</auc:YearInstalled>
                             </auc:CoolingSource>
                         </auc:CoolingSources>
@@ -150,6 +208,15 @@
                                 <auc:CoolingSourceID IDref="CoolingSource-A" />
                                 <auc:Capacity>123</auc:Capacity>
                                 <auc:CapacityUnits>gpm</auc:CapacityUnits>
+                                <auc:Controls>
+                                    <auc:Control>
+                                        <auc:OtherControlTechnology>
+                                            <auc:ControlSystemType>
+                                                <auc:Digital></auc:Digital>
+                                            </auc:ControlSystemType>
+                                        </auc:OtherControlTechnology>
+                                    </auc:Control>
+                                </auc:Controls>
                                 <auc:YearInstalled>2020</auc:YearInstalled>
                                 <auc:Quantity>1</auc:Quantity>
                                 <auc:DeliveryCondition>Good</auc:DeliveryCondition>
@@ -171,6 +238,15 @@
                                 <auc:CoolingSourceID IDref="CoolingSource-A" />
                                 <auc:Capacity>123</auc:Capacity>
                                 <auc:CapacityUnits>gpm</auc:CapacityUnits>
+                                <auc:Controls>
+                                    <auc:Control>
+                                        <auc:OtherControlTechnology>
+                                            <auc:ControlSystemType>
+                                                <auc:Digital></auc:Digital>
+                                            </auc:ControlSystemType>
+                                        </auc:OtherControlTechnology>
+                                    </auc:Control>
+                                </auc:Controls>
                                 <auc:YearInstalled>2020</auc:YearInstalled>
                                 <auc:Quantity>1</auc:Quantity>
                                 <auc:DeliveryCondition>Good</auc:DeliveryCondition>
@@ -187,6 +263,15 @@
                                 <auc:CoolingSourceID IDref="CoolingSource-A" />
                                 <auc:Capacity>123</auc:Capacity>
                                 <auc:CapacityUnits>gpm</auc:CapacityUnits>
+                                <auc:Controls>
+                                    <auc:Control>
+                                        <auc:OtherControlTechnology>
+                                            <auc:ControlSystemType>
+                                                <auc:Digital></auc:Digital>
+                                            </auc:ControlSystemType>
+                                        </auc:OtherControlTechnology>
+                                    </auc:Control>
+                                </auc:Controls>
                                 <auc:YearInstalled>2020</auc:YearInstalled>
                                 <auc:Quantity>1</auc:Quantity>
                                 <auc:DeliveryCondition>Good</auc:DeliveryCondition>
@@ -203,6 +288,15 @@
                                 <auc:CoolingSourceID IDref="CoolingSource-A" />
                                 <auc:Capacity>123</auc:Capacity>
                                 <auc:CapacityUnits>gpm</auc:CapacityUnits>
+                                <auc:Controls>
+                                    <auc:Control>
+                                        <auc:OtherControlTechnology>
+                                            <auc:ControlSystemType>
+                                                <auc:Digital></auc:Digital>
+                                            </auc:ControlSystemType>
+                                        </auc:OtherControlTechnology>
+                                    </auc:Control>
+                                </auc:Controls>
                                 <auc:YearInstalled>2020</auc:YearInstalled>
                                 <auc:Quantity>1</auc:Quantity>
                                 <auc:DeliveryCondition>Good</auc:DeliveryCondition>
@@ -216,6 +310,9 @@
                             <auc:HeatingDeliveryID IDref="Delivery-A" />
                         </auc:DuctSystem>
                     </auc:DuctSystems>
+                    <auc:HVACControlSystemTypes>
+                        <auc:HVACControlSystemType>Digital</auc:HVACControlSystemType>
+                    </auc:HVACControlSystemTypes>
                 </auc:HVACSystem>
             </auc:HVACSystems>
             <auc:PumpSystems>

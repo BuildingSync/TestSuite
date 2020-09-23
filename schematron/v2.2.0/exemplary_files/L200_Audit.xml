@@ -256,6 +256,9 @@
           <!-- 6.1.1.1.g/5.3.4.g (for every space function) -->
           <auc:HVACSystem ID="HVAC-A">
             <auc:PrincipalHVACSystemType>Packaged Terminal Air Conditioner</auc:PrincipalHVACSystemType>
+            <auc:HVACControlSystemTypes>
+              <auc:HVACControlSystemType>Digital</auc:HVACControlSystemType>
+            </auc:HVACControlSystemTypes>
             <auc:LinkedPremises>
               <auc:Section>
                 <auc:LinkedSectionID IDref="Section-Space-A"></auc:LinkedSectionID>

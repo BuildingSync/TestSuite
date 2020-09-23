@@ -72,6 +72,11 @@
     <sch:active pattern="central_air_distribution"/>
     <sch:active pattern="heat_recovery_system"/>
   </sch:phase>
+  <sch:phase id="hvac_controls_type" see="ASHRAE 211 6.2.1.3 (d)">
+    <sch:active pattern="plant_controls"/>
+    <sch:active pattern="hvac_controls"/>
+    <sch:active pattern="source_controls"/>
+  </sch:phase>
   <sch:pattern see="" id="document_structure_prerequisites_misc_building_info">
     <sch:title>Document Structure Prerequisites Misc Building Info</sch:title>
     <sch:rule context="/">
@@ -652,6 +657,39 @@
       <sch:assert test="auc:HeatRecoveryType" role="">auc:HeatRecoveryType</sch:assert>
       <sch:assert test="auc:SystemIDReceivingHeat" role="">auc:SystemIDReceivingHeat</sch:assert>
       <sch:assert test="auc:SystemIDProvidingHeat" role="">auc:SystemIDProvidingHeat</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="" id="plant_controls">
+    <sch:title>Plant Controls</sch:title>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:Plants/auc:HeatingPlants/auc:HeatingPlant">
+      <sch:assert test="count(auc:ControlSystemTypes/auc:ControlSystemType/*) &gt;= 1" role="">auc:HeatingPlant must have at least one auc:ControlSystemType child</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:Plants/auc:CoolingPlants/auc:CoolingPlant">
+      <sch:assert test="count(auc:ControlSystemTypes/auc:ControlSystemType/*) &gt;= 1" role="">auc:CoolingPlant must have at least one auc:ControlSystemType child</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:Plants/auc:CondenserPlants/auc:CondenserPlant">
+      <sch:assert test="count(auc:ControlSystemTypes/auc:ControlSystemType/*) &gt;= 1" role="">auc:CondenserPlant must have at least one auc:ControlSystemType child</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="" id="hvac_controls">
+    <sch:title>HVAC Controls</sch:title>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem">
+      <sch:assert test="count(auc:HVACControlSystemTypes/auc:HVACControlSystemType) &gt;= 1" role="WARNING">auc:HVACSystem must have at least one auc:ControlSystemType child</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="" id="source_controls">
+    <sch:title>Source Controls</sch:title>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:HeatingAndCoolingSystems/auc:CoolingSources/auc:CoolingSource[not(auc:CoolingSourceType/auc:CoolingPlantID)]">
+      <sch:assert test="count(auc:Controls/auc:Control/*) &gt;= 1" role="">auc:CoolingSource must have at least one auc:Control child</sch:assert>
+      <sch:assert test="auc:Controls/auc:Control/*/auc:ControlSystemType/*" role="">auc:CoolingSource must have at least one auc:ControlSystemType child</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:HeatingAndCoolingSystems/auc:HeatingSources/auc:HeatingSource[not(auc:HeatingSourceType/auc:HeatingPlantID)]">
+      <sch:assert test="count(auc:Controls/auc:Control/*) &gt;= 1" role="">auc:HeatingSource must have at least one auc:Control child</sch:assert>
+      <sch:assert test="auc:Controls/auc:Control/*/auc:ControlSystemType/*" role="">auc:HeatingSource must have at least one auc:ControlSystemType child</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:HeatingAndCoolingSystems/auc:Deliveries/auc:Delivery">
+      <sch:assert test="count(auc:Controls/auc:Control/*) &gt;= 1" role="">auc:Delivery must have at least one auc:Control child</sch:assert>
+      <sch:assert test="auc:Controls/auc:Control/*/auc:ControlSystemType/*" role="">auc:Delivery must have at least one auc:ControlSystemType child</sch:assert>
     </sch:rule>
   </sch:pattern>
 </sch:schema>
