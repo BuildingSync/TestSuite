@@ -45,6 +45,10 @@
     <sch:active pattern="document_structure_prerequisites_water_infiltration"/>
     <sch:active pattern="water_infiltration"/>
   </sch:phase>
+  <sch:phase id="hvac_general_requirements" see="">
+    <sch:active pattern="document_structure_prerequisites_general_hvac_requirements"/>
+    <sch:active pattern="general_hvac_requirements"/>
+  </sch:phase>
   <sch:phase id="hvac_year_installed" see="ASHRAE 211 6.2.1.3 (a)">
     <sch:active pattern="year_installed"/>
   </sch:phase>
@@ -161,7 +165,7 @@
       <sch:assert test="auc:TypicalOccupantUsages/auc:TypicalOccupantUsage[auc:TypicalOccupantUsageUnits/text() = 'Weeks per year']" role="">auc:TypicalOccupantUsages/auc:TypicalOccupantUsage[auc:TypicalOccupantUsageUnits/text() = 'Weeks per year']</sch:assert>
       <sch:assert test="auc:OccupancyLevels/auc:OccupancyLevel[auc:OccupantQuantityType/text() = 'Peak total occupants' or auc:OccupantQuantityType/text() = 'Normal occupancy']/auc:OccupantQuantity" role="">auc:OccupancyLevels/auc:OccupancyLevel[auc:OccupantQuantityType/text() = 'Peak total occupants' or auc:OccupantQuantityType/text() = 'Normal occupancy']/auc:OccupantQuantity</sch:assert>
       <sch:assert test="//auc:PlugLoad[auc:LinkedPremises/auc:Section/auc:LinkedSectionID/@IDref = current()/@ID]/auc:WeightedAverageLoad" role="">auc:Section[auc:SectionType='Space function'] must have a linked auc:PlugLoad with auc:WeightedAverageLoad</sch:assert>
-      <sch:assert test="//auc:HVACSystem[auc:LinkedPremises/auc:Section/auc:LinkedSectionID/@IDref = current()/@ID]/auc:PrincipalHVACSystemType" role="">auc:Section[auc:SectionType='Space function'] must have a linked auc:HVACSystem/auc:PrincipalHVACSystem</sch:assert>
+      <sch:assert test="//auc:HVACSystem[auc:LinkedPremises/auc:Section/auc:LinkedSectionID/@IDref = current()/@ID]" role="">auc:Section[auc:SectionType='Space function'] must have a linked auc:HVACSystem</sch:assert>
       <sch:assert test="//auc:LightingSystem[auc:LinkedPremises/auc:Section/auc:LinkedSectionID/@IDref = current()/@ID]/auc:LampType" role="">auc:Section[auc:SectionType='Space function'] must have a linked auc:LightingSystem with auc:LampType defined</sch:assert>
       <sch:assert test="//auc:LightingSystem[auc:LinkedPremises/auc:Section/auc:LinkedSectionID/@IDref = current()/@ID]/auc:LampType//auc:LampLabel" role="WARNING">auc:Section[auc:SectionType='Space function'] must have a linked auc:LightingSystem with auc:LampLabel defined</sch:assert>
     </sch:rule>
@@ -434,6 +438,23 @@
       <sch:assert test="auc:WaterInfiltrationNotes" role="">auc:WaterInfiltrationNotes</sch:assert>
     </sch:rule>
   </sch:pattern>
+  <sch:pattern see="" id="document_structure_prerequisites_general_hvac_requirements">
+    <sch:title>Document Structure Prerequisites General HVAC Requirements</sch:title>
+    <sch:rule context="/">
+      <sch:assert test="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems" role="ERROR">/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems</sch:assert>
+      <sch:assert test="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem" role="ERROR">/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="" id="general_hvac_requirements">
+    <sch:title>General HVAC Requirements</sch:title>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems">
+      <sch:assert test="auc:HVACSystem" role="">auc:HVACSystem</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem">
+      <sch:assert test="//auc:Buildings/auc:Building/auc:Sections/auc:Section[@ID = current()/auc:LinkedPremises/auc:Section/auc:LinkedSectionID/@IDref]" role="">Every auc:HVACSystem should be linked to an auc:Section</sch:assert>
+      <sch:assert test="auc:HeatingAndCoolingSystems" role="">auc:HeatingAndCoolingSystems</sch:assert>
+    </sch:rule>
+  </sch:pattern>
   <sch:pattern see="ASHRAE 211 6.2.1.3 (a)" id="year_installed">
     <sch:title>Year Installed</sch:title>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:Plants/auc:HeatingPlants/auc:HeatingPlant">
@@ -649,8 +670,8 @@
   </sch:pattern>
   <sch:pattern see="" id="central_air_distribution">
     <sch:title>Central Air Distribution</sch:title>
-    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:HeatingAndCoolingSystems/auc:Deliveries/auc:Delivery/auc:DeliveryType/auc:CentralAirDistribution/auc:FanBased">
-      <sch:assert test="auc:AirSideEconomizer" role="">auc:AirSideEconomizer</sch:assert>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:HeatingAndCoolingSystems/auc:Deliveries/auc:Delivery/auc:DeliveryType/auc:CentralAirDistribution">
+      <sch:assert test="auc:FanBased/auc:AirSideEconomizer" role="">auc:FanBased/auc:AirSideEconomizer</sch:assert>
     </sch:rule>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:HeatingAndCoolingSystems/auc:Deliveries/auc:Delivery/auc:DeliveryType/auc:CentralAirDistribution/auc:FanBased/auc:AirSideEconomizer">
       <sch:assert test="auc:AirSideEconomizerType" role="">auc:AirSideEconomizerType</sch:assert>

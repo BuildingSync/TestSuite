@@ -478,7 +478,7 @@ class TestL200AuditHvacSystems(AssertFailureRolesMixin):
         })
 
     @pytest.mark.parametrize("xpath_to_remove, expected_message", [
-        ('//auc:Deliveries/auc:Delivery/auc:DeliveryType/auc:CentralAirDistribution/auc:FanBased/auc:AirSideEconomizer', 'auc:AirSideEconomizer'),
+        ('//auc:Deliveries/auc:Delivery/auc:DeliveryType/auc:CentralAirDistribution/auc:FanBased/auc:AirSideEconomizer', 'auc:FanBased/auc:AirSideEconomizer'),
         ('//auc:HeatRecoverySystems/auc:HeatRecoverySystem/auc:HeatRecoveryType', 'auc:HeatRecoveryType'),
     ])
     def test_is_invalid_when_outdoor_air_control_is_missing_info(self, xpath_to_remove, expected_message):

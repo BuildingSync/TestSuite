@@ -258,7 +258,96 @@
         <auc:HVACSystems>
           <!-- 6.1.1.1.g/5.3.4.g (for every space function) -->
           <auc:HVACSystem ID="HVAC-A">
-            <auc:PrincipalHVACSystemType>Packaged Terminal Air Conditioner</auc:PrincipalHVACSystemType>
+            <auc:Plants>
+              <auc:CoolingPlants>
+                <auc:CoolingPlant ID="CoolingPlant-A">
+                  <auc:DistrictChilledWater>
+                    <auc:AnnualCoolingEfficiencyValue>123</auc:AnnualCoolingEfficiencyValue>
+                    <auc:AnnualCoolingEfficiencyUnits>COP</auc:AnnualCoolingEfficiencyUnits>
+                    <auc:Capacity>123</auc:Capacity>
+                    <auc:CapacityUnits>gpm</auc:CapacityUnits>
+                  </auc:DistrictChilledWater>
+                  <auc:CoolingPlantCondition>Good</auc:CoolingPlantCondition>
+                  <auc:YearInstalled>2020</auc:YearInstalled>
+                  <auc:PrimaryFuel>Other</auc:PrimaryFuel>
+                  <auc:BuildingAutomationSystem>true</auc:BuildingAutomationSystem>
+                  <auc:ControlSystemTypes>
+                    <auc:ControlSystemType>
+                      <auc:Digital></auc:Digital>
+                    </auc:ControlSystemType>
+                  </auc:ControlSystemTypes>
+                </auc:CoolingPlant>
+              </auc:CoolingPlants>
+            </auc:Plants>
+            <auc:HeatingAndCoolingSystems>
+              <auc:ZoningSystemType>Single zone</auc:ZoningSystemType>
+              <auc:HeatingSources>
+                <auc:HeatingSource ID="HeatingSource-A">
+                  <auc:InputCapacity>123</auc:InputCapacity>
+                  <auc:OutputCapacity>123</auc:OutputCapacity>
+                  <auc:CapacityUnits>gpm</auc:CapacityUnits>
+                  <auc:HeatingSourceCondition>Good</auc:HeatingSourceCondition>
+                  <auc:Controls>
+                    <auc:Control>
+                      <auc:OtherControlTechnology>
+                        <auc:ControlSystemType>
+                          <auc:Digital></auc:Digital>
+                        </auc:ControlSystemType>
+                      </auc:OtherControlTechnology>
+                    </auc:Control>
+                  </auc:Controls>
+                  <auc:YearInstalled>2020</auc:YearInstalled>
+                </auc:HeatingSource>
+              </auc:HeatingSources>
+              <auc:CoolingSources>
+                <auc:CoolingSource ID="CoolingSource-A">
+                  <auc:CoolingSourceType>
+                    <auc:CoolingPlantID IDref="CoolingPlant-A" />
+                  </auc:CoolingSourceType>
+                </auc:CoolingSource>
+              </auc:CoolingSources>
+              <auc:Deliveries>
+                <auc:Delivery ID="Delivery-A">
+                  <auc:DeliveryType>
+                    <auc:CentralAirDistribution>
+                      <auc:AirDeliveryType>Central fan</auc:AirDeliveryType>
+                      <auc:TerminalUnit>CAV terminal box no reheat</auc:TerminalUnit>
+                      <auc:ReheatSource>None</auc:ReheatSource>
+                      <auc:FanBased>
+                        <auc:AirSideEconomizer ID="AirSideEconomizer-A">
+                          <auc:AirSideEconomizerType>None</auc:AirSideEconomizerType>
+                          <auc:EconomizerControl>Fixed</auc:EconomizerControl>
+                        </auc:AirSideEconomizer>
+                      </auc:FanBased>
+                    </auc:CentralAirDistribution>
+                  </auc:DeliveryType>
+                  <auc:HeatingSourceID IDref="HeatingSource-A" />
+                  <auc:CoolingSourceID IDref="CoolingSource-A" />
+                  <auc:Capacity>123</auc:Capacity>
+                  <auc:CapacityUnits>gpm</auc:CapacityUnits>
+                  <auc:Controls>
+                    <auc:Control>
+                      <auc:OtherControlTechnology>
+                        <auc:ControlSystemType>
+                          <auc:Digital></auc:Digital>
+                        </auc:ControlSystemType>
+                      </auc:OtherControlTechnology>
+                    </auc:Control>
+                  </auc:Controls>
+                  <auc:YearInstalled>2020</auc:YearInstalled>
+                  <auc:Quantity>1</auc:Quantity>
+                  <auc:DeliveryCondition>Good</auc:DeliveryCondition>
+                </auc:Delivery>
+              </auc:Deliveries>
+            </auc:HeatingAndCoolingSystems>
+            <auc:DuctSystems>
+              <auc:DuctSystem ID="DuctSystem-A">
+                <auc:DuctConfiguration>Single</auc:DuctConfiguration>
+                <auc:DuctInsulationCondition>Excellent</auc:DuctInsulationCondition>
+                <auc:HeatingDeliveryID IDref="Delivery-A" />
+              </auc:DuctSystem>
+            </auc:DuctSystems>
+            <auc:PrincipalHVACSystemType>Packaged Rooftop VAV with Hot Water Reheat</auc:PrincipalHVACSystemType>
             <auc:HVACControlSystemTypes>
               <auc:HVACControlSystemType>Digital</auc:HVACControlSystemType>
             </auc:HVACControlSystemTypes>
@@ -287,6 +376,30 @@
             </auc:LinkedPremises>
           </auc:LightingSystem>
         </auc:LightingSystems>
+
+        <auc:PumpSystems>
+          <auc:PumpSystem ID="PumpSystem-A">
+            <auc:PumpControlType>Constant Volume</auc:PumpControlType>
+            <auc:LinkedSystemIDs>
+              <auc:LinkedSystemID IDref="HeatingPlant-A" />
+            </auc:LinkedSystemIDs>
+          </auc:PumpSystem>
+          <auc:PumpSystem ID="PumpSystem-B">
+            <auc:PumpControlType>Constant Volume</auc:PumpControlType>
+            <auc:LinkedSystemIDs>
+              <auc:LinkedSystemID IDref="CoolingPlant-A" />
+            </auc:LinkedSystemIDs>
+          </auc:PumpSystem>
+        </auc:PumpSystems>
+
+        <auc:FanSystems>
+          <auc:FanSystem ID="FanSystem-A">
+            <auc:FanControlType>Stepped</auc:FanControlType>
+            <auc:LinkedSystemIDs>
+              <auc:LinkedSystemID IDref="Delivery-A" />
+            </auc:LinkedSystemIDs>
+          </auc:FanSystem>
+        </auc:FanSystems>
 
         <auc:WallSystems>
           <auc:WallSystem ID="Wall-A">

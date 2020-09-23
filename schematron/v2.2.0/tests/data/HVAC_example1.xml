@@ -2,6 +2,18 @@
 <auc:BuildingSync xmlns:auc="http://buildingsync.net/schemas/bedes-auc/2019" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://buildingsync.net/schemas/bedes-auc/2019 https://raw.githubusercontent.com/BuildingSync/schema/develop/BuildingSync.xsd" version="2.1.0">
   <auc:Facilities>
     <auc:Facility ID="Facility-A">
+        <auc:Sites>
+            <auc:Site ID="Site-A">
+                <auc:Buildings>
+                    <auc:Building ID="Building-A">
+                        <auc:BuildingAutomationSystem>true</auc:BuildingAutomationSystem>
+                        <auc:Sections>
+                            <auc:Section ID="Section-A"></auc:Section>
+                        </auc:Sections>
+                    </auc:Building>
+                </auc:Buildings>
+            </auc:Site>
+        </auc:Sites>
         <auc:Systems>
             <auc:HVACSystems>
                 <auc:HVACSystem ID="HVAC-A">
@@ -321,6 +333,11 @@
                     <auc:HVACControlSystemTypes>
                         <auc:HVACControlSystemType>Digital</auc:HVACControlSystemType>
                     </auc:HVACControlSystemTypes>
+                    <auc:LinkedPremises>
+                        <auc:Section>
+                            <auc:LinkedSectionID IDref="Section-A"></auc:LinkedSectionID>
+                        </auc:Section>
+                    </auc:LinkedPremises>
                 </auc:HVACSystem>
             </auc:HVACSystems>
             <auc:PumpSystems>
