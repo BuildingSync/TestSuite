@@ -148,6 +148,7 @@
                     </auc:FloorArea>
 
                   </auc:FloorAreas>
+                  <auc:ThermalZoneLayout>Single zone</auc:ThermalZoneLayout>
                 </auc:Section>
 
                 <auc:Section ID="Section-Whole-building">

@@ -226,3 +226,4 @@
 "","","","","","","","","","auc:Controls/auc:Control/*/auc:ControlSystemType/*","auc:HeatingSource must have at least one auc:ControlSystemType child","",""
 "","","","","","/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:HeatingAndCoolingSystems/auc:Deliveries/auc:Delivery","false","","","count(auc:Controls/auc:Control/*) >= 1","auc:Delivery must have at least one auc:Control child","",""
 "","","","","","","","","","auc:Controls/auc:Control/*/auc:ControlSystemType/*","auc:Delivery must have at least one auc:ControlSystemType child","",""
+"HVAC Zone Controls","ASHRAE 211 6.2.1.3 (d)","Zone Controls","","","/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType='Space function']","true","","","auc:ThermalZoneLayout","","",""

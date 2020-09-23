@@ -77,6 +77,10 @@
     <sch:active pattern="hvac_controls"/>
     <sch:active pattern="source_controls"/>
   </sch:phase>
+  <sch:phase id="hvac_zone_controls" see="ASHRAE 211 6.2.1.3 (d)">
+    <sch:active pattern="document_structure_prerequisites_zone_controls"/>
+    <sch:active pattern="zone_controls"/>
+  </sch:phase>
   <sch:pattern see="" id="document_structure_prerequisites_misc_building_info">
     <sch:title>Document Structure Prerequisites Misc Building Info</sch:title>
     <sch:rule context="/">
@@ -690,6 +694,18 @@
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:HeatingAndCoolingSystems/auc:Deliveries/auc:Delivery">
       <sch:assert test="count(auc:Controls/auc:Control/*) &gt;= 1" role="">auc:Delivery must have at least one auc:Control child</sch:assert>
       <sch:assert test="auc:Controls/auc:Control/*/auc:ControlSystemType/*" role="">auc:Delivery must have at least one auc:ControlSystemType child</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="" id="document_structure_prerequisites_zone_controls">
+    <sch:title>Document Structure Prerequisites Zone Controls</sch:title>
+    <sch:rule context="/">
+      <sch:assert test="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType='Space function']" role="ERROR">/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType='Space function']</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="" id="zone_controls">
+    <sch:title>Zone Controls</sch:title>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType='Space function']">
+      <sch:assert test="auc:ThermalZoneLayout" role="">auc:ThermalZoneLayout</sch:assert>
     </sch:rule>
   </sch:pattern>
 </sch:schema>
