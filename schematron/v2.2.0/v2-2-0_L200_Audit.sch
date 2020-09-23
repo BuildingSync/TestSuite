@@ -60,12 +60,15 @@
   <sch:phase id="hvac_distribution_system_sources" see="ASHRAE 211 6.2.1.3 (c)">
     <sch:active pattern="heating_and_cooling_sources"/>
   </sch:phase>
-  <sch:phase id="hvac_distribution_system_delivery_type_air_delivery" see="">
+  <sch:phase id="hvac_distribution_system_delivery_type_air_delivery" see="ASHRAE 211 6.2.1.3 (c)">
     <sch:active pattern="delivery_type"/>
     <sch:active pattern="central_fan"/>
     <sch:active pattern="zone_equipment"/>
   </sch:phase>
-  <sch:phase id="hvac_distribution_system_delivery_outdoor_air_control" see="">
+  <sch:phase id="hvac_distribution_system_delivery_type_water_delivery" see="ASHRAE 211 6.2.1.3 (c)">
+    <sch:active pattern="plant_pumps"/>
+  </sch:phase>
+  <sch:phase id="hvac_distribution_system_delivery_outdoor_air_control" see="ASHRAE 211 6.2.1.3 (c)">
     <sch:active pattern="central_air_distribution"/>
     <sch:active pattern="heat_recovery_system"/>
   </sch:phase>
@@ -615,6 +618,21 @@
     </sch:rule>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:HeatingAndCoolingSystems/auc:Deliveries/auc:Delivery/auc:DeliveryType/auc:ZoneEquipment/auc:Radiant">
       <sch:assert test="auc:RadiantType" role="">auc:RadiantType</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="" id="plant_pumps">
+    <sch:title>Plant Pumps</sch:title>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:Plants/auc:HeatingPlants/auc:HeatingPlant">
+      <sch:assert test="//auc:Systems/auc:PumpSystems/auc:PumpSystem/auc:LinkedSystemIDs/auc:LinkedSystemID/@IDref = current()/@ID" role="">auc:HeatingPlant must be linked to an auc:PumpSystem through auc:PumpSystem/auc:LinkedSystemIDs</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:Plants/auc:CoolingPlants/auc:CoolingPlant">
+      <sch:assert test="//auc:Systems/auc:PumpSystems/auc:PumpSystem/auc:LinkedSystemIDs/auc:LinkedSystemID/@IDref = current()/@ID" role="">auc:CoolingPlant must be linked to an auc:PumpSystem through auc:PumpSystem/auc:LinkedSystemIDs</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:Plants/auc:CondenserPlants/auc:CondenserPlant">
+      <sch:assert test="//auc:Systems/auc:PumpSystems/auc:PumpSystem/auc:LinkedSystemIDs/auc:LinkedSystemID/@IDref = current()/@ID" role="">auc:CondenserPlant must be linked to an auc:PumpSystem through auc:PumpSystem/auc:LinkedSystemIDs</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:PumpSystems/auc:PumpSystem">
+      <sch:assert test="auc:PumpControlType" role="">auc:PumpControlType</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern see="" id="central_air_distribution">

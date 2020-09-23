@@ -493,3 +493,21 @@ class TestL200AuditHvacSystems(AssertFailureRolesMixin):
         self.assert_failure_messages(failures, {
             'ERROR': [expected_message]
         })
+
+    @pytest.mark.parametrize("xpath_to_remove, expected_message", [
+        ('//auc:Systems/auc:PumpSystems/auc:PumpSystem/auc:LinkedSystemIDs/auc:LinkedSystemID[@IDref = "HeatingPlant-A"]', 'auc:HeatingPlant must be linked to an auc:PumpSystem through auc:PumpSystem/auc:LinkedSystemIDs'),
+        ('//auc:Systems/auc:PumpSystems/auc:PumpSystem/auc:LinkedSystemIDs/auc:LinkedSystemID[@IDref = "CoolingPlant-A"]', 'auc:CoolingPlant must be linked to an auc:PumpSystem through auc:PumpSystem/auc:LinkedSystemIDs'),
+        ('//auc:Systems/auc:PumpSystems/auc:PumpSystem/auc:LinkedSystemIDs/auc:LinkedSystemID[@IDref = "CondenserPlant-A"]', 'auc:CondenserPlant must be linked to an auc:PumpSystem through auc:PumpSystem/auc:LinkedSystemIDs'),
+    ])
+    def test_is_invalid_when_plant_is_not_linked_to_pump(self, xpath_to_remove, expected_message):
+        # -- Setup
+        tree = etree.parse(self.example_file)
+        remove_element(tree, xpath_to_remove)
+
+        # -- Act
+        failures = validate_schematron(self.schematron, tree, phase='hvac_distribution_system_delivery_type_water_delivery')
+
+        # -- Assert
+        self.assert_failure_messages(failures, {
+            'ERROR': [expected_message]
+        })
