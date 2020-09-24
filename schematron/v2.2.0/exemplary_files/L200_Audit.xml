@@ -104,6 +104,7 @@
               <auc:TotalExteriorAboveGradeWallArea>123</auc:TotalExteriorAboveGradeWallArea>
               <auc:TotalExteriorBelowGradeWallArea>123</auc:TotalExteriorBelowGradeWallArea>
               <auc:OverallWindowToWallRatio>0.2</auc:OverallWindowToWallRatio>
+              <auc:OverallDoorToWallRatio>0.1</auc:OverallDoorToWallRatio>
 
               <!-- 6.1.1.1.i -->
               <auc:YearOfConstruction>1993</auc:YearOfConstruction>
