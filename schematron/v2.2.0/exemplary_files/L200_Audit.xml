@@ -1649,6 +1649,8 @@
 
               <!-- 6.1.2.1.b -->
               <auc:UtilityAccountNumber>12345</auc:UtilityAccountNumber>
+
+              <auc:UtilityBillpayer>Building Owner</auc:UtilityBillpayer>
             </auc:Utility>
 
             <auc:Utility ID="Utility-NG">
@@ -1683,6 +1685,8 @@
 
               <!-- 6.1.2.1.b -->
               <auc:UtilityAccountNumber>12345</auc:UtilityAccountNumber>
+
+              <auc:UtilityBillpayer>Building Owner</auc:UtilityBillpayer>
             </auc:Utility>
 
             <auc:Utility ID="Utility-ElecGen">
@@ -1719,6 +1723,8 @@
 
               <!-- 6.1.2.1.b -->
               <auc:UtilityAccountNumber>12345</auc:UtilityAccountNumber>
+
+              <auc:UtilityBillpayer>Building Owner</auc:UtilityBillpayer>
             </auc:Utility>
           </auc:Utilities>
 
