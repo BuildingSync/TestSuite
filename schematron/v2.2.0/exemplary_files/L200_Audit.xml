@@ -88,10 +88,16 @@
                 <auc:FloorArea>
                   <auc:FloorAreaType>Gross</auc:FloorAreaType>
                   <auc:FloorAreaValue>5502</auc:FloorAreaValue>
+                  <auc:ExcludedSectionIDs>
+                    <auc:ExcludedSectionID IDref="Section-Space-B" />
+                  </auc:ExcludedSectionIDs>
                 </auc:FloorArea>
                 <auc:FloorArea>
                   <auc:FloorAreaType>Conditioned</auc:FloorAreaType>
                   <auc:FloorAreaValue>5502</auc:FloorAreaValue>
+                  <auc:ExcludedSectionIDs>
+                    <auc:ExcludedSectionID IDref="Section-Space-B" />
+                  </auc:ExcludedSectionIDs>
                 </auc:FloorArea>
               </auc:FloorAreas>
 
@@ -147,6 +153,49 @@
                     <auc:FloorArea>
                       <auc:FloorAreaType>Conditioned</auc:FloorAreaType>
                       <auc:FloorAreaValue>23</auc:FloorAreaValue>
+                    </auc:FloorArea>
+
+                  </auc:FloorAreas>
+                  <auc:ThermalZoneLayout>Single zone</auc:ThermalZoneLayout>
+                </auc:Section>
+
+                <auc:Section ID="Section-Space-B">
+                  <auc:SectionType>Component</auc:SectionType>
+                  <auc:OccupancyClassification>Other</auc:OccupancyClassification>
+                  <auc:OriginalOccupancyClassification>Other</auc:OriginalOccupancyClassification>
+
+                  <!-- 6.1.1.1.g/5.3.4.d -->
+                  <auc:OccupancyLevels>
+                    <auc:OccupancyLevel>
+                      <!-- note, type can also be 'Normal Occupancy' -->
+                      <auc:OccupantQuantityType>Peak total occupants</auc:OccupantQuantityType>
+                      <auc:OccupantQuantity>123</auc:OccupantQuantity>
+                    </auc:OccupancyLevel>
+                  </auc:OccupancyLevels>
+
+                  <auc:TypicalOccupantUsages>
+                    <!-- 6.1.1.1.g/5.3.4.b -->
+                    <auc:TypicalOccupantUsage>
+                      <auc:TypicalOccupantUsageValue>40</auc:TypicalOccupantUsageValue>
+                      <auc:TypicalOccupantUsageUnits>Hours per week</auc:TypicalOccupantUsageUnits>
+                    </auc:TypicalOccupantUsage>
+
+                    <!-- 6.1.1.1.g/5.3.4.c -->
+                    <auc:TypicalOccupantUsage>
+                      <auc:TypicalOccupantUsageValue>30</auc:TypicalOccupantUsageValue>
+                      <auc:TypicalOccupantUsageUnits>Weeks per year</auc:TypicalOccupantUsageUnits>
+                    </auc:TypicalOccupantUsage>
+                  </auc:TypicalOccupantUsages>
+
+                  <auc:FloorAreas>
+                    <!-- 6.1.1.1.g/5.3.4.a -->
+                    <auc:FloorArea>
+                      <auc:FloorAreaType>Gross</auc:FloorAreaType>
+                      <auc:FloorAreaValue>10</auc:FloorAreaValue>
+                    </auc:FloorArea>
+                    <auc:FloorArea>
+                      <auc:FloorAreaType>Conditioned</auc:FloorAreaType>
+                      <auc:FloorAreaValue>10</auc:FloorAreaValue>
                     </auc:FloorArea>
 
                   </auc:FloorAreas>
