@@ -302,6 +302,27 @@ class TestL200AuditEnvelopeSystems(AssertFailureRolesMixin):
             'WARNING': ['auc:FoundationWallRValue or auc:FoundationWallUFactor']
         })
 
+    def test_is_invalid_when_no_section_whole_building(self):
+        # -- Setup
+        tree = exemplary_tree('L200_Audit', 'v2.2.0')
+
+        building_elem = tree.xpath('//auc:Buildings/auc:Building', namespaces=BSYNC_NSMAP)
+        assert len(building_elem) == 1
+        building_elem = building_elem[0]
+
+        # remove auc:Section[auc:SectionType = "Whole building"]
+        remove_element(building_elem, 'auc:Sections/auc:Section[auc:SectionType = "Whole building"]')
+
+        # -- Act
+        failures = validate_schematron(self.schematron, tree)
+
+        # -- Assert
+        # This breaks many things, but just want to make sure it breaks.  Only checking first error.
+        failures = [failures[0]]
+        self.assert_failure_messages(failures, {
+            'ERROR': ['/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType = "Whole building"]/auc:Roofs/auc:Roof']
+        })
+
 
 class TestL200AuditHvacSystems(AssertFailureRolesMixin):
     schematron = os.path.join(v2_2_0_SCH_DIR, 'v2-2-0_L200_Audit.sch')
