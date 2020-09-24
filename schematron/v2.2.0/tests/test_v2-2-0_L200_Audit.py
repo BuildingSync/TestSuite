@@ -406,6 +406,30 @@ class TestL200AuditEnvelopeSystems(AssertFailureRolesMixin):
             'WARNING': ['Found an auc:Side with no linked auc:Window', 'Found an auc:Side with no linked auc:Window']
         })
 
+    def test_is_invalid_when_no_foundation_exists_under_section_whole_building(self):
+        # -- Setup
+        tree = exemplary_tree('L200_Audit', 'v2.2.0')
+
+        section_elem = tree.xpath('//auc:Building/auc:Sections/auc:Section[auc:SectionType = "Whole building"]', namespaces=BSYNC_NSMAP)
+        assert len(section_elem) == 1
+        section_elem = section_elem[0]
+
+        foundation_elem = section_elem.xpath('auc:Foundations/auc:Foundation', namespaces=BSYNC_NSMAP)
+        assert len(foundation_elem) == 1
+        foundation_elem = foundation_elem[0]
+
+        # remove window from first side element
+        remove_element(foundation_elem, 'auc:FoundationID[1]')
+
+        # -- Act
+        failures = validate_schematron(self.schematron, tree)
+
+        # -- Assert
+        self.assert_failure_messages(failures, {
+            'ERROR': ['/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType = "Whole building"]/auc:Foundations/auc:Foundation/auc:FoundationID',
+                      'count(auc:Foundations/auc:Foundation/auc:FoundationID) >= 1']
+        })
+
 
 class TestL200AuditHvacSystems(AssertFailureRolesMixin):
     schematron = os.path.join(v2_2_0_SCH_DIR, 'v2-2-0_L200_Audit.sch')
