@@ -206,6 +206,7 @@
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Schedules/auc:Schedule/auc:ScheduleDetails/auc:ScheduleDetail">
       <sch:assert test="auc:DayStartTime" role="">auc:DayStartTime</sch:assert>
       <sch:assert test="auc:DayEndTime" role="">auc:DayEndTime</sch:assert>
+      <sch:assert test="auc:PartialOperationPercentage" role="">auc:PartialOperationPercentage</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern see="" id="document_structure_prerequisites_occupancy_schedules">
@@ -462,6 +463,7 @@
     <sch:rule context="/">
       <sch:assert test="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems" role="ERROR">/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems</sch:assert>
       <sch:assert test="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem" role="ERROR">/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem</sch:assert>
+      <sch:assert test="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID" role="ERROR">/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern see="" id="general_hvac_requirements">
@@ -472,6 +474,10 @@
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem">
       <sch:assert test="//auc:Buildings/auc:Building/auc:Sections/auc:Section[@ID = current()/auc:LinkedPremises/auc:Section/auc:LinkedSectionID/@IDref]" role="">Every auc:HVACSystem should be linked to an auc:Section</sch:assert>
       <sch:assert test="auc:HeatingAndCoolingSystems" role="">auc:HeatingAndCoolingSystems</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID">
+      <sch:assert test="auc:LinkedScheduleIDs/auc:LinkedScheduleID" role="">auc:LinkedScheduleIDs/auc:LinkedScheduleID</sch:assert>
+      <sch:assert test="//auc:Schedules/auc:Schedule[@ID = current()/auc:LinkedScheduleIDs/auc:LinkedScheduleID/@IDref]/auc:ScheduleDetails/auc:ScheduleDetail[auc:ScheduleCategory/text() = &quot;HVAC equipment&quot;]" role="">//auc:Schedules/auc:Schedule[@ID = current()/auc:LinkedScheduleIDs/auc:LinkedScheduleID/@IDref]/auc:ScheduleDetails/auc:ScheduleDetail[auc:ScheduleCategory/text() = "HVAC equipment"]</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern see="ASHRAE 211 6.2.1.3 (a)" id="year_installed">

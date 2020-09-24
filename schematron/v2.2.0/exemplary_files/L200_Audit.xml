@@ -402,7 +402,11 @@
             </auc:HVACControlSystemTypes>
             <auc:LinkedPremises>
               <auc:Section>
-                <auc:LinkedSectionID IDref="Section-Space-A"></auc:LinkedSectionID>
+                <auc:LinkedSectionID IDref="Section-Space-A">
+                  <auc:LinkedScheduleIDs>
+                    <auc:LinkedScheduleID IDref="HVACSchedule" />
+                  </auc:LinkedScheduleIDs>
+                </auc:LinkedSectionID>
               </auc:Section>
             </auc:LinkedPremises>
           </auc:HVACSystem>
@@ -617,18 +621,21 @@
               <auc:ScheduleCategory>Lighting</auc:ScheduleCategory>
               <auc:DayStartTime>09:00:00</auc:DayStartTime>
               <auc:DayEndTime>17:00:00</auc:DayEndTime>
+              <auc:PartialOperationPercentage>80</auc:PartialOperationPercentage>
             </auc:ScheduleDetail>
             <auc:ScheduleDetail>
               <auc:DayType>Weekend</auc:DayType>
               <auc:ScheduleCategory>Lighting</auc:ScheduleCategory>
               <auc:DayStartTime>09:00:00</auc:DayStartTime>
               <auc:DayEndTime>17:00:00</auc:DayEndTime>
+              <auc:PartialOperationPercentage>80</auc:PartialOperationPercentage>
             </auc:ScheduleDetail>
             <auc:ScheduleDetail>
               <auc:DayType>Holiday</auc:DayType>
               <auc:ScheduleCategory>Lighting</auc:ScheduleCategory>
               <auc:DayStartTime>09:00:00</auc:DayStartTime>
               <auc:DayEndTime>17:00:00</auc:DayEndTime>
+              <auc:PartialOperationPercentage>80</auc:PartialOperationPercentage>
             </auc:ScheduleDetail>
           </auc:ScheduleDetails>
           <auc:LinkedPremises>
@@ -637,25 +644,28 @@
             </auc:Building>
           </auc:LinkedPremises>
         </auc:Schedule>
-        <auc:Schedule ID="ProcessLoadSchedule">
+        <auc:Schedule ID="HVACSchedule">
           <auc:ScheduleDetails>
             <auc:ScheduleDetail>
               <auc:DayType>Weekday</auc:DayType>
-              <auc:ScheduleCategory>Miscellaneous equipment</auc:ScheduleCategory>
+              <auc:ScheduleCategory>HVAC equipment</auc:ScheduleCategory>
               <auc:DayStartTime>09:00:00</auc:DayStartTime>
               <auc:DayEndTime>17:00:00</auc:DayEndTime>
+              <auc:PartialOperationPercentage>80</auc:PartialOperationPercentage>
             </auc:ScheduleDetail>
             <auc:ScheduleDetail>
               <auc:DayType>Weekend</auc:DayType>
-              <auc:ScheduleCategory>Miscellaneous equipment</auc:ScheduleCategory>
+              <auc:ScheduleCategory>HVAC equipment</auc:ScheduleCategory>
               <auc:DayStartTime>09:00:00</auc:DayStartTime>
               <auc:DayEndTime>17:00:00</auc:DayEndTime>
+              <auc:PartialOperationPercentage>80</auc:PartialOperationPercentage>
             </auc:ScheduleDetail>
             <auc:ScheduleDetail>
               <auc:DayType>Holiday</auc:DayType>
-              <auc:ScheduleCategory>Miscellaneous equipment</auc:ScheduleCategory>
+              <auc:ScheduleCategory>HVAC equipment</auc:ScheduleCategory>
               <auc:DayStartTime>09:00:00</auc:DayStartTime>
               <auc:DayEndTime>17:00:00</auc:DayEndTime>
+              <auc:PartialOperationPercentage>80</auc:PartialOperationPercentage>
             </auc:ScheduleDetail>
           </auc:ScheduleDetails>
           <auc:LinkedPremises>
@@ -671,18 +681,21 @@
               <auc:ScheduleCategory>Miscellaneous equipment</auc:ScheduleCategory>
               <auc:DayStartTime>09:00:00</auc:DayStartTime>
               <auc:DayEndTime>17:00:00</auc:DayEndTime>
+              <auc:PartialOperationPercentage>80</auc:PartialOperationPercentage>
             </auc:ScheduleDetail>
             <auc:ScheduleDetail>
               <auc:DayType>Weekend</auc:DayType>
               <auc:ScheduleCategory>Miscellaneous equipment</auc:ScheduleCategory>
               <auc:DayStartTime>09:00:00</auc:DayStartTime>
               <auc:DayEndTime>17:00:00</auc:DayEndTime>
+              <auc:PartialOperationPercentage>80</auc:PartialOperationPercentage>
             </auc:ScheduleDetail>
             <auc:ScheduleDetail>
               <auc:DayType>Holiday</auc:DayType>
               <auc:ScheduleCategory>Miscellaneous equipment</auc:ScheduleCategory>
               <auc:DayStartTime>09:00:00</auc:DayStartTime>
               <auc:DayEndTime>17:00:00</auc:DayEndTime>
+              <auc:PartialOperationPercentage>80</auc:PartialOperationPercentage>
             </auc:ScheduleDetail>
           </auc:ScheduleDetails>
           <auc:LinkedPremises>
