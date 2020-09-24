@@ -323,6 +323,31 @@ class TestL200AuditEnvelopeSystems(AssertFailureRolesMixin):
             'ERROR': ['/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType = "Whole building"]/auc:Roofs/auc:Roof']
         })
 
+    def test_is_invalid_when_no_roof_system_exists_under_section_whole_building(self):
+        # -- Setup
+        tree = exemplary_tree('L200_Audit', 'v2.2.0')
+
+        section_elem = tree.xpath('//auc:Building/auc:Sections/auc:Section[auc:SectionType = "Whole building"]', namespaces=BSYNC_NSMAP)
+        assert len(section_elem) == 1
+        section_elem = section_elem[0]
+
+        roof_elem = section_elem.xpath('auc:Roofs/auc:Roof', namespaces=BSYNC_NSMAP)
+        assert len(roof_elem) == 1
+
+        # remove auc:Roof
+        remove_element(section_elem, 'auc:Roofs/auc:Roof[1]')
+        roof_elem = section_elem.xpath('auc:Roofs/auc:Roof', namespaces=BSYNC_NSMAP)
+        assert len(roof_elem) == 0
+
+        # -- Act
+        failures = validate_schematron(self.schematron, tree)
+
+        # -- Assert
+        # Same error as previous
+        self.assert_failure_messages(failures, {
+            'ERROR': ['/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType = "Whole building"]/auc:Roofs/auc:Roof']
+        })
+
 
 class TestL200AuditHvacSystems(AssertFailureRolesMixin):
     schematron = os.path.join(v2_2_0_SCH_DIR, 'v2-2-0_L200_Audit.sch')
