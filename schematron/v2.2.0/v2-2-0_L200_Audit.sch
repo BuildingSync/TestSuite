@@ -294,7 +294,7 @@
       <sch:assert test="count(auc:Sides/auc:Side) = 8" role="">Incorrect number of auc:Side elements for footprint shape "O-Shape" (found <sch:value-of select="count(auc:Sides/auc:Side)"/>)</sch:assert>
     </sch:rule>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType/text() = &quot;Whole building&quot;]/auc:Sides/auc:Side">
-      <sch:assert test="auc:WallIDs" role="">auc:WallIDs</sch:assert>
+      <sch:assert test="auc:WallIDs/auc:WallID" role="">Found an auc:Side with no linked auc:Wall</sch:assert>
     </sch:rule>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType/text() = &quot;Whole building&quot;]/auc:Sides/auc:Side/auc:WallIDs/auc:WallID">
       <sch:assert test="//auc:WallSystem[@ID = current()/@IDref]" role="">auc:WallID in auc:Side should link to an auc:WallSystem's ID</sch:assert>

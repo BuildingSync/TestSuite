@@ -348,6 +348,28 @@ class TestL200AuditEnvelopeSystems(AssertFailureRolesMixin):
             'ERROR': ['/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType = "Whole building"]/auc:Roofs/auc:Roof']
         })
 
+    def test_is_invalid_when_no_wall_exists_under_a_side(self):
+        # -- Setup
+        tree = exemplary_tree('L200_Audit', 'v2.2.0')
+
+        section_elem = tree.xpath('//auc:Building/auc:Sections/auc:Section[auc:SectionType = "Whole building"]', namespaces=BSYNC_NSMAP)
+        assert len(section_elem) == 1
+        section_elem = section_elem[0]
+
+        side_elem = section_elem.xpath('auc:Sides/auc:Side', namespaces=BSYNC_NSMAP)
+        assert len(side_elem) == 4
+
+        # remove wall from first side element
+        remove_element(side_elem[0], 'auc:WallIDs/auc:WallID[1]')
+
+        # -- Act
+        failures = validate_schematron(self.schematron, tree)
+
+        # -- Assert
+        self.assert_failure_messages(failures, {
+            'ERROR': ['Found an auc:Side with no linked auc:Wall']
+        })
+
     def test_is_invalid_when_no_window_exists_under_a_side(self):
         # -- Setup
         tree = exemplary_tree('L200_Audit', 'v2.2.0')
