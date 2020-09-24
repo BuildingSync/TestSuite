@@ -139,11 +139,20 @@ def validate_schematron(schematron, document, result_path=None, phase=None, stri
         readable_xpath = document_tree.getpath(failed_element)
         tag = failed_element.tag.replace("{http://buildingsync.net/schemas/bedes-auc/2019}", "auc:")
         error_message = failed_assert[0].text
+        role = failed_assert.get('role')
+        if role is None:
+            if '[INFO]' in error_message:
+                role = 'INFO'
+            elif '[WARNING]' in error_message:
+                role = 'WARNING'
+            else:
+                role = 'ERROR'
+
         failures.append(Failure(
             line=failed_element.sourceline,
             element=tag,
             message=error_message,
-            role=failed_assert.get('role', 'ERROR'),
+            role=role,
             location=readable_xpath,
             test=failed_assert.get('test'),
         ))
