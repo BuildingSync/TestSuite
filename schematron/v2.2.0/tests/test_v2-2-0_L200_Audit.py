@@ -57,7 +57,7 @@ def _sides_factory(footprint_shape, wall_id='Wall-A', window_id='Window-A', door
     return sides_elem
 
 
-class TestL200Audit(AssertFailureRolesMixin):
+class TestL200AuditMiscellaneous(AssertFailureRolesMixin):
     schematron = os.path.join(v2_2_0_SCH_DIR, 'v2-2-0_L200_Audit.sch')
     exemplary_file = os.path.join(v2_2_0_SCH_DIR, 'exemplary_files', 'L200_Audit.xml')
 
@@ -105,6 +105,11 @@ class TestL200Audit(AssertFailureRolesMixin):
 
         # -- Assert
         self.assert_failure_messages(failures, {})
+
+
+class TestL200AuditEnvelopeSystems(AssertFailureRolesMixin):
+    schematron = os.path.join(v2_2_0_SCH_DIR, 'v2-2-0_L200_Audit.sch')
+    exemplary_file = os.path.join(v2_2_0_SCH_DIR, 'exemplary_files', 'L200_Audit.xml')
 
     @pytest.mark.parametrize("footprint_shape", [
         ("Rectangular"),
