@@ -605,9 +605,9 @@
             </auc:ScheduleDetail>
           </auc:ScheduleDetails>
           <auc:LinkedPremises>
-            <auc:Building>
-              <auc:LinkedBuildingID IDref="Building-A"></auc:LinkedBuildingID>
-            </auc:Building>
+            <auc:Section>
+              <auc:LinkedSectionID IDref="Section-Space-A"></auc:LinkedSectionID>
+            </auc:Section>
           </auc:LinkedPremises>
         </auc:Schedule>
         <auc:Schedule ID="LightingSchedule">
