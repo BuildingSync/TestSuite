@@ -895,6 +895,8 @@
                   <auc:ReadingType>Total</auc:ReadingType>
                   <auc:StartTimestamp>2019-01-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-02-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
                   <auc:IntervalFrequency>Month</auc:IntervalFrequency>
                   <auc:IntervalReading>4102.51</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-Electricity" />
@@ -903,6 +905,8 @@
                   <auc:ReadingType>Total</auc:ReadingType>
                   <auc:StartTimestamp>2019-02-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-03-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
                   <auc:IntervalFrequency>Month</auc:IntervalFrequency>
                   <auc:IntervalReading>3737.04</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-Electricity" />
@@ -911,6 +915,8 @@
                   <auc:ReadingType>Total</auc:ReadingType>
                   <auc:StartTimestamp>2019-03-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-04-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
                   <auc:IntervalFrequency>Month</auc:IntervalFrequency>
                   <auc:IntervalReading>4167.07</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-Electricity" />
@@ -919,6 +925,8 @@
                   <auc:ReadingType>Total</auc:ReadingType>
                   <auc:StartTimestamp>2019-04-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-05-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
                   <auc:IntervalFrequency>Month</auc:IntervalFrequency>
                   <auc:IntervalReading>3897.44</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-Electricity" />
@@ -927,6 +935,8 @@
                   <auc:ReadingType>Total</auc:ReadingType>
                   <auc:StartTimestamp>2019-05-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-06-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
                   <auc:IntervalFrequency>Month</auc:IntervalFrequency>
                   <auc:IntervalReading>4565.50</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-Electricity" />
@@ -935,6 +945,8 @@
                   <auc:ReadingType>Total</auc:ReadingType>
                   <auc:StartTimestamp>2019-06-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-07-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
                   <auc:IntervalFrequency>Month</auc:IntervalFrequency>
                   <auc:IntervalReading>4870.87</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-Electricity" />
@@ -943,6 +955,8 @@
                   <auc:ReadingType>Total</auc:ReadingType>
                   <auc:StartTimestamp>2019-07-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-08-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
                   <auc:IntervalFrequency>Month</auc:IntervalFrequency>
                   <auc:IntervalReading>4977.64</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-Electricity" />
@@ -951,6 +965,8 @@
                   <auc:ReadingType>Total</auc:ReadingType>
                   <auc:StartTimestamp>2019-08-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-09-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
                   <auc:IntervalFrequency>Month</auc:IntervalFrequency>
                   <auc:IntervalReading>5275.05</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-Electricity" />
@@ -959,6 +975,8 @@
                   <auc:ReadingType>Total</auc:ReadingType>
                   <auc:StartTimestamp>2019-09-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-10-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
                   <auc:IntervalFrequency>Month</auc:IntervalFrequency>
                   <auc:IntervalReading>4788.79</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-Electricity" />
@@ -967,6 +985,8 @@
                   <auc:ReadingType>Total</auc:ReadingType>
                   <auc:StartTimestamp>2019-10-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-11-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
                   <auc:IntervalFrequency>Month</auc:IntervalFrequency>
                   <auc:IntervalReading>4353.99</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-Electricity" />
@@ -975,6 +995,8 @@
                   <auc:ReadingType>Total</auc:ReadingType>
                   <auc:StartTimestamp>2019-11-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-12-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
                   <auc:IntervalFrequency>Month</auc:IntervalFrequency>
                   <auc:IntervalReading>4154.67</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-Electricity" />
@@ -983,6 +1005,8 @@
                   <auc:ReadingType>Total</auc:ReadingType>
                   <auc:StartTimestamp>2019-12-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2020-01-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
                   <auc:IntervalFrequency>Month</auc:IntervalFrequency>
                   <auc:IntervalReading>4052.43</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-Electricity" />
@@ -990,96 +1014,132 @@
                 <!-- Electricity PEAK use (required only when the ResourceUse is Electricity) -->
                 <auc:TimeSeries ID="Scenario-A-TS13">
                   <auc:ReadingType>Peak</auc:ReadingType>
+                  <auc:PeakType>On-peak</auc:PeakType>
                   <auc:StartTimestamp>2019-01-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-02-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
                   <auc:IntervalFrequency>Month</auc:IntervalFrequency>
                   <auc:IntervalReading>14.78</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-Electricity" />
                 </auc:TimeSeries>
                 <auc:TimeSeries ID="Scenario-A-TS14">
                   <auc:ReadingType>Peak</auc:ReadingType>
+                  <auc:PeakType>On-peak</auc:PeakType>
                   <auc:StartTimestamp>2019-02-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-03-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
                   <auc:IntervalFrequency>Month</auc:IntervalFrequency>
                   <auc:IntervalReading>14.12</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-Electricity" />
                 </auc:TimeSeries>
                 <auc:TimeSeries ID="Scenario-A-TS15">
                   <auc:ReadingType>Peak</auc:ReadingType>
+                  <auc:PeakType>On-peak</auc:PeakType>
                   <auc:StartTimestamp>2019-03-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-04-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
                   <auc:IntervalFrequency>Month</auc:IntervalFrequency>
                   <auc:IntervalReading>14.36</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-Electricity" />
                 </auc:TimeSeries>
                 <auc:TimeSeries ID="Scenario-A-TS16">
                   <auc:ReadingType>Peak</auc:ReadingType>
+                  <auc:PeakType>On-peak</auc:PeakType>
                   <auc:StartTimestamp>2019-04-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-05-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
                   <auc:IntervalFrequency>Month</auc:IntervalFrequency>
                   <auc:IntervalReading>15.14</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-Electricity" />
                 </auc:TimeSeries>
                 <auc:TimeSeries ID="Scenario-A-TS17">
                   <auc:ReadingType>Peak</auc:ReadingType>
+                  <auc:PeakType>On-peak</auc:PeakType>
                   <auc:StartTimestamp>2019-05-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-06-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
                   <auc:IntervalFrequency>Month</auc:IntervalFrequency>
                   <auc:IntervalReading>16.41</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-Electricity" />
                 </auc:TimeSeries>
                 <auc:TimeSeries ID="Scenario-A-TS18">
                   <auc:ReadingType>Peak</auc:ReadingType>
+                  <auc:PeakType>On-peak</auc:PeakType>
                   <auc:StartTimestamp>2019-06-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-07-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
                   <auc:IntervalFrequency>Month</auc:IntervalFrequency>
                   <auc:IntervalReading>17.51</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-Electricity" />
                 </auc:TimeSeries>
                 <auc:TimeSeries ID="Scenario-A-TS19">
                   <auc:ReadingType>Peak</auc:ReadingType>
+                  <auc:PeakType>On-peak</auc:PeakType>
                   <auc:StartTimestamp>2019-07-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-08-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
                   <auc:IntervalFrequency>Month</auc:IntervalFrequency>
                   <auc:IntervalReading>18.14</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-Electricity" />
                 </auc:TimeSeries>
                 <auc:TimeSeries ID="Scenario-A-TS20">
                   <auc:ReadingType>Peak</auc:ReadingType>
+                  <auc:PeakType>On-peak</auc:PeakType>
                   <auc:StartTimestamp>2019-08-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-09-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
                   <auc:IntervalFrequency>Month</auc:IntervalFrequency>
                   <auc:IntervalReading>19.07</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-Electricity" />
                 </auc:TimeSeries>
                 <auc:TimeSeries ID="Scenario-A-TS21">
                   <auc:ReadingType>Peak</auc:ReadingType>
+                  <auc:PeakType>On-peak</auc:PeakType>
                   <auc:StartTimestamp>2019-09-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-10-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
                   <auc:IntervalFrequency>Month</auc:IntervalFrequency>
                   <auc:IntervalReading>17.85</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-Electricity" />
                 </auc:TimeSeries>
                 <auc:TimeSeries ID="Scenario-A-TS22">
                   <auc:ReadingType>Peak</auc:ReadingType>
+                  <auc:PeakType>On-peak</auc:PeakType>
                   <auc:StartTimestamp>2019-10-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-11-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
                   <auc:IntervalFrequency>Month</auc:IntervalFrequency>
                   <auc:IntervalReading>16.54</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-Electricity" />
                 </auc:TimeSeries>
                 <auc:TimeSeries ID="Scenario-A-TS23">
                   <auc:ReadingType>Peak</auc:ReadingType>
+                  <auc:PeakType>On-peak</auc:PeakType>
                   <auc:StartTimestamp>2019-11-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-12-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
                   <auc:IntervalFrequency>Month</auc:IntervalFrequency>
                   <auc:IntervalReading>15.19</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-Electricity" />
                 </auc:TimeSeries>
                 <auc:TimeSeries ID="Scenario-A-TS24">
                   <auc:ReadingType>Peak</auc:ReadingType>
+                  <auc:PeakType>On-peak</auc:PeakType>
                   <auc:StartTimestamp>2019-12-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2020-01-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
                   <auc:IntervalFrequency>Month</auc:IntervalFrequency>
                   <auc:IntervalReading>15.05</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-Electricity" />
@@ -1089,6 +1149,8 @@
                   <auc:ReadingType>Cost</auc:ReadingType>
                   <auc:StartTimestamp>2019-01-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-02-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
                   <auc:IntervalFrequency>Month</auc:IntervalFrequency>
                   <auc:IntervalReading>389.74</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-Electricity" />
@@ -1097,6 +1159,8 @@
                   <auc:ReadingType>Cost</auc:ReadingType>
                   <auc:StartTimestamp>2019-02-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-03-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
                   <auc:IntervalFrequency>Month</auc:IntervalFrequency>
                   <auc:IntervalReading>355.02</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-Electricity" />
@@ -1105,6 +1169,8 @@
                   <auc:ReadingType>Cost</auc:ReadingType>
                   <auc:StartTimestamp>2019-03-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-04-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
                   <auc:IntervalFrequency>Month</auc:IntervalFrequency>
                   <auc:IntervalReading>395.87</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-Electricity" />
@@ -1113,6 +1179,8 @@
                   <auc:ReadingType>Cost</auc:ReadingType>
                   <auc:StartTimestamp>2019-04-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-05-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
                   <auc:IntervalFrequency>Month</auc:IntervalFrequency>
                   <auc:IntervalReading>370.26</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-Electricity" />
@@ -1121,6 +1189,8 @@
                   <auc:ReadingType>Cost</auc:ReadingType>
                   <auc:StartTimestamp>2019-05-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-06-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
                   <auc:IntervalFrequency>Month</auc:IntervalFrequency>
                   <auc:IntervalReading>433.72</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-Electricity" />
@@ -1129,6 +1199,8 @@
                   <auc:ReadingType>Cost</auc:ReadingType>
                   <auc:StartTimestamp>2019-06-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-07-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
                   <auc:IntervalFrequency>Month</auc:IntervalFrequency>
                   <auc:IntervalReading>462.73</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-Electricity" />
@@ -1137,6 +1209,8 @@
                   <auc:ReadingType>Cost</auc:ReadingType>
                   <auc:StartTimestamp>2019-07-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-08-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
                   <auc:IntervalFrequency>Month</auc:IntervalFrequency>
                   <auc:IntervalReading>472.88</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-Electricity" />
@@ -1145,6 +1219,8 @@
                   <auc:ReadingType>Cost</auc:ReadingType>
                   <auc:StartTimestamp>2019-08-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-09-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
                   <auc:IntervalFrequency>Month</auc:IntervalFrequency>
                   <auc:IntervalReading>501.13</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-Electricity" />
@@ -1153,6 +1229,8 @@
                   <auc:ReadingType>Cost</auc:ReadingType>
                   <auc:StartTimestamp>2019-09-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-10-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
                   <auc:IntervalFrequency>Month</auc:IntervalFrequency>
                   <auc:IntervalReading>454.94</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-Electricity" />
@@ -1161,6 +1239,8 @@
                   <auc:ReadingType>Cost</auc:ReadingType>
                   <auc:StartTimestamp>2019-10-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-11-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
                   <auc:IntervalFrequency>Month</auc:IntervalFrequency>
                   <auc:IntervalReading>413.63</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-Electricity" />
@@ -1169,6 +1249,8 @@
                   <auc:ReadingType>Cost</auc:ReadingType>
                   <auc:StartTimestamp>2019-11-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-12-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
                   <auc:IntervalFrequency>Month</auc:IntervalFrequency>
                   <auc:IntervalReading>394.69</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-Electricity" />
@@ -1177,6 +1259,8 @@
                   <auc:ReadingType>Cost</auc:ReadingType>
                   <auc:StartTimestamp>2019-12-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2020-01-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
                   <auc:IntervalFrequency>Month</auc:IntervalFrequency>
                   <auc:IntervalReading>384.98</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-Electricity" />
@@ -1187,6 +1271,8 @@
                   <auc:ReadingType>Total</auc:ReadingType>
                   <auc:StartTimestamp>2019-01-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-02-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
                   <auc:IntervalFrequency>Month</auc:IntervalFrequency>
                   <auc:IntervalReading>0.1</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-NG" />
@@ -1195,6 +1281,8 @@
                   <auc:ReadingType>Total</auc:ReadingType>
                   <auc:StartTimestamp>2019-02-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-03-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
                   <auc:IntervalFrequency>Month</auc:IntervalFrequency>
                   <auc:IntervalReading>0.05</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-NG" />
@@ -1203,6 +1291,8 @@
                   <auc:ReadingType>Total</auc:ReadingType>
                   <auc:StartTimestamp>2019-03-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-04-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
                   <auc:IntervalFrequency>Month</auc:IntervalFrequency>
                   <auc:IntervalReading>0.01</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-NG" />
@@ -1211,6 +1301,8 @@
                   <auc:ReadingType>Total</auc:ReadingType>
                   <auc:StartTimestamp>2019-04-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-05-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
                   <auc:IntervalFrequency>Month</auc:IntervalFrequency>
                   <auc:IntervalReading>0</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-NG" />
@@ -1219,6 +1311,8 @@
                   <auc:ReadingType>Total</auc:ReadingType>
                   <auc:StartTimestamp>2019-05-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-06-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
                   <auc:IntervalFrequency>Month</auc:IntervalFrequency>
                   <auc:IntervalReading>0</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-NG" />
@@ -1227,6 +1321,8 @@
                   <auc:ReadingType>Total</auc:ReadingType>
                   <auc:StartTimestamp>2019-06-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-07-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
                   <auc:IntervalFrequency>Month</auc:IntervalFrequency>
                   <auc:IntervalReading>0</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-NG" />
@@ -1235,6 +1331,8 @@
                   <auc:ReadingType>Total</auc:ReadingType>
                   <auc:StartTimestamp>2019-07-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-08-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
                   <auc:IntervalFrequency>Month</auc:IntervalFrequency>
                   <auc:IntervalReading>0</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-NG" />
@@ -1243,6 +1341,8 @@
                   <auc:ReadingType>Total</auc:ReadingType>
                   <auc:StartTimestamp>2019-08-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-09-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
                   <auc:IntervalFrequency>Month</auc:IntervalFrequency>
                   <auc:IntervalReading>0</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-NG" />
@@ -1251,6 +1351,8 @@
                   <auc:ReadingType>Total</auc:ReadingType>
                   <auc:StartTimestamp>2019-09-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-10-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
                   <auc:IntervalFrequency>Month</auc:IntervalFrequency>
                   <auc:IntervalReading>0</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-NG" />
@@ -1259,6 +1361,8 @@
                   <auc:ReadingType>Total</auc:ReadingType>
                   <auc:StartTimestamp>2019-10-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-11-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
                   <auc:IntervalFrequency>Month</auc:IntervalFrequency>
                   <auc:IntervalReading>0</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-NG" />
@@ -1267,6 +1371,8 @@
                   <auc:ReadingType>Total</auc:ReadingType>
                   <auc:StartTimestamp>2019-11-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-12-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
                   <auc:IntervalFrequency>Month</auc:IntervalFrequency>
                   <auc:IntervalReading>0</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-NG" />
@@ -1275,6 +1381,8 @@
                   <auc:ReadingType>Total</auc:ReadingType>
                   <auc:StartTimestamp>2019-12-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2020-01-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
                   <auc:IntervalFrequency>Month</auc:IntervalFrequency>
                   <auc:IntervalReading>0.06</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-NG" />
@@ -1284,6 +1392,8 @@
                   <auc:ReadingType>Cost</auc:ReadingType>
                   <auc:StartTimestamp>2019-01-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-02-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
                   <auc:IntervalFrequency>Month</auc:IntervalFrequency>
                   <auc:IntervalReading>27</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-NG" />
@@ -1292,6 +1402,8 @@
                   <auc:ReadingType>Cost</auc:ReadingType>
                   <auc:StartTimestamp>2019-02-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-03-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
                   <auc:IntervalFrequency>Month</auc:IntervalFrequency>
                   <auc:IntervalReading>27</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-NG" />
@@ -1300,6 +1412,8 @@
                   <auc:ReadingType>Cost</auc:ReadingType>
                   <auc:StartTimestamp>2019-03-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-04-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
                   <auc:IntervalFrequency>Month</auc:IntervalFrequency>
                   <auc:IntervalReading>27</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-NG" />
@@ -1308,6 +1422,8 @@
                   <auc:ReadingType>Cost</auc:ReadingType>
                   <auc:StartTimestamp>2019-04-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-05-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
                   <auc:IntervalFrequency>Month</auc:IntervalFrequency>
                   <auc:IntervalReading>27</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-NG" />
@@ -1316,6 +1432,8 @@
                   <auc:ReadingType>Cost</auc:ReadingType>
                   <auc:StartTimestamp>2019-05-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-06-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
                   <auc:IntervalFrequency>Month</auc:IntervalFrequency>
                   <auc:IntervalReading>27</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-NG" />
@@ -1324,6 +1442,8 @@
                   <auc:ReadingType>Cost</auc:ReadingType>
                   <auc:StartTimestamp>2019-06-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-07-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
                   <auc:IntervalFrequency>Month</auc:IntervalFrequency>
                   <auc:IntervalReading>27</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-NG" />
@@ -1332,6 +1452,8 @@
                   <auc:ReadingType>Cost</auc:ReadingType>
                   <auc:StartTimestamp>2019-07-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-08-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
                   <auc:IntervalFrequency>Month</auc:IntervalFrequency>
                   <auc:IntervalReading>27</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-NG" />
@@ -1340,6 +1462,8 @@
                   <auc:ReadingType>Cost</auc:ReadingType>
                   <auc:StartTimestamp>2019-08-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-09-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
                   <auc:IntervalFrequency>Month</auc:IntervalFrequency>
                   <auc:IntervalReading>27</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-NG" />
@@ -1348,6 +1472,8 @@
                   <auc:ReadingType>Cost</auc:ReadingType>
                   <auc:StartTimestamp>2019-09-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-10-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
                   <auc:IntervalFrequency>Month</auc:IntervalFrequency>
                   <auc:IntervalReading>27</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-NG" />
@@ -1356,6 +1482,8 @@
                   <auc:ReadingType>Cost</auc:ReadingType>
                   <auc:StartTimestamp>2019-10-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-11-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
                   <auc:IntervalFrequency>Month</auc:IntervalFrequency>
                   <auc:IntervalReading>27</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-NG" />
@@ -1364,6 +1492,8 @@
                   <auc:ReadingType>Cost</auc:ReadingType>
                   <auc:StartTimestamp>2019-11-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-12-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
                   <auc:IntervalFrequency>Month</auc:IntervalFrequency>
                   <auc:IntervalReading>27</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-NG" />
@@ -1372,6 +1502,8 @@
                   <auc:ReadingType>Cost</auc:ReadingType>
                   <auc:StartTimestamp>2019-12-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2020-01-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
                   <auc:IntervalFrequency>Month</auc:IntervalFrequency>
                   <auc:IntervalReading>27</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-NG" />
@@ -1383,6 +1515,8 @@
                   <auc:ReadingType>Total</auc:ReadingType>
                   <auc:StartTimestamp>2019-01-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-02-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
                   <auc:IntervalFrequency>Month</auc:IntervalFrequency>
                   <auc:IntervalReading>385</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-ElecGen" />
@@ -1391,6 +1525,8 @@
                   <auc:ReadingType>Total</auc:ReadingType>
                   <auc:StartTimestamp>2019-02-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-03-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
                   <auc:IntervalFrequency>Month</auc:IntervalFrequency>
                   <auc:IntervalReading>436</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-ElecGen" />
@@ -1399,6 +1535,8 @@
                   <auc:ReadingType>Total</auc:ReadingType>
                   <auc:StartTimestamp>2019-03-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-04-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
                   <auc:IntervalFrequency>Month</auc:IntervalFrequency>
                   <auc:IntervalReading>560</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-ElecGen" />
@@ -1407,6 +1545,8 @@
                   <auc:ReadingType>Total</auc:ReadingType>
                   <auc:StartTimestamp>2019-04-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-05-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
                   <auc:IntervalFrequency>Month</auc:IntervalFrequency>
                   <auc:IntervalReading>532</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-ElecGen" />
@@ -1415,6 +1555,8 @@
                   <auc:ReadingType>Total</auc:ReadingType>
                   <auc:StartTimestamp>2019-05-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-06-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
                   <auc:IntervalFrequency>Month</auc:IntervalFrequency>
                   <auc:IntervalReading>568</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-ElecGen" />
@@ -1423,6 +1565,8 @@
                   <auc:ReadingType>Total</auc:ReadingType>
                   <auc:StartTimestamp>2019-06-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-07-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
                   <auc:IntervalFrequency>Month</auc:IntervalFrequency>
                   <auc:IntervalReading>590</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-ElecGen" />
@@ -1431,6 +1575,8 @@
                   <auc:ReadingType>Total</auc:ReadingType>
                   <auc:StartTimestamp>2019-07-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-08-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
                   <auc:IntervalFrequency>Month</auc:IntervalFrequency>
                   <auc:IntervalReading>573</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-ElecGen" />
@@ -1439,6 +1585,8 @@
                   <auc:ReadingType>Total</auc:ReadingType>
                   <auc:StartTimestamp>2019-08-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-09-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
                   <auc:IntervalFrequency>Month</auc:IntervalFrequency>
                   <auc:IntervalReading>543</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-ElecGen" />
@@ -1447,6 +1595,8 @@
                   <auc:ReadingType>Total</auc:ReadingType>
                   <auc:StartTimestamp>2019-09-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-10-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
                   <auc:IntervalFrequency>Month</auc:IntervalFrequency>
                   <auc:IntervalReading>514</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-ElecGen" />
@@ -1455,6 +1605,8 @@
                   <auc:ReadingType>Total</auc:ReadingType>
                   <auc:StartTimestamp>2019-10-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-11-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
                   <auc:IntervalFrequency>Month</auc:IntervalFrequency>
                   <auc:IntervalReading>461</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-ElecGen" />
@@ -1463,6 +1615,8 @@
                   <auc:ReadingType>Total</auc:ReadingType>
                   <auc:StartTimestamp>2019-11-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-12-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
                   <auc:IntervalFrequency>Month</auc:IntervalFrequency>
                   <auc:IntervalReading>408</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-ElecGen" />
@@ -1471,6 +1625,8 @@
                   <auc:ReadingType>Total</auc:ReadingType>
                   <auc:StartTimestamp>2019-12-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2020-01-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
                   <auc:IntervalFrequency>Month</auc:IntervalFrequency>
                   <auc:IntervalReading>359</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-ElecGen" />
@@ -1481,6 +1637,8 @@
                   <auc:ReadingType>Cost</auc:ReadingType>
                   <auc:StartTimestamp>2019-01-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-02-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
                   <auc:IntervalFrequency>Month</auc:IntervalFrequency>
                   <auc:IntervalReading>35</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-ElecGen" />
@@ -1489,6 +1647,8 @@
                   <auc:ReadingType>Cost</auc:ReadingType>
                   <auc:StartTimestamp>2019-02-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-03-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
                   <auc:IntervalFrequency>Month</auc:IntervalFrequency>
                   <auc:IntervalReading>40</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-ElecGen" />
@@ -1497,6 +1657,8 @@
                   <auc:ReadingType>Cost</auc:ReadingType>
                   <auc:StartTimestamp>2019-03-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-04-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
                   <auc:IntervalFrequency>Month</auc:IntervalFrequency>
                   <auc:IntervalReading>51</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-ElecGen" />
@@ -1505,6 +1667,8 @@
                   <auc:ReadingType>Cost</auc:ReadingType>
                   <auc:StartTimestamp>2019-04-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-05-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
                   <auc:IntervalFrequency>Month</auc:IntervalFrequency>
                   <auc:IntervalReading>49</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-ElecGen" />
@@ -1513,6 +1677,8 @@
                   <auc:ReadingType>Cost</auc:ReadingType>
                   <auc:StartTimestamp>2019-05-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-06-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
                   <auc:IntervalFrequency>Month</auc:IntervalFrequency>
                   <auc:IntervalReading>52</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-ElecGen" />
@@ -1521,6 +1687,8 @@
                   <auc:ReadingType>Cost</auc:ReadingType>
                   <auc:StartTimestamp>2019-06-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-07-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
                   <auc:IntervalFrequency>Month</auc:IntervalFrequency>
                   <auc:IntervalReading>54</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-ElecGen" />
@@ -1529,6 +1697,8 @@
                   <auc:ReadingType>Cost</auc:ReadingType>
                   <auc:StartTimestamp>2019-07-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-08-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
                   <auc:IntervalFrequency>Month</auc:IntervalFrequency>
                   <auc:IntervalReading>53</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-ElecGen" />
@@ -1537,6 +1707,8 @@
                   <auc:ReadingType>Cost</auc:ReadingType>
                   <auc:StartTimestamp>2019-08-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-09-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
                   <auc:IntervalFrequency>Month</auc:IntervalFrequency>
                   <auc:IntervalReading>50</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-ElecGen" />
@@ -1545,6 +1717,8 @@
                   <auc:ReadingType>Cost</auc:ReadingType>
                   <auc:StartTimestamp>2019-09-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-10-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
                   <auc:IntervalFrequency>Month</auc:IntervalFrequency>
                   <auc:IntervalReading>47</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-ElecGen" />
@@ -1553,6 +1727,8 @@
                   <auc:ReadingType>Cost</auc:ReadingType>
                   <auc:StartTimestamp>2019-10-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-11-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
                   <auc:IntervalFrequency>Month</auc:IntervalFrequency>
                   <auc:IntervalReading>42</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-ElecGen" />
@@ -1561,6 +1737,8 @@
                   <auc:ReadingType>Cost</auc:ReadingType>
                   <auc:StartTimestamp>2019-11-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2019-12-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
                   <auc:IntervalFrequency>Month</auc:IntervalFrequency>
                   <auc:IntervalReading>37</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-ElecGen" />
@@ -1569,6 +1747,8 @@
                   <auc:ReadingType>Cost</auc:ReadingType>
                   <auc:StartTimestamp>2019-12-01T00:00:00</auc:StartTimestamp>
                   <auc:EndTimestamp>2020-01-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
                   <auc:IntervalFrequency>Month</auc:IntervalFrequency>
                   <auc:IntervalReading>33</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-ElecGen" />
@@ -1679,6 +1859,10 @@
                 </auc:RateSchedule>
               </auc:RateSchedules>
 
+              <auc:UtilityMeterNumbers>
+                <auc:UtilityMeterNumber>12345</auc:UtilityMeterNumber>
+              </auc:UtilityMeterNumbers>
+
               <!-- 6.1.2.1.b -->
               <auc:UtilityAccountNumber>12345</auc:UtilityAccountNumber>
 
@@ -1714,6 +1898,10 @@
                   </auc:TypeOfRateStructure>
                 </auc:RateSchedule>
               </auc:RateSchedules>
+
+              <auc:UtilityMeterNumbers>
+                <auc:UtilityMeterNumber>12345</auc:UtilityMeterNumber>
+              </auc:UtilityMeterNumbers>
 
               <!-- 6.1.2.1.b -->
               <auc:UtilityAccountNumber>12345</auc:UtilityAccountNumber>
@@ -1752,6 +1940,10 @@
                   </auc:TypeOfRateStructure>
                 </auc:RateSchedule>
               </auc:RateSchedules>
+
+              <auc:UtilityMeterNumbers>
+                <auc:UtilityMeterNumber>12345</auc:UtilityMeterNumber>
+              </auc:UtilityMeterNumbers>
 
               <!-- 6.1.2.1.b -->
               <auc:UtilityAccountNumber>12345</auc:UtilityAccountNumber>
