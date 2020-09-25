@@ -698,3 +698,27 @@ class TestL200AuditHvacSystems(AssertFailureRolesMixin):
         self.assert_failure_messages(failures, {
             'ERROR': ['auc:BuildingAutomationSystem']
         })
+
+
+class TestL200AuditDhwSystems(AssertFailureRolesMixin):
+    schematron = os.path.join(v2_2_0_SCH_DIR, 'v2-2-0_L200_Audit.sch')
+    example_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'data', 'DHW_example1.xml')
+
+    @pytest.mark.parametrize("xpath_to_remove, expected_message", [
+        ('//auc:DomesticHotWaterSystems/auc:DomesticHotWaterSystem/auc:DomesticHotWaterType/auc:StorageTank/auc:TankHeatingType/auc:Direct/auc:DirectTankHeatingSource/auc:Combustion/auc:CondensingOperation', 'auc:CondensingOperation'),
+        ('//auc:DomesticHotWaterSystems/auc:DomesticHotWaterSystem/auc:DomesticHotWaterType/auc:StorageTank/auc:TankHeatingType/auc:Indirect/auc:IndirectTankHeatingSource/auc:HeatPump/auc:RatedHeatPumpSensibleHeatRatio', 'auc:RatedHeatPumpSensibleHeatRatio'),
+        ('//auc:DomesticHotWaterSystems/auc:DomesticHotWaterSystem/auc:DomesticHotWaterType/auc:StorageTank/auc:TankHeatingType/auc:Indirect/auc:IndirectTankHeatingSource/auc:Solar/auc:SolarThermalSystemType', 'auc:SolarThermalSystemType'),
+        ('//auc:DomesticHotWaterSystems/auc:DomesticHotWaterSystem/auc:DomesticHotWaterType/auc:Instantaneous/auc:InstantaneousWaterHeatingSource/auc:Combustion/auc:CondensingOperation', 'auc:CondensingOperation'),
+    ])
+    def test_is_invalid_when_dhw_storage_tank_is_missing_info(self, xpath_to_remove, expected_message):
+        # -- Setup
+        tree = etree.parse(self.example_file)
+        remove_element(tree, xpath_to_remove)
+
+        # -- Act
+        failures = validate_schematron(self.schematron, tree, phase='domestic_hot_water_system')
+
+        # -- Assert
+        self.assert_failure_messages(failures, {
+            'ERROR': [expected_message]
+        })

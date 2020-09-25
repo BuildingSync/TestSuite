@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<auc:BuildingSync xmlns:auc="http://buildingsync.net/schemas/bedes-auc/2019" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://buildingsync.net/schemas/bedes-auc/2019 https://raw.githubusercontent.com/BuildingSync/schema/develop/BuildingSync.xsd" version="2.1.0">
+  <auc:Facilities>
+    <auc:Facility ID="Facility-A">
+        <auc:Sites>
+            <auc:Site ID="Site-A">
+                <auc:Buildings>
+                    <auc:Building ID="Building-A">
+                    </auc:Building>
+                </auc:Buildings>
+            </auc:Site>
+        </auc:Sites>
+        <auc:Systems>
+            <auc:DomesticHotWaterSystems>
+                <auc:DomesticHotWaterSystem ID="DomesticHotWaterSystem-A">
+                    <auc:DomesticHotWaterType>
+                        <auc:StorageTank>
+                            <auc:TankHeatingType>
+                                <auc:Direct>
+                                    <auc:DirectTankHeatingSource>
+                                        <auc:Combustion>
+                                            <auc:CondensingOperation>Condensing</auc:CondensingOperation>
+                                        </auc:Combustion>
+                                    </auc:DirectTankHeatingSource>
+                                </auc:Direct>
+                            </auc:TankHeatingType>
+                            <auc:TankVolume>123</auc:TankVolume>
+                            <auc:RecoveryEfficiency>.5</auc:RecoveryEfficiency>
+                            <auc:OffCycleHeatLossCoefficient>123</auc:OffCycleHeatLossCoefficient>
+                        </auc:StorageTank>
+                    </auc:DomesticHotWaterType>
+                    <auc:Recirculation>
+                        <auc:RecirculationEnergyLossRate>.5</auc:RecirculationEnergyLossRate>
+                    </auc:Recirculation>
+                    <auc:HotWaterDistributionType>Looped</auc:HotWaterDistributionType>
+                    <auc:WaterHeaterEfficiencyType>Thermal Efficiency</auc:WaterHeaterEfficiencyType>
+                    <auc:WaterHeaterEfficiency>.5</auc:WaterHeaterEfficiency>
+                    <auc:Capacity>123</auc:Capacity>
+                    <auc:CapacityUnits>gpm</auc:CapacityUnits>
+                    <auc:PrimaryFuel>Electricity</auc:PrimaryFuel>
+                    <auc:LinkedPremises>
+                        <auc:Building>
+                            <auc:LinkedBuildingID IDref="Building-A"></auc:LinkedBuildingID>
+                        </auc:Building>
+                    </auc:LinkedPremises>
+                    <auc:Quantity>1</auc:Quantity>
+                </auc:DomesticHotWaterSystem>
+                <auc:DomesticHotWaterSystem ID="DomesticHotWaterSystem-B">
+                    <auc:DomesticHotWaterType>
+                        <auc:StorageTank>
+                            <auc:TankHeatingType>
+                                <auc:Indirect>
+                                    <auc:IndirectTankHeatingSource>
+                                        <auc:HeatPump>
+                                            <auc:RatedHeatPumpSensibleHeatRatio>.5</auc:RatedHeatPumpSensibleHeatRatio>
+                                        </auc:HeatPump>
+                                    </auc:IndirectTankHeatingSource>
+                                </auc:Indirect>
+                            </auc:TankHeatingType>
+                            <auc:TankVolume>123</auc:TankVolume>
+                            <auc:RecoveryEfficiency>.5</auc:RecoveryEfficiency>
+                            <auc:OffCycleHeatLossCoefficient>123</auc:OffCycleHeatLossCoefficient>
+                        </auc:StorageTank>
+                    </auc:DomesticHotWaterType>
+                    <auc:Recirculation>
+                        <auc:RecirculationEnergyLossRate>.5</auc:RecirculationEnergyLossRate>
+                    </auc:Recirculation>
+                    <auc:HotWaterDistributionType>Looped</auc:HotWaterDistributionType>
+                    <auc:WaterHeaterEfficiencyType>Thermal Efficiency</auc:WaterHeaterEfficiencyType>
+                    <auc:WaterHeaterEfficiency>.5</auc:WaterHeaterEfficiency>
+                    <auc:Capacity>123</auc:Capacity>
+                    <auc:CapacityUnits>gpm</auc:CapacityUnits>
+                    <auc:PrimaryFuel>Electricity</auc:PrimaryFuel>
+                    <auc:LinkedPremises>
+                        <auc:Building>
+                            <auc:LinkedBuildingID IDref="Building-A"></auc:LinkedBuildingID>
+                        </auc:Building>
+                    </auc:LinkedPremises>
+                    <auc:Quantity>1</auc:Quantity>
+                </auc:DomesticHotWaterSystem>
+                <auc:DomesticHotWaterSystem ID="DomesticHotWaterSystem-C">
+                    <auc:DomesticHotWaterType>
+                        <auc:StorageTank>
+                            <auc:TankHeatingType>
+                                <auc:Indirect>
+                                    <auc:IndirectTankHeatingSource>
+                                        <auc:Solar>
+                                            <auc:SolarThermalSystemType>Hot water</auc:SolarThermalSystemType>
+                                            <auc:SolarThermalSystemCollectorType>Single glazing black</auc:SolarThermalSystemCollectorType>
+                                        </auc:Solar>
+                                    </auc:IndirectTankHeatingSource>
+                                </auc:Indirect>
+                            </auc:TankHeatingType>
+                            <auc:TankVolume>123</auc:TankVolume>
+                            <auc:RecoveryEfficiency>.5</auc:RecoveryEfficiency>
+                            <auc:OffCycleHeatLossCoefficient>123</auc:OffCycleHeatLossCoefficient>
+                        </auc:StorageTank>
+                    </auc:DomesticHotWaterType>
+                    <auc:Recirculation>
+                        <auc:RecirculationEnergyLossRate>.5</auc:RecirculationEnergyLossRate>
+                    </auc:Recirculation>
+                    <auc:HotWaterDistributionType>Looped</auc:HotWaterDistributionType>
+                    <auc:WaterHeaterEfficiencyType>Thermal Efficiency</auc:WaterHeaterEfficiencyType>
+                    <auc:WaterHeaterEfficiency>.5</auc:WaterHeaterEfficiency>
+                    <auc:Capacity>123</auc:Capacity>
+                    <auc:CapacityUnits>gpm</auc:CapacityUnits>
+                    <auc:PrimaryFuel>Electricity</auc:PrimaryFuel>
+                    <auc:LinkedPremises>
+                        <auc:Building>
+                            <auc:LinkedBuildingID IDref="Building-A"></auc:LinkedBuildingID>
+                        </auc:Building>
+                    </auc:LinkedPremises>
+                    <auc:Quantity>1</auc:Quantity>
+                </auc:DomesticHotWaterSystem>
+                <auc:DomesticHotWaterSystem ID="DomesticHotWaterSystem-D">
+                    <auc:DomesticHotWaterType>
+                        <auc:Instantaneous>
+                            <auc:InstantaneousWaterHeatingSource>
+                                <auc:Combustion>
+                                    <auc:CondensingOperation>Condensing</auc:CondensingOperation>
+                                </auc:Combustion>
+                            </auc:InstantaneousWaterHeatingSource>
+                        </auc:Instantaneous>
+                    </auc:DomesticHotWaterType>
+                    <auc:Recirculation>
+                        <auc:RecirculationEnergyLossRate>.5</auc:RecirculationEnergyLossRate>
+                    </auc:Recirculation>
+                    <auc:HotWaterDistributionType>Looped</auc:HotWaterDistributionType>
+                    <auc:WaterHeaterEfficiencyType>Thermal Efficiency</auc:WaterHeaterEfficiencyType>
+                    <auc:WaterHeaterEfficiency>.5</auc:WaterHeaterEfficiency>
+                    <auc:Capacity>123</auc:Capacity>
+                    <auc:CapacityUnits>gpm</auc:CapacityUnits>
+                    <auc:PrimaryFuel>Electricity</auc:PrimaryFuel>
+                    <auc:LinkedPremises>
+                        <auc:Building>
+                            <auc:LinkedBuildingID IDref="Building-A"></auc:LinkedBuildingID>
+                        </auc:Building>
+                    </auc:LinkedPremises>
+                    <auc:Quantity>1</auc:Quantity>
+                </auc:DomesticHotWaterSystem>
+            </auc:DomesticHotWaterSystems>
+        </auc:Systems>
+    </auc:Facility>
+  </auc:Facilities>
+</auc:BuildingSync>

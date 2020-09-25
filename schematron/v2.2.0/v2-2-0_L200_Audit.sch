@@ -88,6 +88,11 @@
   <sch:phase id="hvac_building_automation_system" see="ASHRAE 211 6.2.1.3 (d)">
     <sch:active pattern="bas"/>
   </sch:phase>
+  <sch:phase id="domestic_hot_water_system" see="ASHRAE 211 6.2.1.4 (a)">
+    <sch:active pattern="domestic_hot_water_systems"/>
+    <sch:active pattern="storage_tank"/>
+    <sch:active pattern="instantaneous"/>
+  </sch:phase>
   <sch:pattern see="" id="document_structure_prerequisites_misc_building_info">
     <sch:title>Document Structure Prerequisites Misc Building Info</sch:title>
     <sch:rule context="/">
@@ -771,6 +776,55 @@
     </sch:rule>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:Plants/auc:CondenserPlants/auc:CondenserPlant">
       <sch:assert test="auc:BuildingAutomationSystem" role="">auc:BuildingAutomationSystem</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="" id="domestic_hot_water_systems">
+    <sch:title>Domestic Hot Water Systems</sch:title>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:DomesticHotWaterSystems/auc:DomesticHotWaterSystem">
+      <sch:assert test="count(auc:DomesticHotWaterType/*) &gt;= 1" role="">count(auc:DomesticHotWaterType/*) &gt;= 1</sch:assert>
+      <sch:assert test="auc:Recirculation/auc:RecirculationEnergyLossRate" role="">auc:Recirculation/auc:RecirculationEnergyLossRate</sch:assert>
+      <sch:assert test="auc:HotWaterDistributionType" role="">auc:HotWaterDistributionType</sch:assert>
+      <sch:assert test="auc:WaterHeaterEfficiencyType" role="">auc:WaterHeaterEfficiencyType</sch:assert>
+      <sch:assert test="auc:WaterHeaterEfficiency" role="">auc:WaterHeaterEfficiency</sch:assert>
+      <sch:assert test="auc:Capacity" role="">auc:Capacity</sch:assert>
+      <sch:assert test="auc:CapacityUnits" role="">auc:CapacityUnits</sch:assert>
+      <sch:assert test="auc:PrimaryFuel" role="">auc:PrimaryFuel</sch:assert>
+      <sch:assert test="//auc:Buildings/auc:Building[@ID = current()/auc:LinkedPremises/auc:Building/auc:LinkedBuildingID/@IDref]" role="">auc:DomesticHotWaterSystem must be linked to a valid auc:Building</sch:assert>
+      <sch:assert test="auc:Quantity" role="">auc:Quantity</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="" id="storage_tank">
+    <sch:title>Storage Tank</sch:title>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:DomesticHotWaterSystems/auc:DomesticHotWaterSystem/auc:DomesticHotWaterType/auc:StorageTank">
+      <sch:assert test="auc:TankHeatingType/*" role="">auc:TankHeatingType/*</sch:assert>
+      <sch:assert test="auc:TankVolume" role="">auc:TankVolume</sch:assert>
+      <sch:assert test="auc:RecoveryEfficiency" role="WARNING">auc:RecoveryEfficiency</sch:assert>
+      <sch:assert test="auc:OffCycleHeatLossCoefficient" role="WARNING">auc:OffCycleHeatLossCoefficient</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:DomesticHotWaterSystems/auc:DomesticHotWaterSystem/auc:DomesticHotWaterType/auc:StorageTank/auc:TankHeatingType/auc:Direct">
+      <sch:assert test="auc:DirectTankHeatingSource/*" role="">auc:DirectTankHeatingSource/*</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:DomesticHotWaterSystems/auc:DomesticHotWaterSystem/auc:DomesticHotWaterType/auc:StorageTank/auc:TankHeatingType/auc:Direct/auc:DirectTankHeatingSource/auc:Combustion">
+      <sch:assert test="auc:CondensingOperation" role="">auc:CondensingOperation</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:DomesticHotWaterSystems/auc:DomesticHotWaterSystem/auc:DomesticHotWaterType/auc:StorageTank/auc:TankHeatingType/auc:Indirect">
+      <sch:assert test="auc:IndirectTankHeatingSource/*" role="">auc:IndirectTankHeatingSource/*</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:DomesticHotWaterSystems/auc:DomesticHotWaterSystem/auc:DomesticHotWaterType/auc:StorageTank/auc:TankHeatingType/auc:Indirect/auc:IndirectTankHeatingSource/auc:HeatPump">
+      <sch:assert test="auc:RatedHeatPumpSensibleHeatRatio" role="">auc:RatedHeatPumpSensibleHeatRatio</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:DomesticHotWaterSystems/auc:DomesticHotWaterSystem/auc:DomesticHotWaterType/auc:StorageTank/auc:TankHeatingType/auc:Indirect/auc:IndirectTankHeatingSource/auc:Solar">
+      <sch:assert test="auc:SolarThermalSystemType" role="">auc:SolarThermalSystemType</sch:assert>
+      <sch:assert test="auc:SolarThermalSystemCollectorType" role="">auc:SolarThermalSystemCollectorType</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="" id="instantaneous">
+    <sch:title>Instantaneous</sch:title>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:DomesticHotWaterSystems/auc:DomesticHotWaterSystem/auc:DomesticHotWaterType/auc:Instantaneous">
+      <sch:assert test="auc:InstantaneousWaterHeatingSource/*" role="">auc:InstantaneousWaterHeatingSource/*</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:DomesticHotWaterSystems/auc:DomesticHotWaterSystem/auc:DomesticHotWaterType/auc:Instantaneous/auc:InstantaneousWaterHeatingSource/auc:Combustion">
+      <sch:assert test="auc:CondensingOperation" role="">auc:CondensingOperation</sch:assert>
     </sch:rule>
   </sch:pattern>
 </sch:schema>
