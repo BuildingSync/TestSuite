@@ -728,7 +728,14 @@
       <auc:Measures>
         <!-- Low cost measure -->
         <auc:Measure ID="Measure-LowCost-A">
-
+          <auc:TypeOfMeasure>
+            <auc:Additions>
+              <auc:Addition>
+                <auc:ExistingScheduleAffected IDref="PlugLoadSchedule" />
+                <auc:ModifiedSchedule IDref="PlugLoadSchedule" />
+              </auc:Addition>
+            </auc:Additions>
+          </auc:TypeOfMeasure>
           <!-- 6.1.5.b -->
           <auc:SystemCategoryAffected>Air Distribution</auc:SystemCategoryAffected>
 
@@ -744,10 +751,21 @@
           <auc:CustomMeasureName>Low Cost Measure Name</auc:CustomMeasureName>
           <!-- 6.1.5.a -->
           <auc:LongDescription>This measure does something cheap</auc:LongDescription>
+          <auc:Recommended>true</auc:Recommended>
+          <auc:StartDate>2020-01-01</auc:StartDate>
+          <auc:EndDate>2020-12-01</auc:EndDate>
         </auc:Measure>
 
         <!-- Capital measure -->
         <auc:Measure ID="Measure-Capital-A">
+          <auc:TypeOfMeasure>
+            <auc:Additions>
+              <auc:Addition>
+                <auc:ExistingScheduleAffected IDref="PlugLoadSchedule" />
+                <auc:ModifiedSchedule IDref="PlugLoadSchedule" />
+              </auc:Addition>
+            </auc:Additions>
+          </auc:TypeOfMeasure>
           <!-- 6.1.6.b -->
           <auc:SystemCategoryAffected>Air Distribution</auc:SystemCategoryAffected>
 
@@ -762,6 +780,9 @@
           <auc:CustomMeasureName>Capital Measure</auc:CustomMeasureName>
           <!-- 6.1.6.a -->
           <auc:LongDescription>This measure does something expensive</auc:LongDescription>
+          <auc:Recommended>true</auc:Recommended>
+          <auc:StartDate>2020-01-01</auc:StartDate>
+          <auc:EndDate>2020-12-01</auc:EndDate>
         </auc:Measure>
       </auc:Measures>
 

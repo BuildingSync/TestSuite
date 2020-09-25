@@ -125,6 +125,10 @@
     <sch:active pattern="document_structure_prerequisites_annual_energy_use"/>
     <sch:active pattern="annual_energy_use"/>
   </sch:phase>
+  <sch:phase id="eem_summary" see="ASHRAE 211 6.2.4.1">
+    <sch:active pattern="document_structure_prerequisites_eem_measures"/>
+    <sch:active pattern="eem_measures"/>
+  </sch:phase>
   <sch:pattern see="" id="document_structure_prerequisites_misc_building_info">
     <sch:title>Document Structure Prerequisites Misc Building Info</sch:title>
     <sch:rule context="/">
@@ -1142,6 +1146,33 @@
       <sch:assert test="count(auc:BuildingEnergyUseIntensity) = 1 and $calculatedBuildingEnergyUseIntensityDelta &lt; $calculatedBuildingEnergyUseIntensityEpsilon" role="">auc:BuildingEnergyUseIntensity (which is <sch:value-of select="auc:BuildingEnergyUseIntensity"/>) should approximately equal auc:BuildingEnergyUse divided by the auc:Building's Gross floor area (which is <sch:value-of select="$calculatedBuildingEnergyUseIntensity"/>); the difference, <sch:value-of select="$calculatedBuildingEnergyUseIntensityDelta"/> is too large (should be less than <sch:value-of select="$calculatedSiteEnergyUseIntensityEpsilon"/>)</sch:assert>
       <sch:assert test="auc:EnergyCost" role="">auc:EnergyCost</sch:assert>
       <sch:assert test="auc:EnergyCostIndex" role="">auc:EnergyCostIndex</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="" id="document_structure_prerequisites_eem_measures">
+    <sch:title>Document Structure Prerequisites EEM Measures</sch:title>
+    <sch:rule context="/">
+      <sch:assert test="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Measures/auc:Measure" role="ERROR">/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Measures/auc:Measure</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="" id="eem_measures">
+    <sch:title>EEM Measures</sch:title>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Measures/auc:Measure">
+      <sch:assert test="auc:TypeOfMeasure/*/*" role="">auc:TypeOfMeasure/*/*</sch:assert>
+      <sch:assert test="auc:StartDate" role="">auc:StartDate</sch:assert>
+      <sch:assert test="auc:EndDate" role="">auc:EndDate</sch:assert>
+      <sch:assert test="auc:Recommended" role="">auc:Recommended</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Measures/auc:Measure/auc:TypeOfMeasure/auc:Replacements/auc:Replacement">
+      <sch:assert test="(auc:ExistingSystemReplaced/@IDref and auc:AlternativeSystemReplacement/@IDref) or (auc:ExistingScheduleAffected/@IDref and auc:ModifiedSchedule/@IDref)" role="">(auc:ExistingSystemReplaced/@IDref and auc:AlternativeSystemReplacement/@IDref) or (auc:ExistingScheduleAffected/@IDref and auc:ModifiedSchedule/@IDref)</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Measures/auc:Measure/auc:TypeOfMeasure/auc:ModificationRetrocommissions/auc:ModificationRetrocommissioning">
+      <sch:assert test="(auc:ExistingSystemAffected/@IDref and auc:ModifiedSystem/@IDref) or (auc:ExistingScheduleAffected/@IDref and auc:ModifiedSchedule/@IDref)" role="">(auc:ExistingSystemAffected/@IDref and auc:ModifiedSystem/@IDref) or (auc:ExistingScheduleAffected/@IDref and auc:ModifiedSchedule/@IDref)</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Measures/auc:Measure/auc:TypeOfMeasure/auc:Additions/auc:Addition">
+      <sch:assert test="auc:AlternativeSystemAdded/@IDref or (auc:ExistingScheduleAffected/@IDref and auc:ModifiedSchedule/@IDref)" role="">auc:AlternativeSystemAdded/@IDref or (auc:ExistingScheduleAffected/@IDref and auc:ModifiedSchedule/@IDref)</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Measures/auc:Measure/auc:TypeOfMeasure/auc:Removals/auc:Removal">
+      <sch:assert test="auc:ExistingSystemRemoved/@IDref or (auc:ExistingScheduleAffected/@IDref and auc:ModifiedSchedule/@IDref)" role="">auc:ExistingSystemRemoved/@IDref or (auc:ExistingScheduleAffected/@IDref and auc:ModifiedSchedule/@IDref)</sch:assert>
     </sch:rule>
   </sch:pattern>
 </sch:schema>
