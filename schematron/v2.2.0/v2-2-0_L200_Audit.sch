@@ -117,6 +117,7 @@
   <sch:phase id="historical_energy_use" see="ASHRAE 211 6.1.2">
     <sch:active pattern="document_structure_prerequisites_monthly_utility_data"/>
     <sch:active pattern="monthly_utility_data"/>
+    <sch:active pattern="submetering"/>
     <sch:active pattern="document_structure_prerequisites_utility_info"/>
     <sch:active pattern="utility_info"/>
     <sch:active pattern="utility_rate_schedule_-_all_resource_types"/>
@@ -1014,6 +1015,13 @@
     </sch:rule>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Scenarios/auc:Scenario[auc:ScenarioType/auc:CurrentBuilding/auc:CalculationMethod/auc:Measured]/auc:ResourceUses/auc:ResourceUse/auc:AnnualFuelUseLinkedTimeSeriesIDs/auc:LinkedTimeSeriesID">
       <sch:assert test="//auc:TimeSeriesData/auc:TimeSeries[@ID = current()/@IDref and auc:ResourceUseID/@IDref = current()/ancestor::auc:ResourceUse/@ID and auc:ReadingType/text() = 'Total']" role="">Each auc:LinkedTimeSeriesID must point to an auc:TimeSeries that (1) points to the same auc:ResourceUse through auc:ResourceUseID and (2) has an auc:ReadingType of Total</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="6.2.2.1 (d)" id="submetering">
+    <sch:title>Submetering</sch:title>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Scenarios/auc:Scenario[auc:ScenarioType/auc:CurrentBuilding/auc:CalculationMethod/auc:Measured]/auc:ResourceUses[auc:MeterID]">
+      <sch:assert test="auc:ParentResourceUse" role="">auc:ParentResourceUse</sch:assert>
+      <sch:assert test="//auc:ResourceUse[@ID = current()/auc:ParentResourceUse/@IDref]" role="">auc:ParentResourceUse must link to another valid auc:ResourceUse</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern see="" id="document_structure_prerequisites_utility_info">
