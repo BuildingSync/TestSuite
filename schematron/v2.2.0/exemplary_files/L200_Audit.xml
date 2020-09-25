@@ -1265,6 +1265,127 @@
                   <auc:IntervalReading>384.98</auc:IntervalReading>
                   <auc:ResourceUseID IDref="ResourceUse-Electricity" />
                 </auc:TimeSeries>
+                <!-- Electricity Load factor -->
+                <auc:TimeSeries ID="Scenario-A-TS37">
+                  <auc:ReadingType>Load factor</auc:ReadingType>
+                  <auc:StartTimestamp>2019-01-01T00:00:00</auc:StartTimestamp>
+                  <auc:EndTimestamp>2019-02-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
+                  <auc:IntervalFrequency>Month</auc:IntervalFrequency>
+                  <auc:IntervalReading>4102.51</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="ResourceUse-Electricity" />
+                </auc:TimeSeries>
+                <auc:TimeSeries ID="Scenario-A-TS38">
+                  <auc:ReadingType>Load factor</auc:ReadingType>
+                  <auc:StartTimestamp>2019-02-01T00:00:00</auc:StartTimestamp>
+                  <auc:EndTimestamp>2019-03-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
+                  <auc:IntervalFrequency>Month</auc:IntervalFrequency>
+                  <auc:IntervalReading>3737.04</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="ResourceUse-Electricity" />
+                </auc:TimeSeries>
+                <auc:TimeSeries ID="Scenario-A-TS39">
+                  <auc:ReadingType>Load factor</auc:ReadingType>
+                  <auc:StartTimestamp>2019-03-01T00:00:00</auc:StartTimestamp>
+                  <auc:EndTimestamp>2019-04-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
+                  <auc:IntervalFrequency>Month</auc:IntervalFrequency>
+                  <auc:IntervalReading>4167.07</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="ResourceUse-Electricity" />
+                </auc:TimeSeries>
+                <auc:TimeSeries ID="Scenario-A-TS40">
+                  <auc:ReadingType>Load factor</auc:ReadingType>
+                  <auc:StartTimestamp>2019-04-01T00:00:00</auc:StartTimestamp>
+                  <auc:EndTimestamp>2019-05-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
+                  <auc:IntervalFrequency>Month</auc:IntervalFrequency>
+                  <auc:IntervalReading>3897.44</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="ResourceUse-Electricity" />
+                </auc:TimeSeries>
+                <auc:TimeSeries ID="Scenario-A-TS41">
+                  <auc:ReadingType>Load factor</auc:ReadingType>
+                  <auc:StartTimestamp>2019-05-01T00:00:00</auc:StartTimestamp>
+                  <auc:EndTimestamp>2019-06-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
+                  <auc:IntervalFrequency>Month</auc:IntervalFrequency>
+                  <auc:IntervalReading>4565.50</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="ResourceUse-Electricity" />
+                </auc:TimeSeries>
+                <auc:TimeSeries ID="Scenario-A-TS42">
+                  <auc:ReadingType>Load factor</auc:ReadingType>
+                  <auc:StartTimestamp>2019-06-01T00:00:00</auc:StartTimestamp>
+                  <auc:EndTimestamp>2019-07-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
+                  <auc:IntervalFrequency>Month</auc:IntervalFrequency>
+                  <auc:IntervalReading>4870.87</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="ResourceUse-Electricity" />
+                </auc:TimeSeries>
+                <auc:TimeSeries ID="Scenario-A-TS43">
+                  <auc:ReadingType>Load factor</auc:ReadingType>
+                  <auc:StartTimestamp>2019-07-01T00:00:00</auc:StartTimestamp>
+                  <auc:EndTimestamp>2019-08-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
+                  <auc:IntervalFrequency>Month</auc:IntervalFrequency>
+                  <auc:IntervalReading>4977.64</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="ResourceUse-Electricity" />
+                </auc:TimeSeries>
+                <auc:TimeSeries ID="Scenario-A-TS44">
+                  <auc:ReadingType>Load factor</auc:ReadingType>
+                  <auc:StartTimestamp>2019-08-01T00:00:00</auc:StartTimestamp>
+                  <auc:EndTimestamp>2019-09-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
+                  <auc:IntervalFrequency>Month</auc:IntervalFrequency>
+                  <auc:IntervalReading>5275.05</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="ResourceUse-Electricity" />
+                </auc:TimeSeries>
+                <auc:TimeSeries ID="Scenario-A-TS45">
+                  <auc:ReadingType>Load factor</auc:ReadingType>
+                  <auc:StartTimestamp>2019-09-01T00:00:00</auc:StartTimestamp>
+                  <auc:EndTimestamp>2019-10-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
+                  <auc:IntervalFrequency>Month</auc:IntervalFrequency>
+                  <auc:IntervalReading>4788.79</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="ResourceUse-Electricity" />
+                </auc:TimeSeries>
+                <auc:TimeSeries ID="Scenario-A-TS46">
+                  <auc:ReadingType>Load factor</auc:ReadingType>
+                  <auc:StartTimestamp>2019-10-01T00:00:00</auc:StartTimestamp>
+                  <auc:EndTimestamp>2019-11-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
+                  <auc:IntervalFrequency>Month</auc:IntervalFrequency>
+                  <auc:IntervalReading>4353.99</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="ResourceUse-Electricity" />
+                </auc:TimeSeries>
+                <auc:TimeSeries ID="Scenario-A-TS47">
+                  <auc:ReadingType>Load factor</auc:ReadingType>
+                  <auc:StartTimestamp>2019-11-01T00:00:00</auc:StartTimestamp>
+                  <auc:EndTimestamp>2019-12-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
+                  <auc:IntervalFrequency>Month</auc:IntervalFrequency>
+                  <auc:IntervalReading>4154.67</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="ResourceUse-Electricity" />
+                </auc:TimeSeries>
+                <auc:TimeSeries ID="Scenario-A-TS48">
+                  <auc:ReadingType>Load factor</auc:ReadingType>
+                  <auc:StartTimestamp>2019-12-01T00:00:00</auc:StartTimestamp>
+                  <auc:EndTimestamp>2020-01-01T00:00:00</auc:EndTimestamp>
+                  <auc:IntervalDuration>30</auc:IntervalDuration>
+                  <auc:IntervalDurationUnits>Day</auc:IntervalDurationUnits>
+                  <auc:IntervalFrequency>Month</auc:IntervalFrequency>
+                  <auc:IntervalReading>4052.43</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="ResourceUse-Electricity" />
+                </auc:TimeSeries>
 
                 <!-- Natural Gas TOTAL use -->
                 <auc:TimeSeries ID="Scenario-A-NG-TS1">
