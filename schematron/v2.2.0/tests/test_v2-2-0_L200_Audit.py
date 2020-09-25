@@ -754,3 +754,27 @@ class TestL200AuditDhwSystems(AssertFailureRolesMixin):
         self.assert_failure_messages(failures, {
             'ERROR': ['auc:DomesticHotWaterSystemCondition']
         })
+
+
+class TestL200AuditLightingSystems(AssertFailureRolesMixin):
+    schematron = os.path.join(v2_2_0_SCH_DIR, 'v2-2-0_L200_Audit.sch')
+    example_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'data', 'Lighting_example1.xml')
+
+    @pytest.mark.parametrize("xpath_to_remove, expected_message", [
+        ('//auc:LightingSystems/auc:LightingSystem/auc:OutsideLighting', 'auc:OutsideLighting'),
+        ('//auc:LightingSystems/auc:LightingSystem/auc:LampType/*/auc:LampLabel', 'auc:LampLabel'),
+        ('//auc:LightingSystems/auc:LightingSystem/auc:Controls/auc:Control/auc:Daylighting/auc:ControlSensor', 'auc:ControlSensor'),
+        ('//auc:LightingSystems/auc:LightingSystem/auc:NumberOfLampsPerBallast', 'auc:NumberOfLampsPerBallast'),
+    ])
+    def test_is_invalid_when_lighting_is_missing_info(self, xpath_to_remove, expected_message):
+        # -- Setup
+        tree = etree.parse(self.example_file)
+        remove_element(tree, xpath_to_remove)
+
+        # -- Act
+        failures = validate_schematron(self.schematron, tree, phase='lighting')
+
+        # -- Assert
+        self.assert_failure_messages(failures, {
+            'ERROR': [expected_message]
+        })

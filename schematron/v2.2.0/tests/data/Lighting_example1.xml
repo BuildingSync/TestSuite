@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<auc:BuildingSync xmlns:auc="http://buildingsync.net/schemas/bedes-auc/2019" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://buildingsync.net/schemas/bedes-auc/2019 https://raw.githubusercontent.com/BuildingSync/schema/develop/BuildingSync.xsd" version="2.1.0">
+  <auc:Facilities>
+    <auc:Facility ID="Facility-A">
+        <auc:Sites>
+            <auc:Site ID="Site-A">
+                <auc:Buildings>
+                    <auc:Building ID="Building-A">
+                        <auc:LightingAutomationSystem>true</auc:LightingAutomationSystem>
+                        <auc:Sections>
+                            <auc:Section ID="Section-A"></auc:Section>
+                        </auc:Sections>
+                    </auc:Building>
+                </auc:Buildings>
+            </auc:Site>
+        </auc:Sites>
+        <auc:Systems>
+            <auc:LightingSystems>
+                <auc:LightingSystem ID="LightingSystem-A">
+                    <auc:LampType>
+                        <auc:CompactFluorescent>
+                            <auc:LampLabel>Spiral</auc:LampLabel>
+                        </auc:CompactFluorescent>
+                    </auc:LampType>
+                    <auc:BallastType>Standard Electronic</auc:BallastType>
+                    <auc:DimmingCapability>
+                        <auc:MinimumDimmingLightFraction>.2</auc:MinimumDimmingLightFraction>
+                    </auc:DimmingCapability>
+                    <auc:PercentPremisesServed>100</auc:PercentPremisesServed>
+                    <auc:InstalledPower>123</auc:InstalledPower>
+                    <auc:LampPower>123</auc:LampPower>
+                    <auc:NumberOfLampsPerBallast>1</auc:NumberOfLampsPerBallast>
+                    <auc:NumberOfBallastsPerLuminaire>1</auc:NumberOfBallastsPerLuminaire>
+                    <auc:NumberOfLuminaires>1</auc:NumberOfLuminaires>
+                    <auc:OutsideLighting>false</auc:OutsideLighting>
+                    <auc:Controls>
+                        <auc:Control>
+                            <auc:Daylighting>
+                                <auc:ControlSystemType>
+                                    <auc:Digital></auc:Digital>
+                                </auc:ControlSystemType>
+                                <auc:ControlSensor>Photocell</auc:ControlSensor>
+                                <auc:ControlStrategy>Continuous</auc:ControlStrategy>
+                            </auc:Daylighting>
+                        </auc:Control>
+                    </auc:Controls>
+                    <auc:LightingAutomationSystem>false</auc:LightingAutomationSystem>
+                    <auc:LinkedPremises>
+                        <auc:Section>
+                            <auc:LinkedSectionID IDref="Section-A"></auc:LinkedSectionID>
+                        </auc:Section>
+                    </auc:LinkedPremises>
+                </auc:LightingSystem>
+            </auc:LightingSystems>
+        </auc:Systems>
+    </auc:Facility>
+  </auc:Facilities>
+</auc:BuildingSync>

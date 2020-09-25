@@ -99,6 +99,12 @@
   <sch:phase id="dhw_general_condition" see="ASHRAE 211 6.2.1.4 (c)">
     <sch:active pattern="dhw_general_conditions"/>
   </sch:phase>
+  <sch:phase id="lighting" see="ASHRAE 211 6.2.1.5 (a) and (b)">
+    <sch:active pattern="document_structure_prerequisites_general_lighting_requirements"/>
+    <sch:active pattern="general_lighting_requirements"/>
+    <sch:active pattern="lighting_with_ballast"/>
+    <sch:active pattern="lighting_without_ballast"/>
+  </sch:phase>
   <sch:pattern see="" id="document_structure_prerequisites_misc_building_info">
     <sch:title>Document Structure Prerequisites Misc Building Info</sch:title>
     <sch:rule context="/">
@@ -859,6 +865,50 @@
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:DomesticHotWaterSystems/auc:DomesticHotWaterSystem">
       <sch:assert test="auc:DomesticHotWaterSystemCondition" role="">auc:DomesticHotWaterSystemCondition</sch:assert>
       <sch:assert test="auc:DomesticHotWaterSystemNotes" role="">auc:DomesticHotWaterSystemNotes</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="" id="document_structure_prerequisites_general_lighting_requirements">
+    <sch:title>Document Structure Prerequisites General Lighting Requirements</sch:title>
+    <sch:rule context="/">
+      <sch:assert test="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:LightingSystems/auc:LightingSystem" role="ERROR">/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:LightingSystems/auc:LightingSystem</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="" id="general_lighting_requirements">
+    <sch:title>General Lighting Requirements</sch:title>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:LightingSystems/auc:LightingSystem">
+      <sch:assert test="auc:OutsideLighting" role="">auc:OutsideLighting</sch:assert>
+      <sch:assert test="auc:LampType/*" role="">auc:LampType/*</sch:assert>
+      <sch:assert test="auc:BallastType" role="">auc:BallastType</sch:assert>
+      <sch:assert test="auc:LampPower" role="">auc:LampPower</sch:assert>
+      <sch:assert test="auc:InstalledPower" role="">auc:InstalledPower</sch:assert>
+      <sch:assert test="auc:DimmingCapability/auc:MinimumDimmingLightFraction or auc:DimmingCapability/auc:MinimumDimmingPowerFraction" role="WARNING">auc:DimmingCapability/auc:MinimumDimmingLightFraction or auc:DimmingCapability/auc:MinimumDimmingPowerFraction</sch:assert>
+      <sch:assert test="auc:PercentPremisesServed" role="">auc:PercentPremisesServed</sch:assert>
+      <sch:assert test="auc:LightingAutomationSystem" role="">auc:LightingAutomationSystem</sch:assert>
+      <sch:assert test="count(auc:Controls/auc:Control) &gt;= 1" role="">count(auc:Controls/auc:Control) &gt;= 1</sch:assert>
+      <sch:assert test="auc:Controls/auc:Control/*/auc:ControlSystemType" role="">auc:Controls/auc:Control/*/auc:ControlSystemType</sch:assert>
+      <sch:assert test="auc:Controls/auc:Control/*/auc:ControlStrategy" role="">auc:Controls/auc:Control/*/auc:ControlStrategy</sch:assert>
+      <sch:assert test="//auc:Sections/auc:Section[@ID = current()/auc:LinkedPremises/auc:Section/auc:LinkedSectionID/@IDref]" role="">//auc:Sections/auc:Section[@ID = current()/auc:LinkedPremises/auc:Section/auc:LinkedSectionID/@IDref]</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:LightingSystems/auc:LightingSystem/auc:LampType[auc:Incandescent or auc:LinearFluorescent or auc:CompactFluorescent or auc:Halogen or auc:HighIntensityDischarge or auc:SolidStateLighting]/*">
+      <sch:assert test="auc:LampLabel" role="">auc:LampLabel</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:LightingSystems/auc:LightingSystem/auc:Controls/auc:Control[auc:Daylighting or auc:Occupancy]/*">
+      <sch:assert test="auc:ControlSensor" role="">auc:ControlSensor</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="" id="lighting_with_ballast">
+    <sch:title>Lighting with Ballast</sch:title>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:LightingSystems/auc:LightingSystem[auc:BallastType != 'No ballast']">
+      <sch:assert test="auc:NumberOfLampsPerBallast" role="">auc:NumberOfLampsPerBallast</sch:assert>
+      <sch:assert test="auc:NumberOfBallastsPerLuminaire" role="">auc:NumberOfBallastsPerLuminaire</sch:assert>
+      <sch:assert test="auc:NumberOfLuminaires" role="">auc:NumberOfLuminaires</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="" id="lighting_without_ballast">
+    <sch:title>Lighting without Ballast</sch:title>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:LightingSystems/auc:LightingSystem[auc:BallastType = 'No ballast']">
+      <sch:assert test="auc:NumberOfLampsPerLuminaire" role="">auc:NumberOfLampsPerLuminaire</sch:assert>
+      <sch:assert test="auc:NumberOfLuminaires" role="">auc:NumberOfLuminaires</sch:assert>
     </sch:rule>
   </sch:pattern>
 </sch:schema>

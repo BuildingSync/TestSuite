@@ -414,15 +414,35 @@
         </auc:HVACSystems>
 
         <auc:LightingSystems>
-          <!-- 6.1.1.1.g/5.3.4.h (for every space function) -->
-          <auc:LightingSystem ID="Lighting-A">
-            <!-- note that LampType must be defined -->
+          <auc:LightingSystem ID="LightingSystem-A">
             <auc:LampType>
               <auc:CompactFluorescent>
-                <!-- LampLabel is recommended, not required -->
-                <auc:LampLabel>2D</auc:LampLabel>
+                <auc:LampLabel>Spiral</auc:LampLabel>
               </auc:CompactFluorescent>
             </auc:LampType>
+            <auc:BallastType>Standard Electronic</auc:BallastType>
+            <auc:DimmingCapability>
+              <auc:MinimumDimmingLightFraction>.2</auc:MinimumDimmingLightFraction>
+            </auc:DimmingCapability>
+            <auc:PercentPremisesServed>100</auc:PercentPremisesServed>
+            <auc:InstalledPower>123</auc:InstalledPower>
+            <auc:LampPower>123</auc:LampPower>
+            <auc:NumberOfLampsPerBallast>1</auc:NumberOfLampsPerBallast>
+            <auc:NumberOfBallastsPerLuminaire>1</auc:NumberOfBallastsPerLuminaire>
+            <auc:NumberOfLuminaires>1</auc:NumberOfLuminaires>
+            <auc:OutsideLighting>false</auc:OutsideLighting>
+            <auc:Controls>
+              <auc:Control>
+                <auc:Daylighting>
+                  <auc:ControlSystemType>
+                    <auc:Digital></auc:Digital>
+                  </auc:ControlSystemType>
+                  <auc:ControlSensor>Photocell</auc:ControlSensor>
+                  <auc:ControlStrategy>Continuous</auc:ControlStrategy>
+                </auc:Daylighting>
+              </auc:Control>
+            </auc:Controls>
+            <auc:LightingAutomationSystem>false</auc:LightingAutomationSystem>
             <auc:LinkedPremises>
               <auc:Section>
                 <auc:LinkedSectionID IDref="Section-Space-A"></auc:LinkedSectionID>
@@ -432,12 +452,6 @@
         </auc:LightingSystems>
 
         <auc:PumpSystems>
-          <auc:PumpSystem ID="PumpSystem-A">
-            <auc:PumpControlType>Constant Volume</auc:PumpControlType>
-            <auc:LinkedSystemIDs>
-              <auc:LinkedSystemID IDref="HeatingPlant-A" />
-            </auc:LinkedSystemIDs>
-          </auc:PumpSystem>
           <auc:PumpSystem ID="PumpSystem-B">
             <auc:PumpControlType>Constant Volume</auc:PumpControlType>
             <auc:LinkedSystemIDs>
