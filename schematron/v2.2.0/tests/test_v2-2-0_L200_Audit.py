@@ -778,3 +778,59 @@ class TestL200AuditLightingSystems(AssertFailureRolesMixin):
         self.assert_failure_messages(failures, {
             'ERROR': [expected_message]
         })
+
+
+class TestL200AuditLoads(AssertFailureRolesMixin):
+    schematron = os.path.join(v2_2_0_SCH_DIR, 'v2-2-0_L200_Audit.sch')
+    example_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'data', 'Loads_example1.xml')
+
+    @pytest.mark.parametrize("xpath_to_remove, expected_message", [
+        ('//auc:ProcessLoads/auc:ProcessLoad/auc:ProcessLoadType', 'auc:ProcessLoadType'),
+        ('//auc:ProcessLoads/auc:ProcessLoad/auc:LinkedPremises/auc:Section/auc:LinkedSectionID/auc:LinkedScheduleIDs/auc:LinkedScheduleID', 'auc:ProcessLoad\'s link to an auc:Section must include link to an auc:Schedule'),
+    ])
+    def test_is_invalid_when_process_load_is_missing_info(self, xpath_to_remove, expected_message):
+        # -- Setup
+        tree = etree.parse(self.example_file)
+        remove_element(tree, xpath_to_remove)
+
+        # -- Act
+        failures = validate_schematron(self.schematron, tree, phase='process_loads')
+
+        # -- Assert
+        self.assert_failure_messages(failures, {
+            'ERROR': [expected_message]
+        })
+
+    @pytest.mark.parametrize("xpath_to_remove, expected_message", [
+        ('//auc:PlugLoads/auc:PlugLoad/auc:WeightedAverageLoad', 'auc:WeightedAverageLoad or (auc:PlugLoadNominalPower and auc:Quantity)'),
+        ('//auc:PlugLoads/auc:PlugLoad/auc:LinkedPremises/auc:Section/auc:LinkedSectionID/auc:LinkedScheduleIDs/auc:LinkedScheduleID', 'auc:PlugLoad\'s link to an auc:Section must include link to an auc:Schedule'),
+    ])
+    def test_is_invalid_when_plug_load_is_missing_info(self, xpath_to_remove, expected_message):
+        # -- Setup
+        tree = etree.parse(self.example_file)
+        remove_element(tree, xpath_to_remove)
+
+        # -- Act
+        failures = validate_schematron(self.schematron, tree, phase='plug_loads')
+
+        # -- Assert
+        self.assert_failure_messages(failures, {
+            'ERROR': [expected_message]
+        })
+
+    @pytest.mark.parametrize("xpath_to_remove, expected_message", [
+        ('//auc:ConveyanceSystems/auc:ConveyanceSystem/auc:ConveyanceSystemType', 'auc:ConveyanceSystemType'),
+        ('//auc:ConveyanceSystems/auc:ConveyanceSystem/auc:LinkedPremises/auc:Building/auc:LinkedBuildingID', 'auc:ConveyanceSystem must be linked to an auc:Building'),
+    ])
+    def test_is_invalid_when_conveyance_system_is_missing_info(self, xpath_to_remove, expected_message):
+        # -- Setup
+        tree = etree.parse(self.example_file)
+        remove_element(tree, xpath_to_remove)
+
+        # -- Act
+        failures = validate_schematron(self.schematron, tree, phase='conveyance_equipment')
+
+        # -- Assert
+        self.assert_failure_messages(failures, {
+            'ERROR': [expected_message]
+        })

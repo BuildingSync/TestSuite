@@ -105,6 +105,15 @@
     <sch:active pattern="lighting_with_ballast"/>
     <sch:active pattern="lighting_without_ballast"/>
   </sch:phase>
+  <sch:phase id="process_loads" see="6.2.1.6 (a)">
+    <sch:active pattern="general_process_load_requirements"/>
+  </sch:phase>
+  <sch:phase id="plug_loads" see="6.2.1.6 (b)">
+    <sch:active pattern="general_plug_load_requirements"/>
+  </sch:phase>
+  <sch:phase id="conveyance_equipment" see="6.2.1.6 (c)">
+    <sch:active pattern="general_conveyance_requirements"/>
+  </sch:phase>
   <sch:pattern see="" id="document_structure_prerequisites_misc_building_info">
     <sch:title>Document Structure Prerequisites Misc Building Info</sch:title>
     <sch:rule context="/">
@@ -909,6 +918,48 @@
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:LightingSystems/auc:LightingSystem[auc:BallastType = 'No ballast']">
       <sch:assert test="auc:NumberOfLampsPerLuminaire" role="">auc:NumberOfLampsPerLuminaire</sch:assert>
       <sch:assert test="auc:NumberOfLuminaires" role="">auc:NumberOfLuminaires</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="" id="general_process_load_requirements">
+    <sch:title>General Process Load Requirements</sch:title>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:ProcessLoads/auc:ProcessLoad">
+      <sch:assert test="auc:ProcessLoadType" role="">auc:ProcessLoadType</sch:assert>
+      <sch:assert test="auc:ProcessLoadPeakPower or auc:WeightedAverageLoad" role="">auc:ProcessLoadPeakPower or auc:WeightedAverageLoad</sch:assert>
+      <sch:assert test="auc:Quantity" role="">auc:Quantity</sch:assert>
+      <sch:assert test="auc:LinkedPremises" role="">auc:LinkedPremises</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:ProcessLoads/auc:ProcessLoad/auc:LinkedPremises">
+      <sch:assert test="//auc:Sections/auc:Section[@ID = current()/auc:Section/auc:LinkedSectionID/@IDref]" role="">auc:ProcessLoad must be linked to an auc:Section</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:ProcessLoads/auc:ProcessLoad/auc:LinkedPremises/auc:Section/auc:LinkedSectionID">
+      <sch:assert test="//auc:Schedules/auc:Schedule[@ID = current()/auc:LinkedScheduleIDs/auc:LinkedScheduleID/@IDref]" role="">auc:ProcessLoad's link to an auc:Section must include link to an auc:Schedule</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="" id="general_plug_load_requirements">
+    <sch:title>General Plug Load Requirements</sch:title>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:PlugLoads/auc:PlugLoad">
+      <sch:assert test="auc:WeightedAverageLoad or (auc:PlugLoadNominalPower and auc:Quantity)" role="">auc:WeightedAverageLoad or (auc:PlugLoadNominalPower and auc:Quantity)</sch:assert>
+      <sch:assert test="auc:LinkedPremises" role="">auc:LinkedPremises</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:PlugLoads/auc:PlugLoad/auc:LinkedPremises">
+      <sch:assert test="//auc:Sections/auc:Section[@ID = current()/auc:Section/auc:LinkedSectionID/@IDref]" role="">auc:PlugLoad must be linked to an auc:Section</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:PlugLoads/auc:PlugLoad/auc:LinkedPremises/auc:Section/auc:LinkedSectionID">
+      <sch:assert test="//auc:Schedules/auc:Schedule[@ID = current()/auc:LinkedScheduleIDs/auc:LinkedScheduleID/@IDref]" role="">auc:PlugLoad's link to an auc:Section must include link to an auc:Schedule</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="" id="general_conveyance_requirements">
+    <sch:title>General Conveyance Requirements</sch:title>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:ConveyanceSystems/auc:ConveyanceSystem">
+      <sch:assert test="auc:ConveyanceSystemType" role="">auc:ConveyanceSystemType</sch:assert>
+      <sch:assert test="auc:ConveyanceLoadType" role="">auc:ConveyanceLoadType</sch:assert>
+      <sch:assert test="auc:ConveyancePeakPower" role="">auc:ConveyancePeakPower</sch:assert>
+      <sch:assert test="auc:ConveyanceSystemCondition" role="">auc:ConveyanceSystemCondition</sch:assert>
+      <sch:assert test="auc:Quantity" role="">auc:Quantity</sch:assert>
+      <sch:assert test="auc:LinkedPremises" role="">auc:LinkedPremises</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:ConveyanceSystems/auc:ConveyanceSystem/auc:LinkedPremises">
+      <sch:assert test="//auc:Buildings/auc:Building[@ID = current()/auc:Building/auc:LinkedBuildingID/@IDref]" role="">auc:ConveyanceSystem must be linked to an auc:Building</sch:assert>
     </sch:rule>
   </sch:pattern>
 </sch:schema>

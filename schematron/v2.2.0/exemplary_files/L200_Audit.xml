@@ -526,7 +526,11 @@
             <auc:WeightedAverageLoad>123</auc:WeightedAverageLoad>
             <auc:LinkedPremises>
               <auc:Section>
-                <auc:LinkedSectionID IDref="Section-Space-A"></auc:LinkedSectionID>
+                <auc:LinkedSectionID IDref="Section-Space-A">
+                  <auc:LinkedScheduleIDs>
+                    <auc:LinkedScheduleID IDref="PlugLoadSchedule" />
+                  </auc:LinkedScheduleIDs>
+                </auc:LinkedSectionID>
               </auc:Section>
             </auc:LinkedPremises>
           </auc:PlugLoad>
