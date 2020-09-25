@@ -93,6 +93,12 @@
     <sch:active pattern="storage_tank"/>
     <sch:active pattern="instantaneous"/>
   </sch:phase>
+  <sch:phase id="dhw_operating_condition" see="ASHRAE 211 6.2.1.4 (b)">
+    <sch:active pattern="dhw_operating_conditions"/>
+  </sch:phase>
+  <sch:phase id="dhw_general_condition" see="ASHRAE 211 6.2.1.4 (c)">
+    <sch:active pattern="dhw_general_conditions"/>
+  </sch:phase>
   <sch:pattern see="" id="document_structure_prerequisites_misc_building_info">
     <sch:title>Document Structure Prerequisites Misc Building Info</sch:title>
     <sch:rule context="/">
@@ -825,6 +831,34 @@
     </sch:rule>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:DomesticHotWaterSystems/auc:DomesticHotWaterSystem/auc:DomesticHotWaterType/auc:Instantaneous/auc:InstantaneousWaterHeatingSource/auc:Combustion">
       <sch:assert test="auc:CondensingOperation" role="">auc:CondensingOperation</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="" id="dhw_operating_conditions">
+    <sch:title>DHW Operating Conditions</sch:title>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:DomesticHotWaterSystems/auc:DomesticHotWaterSystem">
+      <sch:assert test="count(auc:Controls/auc:Control/*) &gt;= 1" role="">count(auc:Controls/auc:Control/*) &gt;= 1</sch:assert>
+      <sch:assert test="auc:Controls/auc:Control/*/auc:ControlSystemType/*" role="">auc:Controls/auc:Control/*/auc:ControlSystemType/*</sch:assert>
+      <sch:assert test="auc:DailyHotWaterDraw" role="">auc:DailyHotWaterDraw</sch:assert>
+      <sch:assert test="auc:HotWaterSetpointTemperature" role="">auc:HotWaterSetpointTemperature</sch:assert>
+      <sch:assert test="auc:ParasiticFuelConsumptionRate" role="">auc:ParasiticFuelConsumptionRate</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:DomesticHotWaterSystems/auc:DomesticHotWaterSystem/auc:DomesticHotWaterType/auc:StorageTank">
+      <sch:assert test="auc:StorageTankInsulationRValue" role="">auc:StorageTankInsulationRValue</sch:assert>
+      <sch:assert test="auc:StorageTankInsulationThickness" role="WARNING">auc:StorageTankInsulationThickness</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:DomesticHotWaterSystems/auc:DomesticHotWaterSystem/auc:Recirculation">
+      <sch:assert test="auc:RecirculationLoopCount" role="">auc:RecirculationLoopCount</sch:assert>
+      <sch:assert test="auc:RecirculationFlowRate" role="">auc:RecirculationFlowRate</sch:assert>
+      <sch:assert test="auc:RecirculationControlType" role="">auc:RecirculationControlType</sch:assert>
+      <sch:assert test="auc:PipeInsulationThickness" role="">auc:PipeInsulationThickness</sch:assert>
+      <sch:assert test="auc:RecirculationEnergyLossRate" role="WARNING">auc:RecirculationEnergyLossRate</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="" id="dhw_general_conditions">
+    <sch:title>DHW General Conditions</sch:title>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:DomesticHotWaterSystems/auc:DomesticHotWaterSystem">
+      <sch:assert test="auc:DomesticHotWaterSystemCondition" role="">auc:DomesticHotWaterSystemCondition</sch:assert>
+      <sch:assert test="auc:DomesticHotWaterSystemNotes" role="">auc:DomesticHotWaterSystemNotes</sch:assert>
     </sch:rule>
   </sch:pattern>
 </sch:schema>

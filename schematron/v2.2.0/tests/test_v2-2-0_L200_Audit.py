@@ -710,7 +710,7 @@ class TestL200AuditDhwSystems(AssertFailureRolesMixin):
         ('//auc:DomesticHotWaterSystems/auc:DomesticHotWaterSystem/auc:DomesticHotWaterType/auc:StorageTank/auc:TankHeatingType/auc:Indirect/auc:IndirectTankHeatingSource/auc:Solar/auc:SolarThermalSystemType', 'auc:SolarThermalSystemType'),
         ('//auc:DomesticHotWaterSystems/auc:DomesticHotWaterSystem/auc:DomesticHotWaterType/auc:Instantaneous/auc:InstantaneousWaterHeatingSource/auc:Combustion/auc:CondensingOperation', 'auc:CondensingOperation'),
     ])
-    def test_is_invalid_when_dhw_storage_tank_is_missing_info(self, xpath_to_remove, expected_message):
+    def test_is_invalid_when_dhw_system_is_missing_info(self, xpath_to_remove, expected_message):
         # -- Setup
         tree = etree.parse(self.example_file)
         remove_element(tree, xpath_to_remove)
@@ -721,4 +721,36 @@ class TestL200AuditDhwSystems(AssertFailureRolesMixin):
         # -- Assert
         self.assert_failure_messages(failures, {
             'ERROR': [expected_message]
+        })
+
+    @pytest.mark.parametrize("xpath_to_remove, expected_message", [
+        ('//auc:DomesticHotWaterSystems/auc:DomesticHotWaterSystem[1]/auc:DailyHotWaterDraw', 'auc:DailyHotWaterDraw'),
+        ('//auc:DomesticHotWaterSystems/auc:DomesticHotWaterSystem[1]/auc:DomesticHotWaterType/auc:StorageTank/auc:StorageTankInsulationRValue', 'auc:StorageTankInsulationRValue'),
+        ('//auc:DomesticHotWaterSystems/auc:DomesticHotWaterSystem[1]/auc:Recirculation/auc:RecirculationLoopCount', 'auc:RecirculationLoopCount'),
+    ])
+    def test_is_invalid_when_dhw_operating_condition_is_missing_info(self, xpath_to_remove, expected_message):
+        # -- Setup
+        tree = etree.parse(self.example_file)
+        remove_element(tree, xpath_to_remove)
+
+        # -- Act
+        failures = validate_schematron(self.schematron, tree, phase='dhw_operating_condition')
+
+        # -- Assert
+        self.assert_failure_messages(failures, {
+            'ERROR': [expected_message]
+        })
+
+    def test_is_invalid_when_dhw_general_condition_is_missing(self):
+        # -- Setup
+        tree = etree.parse(self.example_file)
+        condition_xpath = '//auc:DomesticHotWaterSystems/auc:DomesticHotWaterSystem[1]/auc:DomesticHotWaterSystemCondition'
+        remove_element(tree, condition_xpath)
+
+        # -- Act
+        failures = validate_schematron(self.schematron, tree, phase='dhw_general_condition')
+
+        # -- Assert
+        self.assert_failure_messages(failures, {
+            'ERROR': ['auc:DomesticHotWaterSystemCondition']
         })
