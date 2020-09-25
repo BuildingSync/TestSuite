@@ -114,6 +114,16 @@
   <sch:phase id="conveyance_equipment" see="6.2.1.6 (c)">
     <sch:active pattern="general_conveyance_requirements"/>
   </sch:phase>
+  <sch:phase id="historical_energy_use" see="ASHRAE 211 6.1.2">
+    <sch:active pattern="document_structure_prerequisites_monthly_utility_data"/>
+    <sch:active pattern="monthly_utility_data"/>
+    <sch:active pattern="document_structure_prerequisites_utility_info"/>
+    <sch:active pattern="utility_info"/>
+    <sch:active pattern="utility_rate_schedule_-_all_resource_types"/>
+    <sch:active pattern="utility_rate_schedule_-_electricity"/>
+    <sch:active pattern="document_structure_prerequisites_annual_energy_use"/>
+    <sch:active pattern="annual_energy_use"/>
+  </sch:phase>
   <sch:pattern see="" id="document_structure_prerequisites_misc_building_info">
     <sch:title>Document Structure Prerequisites Misc Building Info</sch:title>
     <sch:rule context="/">
@@ -960,6 +970,166 @@
     </sch:rule>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:ConveyanceSystems/auc:ConveyanceSystem/auc:LinkedPremises">
       <sch:assert test="//auc:Buildings/auc:Building[@ID = current()/auc:Building/auc:LinkedBuildingID/@IDref]" role="">auc:ConveyanceSystem must be linked to an auc:Building</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="" id="document_structure_prerequisites_monthly_utility_data">
+    <sch:title>Document Structure Prerequisites Monthly Utility Data</sch:title>
+    <sch:rule context="/">
+      <sch:assert test="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Scenarios/auc:Scenario[auc:ScenarioType/auc:CurrentBuilding/auc:CalculationMethod/auc:Measured]/auc:ResourceUses" role="ERROR">/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Scenarios/auc:Scenario[auc:ScenarioType/auc:CurrentBuilding/auc:CalculationMethod/auc:Measured]/auc:ResourceUses</sch:assert>
+      <sch:assert test="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Scenarios/auc:Scenario[auc:ScenarioType/auc:CurrentBuilding/auc:CalculationMethod/auc:Measured]/auc:ResourceUses/auc:ResourceUse" role="ERROR">/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Scenarios/auc:Scenario[auc:ScenarioType/auc:CurrentBuilding/auc:CalculationMethod/auc:Measured]/auc:ResourceUses/auc:ResourceUse</sch:assert>
+      <sch:assert test="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Scenarios/auc:Scenario[auc:ScenarioType/auc:CurrentBuilding/auc:CalculationMethod/auc:Measured]/auc:TimeSeriesData/auc:TimeSeries" role="ERROR">/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Scenarios/auc:Scenario[auc:ScenarioType/auc:CurrentBuilding/auc:CalculationMethod/auc:Measured]/auc:TimeSeriesData/auc:TimeSeries</sch:assert>
+      <sch:assert test="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Scenarios/auc:Scenario[auc:ScenarioType/auc:CurrentBuilding/auc:CalculationMethod/auc:Measured]/auc:ResourceUses/auc:ResourceUse/auc:AnnualFuelUseLinkedTimeSeriesIDs/auc:LinkedTimeSeriesID" role="ERROR">/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Scenarios/auc:Scenario[auc:ScenarioType/auc:CurrentBuilding/auc:CalculationMethod/auc:Measured]/auc:ResourceUses/auc:ResourceUse/auc:AnnualFuelUseLinkedTimeSeriesIDs/auc:LinkedTimeSeriesID</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="ASHRAE 211 6.1.2.1" id="monthly_utility_data">
+    <sch:title>Monthly Utility Data</sch:title>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Scenarios/auc:Scenario[auc:ScenarioType/auc:CurrentBuilding/auc:CalculationMethod/auc:Measured]/auc:ResourceUses">
+      <sch:assert test="auc:ResourceUse[auc:EnergyResource/text() = 'Electricity']" role="">There must be at least one Electricity ResourceUse</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Scenarios/auc:Scenario[auc:ScenarioType/auc:CurrentBuilding/auc:CalculationMethod/auc:Measured]/auc:ResourceUses/auc:ResourceUse">
+      <sch:assert test="auc:EnergyResource" role="">auc:EnergyResource</sch:assert>
+      <sch:assert test="auc:ResourceUseNotes" role="">Resource use must include ResourceUseNotes for documenting irregularities in monthy energy use patterns</sch:assert>
+      <sch:assert test="auc:EndUse/text() =&quot;All end uses&quot;" role="">auc:EndUse/text() ="All end uses"</sch:assert>
+      <sch:assert test="auc:ResourceUnits" role="">auc:ResourceUnits</sch:assert>
+      <sch:assert test="//auc:Utilities/auc:Utility[@ID = current()/auc:UtilityIDs/auc:UtilityID/@IDref]" role="">Resource use must be associated with a utility</sch:assert>
+      <sch:assert test="count(//auc:TimeSeriesData/auc:TimeSeries[auc:ResourceUseID/@IDref = current()/@ID and auc:ReadingType/text() = 'Total' and auc:IntervalFrequency/text() = 'Month']) &gt;= 12" role="">Resource use must have at least 12 consecutive auc:TimeSeries that: (1) are linked to an auc:ResourceUse, (2) have auc:ReadingType of Total, (3) have auc:IntervalFrequency of Month</sch:assert>
+      <sch:assert test="count(//auc:TimeSeriesData/auc:TimeSeries[auc:ResourceUseID/@IDref = current()/@ID and auc:ReadingType/text() = 'Cost' and auc:IntervalFrequency/text() = 'Month']) &gt;= 12" role="">Resource use must have at least 12 consecutive auc:TimeSeries that: (1) are linked to an auc:ResourceUse, (2) have auc:ReadingType of Cost, (3) have auc:IntervalFrequency of Month</sch:assert>
+      <sch:assert test="(auc:EnergyResource/text() != 'Electricity') or count(//auc:TimeSeriesData/auc:TimeSeries[auc:ResourceUseID/@IDref = current()/@ID and auc:ReadingType/text() = 'Peak' and auc:IntervalFrequency/text() = 'Month']) &gt;= 12" role="">Electricity Resource use must have at least 12 consecutive auc:TimeSeries that: (1) are linked to an auc:ResourceUse, (2) have auc:ReadingType of Peak, (3) have auc:IntervalFrequency of Month</sch:assert>
+      <sch:assert test="auc:AnnualFuelUseNativeUnits" role="">auc:AnnualFuelUseNativeUnits</sch:assert>
+      <sch:assert test="auc:AnnualFuelUseConsistentUnits" role="">auc:AnnualFuelUseConsistentUnits</sch:assert>
+      <sch:assert test="auc:AnnualFuelCost" role="">auc:AnnualFuelCost</sch:assert>
+      <sch:assert test="count(auc:AnnualFuelUseLinkedTimeSeriesIDs/auc:LinkedTimeSeriesID) &gt;= 12 " role="">count(auc:AnnualFuelUseLinkedTimeSeriesIDs/auc:LinkedTimeSeriesID) &gt;= 12 </sch:assert>
+      <sch:assert test="(auc:EnergyResource/text() != 'Electricity') or auc:PeakResourceUnits" role="">(auc:EnergyResource/text() != 'Electricity') or auc:PeakResourceUnits</sch:assert>
+      <sch:assert test="(auc:EnergyResource/text() != 'Electricity') or auc:AnnualPeakNativeUnits" role="">(auc:EnergyResource/text() != 'Electricity') or auc:AnnualPeakNativeUnits</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Scenarios/auc:Scenario[auc:ScenarioType/auc:CurrentBuilding/auc:CalculationMethod/auc:Measured]/auc:TimeSeriesData/auc:TimeSeries">
+      <sch:assert test="auc:IntervalFrequency/text() = 'Month'" role="">TimeSeries data for ResourceUse must include a IntervalFrequency of Month</sch:assert>
+      <sch:assert test="auc:ReadingType" role="">TimeSeries data for ResourceUse must include a ReadingType</sch:assert>
+      <sch:assert test="auc:StartTimestamp" role="">TimeSeries data for ResourceUse must include a StartTimestamp</sch:assert>
+      <sch:assert test="auc:EndTimestamp" role="">TimeSeries data for ResourceUse must include an EndTimestamp</sch:assert>
+      <sch:assert test="auc:IntervalReading" role="">TimeSeries data for ResourceUse must include an IntervalReading</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Scenarios/auc:Scenario[auc:ScenarioType/auc:CurrentBuilding/auc:CalculationMethod/auc:Measured]/auc:ResourceUses/auc:ResourceUse/auc:AnnualFuelUseLinkedTimeSeriesIDs/auc:LinkedTimeSeriesID">
+      <sch:assert test="//auc:TimeSeriesData/auc:TimeSeries[@ID = current()/@IDref and auc:ResourceUseID/@IDref = current()/ancestor::auc:ResourceUse/@ID and auc:ReadingType/text() = 'Total']" role="">Each auc:LinkedTimeSeriesID must point to an auc:TimeSeries that (1) points to the same auc:ResourceUse through auc:ResourceUseID and (2) has an auc:ReadingType of Total</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="" id="document_structure_prerequisites_utility_info">
+    <sch:title>Document Structure Prerequisites Utility Info</sch:title>
+    <sch:rule context="/">
+      <sch:assert test="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Utilities/auc:Utility" role="ERROR">/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Utilities/auc:Utility</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="ASHRAE 211 6.1.2.1" id="utility_info">
+    <sch:title>Utility Info</sch:title>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Utilities/auc:Utility">
+      <sch:assert test="auc:UtilityAccountNumber" role="">auc:UtilityAccountNumber</sch:assert>
+      <sch:assert test="auc:RateSchedules/auc:RateSchedule/auc:TypeOfRateStructure/*" role="">auc:RateSchedules/auc:RateSchedule/auc:TypeOfRateStructure/*</sch:assert>
+      <sch:assert test="count(//auc:ResourceUses/auc:ResourceUse/auc:UtilityIDs/auc:UtilityID[@IDref = current()/@ID]) = 1" role="">Each auc:Utility should have exactly 1 auc:ResourceUse linked to it (ie not 0, not 2+)</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="ASHRAE 211 6.1.2.1" id="utility_rate_schedule_-_all_resource_types">
+    <sch:title>Utility Rate Schedule - All Resource Types</sch:title>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Utilities/auc:Utility/auc:RateSchedules/auc:RateSchedule/auc:TypeOfRateStructure[auc:FlatRate]">
+      <sch:assert test="auc:FlatRate/auc:RatePeriods/auc:RatePeriod" role="">auc:FlatRate/auc:RatePeriods/auc:RatePeriod</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Utilities/auc:Utility/auc:RateSchedules/auc:RateSchedule/auc:TypeOfRateStructure/auc:FlatRate/auc:RatePeriods/auc:RatePeriod">
+      <sch:assert test="auc:ApplicableStartDateForEnergyRate" role="">auc:ApplicableStartDateForEnergyRate</sch:assert>
+      <sch:assert test="auc:ApplicableEndDateForEnergyRate" role="">auc:ApplicableEndDateForEnergyRate</sch:assert>
+      <sch:assert test="auc:EnergyCostRate" role="">auc:EnergyCostRate</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Utilities/auc:Utility/auc:RateSchedules/auc:RateSchedule/auc:TypeOfRateStructure[auc:TimeOfUseRate]">
+      <sch:assert test="auc:TimeOfUseRate/auc:RatePeriods/auc:RatePeriod" role="">auc:TimeOfUseRate/auc:RatePeriods/auc:RatePeriod</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Utilities/auc:Utility/auc:RateSchedules/auc:RateSchedule/auc:TypeOfRateStructure/auc:TimeOfUseRate/auc:RatePeriods/auc:RatePeriod">
+      <sch:assert test="auc:ApplicableStartDateForEnergyRate" role="">auc:ApplicableStartDateForEnergyRate</sch:assert>
+      <sch:assert test="auc:ApplicableEndDateForEnergyRate" role="">auc:ApplicableEndDateForEnergyRate</sch:assert>
+      <sch:assert test="count(auc:TimeOfUsePeriods/auc:TimeOfUsePeriod) &gt;= 2" role="">count(auc:TimeOfUsePeriods/auc:TimeOfUsePeriod) &gt;= 2</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Utilities/auc:Utility/auc:RateSchedules/auc:RateSchedule/auc:TypeOfRateStructure/auc:TimeOfUseRate/auc:RatePeriods/auc:RatePeriod/auc:TimeOfUsePeriods/auc:TimeOfUsePeriod">
+      <sch:assert test="auc:ApplicableStartTimeForEnergyRate" role="">auc:ApplicableStartTimeForEnergyRate</sch:assert>
+      <sch:assert test="auc:ApplicableEndTimeForEnergyRate" role="">auc:ApplicableEndTimeForEnergyRate</sch:assert>
+      <sch:assert test="auc:EnergyCostRate" role="">auc:EnergyCostRate</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Utilities/auc:Utility/auc:RateSchedules/auc:RateSchedule/auc:TypeOfRateStructure[auc:TieredRates]">
+      <sch:assert test="auc:TieredRates/auc:TieredRate/auc:RatePeriods/auc:RatePeriod" role="">auc:TieredRates/auc:TieredRate/auc:RatePeriods/auc:RatePeriod</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Utilities/auc:Utility/auc:RateSchedules/auc:RateSchedule/auc:TypeOfRateStructure/auc:TieredRates/auc:TieredRate/auc:RatePeriods/auc:RatePeriod">
+      <sch:assert test="auc:ApplicableStartDateForEnergyRate" role="">auc:ApplicableStartDateForEnergyRate</sch:assert>
+      <sch:assert test="auc:ApplicableEndDateForEnergyRate" role="">auc:ApplicableEndDateForEnergyRate</sch:assert>
+      <sch:assert test="count(auc:RateTiers/auc:RateTier) &gt;= 2" role="">count(auc:RateTiers/auc:RateTier) &gt;= 2</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Utilities/auc:Utility/auc:RateSchedules/auc:RateSchedule/auc:TypeOfRateStructure/auc:TieredRates/auc:TieredRate/auc:RatePeriods/auc:RatePeriod/auc:RateTiers/auc:RateTier">
+      <sch:assert test="auc:EnergyCostRate" role="">auc:EnergyCostRate</sch:assert>
+      <sch:assert test="auc:MaxkWhUsage" role="">auc:MaxkWhUsage</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="ASHRAE 211 6.1.2.1" id="utility_rate_schedule_-_electricity">
+    <sch:title>Utility Rate Schedule - Electricity</sch:title>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Utilities/auc:Utility[@ID = //auc:ResourceUse[auc:EnergyResource/text() = 'Electricity']/auc:UtilityIDs/auc:UtilityID/@IDref]/auc:RateSchedules/auc:RateSchedule/auc:TypeOfRateStructure/auc:FlatRate/auc:RatePeriods/auc:RatePeriod">
+      <sch:assert test="auc:ApplicableStartDateForDemandRate" role="">auc:ApplicableStartDateForDemandRate must be defined if the parent auc:Utility's linked resource is of type Electricity</sch:assert>
+      <sch:assert test="auc:ApplicableEndDateForDemandRate" role="">auc:ApplicableEndDateForDemandRate must be defined if the parent auc:Utility's linked resource is of type Electricity</sch:assert>
+      <sch:assert test="auc:ElectricDemandRate" role="">auc:ElectricDemandRate must be defined if the parent auc:Utility's linked resource is of type Electricity</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Utilities/auc:Utility[@ID = //auc:ResourceUse[auc:EnergyResource/text() = 'Electricity']/auc:UtilityIDs/auc:UtilityID/@IDref]/auc:RateSchedules/auc:RateSchedule/auc:TypeOfRateStructure/auc:TimeOfUseRate/auc:RatePeriods/auc:RatePeriod">
+      <sch:assert test="auc:ApplicableStartDateForDemandRate" role="">auc:ApplicableStartDateForDemandRate must be defined if the parent auc:Utility's linked resource is of type Electricity</sch:assert>
+      <sch:assert test="auc:ApplicableEndDateForDemandRate" role="">auc:ApplicableEndDateForDemandRate must be defined if the parent auc:Utility's linked resource is of type Electricity</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Utilities/auc:Utility[@ID = //auc:ResourceUse[auc:EnergyResource/text() = 'Electricity']/auc:UtilityIDs/auc:UtilityID/@IDref]/auc:RateSchedules/auc:RateSchedule/auc:TypeOfRateStructure/auc:TimeOfUseRate/auc:RatePeriods/auc:RatePeriod/auc:TimeOfUsePeriods/auc:TimeOfUsePeriod">
+      <sch:assert test="auc:ApplicableStartTimeForDemandRate" role="">auc:ApplicableStartTimeForDemandRate must be defined if the parent auc:Utility's linked resource is of type Electricity</sch:assert>
+      <sch:assert test="auc:ApplicableEndTimeForDemandRate" role="">auc:ApplicableEndTimeForDemandRate must be defined if the parent auc:Utility's linked resource is of type Electricity</sch:assert>
+      <sch:assert test="auc:ElectricDemandRate" role="">auc:ElectricDemandRate must be defined if the parent auc:Utility's linked resource is of type Electricity</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Utilities/auc:Utility[@ID = //auc:ResourceUse[auc:EnergyResource/text() = 'Electricity']/auc:UtilityIDs/auc:UtilityID/@IDref]/auc:RateSchedules/auc:RateSchedule/auc:TypeOfRateStructure/auc:TieredRates/auc:TieredRate/auc:RatePeriods/auc:RatePeriod">
+      <sch:assert test="auc:ApplicableStartDateForDemandRate" role="">auc:ApplicableStartDateForDemandRate must be defined if the parent auc:Utility's linked resource is of type Electricity</sch:assert>
+      <sch:assert test="auc:ApplicableEndDateForDemandRate" role="">auc:ApplicableEndDateForDemandRate must be defined if the parent auc:Utility's linked resource is of type Electricity</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Utilities/auc:Utility[@ID = //auc:ResourceUse[auc:EnergyResource/text() = 'Electricity']/auc:UtilityIDs/auc:UtilityID/@IDref]/auc:RateSchedules/auc:RateSchedule/auc:TypeOfRateStructure/auc:TieredRates/auc:TieredRate/auc:RatePeriods/auc:RatePeriod/auc:RateTiers/auc:RateTier">
+      <sch:assert test="auc:MaxkWUsage" role="">auc:MaxkWUsage must be defined if the parent auc:Utility's linked resource is of type Electricity</sch:assert>
+      <sch:assert test="auc:ElectricDemandRate" role="">auc:ElectricDemandRate must be defined if the parent auc:Utility's linked resource is of type Electricity</sch:assert>
+      <sch:assert test="auc:DemandWindow" role="">auc:DemandWindow must be defined if the parent auc:Utility's linked resource is of type Electricity</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="" id="document_structure_prerequisites_annual_energy_use">
+    <sch:title>Document Structure Prerequisites Annual Energy Use</sch:title>
+    <sch:rule context="/">
+      <sch:assert test="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Scenarios/auc:Scenario[auc:ScenarioType/auc:CurrentBuilding]/auc:AllResourceTotals/auc:AllResourceTotal" role="ERROR">/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Scenarios/auc:Scenario[auc:ScenarioType/auc:CurrentBuilding]/auc:AllResourceTotals/auc:AllResourceTotal</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="ASHRAE 211 6.1.2.2" id="annual_energy_use">
+    <sch:title>Annual Energy Use</sch:title>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Scenarios/auc:Scenario[auc:ScenarioType/auc:CurrentBuilding]/auc:AllResourceTotals/auc:AllResourceTotal">
+      <sch:let name="epsilonPct" value="0.05"/>
+      <sch:let name="calculatedOnsiteEnergyProductionConsistentUnits" value="sum(//auc:ResourceUse/auc:EnergyResource['generated' = substring(text(), string-length(text()) - string-length('generated') + 1 )]/../auc:AnnualFuelUseConsistentUnits/text())"/>
+      <sch:let name="calculatedOnsiteEnergyProductionConsistentUnitsEpsilon" value="auc:OnsiteEnergyProductionConsistentUnits * $epsilonPct"/>
+      <sch:let name="calculatedOnsiteEnergyProductionConsistentUnitsDelta" value="translate(auc:OnsiteEnergyProductionConsistentUnits - $calculatedOnsiteEnergyProductionConsistentUnits, '-', '')"/>
+      <sch:let name="calculatedExportedEnergyConsistentUnits" value="sum(//auc:ResourceUse/auc:EnergyResource['exported' = substring(text(), string-length(text()) - string-length('exported') + 1 )]/../auc:AnnualFuelUseConsistentUnits/text())"/>
+      <sch:let name="calculatedExportedEnergyConsistentUnitsEpsilon" value="auc:ExportedEnergyConsistentUnits * $epsilonPct"/>
+      <sch:let name="calculatedExportedEnergyConsistentUnitsDelta" value="translate(auc:ExportedEnergyConsistentUnits - $calculatedExportedEnergyConsistentUnits, '-', '')"/>
+      <sch:let name="calculatedImportedEnergyConsistentUnits" value="sum(//auc:ResourceUse/auc:AnnualFuelUseConsistentUnits/text()) - $calculatedOnsiteEnergyProductionConsistentUnits - $calculatedExportedEnergyConsistentUnits"/>
+      <sch:let name="calculatedImportedEnergyConsistentUnitsEpsilon" value="auc:ImportedEnergyConsistentUnits * $epsilonPct"/>
+      <sch:let name="calculatedImportedEnergyConsistentUnitsDelta" value="translate(auc:ImportedEnergyConsistentUnits - $calculatedImportedEnergyConsistentUnits, '-', '')"/>
+      <sch:let name="calculatedSiteEnergyUse" value="1000 * (number(auc:ImportedEnergyConsistentUnits/text()) - number(auc:ExportedEnergyConsistentUnits/text()) - number(auc:NetIncreaseInStoredEnergyConsistentUnits))"/>
+      <sch:let name="calculatedSiteEnergyUseEpsilon" value="auc:SiteEnergyUse * $epsilonPct"/>
+      <sch:let name="calculatedSiteEnergyUseDelta" value="translate(auc:SiteEnergyUse - $calculatedSiteEnergyUse, '-', '')"/>
+      <sch:let name="calculatedSiteEnergyUseIntensity" value="auc:SiteEnergyUse div //auc:Building/auc:FloorAreas/auc:FloorArea[auc:FloorAreaType/text() = 'Gross']/auc:FloorAreaValue"/>
+      <sch:let name="calculatedSiteEnergyUseIntensityEpsilon" value="auc:SiteEnergyUseIntensity * $epsilonPct"/>
+      <sch:let name="calculatedSiteEnergyUseIntensityDelta" value="translate(auc:SiteEnergyUseIntensity - $calculatedSiteEnergyUseIntensity, '-', '')"/>
+      <sch:let name="calculatedBuildingEnergyUse" value="1000 * (number(auc:ImportedEnergyConsistentUnits/text()) + number(auc:OnsiteEnergyProductionConsistentUnits/text()) - number(auc:ExportedEnergyConsistentUnits/text()) - number(auc:NetIncreaseInStoredEnergyConsistentUnits))"/>
+      <sch:let name="calculatedBuildingEnergyUseEpsilon" value="auc:BuildingEnergyUse * $epsilonPct"/>
+      <sch:let name="calculatedBuildingEnergyUseDelta" value="translate(auc:BuildingEnergyUse - $calculatedBuildingEnergyUse, '-', '')"/>
+      <sch:let name="calculatedBuildingEnergyUseIntensity" value="auc:BuildingEnergyUse div //auc:Building/auc:FloorAreas/auc:FloorArea[auc:FloorAreaType/text() = 'Gross']/auc:FloorAreaValue"/>
+      <sch:let name="calculatedBuildingEnergyUseIntensityEpsilon" value="auc:SiteEnergyUseIntensity * $epsilonPct"/>
+      <sch:let name="calculatedBuildingEnergyUseIntensityDelta" value="translate(auc:BuildingEnergyUseIntensity - $calculatedBuildingEnergyUseIntensity, '-', '')"/>
+      <sch:assert test="count(auc:OnsiteEnergyProductionConsistentUnits) = 1 and $calculatedOnsiteEnergyProductionConsistentUnitsDelta &lt;= $calculatedOnsiteEnergyProductionConsistentUnitsEpsilon" role="">auc:OnsiteEnergyProductionConsistentUnits (which is <sch:value-of select="auc:OnsiteEnergyProductionConsistentUnits/text()"/>) should equal the sum of all auc:AnnualFuelUseConsistentUnits for auc:ResourceUses that are generated (which is <sch:value-of select="$calculatedOnsiteEnergyProductionConsistentUnits"/>)</sch:assert>
+      <sch:assert test="count(auc:ExportedEnergyConsistentUnits) = 1 and $calculatedExportedEnergyConsistentUnitsDelta &lt;= $calculatedExportedEnergyConsistentUnitsEpsilon" role="">auc:ExportedEnergyConsistentUnits (which is <sch:value-of select="auc:ExportedEnergyConsistentUnits/text()"/>) should equal the sum of all auc:AnnualFuelUseConsistentUnits for auc:ResourceUses that are exported (which is <sch:value-of select="$calculatedExportedEnergyConsistentUnits"/>)</sch:assert>
+      <sch:assert test="count(auc:ImportedEnergyConsistentUnits) = 1 and $calculatedImportedEnergyConsistentUnitsDelta &lt;= $calculatedImportedEnergyConsistentUnitsEpsilon" role="">auc:ImportedEnergyConsistentUnits (which is <sch:value-of select="auc:ImportedEnergyConsistentUnits/text()"/>) should equal the sum of all auc:AnnualFuelUseConsistentUnits for auc:ResourceUses that are not generated or exported (which is <sch:value-of select="$calculatedImportedEnergyConsistentUnits"/>)</sch:assert>
+      <sch:assert test="auc:NetIncreaseInStoredEnergyConsistentUnits" role="">auc:NetIncreaseInStoredEnergyConsistentUnits</sch:assert>
+      <sch:assert test="count(auc:SiteEnergyUse) = 1 and $calculatedSiteEnergyUseDelta &lt;= $calculatedSiteEnergyUseEpsilon" role="">auc:SiteEnergyUse (which is <sch:value-of select="auc:SiteEnergyUse/text()"/>) should equal auc:ImportedEnergyConsistentUnits - auc:ExportedEnergyConsistentUnits - auc:NetIncreaseInStoredEnergyConsistentUnits (which is <sch:value-of select="$calculatedSiteEnergyUse"/>)</sch:assert>
+      <sch:assert test="count(auc:SiteEnergyUseIntensity) = 1 and $calculatedSiteEnergyUseIntensityDelta &lt; $calculatedSiteEnergyUseIntensityEpsilon" role="">auc:SiteEnergyUseIntensity (which is <sch:value-of select="auc:SiteEnergyUseIntensity"/>) should approximately equal auc:SiteEnergyUse divided by the auc:Building's Gross floor area (which is <sch:value-of select="$calculatedSiteEnergyUseIntensity"/>); the difference, <sch:value-of select="$calculatedSiteEnergyUseIntensityDelta"/> is too large (should be less than <sch:value-of select="$calculatedSiteEnergyUseIntensityEpsilon"/>)</sch:assert>
+      <sch:assert test="count(auc:BuildingEnergyUse) = 1 and $calculatedBuildingEnergyUseDelta &lt; $calculatedBuildingEnergyUseEpsilon" role="">auc:BuildingEnergyUse (which is <sch:value-of select="auc:BuildingEnergyUse/text()"/>) should equal auc:ImportedEnergyConsistentUnits + auc:OnsiteEnergyProductionConsistentUnits - auc:ExportedEnergyConsistentUnits - auc:NetIncreaseInStoredEnergyConsistentUnits (which is <sch:value-of select="$calculatedBuildingEnergyUse"/>)</sch:assert>
+      <sch:assert test="count(auc:BuildingEnergyUseIntensity) = 1 and $calculatedBuildingEnergyUseIntensityDelta &lt; $calculatedBuildingEnergyUseIntensityEpsilon" role="">auc:BuildingEnergyUseIntensity (which is <sch:value-of select="auc:BuildingEnergyUseIntensity"/>) should approximately equal auc:BuildingEnergyUse divided by the auc:Building's Gross floor area (which is <sch:value-of select="$calculatedBuildingEnergyUseIntensity"/>); the difference, <sch:value-of select="$calculatedBuildingEnergyUseIntensityDelta"/> is too large (should be less than <sch:value-of select="$calculatedSiteEnergyUseIntensityEpsilon"/>)</sch:assert>
+      <sch:assert test="auc:EnergyCost" role="">auc:EnergyCost</sch:assert>
+      <sch:assert test="auc:EnergyCostIndex" role="">auc:EnergyCostIndex</sch:assert>
     </sch:rule>
   </sch:pattern>
 </sch:schema>
