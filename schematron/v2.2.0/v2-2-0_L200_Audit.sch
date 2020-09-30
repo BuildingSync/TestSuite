@@ -678,6 +678,27 @@
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:HeatingAndCoolingSystems/auc:Deliveries/auc:Delivery/auc:CoolingSourceID">
       <sch:assert test="//auc:CoolingSource[@ID = current()/@IDref]" role="">auc:CoolingSourceID must point to a valid auc:CoolingSource</sch:assert>
     </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:HeatingAndCoolingSystems/auc:HeatingSources/auc:HeatingSource">
+      <sch:assert test="auc:HeatingSourceType/*" role="">auc:HeatingSourceType/*</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:HeatingAndCoolingSystems/auc:HeatingSources/auc:HeatingSource/auc:HeatingSourceType/auc:Furnace">
+      <sch:assert test="auc:FurnaceType" role="">auc:FurnaceType</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:HeatingAndCoolingSystems/auc:HeatingSources/auc:HeatingSource/auc:HeatingSourceType/auc:HeatPump">
+      <sch:assert test="auc:HeatPumpType" role="">auc:HeatPumpType</sch:assert>
+      <sch:assert test="auc:HeatPumpBackupSystemFuel" role="">auc:HeatPumpBackupSystemFuel</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:HeatingAndCoolingSystems/auc:CoolingSources/auc:CoolingSource">
+      <sch:assert test="auc:CoolingSourceType/*" role="">auc:CoolingSourceType/*</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:HeatingAndCoolingSystems/auc:CoolingSources/auc:CoolingSource/auc:CoolingSourceType/auc:DX">
+      <sch:assert test="auc:DXSystemType" role="">auc:DXSystemType</sch:assert>
+      <sch:assert test="auc:CompressorType" role="">auc:CompressorType</sch:assert>
+      <sch:assert test="auc:CompressorStaging" role="">auc:CompressorStaging</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:HeatingAndCoolingSystems/auc:CoolingSources/auc:CoolingSource/auc:CoolingSourceType/auc:EvaporativeCooler">
+      <sch:assert test="auc:EvaporativeCoolingType" role="">auc:EvaporativeCoolingType</sch:assert>
+    </sch:rule>
   </sch:pattern>
   <sch:pattern see="" id="delivery_type">
     <sch:title>Delivery Type</sch:title>

@@ -174,6 +174,11 @@
                         <auc:ZoningSystemType>Single zone</auc:ZoningSystemType>
                         <auc:HeatingSources>
                             <auc:HeatingSource ID="HeatingSource-A">
+                                <auc:HeatingSourceType>
+                                    <auc:Furnace>
+                                        <auc:FurnaceType>Warm air</auc:FurnaceType>
+                                    </auc:Furnace>
+                                </auc:HeatingSourceType>
                                 <auc:InputCapacity>123</auc:InputCapacity>
                                 <auc:OutputCapacity>123</auc:OutputCapacity>
                                 <auc:CapacityUnits>gpm</auc:CapacityUnits>
@@ -192,6 +197,13 @@
                         </auc:HeatingSources>
                         <auc:CoolingSources>
                             <auc:CoolingSource ID="CoolingSource-A">
+                                <auc:CoolingSourceType>
+                                    <auc:DX>
+                                        <auc:DXSystemType>Packaged terminal air conditioner (PTAC)</auc:DXSystemType>
+                                        <auc:CompressorType>Screw</auc:CompressorType>
+                                        <auc:CompressorStaging>Modulating</auc:CompressorStaging>
+                                    </auc:DX>
+                                </auc:CoolingSourceType>
                                 <auc:Capacity>123</auc:Capacity>
                                 <auc:CapacityUnits>gpm</auc:CapacityUnits>
                                 <auc:CoolingSourceCondition>Good</auc:CoolingSourceCondition>

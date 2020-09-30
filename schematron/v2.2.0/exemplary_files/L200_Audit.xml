@@ -333,6 +333,11 @@
               <auc:ZoningSystemType>Single zone</auc:ZoningSystemType>
               <auc:HeatingSources>
                 <auc:HeatingSource ID="HeatingSource-A">
+                  <auc:HeatingSourceType>
+                    <auc:Furnace>
+                      <auc:FurnaceType>Warm air</auc:FurnaceType>
+                    </auc:Furnace>
+                  </auc:HeatingSourceType>
                   <auc:InputCapacity>123</auc:InputCapacity>
                   <auc:OutputCapacity>123</auc:OutputCapacity>
                   <auc:CapacityUnits>gpm</auc:CapacityUnits>
