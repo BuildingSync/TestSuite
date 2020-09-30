@@ -1160,6 +1160,10 @@
       <sch:assert test="auc:StartDate" role="">auc:StartDate</sch:assert>
       <sch:assert test="auc:EndDate" role="">auc:EndDate</sch:assert>
       <sch:assert test="auc:Recommended" role="">auc:Recommended</sch:assert>
+      <sch:assert test="auc:UsefulLife" role="">auc:UsefulLife</sch:assert>
+      <sch:assert test="auc:TechnologyCategories/auc:TechnologyCategory/*/auc:MeasureName" role="">auc:TechnologyCategories/auc:TechnologyCategory/*/auc:MeasureName</sch:assert>
+      <sch:assert test="(auc:TechnologyCategories/auc:TechnologyCategory/*/auc:MeasureName/text() != 'Other') or auc:CustomMeasureName" role="">If auc:TechnologyCategories/auc:TechnologyCategory/*/auc:MeasureName is 'Other' you must specify auc:CustomMeasureName</sch:assert>
+      <sch:assert test="auc:MeasureScaleOfApplication" role="">auc:MeasureScaleOfApplication</sch:assert>
     </sch:rule>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Measures/auc:Measure/auc:TypeOfMeasure/auc:Replacements/auc:Replacement">
       <sch:assert test="(auc:ExistingSystemReplaced/@IDref and auc:AlternativeSystemReplacement/@IDref) or (auc:ExistingScheduleAffected/@IDref and auc:ModifiedSchedule/@IDref)" role="">(auc:ExistingSystemReplaced/@IDref and auc:AlternativeSystemReplacement/@IDref) or (auc:ExistingScheduleAffected/@IDref and auc:ModifiedSchedule/@IDref)</sch:assert>

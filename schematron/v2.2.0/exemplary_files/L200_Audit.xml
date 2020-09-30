@@ -746,10 +746,12 @@
             </auc:TechnologyCategory>
           </auc:TechnologyCategories>
 
+          <auc:MeasureScaleOfApplication>Individual system</auc:MeasureScaleOfApplication>
           <!-- 6.1.5.a (only required if auc:TechnologyCategory/*/auc:MeasureName is Other) -->
           <auc:CustomMeasureName>Low Cost Measure Name</auc:CustomMeasureName>
           <!-- 6.1.5.a -->
           <auc:LongDescription>This measure does something cheap</auc:LongDescription>
+          <auc:UsefulLife>1</auc:UsefulLife>
           <auc:Recommended>true</auc:Recommended>
           <auc:StartDate>2020-01-01</auc:StartDate>
           <auc:EndDate>2020-12-01</auc:EndDate>
@@ -775,10 +777,12 @@
               </auc:AdvancedMeteringSystems>
             </auc:TechnologyCategory>
           </auc:TechnologyCategories>
+          <auc:MeasureScaleOfApplication>Individual system</auc:MeasureScaleOfApplication>
           <!-- 6.1.6.a (only required if auc:TechnologyCategory/*/auc:MeasureName is Other) -->
           <auc:CustomMeasureName>Capital Measure</auc:CustomMeasureName>
           <!-- 6.1.6.a -->
           <auc:LongDescription>This measure does something expensive</auc:LongDescription>
+          <auc:UsefulLife>1</auc:UsefulLife>
           <auc:Recommended>true</auc:Recommended>
           <auc:StartDate>2020-01-01</auc:StartDate>
           <auc:EndDate>2020-12-01</auc:EndDate>
