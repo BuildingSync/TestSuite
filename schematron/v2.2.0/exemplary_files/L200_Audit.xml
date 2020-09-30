@@ -397,7 +397,6 @@
                 <auc:HeatingDeliveryID IDref="Delivery-A" />
               </auc:DuctSystem>
             </auc:DuctSystems>
-            <auc:PrincipalHVACSystemType>Packaged Rooftop VAV with Hot Water Reheat</auc:PrincipalHVACSystemType>
             <auc:HVACControlSystemTypes>
               <auc:HVACControlSystemType>Digital</auc:HVACControlSystemType>
             </auc:HVACControlSystemTypes>

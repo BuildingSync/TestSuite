@@ -35,7 +35,7 @@
                                 </auc:Boiler>
                                 <auc:HeatingPlantCondition>Good</auc:HeatingPlantCondition>
                                 <auc:YearInstalled>2020</auc:YearInstalled>
-                                <auc:PrimaryFuel>Electricity</auc:PrimaryFuel>
+                                <auc:PrimaryFuel>Natural gas</auc:PrimaryFuel>
                                 <auc:BuildingAutomationSystem>true</auc:BuildingAutomationSystem>
                                 <auc:ControlSystemTypes>
                                     <auc:ControlSystemType>
@@ -328,6 +328,7 @@
                             <auc:DuctConfiguration>Single</auc:DuctConfiguration>
                             <auc:DuctInsulationCondition>Excellent</auc:DuctInsulationCondition>
                             <auc:HeatingDeliveryID IDref="Delivery-A" />
+                            <auc:CoolingDeliveryID IDref="Delivery-A"/>
                         </auc:DuctSystem>
                     </auc:DuctSystems>
                     <auc:HVACControlSystemTypes>
