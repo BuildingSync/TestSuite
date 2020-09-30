@@ -692,7 +692,6 @@
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:HeatingAndCoolingSystems/auc:Deliveries/auc:Delivery/auc:DeliveryType/auc:CentralAirDistribution[auc:AirDeliveryType/text() = 'Central fan']">
       <sch:let name="deliveryID" value="current()/ancestor::auc:Delivery/@ID"/>
       <sch:assert test="//auc:Systems/auc:FanSystems/auc:FanSystem[auc:LinkedSystemIDs/auc:LinkedSystemID/@IDref = $deliveryID]" role="">auc:Delivery ID must be linked to a valid auc:FanSystem</sch:assert>
-      <sch:assert test="current()/ancestor::auc:HVACSystem/auc:DuctSystems/auc:DuctSystem[auc:HeatingDeliveryID/@IDref = $deliveryID or auc:CoolingDeliveryID/@IDref = $deliveryID]" role="">current()/ancestor::auc:HVACSystem/auc:DuctSystems/auc:DuctSystem[auc:HeatingDeliveryID/@IDref = $deliveryID or auc:CoolingDeliveryID/@IDref = $deliveryID]</sch:assert>
     </sch:rule>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:FanSystems/auc:FanSystem">
       <sch:assert test="auc:FanControlType" role="">auc:FanControlType</sch:assert>
