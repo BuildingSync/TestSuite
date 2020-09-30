@@ -752,6 +752,8 @@
           <!-- 6.1.5.a -->
           <auc:LongDescription>This measure does something cheap</auc:LongDescription>
           <auc:UsefulLife>1</auc:UsefulLife>
+          <auc:MeasureInstallationCost>123</auc:MeasureInstallationCost>
+          <auc:MeasureMaterialCost>123</auc:MeasureMaterialCost>
           <auc:Recommended>true</auc:Recommended>
           <auc:StartDate>2020-01-01</auc:StartDate>
           <auc:EndDate>2020-12-01</auc:EndDate>
@@ -783,6 +785,8 @@
           <!-- 6.1.6.a -->
           <auc:LongDescription>This measure does something expensive</auc:LongDescription>
           <auc:UsefulLife>1</auc:UsefulLife>
+          <auc:MeasureInstallationCost>123</auc:MeasureInstallationCost>
+          <auc:MeasureMaterialCost>123</auc:MeasureMaterialCost>
           <auc:Recommended>true</auc:Recommended>
           <auc:StartDate>2020-01-01</auc:StartDate>
           <auc:EndDate>2020-12-01</auc:EndDate>
@@ -1968,13 +1972,37 @@
                     <auc:MeasureID IDref="Measure-LowCost-A" />
                   </auc:MeasureIDs>
                   <auc:CostCategory>Low-Cost or No-Cost</auc:CostCategory>
-                  <auc:SimpleImpactAnalysis>
-                    <auc:ImpactOnOccupantComfort>Notes on impact on occupant comfort go here</auc:ImpactOnOccupantComfort>
-                    <auc:EstimatedCost>Low</auc:EstimatedCost>
-                    <auc:EstimatedAnnualSavings>Medium</auc:EstimatedAnnualSavings>
-                    <auc:EstimatedROI>High</auc:EstimatedROI>
-                    <auc:Priority>Low</auc:Priority>
-                  </auc:SimpleImpactAnalysis>
+                  <auc:AnnualSavingsSiteEnergy>123</auc:AnnualSavingsSiteEnergy>
+                  <auc:AnnualSavingsCost>123</auc:AnnualSavingsCost>
+                  <auc:AnnualSavingsByFuels>
+                    <auc:AnnualSavingsByFuel>
+                      <auc:EnergyResource>Electricity</auc:EnergyResource>
+                      <auc:ResourceUnits>kWh</auc:ResourceUnits>
+                      <auc:AnnualSavingsNativeUnits>123</auc:AnnualSavingsNativeUnits>
+                    </auc:AnnualSavingsByFuel>
+                    <auc:AnnualSavingsByFuel>
+                      <auc:EnergyResource>Natural gas</auc:EnergyResource>
+                      <auc:ResourceUnits>MMBtu</auc:ResourceUnits>
+                      <auc:AnnualSavingsNativeUnits>0</auc:AnnualSavingsNativeUnits>
+                    </auc:AnnualSavingsByFuel>
+                  </auc:AnnualSavingsByFuels>
+                  <auc:AnnualPeakElectricityReduction>123</auc:AnnualPeakElectricityReduction>
+                  <auc:AnnualDemandSavingsCost>123</auc:AnnualDemandSavingsCost>
+                  <auc:AnnualWaterSavings>123</auc:AnnualWaterSavings>
+                  <auc:AnnualWaterCostSavings>123</auc:AnnualWaterCostSavings>
+                  <auc:ImplementationPeriod>1</auc:ImplementationPeriod>
+                  <auc:PackageFirstCost>123</auc:PackageFirstCost>
+                  <auc:MVCost>123</auc:MVCost>
+                  <auc:OMCostAnnualSavings>123</auc:OMCostAnnualSavings>
+                  <auc:EquipmentDisposalAndSalvageCosts>123</auc:EquipmentDisposalAndSalvageCosts>
+                  <auc:ImplementationPeriodCostSavings>123</auc:ImplementationPeriodCostSavings>
+                  <auc:ProjectMarkup>123</auc:ProjectMarkup>
+                  <auc:FundingFromIncentives>123</auc:FundingFromIncentives>
+                  <auc:FundingFromTaxCredits>123</auc:FundingFromTaxCredits>
+                  <auc:OtherFinancialIncentives>123</auc:OtherFinancialIncentives>
+                  <auc:RecurringIncentives>123</auc:RecurringIncentives>
+                  <auc:SimplePayback>123</auc:SimplePayback>
+                  <auc:InternalRateOfReturn>123</auc:InternalRateOfReturn>
                 </auc:PackageOfMeasures>
               </auc:ScenarioType>
             </auc:Scenario>

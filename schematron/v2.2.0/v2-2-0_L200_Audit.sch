@@ -125,9 +125,11 @@
     <sch:active pattern="document_structure_prerequisites_annual_energy_use"/>
     <sch:active pattern="annual_energy_use"/>
   </sch:phase>
-  <sch:phase id="eem_summary" see="ASHRAE 211 6.2.4.1">
+  <sch:phase id="eem_summary" see="ASHRAE 211 6.2.4.1 and 6.2.5.1">
     <sch:active pattern="document_structure_prerequisites_eem_measures"/>
     <sch:active pattern="eem_measures"/>
+    <sch:active pattern="document_structure_prerequisites_eem_packages"/>
+    <sch:active pattern="eem_packages"/>
   </sch:phase>
   <sch:pattern see="" id="document_structure_prerequisites_misc_building_info">
     <sch:title>Document Structure Prerequisites Misc Building Info</sch:title>
@@ -1160,10 +1162,13 @@
       <sch:assert test="auc:StartDate" role="">auc:StartDate</sch:assert>
       <sch:assert test="auc:EndDate" role="">auc:EndDate</sch:assert>
       <sch:assert test="auc:Recommended" role="">auc:Recommended</sch:assert>
+      <sch:assert test="(auc:Recommended/text() = 'true') or auc:DiscardReason" role="">auc:DiscardReason must be provided if auc:Recommended is false</sch:assert>
       <sch:assert test="auc:UsefulLife" role="">auc:UsefulLife</sch:assert>
       <sch:assert test="auc:TechnologyCategories/auc:TechnologyCategory/*/auc:MeasureName" role="">auc:TechnologyCategories/auc:TechnologyCategory/*/auc:MeasureName</sch:assert>
       <sch:assert test="(auc:TechnologyCategories/auc:TechnologyCategory/*/auc:MeasureName/text() != 'Other') or auc:CustomMeasureName" role="">If auc:TechnologyCategories/auc:TechnologyCategory/*/auc:MeasureName is 'Other' you must specify auc:CustomMeasureName</sch:assert>
       <sch:assert test="auc:MeasureScaleOfApplication" role="">auc:MeasureScaleOfApplication</sch:assert>
+      <sch:assert test="auc:MeasureMaterialCost" role="">auc:MeasureMaterialCost</sch:assert>
+      <sch:assert test="auc:MeasureInstallationCost" role="">auc:MeasureInstallationCost</sch:assert>
     </sch:rule>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Measures/auc:Measure/auc:TypeOfMeasure/auc:Replacements/auc:Replacement">
       <sch:assert test="(auc:ExistingSystemReplaced/@IDref and auc:AlternativeSystemReplacement/@IDref) or (auc:ExistingScheduleAffected/@IDref and auc:ModifiedSchedule/@IDref)" role="">(auc:ExistingSystemReplaced/@IDref and auc:AlternativeSystemReplacement/@IDref) or (auc:ExistingScheduleAffected/@IDref and auc:ModifiedSchedule/@IDref)</sch:assert>
@@ -1176,6 +1181,46 @@
     </sch:rule>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Measures/auc:Measure/auc:TypeOfMeasure/auc:Removals/auc:Removal">
       <sch:assert test="auc:ExistingSystemRemoved/@IDref or (auc:ExistingScheduleAffected/@IDref and auc:ModifiedSchedule/@IDref)" role="">auc:ExistingSystemRemoved/@IDref or (auc:ExistingScheduleAffected/@IDref and auc:ModifiedSchedule/@IDref)</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="" id="document_structure_prerequisites_eem_packages">
+    <sch:title>Document Structure Prerequisites EEM Packages</sch:title>
+    <sch:rule context="/">
+      <sch:assert test="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Scenarios/auc:Scenario/auc:ScenarioType/auc:PackageOfMeasures" role="ERROR">/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Scenarios/auc:Scenario/auc:ScenarioType/auc:PackageOfMeasures</sch:assert>
+      <sch:assert test="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Scenarios/auc:Scenario/auc:ScenarioType/auc:PackageOfMeasures/auc:AnnualSavingsByFuels/auc:AnnualSavingsByFuel" role="ERROR">/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Scenarios/auc:Scenario/auc:ScenarioType/auc:PackageOfMeasures/auc:AnnualSavingsByFuels/auc:AnnualSavingsByFuel</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="" id="eem_packages">
+    <sch:title>EEM Packages</sch:title>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Scenarios/auc:Scenario/auc:ScenarioType/auc:PackageOfMeasures">
+      <sch:assert test="auc:CostCategory" role="">auc:CostCategory</sch:assert>
+      <sch:assert test="//auc:Scenario[auc:ScenarioType/auc:CurrentBuilding/auc:CalculationMethod/auc:Measured and @ID = current()/auc:ReferenceCase/@IDref]" role="">Package of Measures must be linked to the Measured Scenario (ie auc:PackageOfMeasures/auc:ReferenceCase/@IDref must contain the ID of the Scenario of type auc:CurrentBuilding/auc:CalculationMethod/auc:Measured)</sch:assert>
+      <sch:assert test="auc:ImplementationPeriod" role="">auc:ImplementationPeriod</sch:assert>
+      <sch:assert test="auc:AnnualSavingsSiteEnergy" role="">auc:AnnualSavingsSiteEnergy</sch:assert>
+      <sch:assert test="auc:AnnualSavingsCost" role="">auc:AnnualSavingsCost</sch:assert>
+      <sch:assert test="auc:AnnualSavingsByFuels/auc:AnnualSavingsByFuel[auc:EnergyResource/text() = 'Electricity']" role="">You must include annual savings for electricity (auc:AnnualSavingsByFuels/auc:AnnualSavingsByFuel[auc:EnergyResource/text() = 'Electricity'])</sch:assert>
+      <sch:assert test="auc:AnnualSavingsByFuels/auc:AnnualSavingsByFuel[auc:EnergyResource/text() = 'Natural gas']" role="">You must include annual savings for natural gas (auc:AnnualSavingsByFuels/auc:AnnualSavingsByFuel[auc:EnergyResource/text() = 'Natural gas'])</sch:assert>
+      <sch:assert test="auc:AnnualPeakElectricityReduction" role="">auc:AnnualPeakElectricityReduction</sch:assert>
+      <sch:assert test="auc:AnnualDemandSavingsCost" role="">auc:AnnualDemandSavingsCost</sch:assert>
+      <sch:assert test="auc:PackageFirstCost" role="">auc:PackageFirstCost</sch:assert>
+      <sch:assert test="auc:MVCost" role="">auc:MVCost</sch:assert>
+      <sch:assert test="auc:OMCostAnnualSavings" role="">auc:OMCostAnnualSavings</sch:assert>
+      <sch:assert test="auc:AnnualWaterSavings" role="">auc:AnnualWaterSavings</sch:assert>
+      <sch:assert test="auc:AnnualWaterCostSavings" role="">auc:AnnualWaterCostSavings</sch:assert>
+      <sch:assert test="auc:EquipmentDisposalAndSalvageCosts" role="">auc:EquipmentDisposalAndSalvageCosts</sch:assert>
+      <sch:assert test="auc:SimplePayback" role="">auc:SimplePayback</sch:assert>
+      <sch:assert test="auc:InternalRateOfReturn" role="">auc:InternalRateOfReturn</sch:assert>
+      <sch:assert test="auc:ImplementationPeriodCostSavings" role="">auc:ImplementationPeriodCostSavings</sch:assert>
+      <sch:assert test="auc:ProjectMarkup" role="">auc:ProjectMarkup</sch:assert>
+      <sch:assert test="auc:FundingFromIncentives" role="">auc:FundingFromIncentives</sch:assert>
+      <sch:assert test="auc:FundingFromTaxCredits" role="">auc:FundingFromTaxCredits</sch:assert>
+      <sch:assert test="auc:OtherFinancialIncentives" role="">auc:OtherFinancialIncentives</sch:assert>
+      <sch:assert test="auc:RecurringIncentives" role="">auc:RecurringIncentives</sch:assert>
+    </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Scenarios/auc:Scenario/auc:ScenarioType/auc:PackageOfMeasures/auc:AnnualSavingsByFuels/auc:AnnualSavingsByFuel">
+      <sch:assert test="auc:EnergyResource" role="">auc:EnergyResource</sch:assert>
+      <sch:assert test="auc:AnnualSavingsNativeUnits" role="">auc:AnnualSavingsNativeUnits</sch:assert>
+      <sch:assert test="auc:ResourceUnits" role="">auc:ResourceUnits</sch:assert>
     </sch:rule>
   </sch:pattern>
 </sch:schema>
