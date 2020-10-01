@@ -194,6 +194,28 @@
                                 </auc:Controls>
                                 <auc:YearInstalled>2020</auc:YearInstalled>
                             </auc:HeatingSource>
+                            <auc:HeatingSource ID="HeatingSource-B">
+                                <auc:HeatingSourceType>
+                                    <auc:HeatPump>
+                                        <auc:HeatPumpType>Packaged Terminal</auc:HeatPumpType>
+                                        <auc:HeatPumpBackupSystemFuel>Unknown</auc:HeatPumpBackupSystemFuel>
+                                    </auc:HeatPump>
+                                </auc:HeatingSourceType>
+                                <auc:InputCapacity>123</auc:InputCapacity>
+                                <auc:OutputCapacity>123</auc:OutputCapacity>
+                                <auc:CapacityUnits>gpm</auc:CapacityUnits>
+                                <auc:HeatingSourceCondition>Good</auc:HeatingSourceCondition>
+                                <auc:Controls>
+                                    <auc:Control>
+                                        <auc:OtherControlTechnology>
+                                            <auc:ControlSystemType>
+                                                <auc:Digital></auc:Digital>
+                                            </auc:ControlSystemType>
+                                        </auc:OtherControlTechnology>
+                                    </auc:Control>
+                                </auc:Controls>
+                                <auc:YearInstalled>2020</auc:YearInstalled>
+                            </auc:HeatingSource>
                         </auc:HeatingSources>
                         <auc:CoolingSources>
                             <auc:CoolingSource ID="CoolingSource-A">
@@ -203,6 +225,26 @@
                                         <auc:CompressorType>Screw</auc:CompressorType>
                                         <auc:CompressorStaging>Modulating</auc:CompressorStaging>
                                     </auc:DX>
+                                </auc:CoolingSourceType>
+                                <auc:Capacity>123</auc:Capacity>
+                                <auc:CapacityUnits>gpm</auc:CapacityUnits>
+                                <auc:CoolingSourceCondition>Good</auc:CoolingSourceCondition>
+                                <auc:Controls>
+                                    <auc:Control>
+                                        <auc:OtherControlTechnology>
+                                            <auc:ControlSystemType>
+                                                <auc:Digital></auc:Digital>
+                                            </auc:ControlSystemType>
+                                        </auc:OtherControlTechnology>
+                                    </auc:Control>
+                                </auc:Controls>
+                                <auc:YearInstalled>2020</auc:YearInstalled>
+                            </auc:CoolingSource>
+                            <auc:CoolingSource ID="CoolingSource-B">
+                                <auc:CoolingSourceType>
+                                    <auc:EvaporativeCooler>
+                                        <auc:EvaporativeCoolingType>Direct</auc:EvaporativeCoolingType>
+                                    </auc:EvaporativeCooler>
                                 </auc:CoolingSourceType>
                                 <auc:Capacity>123</auc:Capacity>
                                 <auc:CapacityUnits>gpm</auc:CapacityUnits>
