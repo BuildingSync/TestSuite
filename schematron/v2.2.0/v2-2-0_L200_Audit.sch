@@ -764,7 +764,7 @@
     </sch:rule>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:HeatingAndCoolingSystems/auc:Deliveries/auc:Delivery/auc:DeliveryType/auc:CentralAirDistribution/auc:FanBased/auc:AirSideEconomizer">
       <sch:assert test="auc:AirSideEconomizerType" role="">auc:AirSideEconomizerType</sch:assert>
-      <sch:assert test="auc:AirSideEconomizerType != 'None' or auc:EconomizerControl" role="">auc:AirSideEconomizerType != 'None' or auc:EconomizerControl</sch:assert>
+      <sch:assert test="auc:AirSideEconomizerType = 'None' or auc:EconomizerControl" role="">auc:AirSideEconomizerType = 'None' or auc:EconomizerControl</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern see="" id="heat_recovery_system">

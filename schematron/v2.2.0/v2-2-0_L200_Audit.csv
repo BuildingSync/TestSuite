@@ -230,7 +230,7 @@
 "","","","","","/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:PumpSystems/auc:PumpSystem","false","","","auc:PumpControlType","","",""
 "HVAC Distribution System Delivery Outdoor Air Control","ASHRAE 211 6.2.1.3 (c)","Central Air Distribution","","","/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:HeatingAndCoolingSystems/auc:Deliveries/auc:Delivery/auc:DeliveryType/auc:CentralAirDistribution","false","","","auc:FanBased/auc:AirSideEconomizer","","",""
 "","","","","","/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:HeatingAndCoolingSystems/auc:Deliveries/auc:Delivery/auc:DeliveryType/auc:CentralAirDistribution/auc:FanBased/auc:AirSideEconomizer","false","","","auc:AirSideEconomizerType","","",""
-"","","","","","","","","","auc:AirSideEconomizerType != 'None' or auc:EconomizerControl","","",""
+"","","","","","","","","","auc:AirSideEconomizerType = 'None' or auc:EconomizerControl","","",""
 "","","Heat Recovery System","","","/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HeatRecoverySystems/auc:HeatRecoverySystem","false","","","auc:HeatRecoveryEfficiency or auc:EnergyRecoveryEfficiency","","",""
 "","","","","","","","","","auc:HeatRecoveryType","","",""
 "","","","","","","","","","auc:SystemIDReceivingHeat","","",""
