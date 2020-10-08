@@ -162,7 +162,7 @@
 
                 <auc:Section ID="Section-Space-B">
                   <auc:SectionType>Component</auc:SectionType>
-                  <auc:OccupancyClassification>Other</auc:OccupancyClassification>
+                  <auc:OccupancyClassification>Multifamily with commercial</auc:OccupancyClassification>
                   <auc:OriginalOccupancyClassification>Other</auc:OriginalOccupancyClassification>
 
                   <!-- 6.1.1.1.g/5.3.4.d -->
@@ -412,6 +412,11 @@
                     <auc:LinkedScheduleID IDref="HVACSchedule" />
                   </auc:LinkedScheduleIDs>
                 </auc:LinkedSectionID>
+                <auc:LinkedSectionID IDref="Section-Space-B">
+                  <auc:LinkedScheduleIDs>
+                    <auc:LinkedScheduleID IDref="HVACSchedule" />
+                  </auc:LinkedScheduleIDs>
+                </auc:LinkedSectionID>
               </auc:Section>
             </auc:LinkedPremises>
           </auc:HVACSystem>
@@ -450,6 +455,7 @@
             <auc:LinkedPremises>
               <auc:Section>
                 <auc:LinkedSectionID IDref="Section-Space-A"></auc:LinkedSectionID>
+                <auc:LinkedSectionID IDref="Section-Space-B"></auc:LinkedSectionID>
               </auc:Section>
             </auc:LinkedPremises>
           </auc:LightingSystem>
@@ -531,6 +537,11 @@
             <auc:LinkedPremises>
               <auc:Section>
                 <auc:LinkedSectionID IDref="Section-Space-A">
+                  <auc:LinkedScheduleIDs>
+                    <auc:LinkedScheduleID IDref="PlugLoadSchedule" />
+                  </auc:LinkedScheduleIDs>
+                </auc:LinkedSectionID>
+                <auc:LinkedSectionID IDref="Section-Space-B">
                   <auc:LinkedScheduleIDs>
                     <auc:LinkedScheduleID IDref="PlugLoadSchedule" />
                   </auc:LinkedScheduleIDs>
