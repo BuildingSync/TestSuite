@@ -929,6 +929,26 @@
                     <auc:UtilityID IDref="Utility-ElecGen" />
                   </auc:UtilityIDs>
                 </auc:ResourceUse>
+
+                <!-- submeter examples -->
+                <auc:ResourceUse ID="ResourceUse-Electricity-Lighting-Submeter">
+                  <auc:EnergyResource>Electricity</auc:EnergyResource>
+                  <auc:PercentResource>50</auc:PercentResource>
+                  <auc:EndUse>Total lighting</auc:EndUse>
+                  <auc:ParentResourceUseID IDref="ResourceUse-Electricity"/>
+                </auc:ResourceUse>
+                <!-- <auc:ResourceUse ID="ResourceUse-Electricity-Heating-Submeter">
+                  <auc:EnergyResource>Electricity</auc:EnergyResource>
+                  <auc:PercentResource>25</auc:PercentResource>
+                  <auc:EndUse>Heating</auc:EndUse>
+                  <auc:ParentResourceUseID IDref="ResourceUse-Electricity"/>
+                </auc:ResourceUse>
+                <auc:ResourceUse ID="ResourceUse-Electricity-Cooling-Submeter">
+                  <auc:EnergyResource>Electricity</auc:EnergyResource>
+                  <auc:PercentResource>25</auc:PercentResource>
+                  <auc:EndUse>Cooling</auc:EndUse>
+                  <auc:ParentResourceUseID IDref="ResourceUse-Electricity"/>
+                </auc:ResourceUse> -->
               </auc:ResourceUses>
 
               <!-- 6.1.2 (total and peak monthly use - should exist for every resource use) -->

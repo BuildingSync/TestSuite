@@ -1032,3 +1032,24 @@ class TestL200AuditSectionSystems(AssertFailureRolesMixin):
 
         # -- Assert
         self.assert_failure_messages(failures, expected_errors)
+
+
+class TestL200AuditSubmeter(AssertFailureRolesMixin):
+    schematron = os.path.join(v2_2_0_SCH_DIR, 'v2-2-0_L200_Audit.sch')
+    exemplary_file = os.path.join(v2_2_0_SCH_DIR, 'exemplary_files', 'L200_Audit.xml')
+
+    def test_is_invalid_when_submeter_not_linked_to_parent(self):
+        # -- Setup
+        tree = etree.parse(self.exemplary_file)
+
+        # remove the link to parent resource
+        remove_xpath = '/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Scenarios/auc:Scenario[auc:ScenarioType/auc:CurrentBuilding/auc:CalculationMethod/auc:Measured]/auc:ResourceUses/auc:ResourceUse[auc:ParentResourceUseID][1]/auc:ParentResourceUseID'
+        remove_element(tree, remove_xpath)
+
+        # -- Act
+        failures = validate_schematron(self.schematron, tree)
+
+        # -- Assert
+        self.assert_failure_messages(failures, {
+            'ERROR': ['ParentResourceUseID must point to a valid resource use']
+        })
