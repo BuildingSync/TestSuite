@@ -381,7 +381,7 @@
                         <auc:DuctSystem ID="DuctSystem-A">
                             <auc:DuctConfiguration>Single</auc:DuctConfiguration>
                             <auc:DuctInsulationCondition>Excellent</auc:DuctInsulationCondition>
-                            <auc:HeatingDeliveryID IDref="Delivery-A" />
+                            <auc:HeatingDeliveryID IDref="Delivery-A"/>
                             <auc:CoolingDeliveryID IDref="Delivery-A"/>
                         </auc:DuctSystem>
                     </auc:DuctSystems>
