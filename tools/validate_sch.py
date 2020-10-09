@@ -2,7 +2,7 @@ from collections import namedtuple
 
 from lxml import etree, isoschematron
 
-from .constants import SVRL_NSMAP, SCH_NSMAP
+from .constants import SVRL_NSMAP, SCH_NSMAP, BSYNC_NSMAP
 
 Failure = namedtuple('Failure', ['line', 'element', 'message', 'role', 'location', 'test'])
 
@@ -135,15 +135,33 @@ def validate_schematron(schematron, document, result_path=None, phase=None, stri
     for failed_assert in failed_asserts:
         # location stores an xpath to the element which failed validation
         location = failed_assert.get('location')
-        failed_element = document_tree.xpath(location)[0]
+        try:
+            failed_element = document_tree.xpath(location)[0]
+        except IndexError:
+            # Somehow, there can rule contexts that are fired, but the resulting
+            # svrl location is not a valid xpath for a BuildingSync document.
+            # For example, at one point in time, in LL87 `location` is /@version,
+            # which is not a valid xpath
+            # In these cases, we will just default to the root auc:BuildingSync element
+            # If this becomes a more common issue we should reconsider how to locate the failed element
+            failed_element = document_tree.xpath('/auc:BuildingSync', namespaces=BSYNC_NSMAP)[0]
         readable_xpath = document_tree.getpath(failed_element)
         tag = failed_element.tag.replace("{http://buildingsync.net/schemas/bedes-auc/2019}", "auc:")
         error_message = failed_assert[0].text
+        role = failed_assert.get('role')
+        if role is None:
+            if '[INFO]' in error_message:
+                role = 'INFO'
+            elif '[WARNING]' in error_message:
+                role = 'WARNING'
+            else:
+                role = 'ERROR'
+
         failures.append(Failure(
             line=failed_element.sourceline,
             element=tag,
             message=error_message,
-            role=failed_assert.get('role', 'ERROR'),
+            role=role,
             location=readable_xpath,
             test=failed_assert.get('test'),
         ))
