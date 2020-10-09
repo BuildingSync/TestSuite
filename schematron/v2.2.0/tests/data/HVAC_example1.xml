@@ -25,7 +25,7 @@
                                     <auc:CondensingOperation>Condensing</auc:CondensingOperation>
                                     <auc:HeatingStaging>Single stage</auc:HeatingStaging>
                                     <auc:InputCapacity>123</auc:InputCapacity>
-                                    <auc:OutputCapacity>123</auc:OutputCapacity>
+                                    <auc:Capacity>123</auc:Capacity>
                                     <auc:CapacityUnits>gpm</auc:CapacityUnits>
                                     <auc:AnnualHeatingEfficiencyValue>123</auc:AnnualHeatingEfficiencyValue>
                                     <auc:AnnualHeatingEfficiencyUnits>COP</auc:AnnualHeatingEfficiencyUnits>
@@ -46,7 +46,7 @@
                             <auc:HeatingPlant ID="HeatingPlant-B">
                                 <auc:DistrictHeating>
                                     <auc:DistrictHeatingType>Hot water</auc:DistrictHeatingType>
-                                    <auc:OutputCapacity>123</auc:OutputCapacity>
+                                    <auc:Capacity>123</auc:Capacity>
                                     <auc:CapacityUnits>gpm</auc:CapacityUnits>
                                     <auc:AnnualHeatingEfficiencyValue>123</auc:AnnualHeatingEfficiencyValue>
                                     <auc:AnnualHeatingEfficiencyUnits>COP</auc:AnnualHeatingEfficiencyUnits>
@@ -64,7 +64,7 @@
                             </auc:HeatingPlant>
                             <auc:HeatingPlant ID="HeatingPlant-C">
                                 <auc:SolarThermal>
-                                    <auc:OutputCapacity>123</auc:OutputCapacity>
+                                    <auc:Capacity>123</auc:Capacity>
                                     <auc:CapacityUnits>gpm</auc:CapacityUnits>
                                     <auc:AnnualHeatingEfficiencyValue>123</auc:AnnualHeatingEfficiencyValue>
                                     <auc:AnnualHeatingEfficiencyUnits>COP</auc:AnnualHeatingEfficiencyUnits>
@@ -186,7 +186,7 @@
                                     </auc:Furnace>
                                 </auc:HeatingSourceType>
                                 <auc:InputCapacity>123</auc:InputCapacity>
-                                <auc:OutputCapacity>123</auc:OutputCapacity>
+                                <auc:Capacity>123</auc:Capacity>
                                 <auc:CapacityUnits>gpm</auc:CapacityUnits>
                                 <auc:HeatingSourceCondition>Good</auc:HeatingSourceCondition>
                                 <auc:Controls>
@@ -208,7 +208,7 @@
                                     </auc:HeatPump>
                                 </auc:HeatingSourceType>
                                 <auc:InputCapacity>123</auc:InputCapacity>
-                                <auc:OutputCapacity>123</auc:OutputCapacity>
+                                <auc:Capacity>123</auc:Capacity>
                                 <auc:CapacityUnits>gpm</auc:CapacityUnits>
                                 <auc:HeatingSourceCondition>Good</auc:HeatingSourceCondition>
                                 <auc:Controls>

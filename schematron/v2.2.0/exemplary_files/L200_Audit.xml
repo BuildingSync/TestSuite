@@ -339,7 +339,7 @@
                     </auc:Furnace>
                   </auc:HeatingSourceType>
                   <auc:InputCapacity>123</auc:InputCapacity>
-                  <auc:OutputCapacity>123</auc:OutputCapacity>
+                  <auc:Capacity>123</auc:Capacity>
                   <auc:CapacityUnits>gpm</auc:CapacityUnits>
                   <auc:HeatingSourceCondition>Good</auc:HeatingSourceCondition>
                   <auc:Controls>
