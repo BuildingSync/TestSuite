@@ -942,6 +942,7 @@
       <sch:assert test="auc:Controls/auc:Control/*/auc:ControlSystemType" role="">auc:Controls/auc:Control/*/auc:ControlSystemType</sch:assert>
       <sch:assert test="auc:Controls/auc:Control/*/auc:ControlStrategy" role="">auc:Controls/auc:Control/*/auc:ControlStrategy</sch:assert>
       <sch:assert test="//auc:Sections/auc:Section[@ID = current()/auc:LinkedPremises/auc:Section/auc:LinkedSectionID/@IDref]" role="">//auc:Sections/auc:Section[@ID = current()/auc:LinkedPremises/auc:Section/auc:LinkedSectionID/@IDref]</sch:assert>
+      <sch:assert test="//auc:Schedules/auc:Schedule[@ID = current()/auc:LinkedPremises/auc:Section/auc:LinkedSectionID/auc:LinkedScheduleIDs/auc:LinkedScheduleID/@IDref]" role="">//auc:Schedules/auc:Schedule[@ID = current()/auc:LinkedPremises/auc:Section/auc:LinkedSectionID/auc:LinkedScheduleIDs/auc:LinkedScheduleID/@IDref]</sch:assert>
     </sch:rule>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:LightingSystems/auc:LightingSystem/auc:LampType[auc:Incandescent or auc:LinearFluorescent or auc:CompactFluorescent or auc:Halogen or auc:HighIntensityDischarge or auc:SolidStateLighting]/*">
       <sch:assert test="auc:LampLabel" role="">auc:LampLabel</sch:assert>

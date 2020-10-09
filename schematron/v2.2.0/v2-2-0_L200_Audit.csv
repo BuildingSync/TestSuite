@@ -301,6 +301,7 @@
 "","","","","","","","","","auc:Controls/auc:Control/*/auc:ControlSystemType","","",""
 "","","","","","","","","","auc:Controls/auc:Control/*/auc:ControlStrategy","","",""
 "","","","","","","","","","//auc:Sections/auc:Section[@ID = current()/auc:LinkedPremises/auc:Section/auc:LinkedSectionID/@IDref]","","",""
+"","","","","","","","","","//auc:Schedules/auc:Schedule[@ID = current()/auc:LinkedPremises/auc:Section/auc:LinkedSectionID/auc:LinkedScheduleIDs/auc:LinkedScheduleID/@IDref]","","",""
 "","","","","","/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:LightingSystems/auc:LightingSystem/auc:LampType[auc:Incandescent or auc:LinearFluorescent or auc:CompactFluorescent or auc:Halogen or auc:HighIntensityDischarge or auc:SolidStateLighting]/*","false","","","auc:LampLabel","","",""
 "","","","","","/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:LightingSystems/auc:LightingSystem/auc:Controls/auc:Control[auc:Daylighting or auc:Occupancy]/*","false","","","auc:ControlSensor","","",""
 "","","Lighting with Ballast","","","/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:LightingSystems/auc:LightingSystem[auc:BallastType != 'No ballast']","false","","","auc:NumberOfLampsPerBallast","","",""
