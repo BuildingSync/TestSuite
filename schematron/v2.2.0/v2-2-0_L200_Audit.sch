@@ -584,6 +584,10 @@
       <sch:assert test="auc:OutputCapacity" role="">auc:OutputCapacity</sch:assert>
       <sch:assert test="auc:CapacityUnits" role="">auc:CapacityUnits</sch:assert>
     </sch:rule>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:Plants/auc:CondenserPlants/auc:CondenserPlant/*[contains('AirCooled WaterCooled  GroundSource GlycolCooledDryCooler', local-name())]">
+      <sch:assert test="auc:Capacity" role="">auc:Capacity</sch:assert>
+      <sch:assert test="auc:CapacityUnits" role="">auc:CapacityUnits</sch:assert>
+    </sch:rule>
   </sch:pattern>
   <sch:pattern see="ASHRAE 211 6.2.1.3 (a)" id="condition">
     <sch:title>Condition</sch:title>

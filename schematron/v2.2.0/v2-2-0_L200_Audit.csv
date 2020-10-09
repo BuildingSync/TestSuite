@@ -151,6 +151,8 @@
 "","","","","","/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:HeatingAndCoolingSystems/auc:HeatingSources/auc:HeatingSource[not(auc:HeatingSourceType/auc:HeatingPlantID)]","false","","","auc:InputCapacity","","",""
 "","","","","","","","","","auc:OutputCapacity","","",""
 "","","","","","","","","","auc:CapacityUnits","","",""
+"","","","","","/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:Plants/auc:CondenserPlants/auc:CondenserPlant/*[contains('AirCooled WaterCooled  GroundSource GlycolCooledDryCooler', local-name())]","false","","","auc:Capacity","","",""
+"","","","","","","","","","auc:CapacityUnits","","",""
 "HVAC Condition","ASHRAE 211 6.2.1.3 (a)","Condition","ASHRAE 211 6.2.1.3 (a)","","/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:Plants/auc:HeatingPlants/auc:HeatingPlant","false","","","auc:HeatingPlantCondition","","",""
 "","","","","","/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:Plants/auc:CoolingPlants/auc:CoolingPlant","false","","","auc:CoolingPlantCondition","","",""
 "","","","","","/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:Plants/auc:CondenserPlants/auc:CondenserPlant","false","","","auc:CondenserPlantCondition","","",""

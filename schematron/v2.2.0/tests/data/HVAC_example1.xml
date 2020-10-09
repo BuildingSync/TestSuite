@@ -128,6 +128,8 @@
                             <auc:CondenserPlant ID="CondenserPlant-A">
                                 <auc:WaterCooled>
                                     <auc:WaterCooledCondenserType>Cooling tower</auc:WaterCooledCondenserType>
+                                    <auc:Capacity>123</auc:Capacity>
+                                    <auc:CapacityUnits>gpm</auc:CapacityUnits>
                                 </auc:WaterCooled>
                                 <auc:CondenserPlantCondition>Good</auc:CondenserPlantCondition>
                                 <auc:YearInstalled>2020</auc:YearInstalled>
@@ -142,6 +144,8 @@
                             <auc:CondenserPlant ID="CondenserPlant-B">
                                 <auc:AirCooled>
                                     <auc:CondenserFanSpeedOperation>Stepped Speed</auc:CondenserFanSpeedOperation>
+                                    <auc:Capacity>123</auc:Capacity>
+                                    <auc:CapacityUnits>gpm</auc:CapacityUnits>
                                 </auc:AirCooled>
                                 <auc:CondenserPlantCondition>Good</auc:CondenserPlantCondition>
                                 <auc:YearInstalled>2020</auc:YearInstalled>
@@ -157,6 +161,8 @@
                                 <auc:GroundSource>
                                     <auc:GroundSourceType>Open loop ground water</auc:GroundSourceType>
                                     <auc:WellCount>1</auc:WellCount>
+                                    <auc:Capacity>123</auc:Capacity>
+                                    <auc:CapacityUnits>gpm</auc:CapacityUnits>
                                 </auc:GroundSource>
                                 <auc:CondenserPlantCondition>Good</auc:CondenserPlantCondition>
                                 <auc:YearInstalled>2020</auc:YearInstalled>
