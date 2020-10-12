@@ -4,6 +4,9 @@
   <sch:phase id="preliminary_analysis" see="Based on ASHRAE 211 5.2.3">
     <sch:active pattern="document_structure_prerequisites_building_info"/>
     <sch:active pattern="building_info"/>
+    <sch:active pattern="location_info"/>
+    <sch:active pattern="location_info"/>
+    <sch:active pattern="location_info"/>
   </sch:phase>
   <sch:pattern see="" id="document_structure_prerequisites_building_info">
     <sch:title>Document Structure Prerequisites Building Info</sch:title>
@@ -22,12 +25,21 @@
       <sch:assert test="auc:YearOfConstruction" role="">auc:YearOfConstruction</sch:assert>
       <sch:assert test="//auc:Scenarios/auc:Scenario[auc:LinkedPremises/auc:Building/auc:LinkedBuildingID/@IDref = current()/@ID]/auc:ScenarioType/auc:CurrentBuilding/auc:CalculationMethod/auc:Modeled" role="">//auc:Scenarios/auc:Scenario[auc:LinkedPremises/auc:Building/auc:LinkedBuildingID/@IDref = current()/@ID]/auc:ScenarioType/auc:CurrentBuilding/auc:CalculationMethod/auc:Modeled</sch:assert>
     </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="" id="location_info">
+    <sch:title>Location Info</sch:title>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Address">
       <sch:assert test="auc:City and auc:State" role="">auc:City and auc:State</sch:assert>
     </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="" id="location_info">
+    <sch:title>Location Info</sch:title>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:ClimateZoneType">
       <sch:assert test="auc:ASHRAE or auc:CaliforniaTitle24" role="">auc:ASHRAE or auc:CaliforniaTitle24</sch:assert>
     </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="" id="location_info">
+    <sch:title>Location Info</sch:title>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:ClimateZoneType[auc:ASHRAE or auc:CaliforniaTitle24]">
       <sch:assert test="//auc:ClimateZone" role="">//auc:ClimateZone</sch:assert>
     </sch:rule>
