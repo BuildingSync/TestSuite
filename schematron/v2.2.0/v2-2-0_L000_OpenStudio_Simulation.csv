@@ -5,6 +5,4 @@
 "","","","","","","","auc:OccupancyClassification","","",""
 "","","","","","","","auc:FloorAreas/auc:FloorArea[auc:FloorAreaType='Gross' and auc:FloorAreaValue]","","",""
 "","","","","","","","auc:YearOfConstruction","","",""
-"","","System Requirements","","","/auc:BuildingSync/auc:Facilities/auc:Facility","true","auc:Systems","","",""
-"","","Measure Requirements","","","/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Measures","true","count(auc:Measure) >= 1","","",""
-"","","Scenario Requirements","","","/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Scenarios","true","count(auc:Scenario[@ID='Baseline' and auc:ScenarioType/auc:PackageOfMeasures/auc:ReferenceCase/@IDref='Baseline' and auc:ScenarioName='Baseline']) = 1","","",""
+"","","","","","","","//auc:Scenarios/auc:Scenario[auc:LinkedPremises/auc:Building/auc:LinkedBuildingID/@IDref = current()/@ID]/auc:ScenarioType/auc:CurrentBuilding/auc:CalculationMethod/auc:Modeled","","",""
