@@ -40,7 +40,9 @@
               <auc:ScenarioType>
                 <auc:CurrentBuilding>
                   <auc:CalculationMethod>
-                    <auc:Modeled/>
+                    <auc:Modeled>
+                      <auc:SimulationCompletionStatus>Not Started</auc:SimulationCompletionStatus>
+                    </auc:Modeled>
                   </auc:CalculationMethod>
                 </auc:CurrentBuilding>
               </auc:ScenarioType>
