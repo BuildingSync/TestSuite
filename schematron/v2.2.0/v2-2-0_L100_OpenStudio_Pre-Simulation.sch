@@ -11,6 +11,13 @@
     <sch:active pattern="document_structure_prerequisites_low_cost_measures_tests"/>
     <sch:active pattern="low_cost_measures_tests"/>
   </sch:phase>
+  <sch:phase id="scenarios" see="">
+    <sch:active pattern="document_structure_prerequisites_basic_scenario_info"/>
+    <sch:active pattern="basic_scenario_info"/>
+    <sch:active pattern="document_structure_prerequisites_current_building_modeled"/>
+    <sch:active pattern="current_building_modeled"/>
+    <sch:active pattern="package_of_measures"/>
+  </sch:phase>
   <sch:pattern see="" id="document_structure_prerequisites_basic_building_info">
     <sch:title>Document Structure Prerequisites Basic Building Info</sch:title>
     <sch:rule context="/">
@@ -30,7 +37,7 @@
       <sch:assert test="auc:BuildingClassification" role="">auc:BuildingClassification</sch:assert>
       <sch:assert test="auc:OccupancyClassification" role="">auc:OccupancyClassification</sch:assert>
       <sch:assert test="auc:YearOfConstruction" role="">auc:YearOfConstruction</sch:assert>
-      <sch:assert test="//auc:Scenarios/auc:Scenario[auc:LinkedPremises/auc:Building/auc:LinkedBuildingID/@IDref = current()/@ID]/auc:ScenarioType/auc:CurrentBuilding/auc:CalculationMethod/auc:Modeled/auc:SimulationCompletionStatus/text()='Not Started'" role="">An auc:Building should be linked to an auc:Scenario[auc:ScenarioType/auc:CurrentBuilding/auc:CalculationMethod/auc:Modeled/auc:SimulationCompletionStatus='Not Started' in order to trigger a baseline OpenStudio model to be built</sch:assert>
+      <sch:assert test="//auc:Scenarios/auc:Scenario[auc:LinkedPremises/auc:Building/auc:LinkedBuildingID/@IDref = current()/@ID]/auc:ScenarioType/auc:CurrentBuilding/auc:CalculationMethod/auc:Modeled/auc:SimulationCompletionStatus" role="">An auc:Building should be linked to an auc:Scenario[auc:ScenarioType/auc:CurrentBuilding/auc:CalculationMethod/auc:Modeled/auc:SimulationCompletionStatus]</sch:assert>
     </sch:rule>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Address">
       <sch:assert test="auc:City and auc:State" role="">auc:City and auc:State</sch:assert>
@@ -67,7 +74,6 @@
     <sch:title>Document Structure Prerequisites Low Cost Measures Tests</sch:title>
     <sch:rule context="/">
       <sch:assert test="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Scenarios/auc:Scenario/auc:ScenarioType/auc:PackageOfMeasures/auc:MeasureIDs/auc:MeasureID" role="ERROR">/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Scenarios/auc:Scenario/auc:ScenarioType/auc:PackageOfMeasures/auc:MeasureIDs/auc:MeasureID</sch:assert>
-      <sch:assert test="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Scenarios/auc:Scenario" role="ERROR">/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Scenarios/auc:Scenario</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern see="ASHRAE 211 6.1.5" id="low_cost_measures_tests">
@@ -86,8 +92,37 @@
       <sch:assert test="auc:TechnologyCategories/auc:TechnologyCategory//auc:MeasureName" role="">auc:TechnologyCategories/auc:TechnologyCategory//auc:MeasureName</sch:assert>
       <sch:assert test="(auc:TechnologyCategories/auc:TechnologyCategory//auc:MeasureName/text() != 'Other') or auc:CustomMeasureName" role="">(auc:TechnologyCategories/auc:TechnologyCategory//auc:MeasureName/text() != 'Other') or auc:CustomMeasureName</sch:assert>
     </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="" id="document_structure_prerequisites_basic_scenario_info">
+    <sch:title>Document Structure Prerequisites Basic Scenario Info</sch:title>
+    <sch:rule context="/">
+      <sch:assert test="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Scenarios/auc:Scenario" role="ERROR">/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Scenarios/auc:Scenario</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="" id="basic_scenario_info">
+    <sch:title>Basic Scenario Info</sch:title>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Scenarios/auc:Scenario">
       <sch:assert test="auc:LinkedPremises/auc:Building/auc:LinkedBuildingID/@IDref" role="">All Scenarios should be linked to a Building</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="" id="document_structure_prerequisites_current_building_modeled">
+    <sch:title>Document Structure Prerequisites Current Building Modeled</sch:title>
+    <sch:rule context="/">
+      <sch:assert test="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Scenarios/auc:Scenario/auc:ScenarioType/auc:CurrentBuilding/auc:CalculationMethod/auc:Modeled" role="ERROR">/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Scenarios/auc:Scenario/auc:ScenarioType/auc:CurrentBuilding/auc:CalculationMethod/auc:Modeled</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="" id="current_building_modeled">
+    <sch:title>Current Building Modeled</sch:title>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Scenarios/auc:Scenario/auc:ScenarioType/auc:CurrentBuilding/auc:CalculationMethod/auc:Modeled">
+      <sch:assert test="auc:SimulationCompletionStatus" role="">auc:SimulationCompletionStatus</sch:assert>
+      <sch:assert test="auc:SimulationCompletionStatus/text() = 'Not Started'" role="INFO">Scenario <sch:value-of select="ancestor::auc:Scenario/@ID"/> will not have an OSW created for it since the auc:SimulationCompletionStatus is <sch:value-of select="auc:SimulationCompletionStatus/text()"/>, not Not Started</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="" id="package_of_measures">
+    <sch:title>Package Of Measures</sch:title>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Scenarios/auc:Scenario/auc:ScenarioType/auc:PackageOfMeasures/auc:CalculationMethod/auc:Modeled">
+      <sch:assert test="auc:SimulationCompletionStatus" role="">auc:SimulationCompletionStatus</sch:assert>
+      <sch:assert test="auc:SimulationCompletionStatus/text() = 'Not Started'" role="INFO">Scenario <sch:value-of select="ancestor::auc:Scenario/@ID"/> will not have an OSW created for it since the auc:SimulationCompletionStatus is <sch:value-of select="auc:SimulationCompletionStatus/text()"/>, not Not Started</sch:assert>
     </sch:rule>
   </sch:pattern>
 </sch:schema>
