@@ -8,7 +8,7 @@
             <auc:Building ID="Willis_Tower">
               <auc:PremisesName>Willis Tower</auc:PremisesName>
 
-              <!-- Specify either  City/State combo or a Climate Zone -->
+              <!-- Specify either City/State, Climate Zone, or Lat/Long -->
               <auc:Address>
                 <auc:City>Chicago</auc:City>
                 <auc:State>IL</auc:State>

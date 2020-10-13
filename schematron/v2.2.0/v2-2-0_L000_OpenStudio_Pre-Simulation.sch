@@ -43,7 +43,7 @@
   <sch:pattern see="" id="scenario_requirements">
     <sch:title>Scenario Requirements</sch:title>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Scenarios/auc:Scenario">
-      <sch:assert test="auc:LinkedPremises/auc:Building/auc:LinkedBuildingID/@IDref" role="">auc:LinkedPremises/auc:Building/auc:LinkedBuildingID/@IDref</sch:assert>
+      <sch:assert test="auc:LinkedPremises/auc:Building/auc:LinkedBuildingID/@IDref" role="">All Scenarios should be linked to a Building</sch:assert>
     </sch:rule>
   </sch:pattern>
 </sch:schema>

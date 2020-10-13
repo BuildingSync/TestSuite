@@ -8,7 +8,7 @@
             <auc:Building ID="Office_Carolina">
               <auc:PremisesName>Office Carolina</auc:PremisesName>
 
-              <!-- Specify either  City/State combo or a Climate Zone -->
+              <!-- Specify either City/State, Climate Zone, or Lat/Long -->
               <auc:ClimateZoneType>
                 <auc:ASHRAE>
                   <auc:ClimateZone>6A</auc:ClimateZone>
