@@ -265,7 +265,7 @@
                 </auc:Building>
               </auc:LinkedPremises>
             </auc:Scenario>
-            <auc:Scenario>
+            <auc:Scenario ID="Package-1">
               <auc:ScenarioType>
 
               <!--
