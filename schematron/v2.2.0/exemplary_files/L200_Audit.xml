@@ -1963,6 +1963,12 @@
                   <auc:EnergyCostIndex>1.07</auc:EnergyCostIndex>
                 </auc:AllResourceTotal>
               </auc:AllResourceTotals>
+
+              <auc:LinkedPremises>
+                <auc:Building>
+                  <auc:LinkedBuildingID IDref="Building-A"></auc:LinkedBuildingID>
+                </auc:Building>
+              </auc:LinkedPremises>
             </auc:Scenario>
 
             <!-- Target energy use -->
@@ -1982,6 +1988,11 @@
                   <auc:EnergyCostIndex>123</auc:EnergyCostIndex>
                 </auc:AllResourceTotal>
               </auc:AllResourceTotals>
+              <auc:LinkedPremises>
+                <auc:Building>
+                  <auc:LinkedBuildingID IDref="Building-A"></auc:LinkedBuildingID>
+                </auc:Building>
+              </auc:LinkedPremises>
             </auc:Scenario>
 
             <!-- Benchmark -->
@@ -2004,6 +2015,12 @@
                   <auc:SiteEnergyUseIntensity>123</auc:SiteEnergyUseIntensity>
                 </auc:AllResourceTotal>
               </auc:AllResourceTotals>
+
+              <auc:LinkedPremises>
+                <auc:Building>
+                  <auc:LinkedBuildingID IDref="Building-A"></auc:LinkedBuildingID>
+                </auc:Building>
+              </auc:LinkedPremises>
             </auc:Scenario>
 
             <!-- Package of Measures -->
@@ -2049,6 +2066,11 @@
                   <auc:InternalRateOfReturn>123</auc:InternalRateOfReturn>
                 </auc:PackageOfMeasures>
               </auc:ScenarioType>
+              <auc:LinkedPremises>
+                <auc:Building>
+                  <auc:LinkedBuildingID IDref="Building-A"></auc:LinkedBuildingID>
+                </auc:Building>
+              </auc:LinkedPremises>
             </auc:Scenario>
           </auc:Scenarios>
 

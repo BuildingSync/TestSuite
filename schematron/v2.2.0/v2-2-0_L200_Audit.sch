@@ -8,6 +8,8 @@
     <sch:active pattern="contact_information"/>
     <sch:active pattern="document_structure_prerequisites_space_functions"/>
     <sch:active pattern="space_functions"/>
+    <sch:active pattern="document_structure_prerequisites_scenarios"/>
+    <sch:active pattern="scenarios"/>
   </sch:phase>
   <sch:phase id="schedules" see="ASHRAE 211 6.2.1.1 (e)">
     <sch:active pattern="document_structure_prerequisites_general_schedule_requirements"/>
@@ -229,6 +231,19 @@
       <sch:assert test="//auc:HVACSystem[auc:LinkedPremises/auc:Section/auc:LinkedSectionID/@IDref = current()/@ID]" role="">auc:Section[auc:SectionType='Space function'] must have a linked auc:HVACSystem</sch:assert>
       <sch:assert test="//auc:LightingSystem[auc:LinkedPremises/auc:Section/auc:LinkedSectionID/@IDref = current()/@ID]/auc:LampType" role="">auc:Section[auc:SectionType='Space function'] must have a linked auc:LightingSystem with auc:LampType defined</sch:assert>
       <sch:assert test="//auc:LightingSystem[auc:LinkedPremises/auc:Section/auc:LinkedSectionID/@IDref = current()/@ID]/auc:LampType//auc:LampLabel" role="WARNING">auc:Section[auc:SectionType='Space function'] must have a linked auc:LightingSystem with auc:LampLabel defined</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="" id="document_structure_prerequisites_scenarios">
+    <sch:title>Document Structure Prerequisites Scenarios</sch:title>
+    <sch:rule context="/">
+      <sch:assert test="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Scenarios/auc:Scenario" role="ERROR">/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Scenarios/auc:Scenario</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="" id="scenarios">
+    <sch:title>Scenarios</sch:title>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Scenarios/auc:Scenario">
+      <sch:assert test="auc:LinkedPremises/auc:Building/auc:LinkedBuildingID" role="">auc:LinkedPremises/auc:Building/auc:LinkedBuildingID</sch:assert>
+      <sch:assert test="//auc:Buildings/auc:Building[@ID = current()/auc:LinkedPremises/auc:Building/auc:LinkedBuildingID/@IDref]" role="">Every auc:Scenario must be linked to an auc:Building through auc:LinkedPremises</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern see="" id="document_structure_prerequisites_general_schedule_requirements">
