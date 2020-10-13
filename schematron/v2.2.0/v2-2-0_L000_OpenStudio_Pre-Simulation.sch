@@ -4,6 +4,8 @@
   <sch:phase id="building_information" see="Based on ASHRAE 211 5.2.3 and BSync-gem requirements">
     <sch:active pattern="document_structure_prerequisites_basic_building_info"/>
     <sch:active pattern="basic_building_info"/>
+    <sch:active pattern="document_structure_prerequisites_scenario_requirements"/>
+    <sch:active pattern="scenario_requirements"/>
   </sch:phase>
   <sch:pattern see="" id="document_structure_prerequisites_basic_building_info">
     <sch:title>Document Structure Prerequisites Basic Building Info</sch:title>
@@ -30,6 +32,18 @@
     </sch:rule>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:ClimateZoneType[auc:ASHRAE or auc:CaliforniaTitle24]">
       <sch:assert test="//auc:ClimateZone" role="">//auc:ClimateZone</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="" id="document_structure_prerequisites_scenario_requirements">
+    <sch:title>Document Structure Prerequisites Scenario Requirements</sch:title>
+    <sch:rule context="/">
+      <sch:assert test="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Scenarios/auc:Scenario" role="ERROR">/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Scenarios/auc:Scenario</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern see="" id="scenario_requirements">
+    <sch:title>Scenario Requirements</sch:title>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Scenarios/auc:Scenario">
+      <sch:assert test="auc:LinkedPremises/auc:Building/auc:LinkedBuildingID/@IDref" role="">auc:LinkedPremises/auc:Building/auc:LinkedBuildingID/@IDref</sch:assert>
     </sch:rule>
   </sch:pattern>
 </sch:schema>
