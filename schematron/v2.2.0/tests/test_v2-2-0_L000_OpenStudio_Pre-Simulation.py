@@ -60,7 +60,7 @@ class TestL000OpenStudioSimulation01(AssertFailureRolesMixin):
         failures = [failures[0]]
         self.assert_failure_messages(failures, {
             'ERROR': [
-                'An auc:Building should be linked to an auc:Scenario[auc:ScenarioType/auc:CurrentBuilding/auc:CalculationMethod/auc:Modeled/auc:SimulationCompletionStatus="Not Started" in order to trigger a baseline OpenStudio model to be built'
+                'An auc:Building should be linked to an auc:Scenario[auc:ScenarioType/auc:CurrentBuilding/auc:CalculationMethod/auc:Modeled/auc:SimulationCompletionStatus]'
             ]
         })
 
@@ -85,7 +85,7 @@ class TestL000OpenStudioSimulation01(AssertFailureRolesMixin):
         # -- Assert
         self.assert_failure_messages(failures, {
             'ERROR': [
-                'An auc:Building should be linked to an auc:Scenario[auc:ScenarioType/auc:CurrentBuilding/auc:CalculationMethod/auc:Modeled/auc:SimulationCompletionStatus="Not Started" in order to trigger a baseline OpenStudio model to be built',
+                'An auc:Building should be linked to an auc:Scenario[auc:ScenarioType/auc:CurrentBuilding/auc:CalculationMethod/auc:Modeled/auc:SimulationCompletionStatus]',
                 'All Scenarios should be linked to a Building'
             ]
         })
