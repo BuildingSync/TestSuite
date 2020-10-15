@@ -1,12 +1,13 @@
 import os
 
+from tools.constants import BSYNC_NSMAP
 from tools.validate_sch import validate_schematron
 from schematron.conftest import AssertFailureRolesMixin, exemplary_tree, remove_element, v2_2_0_SCH_DIR
 
 
 class TestL000OpenStudioSimulation01(AssertFailureRolesMixin):
-    schematron = os.path.join(v2_2_0_SCH_DIR, 'v2-2-0_L000_OpenStudio_Simulation.sch')
-    exemplary_file_name = 'L000_OpenStudio_Simulation_01'
+    schematron = os.path.join(v2_2_0_SCH_DIR, 'v2-2-0_L000_OpenStudio_Pre-Simulation.sch')
+    exemplary_file_name = 'L000_OpenStudio_Pre-Simulation_01'
     exemplary_file = os.path.join(v2_2_0_SCH_DIR, 'exemplary_files', f"{exemplary_file_name}.xml")
 
     def test_exemplary_file_is_valid(self):
@@ -33,10 +34,10 @@ class TestL000OpenStudioSimulation01(AssertFailureRolesMixin):
         # -- Assert
         self.assert_failure_messages(failures, {
             'ERROR': [
-                '(auc:Address/auc:City and auc:Address/auc:State) or auc:ClimateZoneType/auc:ASHRAE/auc:ClimateZone or auc:ClimateZoneType/auc:CaliforniaTitle24/auc:ClimateZone'
+                'auc:Address or auc:ClimateZoneType or auc:WeatherDataStationID or (auc:Latitude and auc:Longitude)'
             ]})
 
-    def test_fails_when_package_of_measures_scenario_missing(self):
+    def test_fails_when_baseline_scenario_missing(self):
         # -- Setup
         tree = exemplary_tree(self.exemplary_file_name, 'v2.2.0')
 
@@ -44,20 +45,26 @@ class TestL000OpenStudioSimulation01(AssertFailureRolesMixin):
         failures = validate_schematron(self.schematron, tree)
         self.assert_failure_messages(failures, {})
 
-        # remove the address
-        tree = remove_element(tree, '//auc:Scenario[auc:ScenarioType/auc:PackageOfMeasures]')
+        scenario_xpath = '//auc:Scenarios/auc:Scenario[auc:ScenarioType/auc:CurrentBuilding/auc:CalculationMethod/auc:Modeled/auc:SimulationCompletionStatus/text()="Not Started"]'
+        scenario_element = tree.xpath(scenario_xpath, namespaces=BSYNC_NSMAP)
+        assert len(scenario_element) == 1
+
+        # remove the scenario
+        tree = remove_element(tree, scenario_xpath)
 
         # -- Act
         failures = validate_schematron(self.schematron, tree)
 
         # -- Assert
+        # Only worry about the first failure
+        failures = [failures[0]]
         self.assert_failure_messages(failures, {
             'ERROR': [
-                "count(auc:Scenario[@ID='Baseline' and auc:ScenarioType/auc:PackageOfMeasures/auc:ReferenceCase/@IDref='Baseline' and auc:ScenarioName='Baseline']) = 1"
+                'An auc:Building should be linked to an auc:Scenario[auc:ScenarioType/auc:CurrentBuilding/auc:CalculationMethod/auc:Modeled/auc:SimulationCompletionStatus]'
             ]
         })
 
-    def test_fails_when_package_of_measures_scenario_missing_reference_case(self):
+    def test_fails_when_scenario_missing_linked_building(self):
         # -- Setup
         tree = exemplary_tree(self.exemplary_file_name, 'v2.2.0')
 
@@ -65,8 +72,12 @@ class TestL000OpenStudioSimulation01(AssertFailureRolesMixin):
         failures = validate_schematron(self.schematron, tree)
         self.assert_failure_messages(failures, {})
 
-        # remove the address
-        tree = remove_element(tree, '//auc:Scenario[auc:ScenarioType/auc:PackageOfMeasures]/auc:ScenarioType/auc:PackageOfMeasures/auc:ReferenceCase')
+        scenario_linked_building_xpath = '//auc:Scenarios/auc:Scenario[auc:ScenarioType/auc:CurrentBuilding/auc:CalculationMethod/auc:Modeled/auc:SimulationCompletionStatus/text()="Not Started"]/auc:LinkedPremises/auc:Building'
+        scenario_element = tree.xpath(scenario_linked_building_xpath, namespaces=BSYNC_NSMAP)
+        assert len(scenario_element) == 1
+
+        # remove the building
+        tree = remove_element(tree, scenario_linked_building_xpath)
 
         # -- Act
         failures = validate_schematron(self.schematron, tree)
@@ -74,14 +85,15 @@ class TestL000OpenStudioSimulation01(AssertFailureRolesMixin):
         # -- Assert
         self.assert_failure_messages(failures, {
             'ERROR': [
-                "count(auc:Scenario[@ID='Baseline' and auc:ScenarioType/auc:PackageOfMeasures/auc:ReferenceCase/@IDref='Baseline' and auc:ScenarioName='Baseline']) = 1"
+                'An auc:Building should be linked to an auc:Scenario[auc:ScenarioType/auc:CurrentBuilding/auc:CalculationMethod/auc:Modeled/auc:SimulationCompletionStatus]',
+                'All Scenarios should be linked to a Building'
             ]
         })
 
 
 class TestL000OpenStudioSimulation02(AssertFailureRolesMixin):
-    schematron = os.path.join(v2_2_0_SCH_DIR, 'v2-2-0_L000_OpenStudio_Simulation.sch')
-    exemplary_file_name = 'L000_OpenStudio_Simulation_02'
+    schematron = os.path.join(v2_2_0_SCH_DIR, 'v2-2-0_L000_OpenStudio_Pre-Simulation.sch')
+    exemplary_file_name = 'L000_OpenStudio_Pre-Simulation_02'
     exemplary_file = os.path.join(v2_2_0_SCH_DIR, 'exemplary_files', f"{exemplary_file_name}.xml")
 
     def test_exemplary_file_is_valid(self):
@@ -108,6 +120,6 @@ class TestL000OpenStudioSimulation02(AssertFailureRolesMixin):
         # -- Assert
         self.assert_failure_messages(failures, {
             'ERROR': [
-                "(auc:Address/auc:City and auc:Address/auc:State) or auc:ClimateZoneType/auc:ASHRAE/auc:ClimateZone or auc:ClimateZoneType/auc:CaliforniaTitle24/auc:ClimateZone"
+                'auc:Address or auc:ClimateZoneType or auc:WeatherDataStationID or (auc:Latitude and auc:Longitude)'
             ]
         })
