@@ -274,16 +274,16 @@
                 model.  Depending on the Measures declared, it then applies these measures on top of
                 the baseline model.
               -->
-                <auc:PackageOfMeasures>
+                <auc:PackageOfMeasures ID="Package-1-POM">
+                  <auc:ReferenceCase IDref="Baseline-Modeled"/>
+                  <auc:MeasureIDs>
+                    <auc:MeasureID IDref="Measure-1"/>
+                  </auc:MeasureIDs>
                   <auc:CalculationMethod>
                     <auc:Modeled>
                       <auc:SimulationCompletionStatus>Not Started</auc:SimulationCompletionStatus>
                     </auc:Modeled>
                   </auc:CalculationMethod>
-                  <auc:ReferenceCase IDref="Baseline-Modeled"/>
-                  <auc:MeasureIDs>
-                    <auc:MeasureID IDref="Measure-1"/>
-                  </auc:MeasureIDs>
                 </auc:PackageOfMeasures>
               </auc:ScenarioType>
 
