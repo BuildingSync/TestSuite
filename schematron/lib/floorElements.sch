@@ -79,7 +79,8 @@
 -->
   <pattern abstract="true" id="fa.oneOfType">
     <rule context="$parent">
-      <assert test="count(auc:FloorArea[auc:FloorAreaType = $floorAreaType]) = 1" role="ERROR">element 'auc:FloorAreaType' with value '<value-of select="$floorAreaType"/>' is REQUIRED EXACTLY ONCE within element 'auc:FloorArea' for '<name/>'.  Currently occurs: <value-of select="count(auc:FloorArea[auc:FloorAreaType = $floorAreaType])"/></assert>
+      <assert test="count(auc:FloorArea[auc:FloorAreaType = $floorAreaType]) = 1" role="ERROR">element 'auc:FloorAreaType' with value '<value-of select="$floorAreaType"/>' is REQUIRED EXACTLY ONCE within element 'auc:FloorArea' for '<name/>'.  Currently occurs: <value-of select="count(auc:FloorArea[auc:FloorAreaType = $floorAreaType])"/>
+      </assert>
     </rule>
   </pattern>
   <!--
@@ -130,13 +131,20 @@
       <let name="unconditionedArea" value="number(concat(substring($unconditionedAreaValueComputed, 1, $endTextPosition1UCA),                                                          substring($unconditionedAreaValue, 1, $endTextPosition2UCA)))"/>
       <assert test="$conditionedArea &gt;= $cooledOnlyArea + $heatedOnlyArea + $heatedCooledArea + $ventilatedArea" role="ERROR">Conditioned Floor Area (<value-of select="$conditionedArea"/>) must be greater than or equal to: Heated and Cooled (<value-of select="$heatedCooledArea"/>) + Heated only (<value-of select="$heatedOnlyArea"/>) + Cooled only (<value-of select="$cooledOnlyArea"/>) + Ventilated (<value-of select="$ventilatedArea"/>)</assert>
       <assert test="$grossArea &gt;= $conditionedArea + $unconditionedArea and $unconditionedArea &gt;= 0" role="ERROR">Gross Floor Area (<value-of select="$grossArea"/>) must be greater than or equal to: Conditioned (<value-of select="$conditionedArea"/>) + Unconditioned (<value-of select="$unconditionedArea"/>) AND Unconditioned Floor Area must be &gt; 0</assert>
-      <assert test="false()" role="INFO">'Gross' Floor Area: <value-of select="$grossArea"/></assert>
-      <assert test="false()" role="INFO">'Cooled only' Floor Area: <value-of select="$cooledOnlyArea"/></assert>
-      <assert test="false()" role="INFO">'Heated only' Floor Area: <value-of select="$heatedOnlyArea"/></assert>
-      <assert test="false()" role="INFO">'Heated and Cooled' Floor Area: <value-of select="$heatedCooledArea"/></assert>
-      <assert test="false()" role="INFO">'Ventilated' Floor Area: <value-of select="$ventilatedArea"/></assert>
-      <assert test="false()" role="INFO">'Conditioned' Floor Area: <value-of select="$conditionedArea"/></assert>
-      <assert test="false()" role="INFO">'Unconditioned' Floor Area: <value-of select="$unconditionedArea"/></assert>
+      <assert test="false()" role="INFO">'Gross' Floor Area: <value-of select="$grossArea"/>
+      </assert>
+      <assert test="false()" role="INFO">'Cooled only' Floor Area: <value-of select="$cooledOnlyArea"/>
+      </assert>
+      <assert test="false()" role="INFO">'Heated only' Floor Area: <value-of select="$heatedOnlyArea"/>
+      </assert>
+      <assert test="false()" role="INFO">'Heated and Cooled' Floor Area: <value-of select="$heatedCooledArea"/>
+      </assert>
+      <assert test="false()" role="INFO">'Ventilated' Floor Area: <value-of select="$ventilatedArea"/>
+      </assert>
+      <assert test="false()" role="INFO">'Conditioned' Floor Area: <value-of select="$conditionedArea"/>
+      </assert>
+      <assert test="false()" role="INFO">'Unconditioned' Floor Area: <value-of select="$unconditionedArea"/>
+      </assert>
     </rule>
   </pattern>
   <!--
@@ -175,8 +183,10 @@
       <let name="buildingGrossArea" value="number(auc:FloorAreas/auc:FloorArea[auc:FloorAreaType='Gross']/auc:FloorAreaValue)"/>
       <let name="allSpaceFunctionSectionsGrossArea" value="number(sum(//auc:Section[auc:SectionType/text()='Space function']/auc:FloorAreas/auc:FloorArea[auc:FloorAreaType='Gross']/auc:FloorAreaValue))"/>
       <assert test="$buildingGrossArea &gt;= $allSpaceFunctionSectionsGrossArea" role="ERROR">auc:Building Gross Floor (<value-of select="$buildingGrossArea"/>) Area MUST BE GREATER THAN OR EQUAL TO the sum of all Gross Floor areas from elements auc:Section[auc:SectionType='Space function'] (<value-of select="$allSpaceFunctionSectionsGrossArea"/>)</assert>
-      <assert test="false()" role="INFO">Building Gross Floor Area: <value-of select="$buildingGrossArea"/></assert>
-      <assert test="false()" role="INFO">Sum of all auc:Section[auc:SectionType='Space function'] Gross Floor Area: <value-of select="$allSpaceFunctionSectionsGrossArea"/></assert>
+      <assert test="false()" role="INFO">Building Gross Floor Area: <value-of select="$buildingGrossArea"/>
+      </assert>
+      <assert test="false()" role="INFO">Sum of all auc:Section[auc:SectionType='Space function'] Gross Floor Area: <value-of select="$allSpaceFunctionSectionsGrossArea"/>
+      </assert>
     </rule>
   </pattern>
   <!--  Check that either a auc:FloorAreaValue or auc:FloorAreaPercentage is specifed, but not both

@@ -304,7 +304,7 @@ def generate_sch(csv_file, output_file=None, exemplary_xml_file=None, dry_run=Fa
     for pattern in collected_patterns:
         root.append(pattern)
 
-    sch_bytes = etree.tostring(root, pretty_print=True, xml_declaration=True)
+    sch_bytes = etree.tostring(root, doctype='<?xml version="1.0" encoding="UTF-8"?>', pretty_print=True)
     if output_file is None:
         output_file = f'{os.path.splitext(csv_file)[0]}.sch'
 

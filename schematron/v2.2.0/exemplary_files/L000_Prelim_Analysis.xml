@@ -30,7 +30,6 @@
           </auc:Buildings>
         </auc:Site>
       </auc:Sites>
-
       <auc:Reports>
         <auc:Report ID="ReportA">
           <auc:Scenarios>
@@ -39,17 +38,15 @@
               <auc:ScenarioType>
                 <auc:CurrentBuilding>
                   <auc:CalculationMethod>
-                    <auc:Measured></auc:Measured>
+                    <auc:Measured/>
                   </auc:CalculationMethod>
                 </auc:CurrentBuilding>
               </auc:ScenarioType>
-
               <auc:ResourceUses>
                 <auc:ResourceUse ID="ElectricityA">
                   <auc:EnergyResource>Electricity</auc:EnergyResource>
                 </auc:ResourceUse>
               </auc:ResourceUses>
-
               <auc:AllResourceTotals>
                 <auc:AllResourceTotal ID="AllResourceTotalA">
                   <!-- 5.2.3.1 -->
@@ -58,14 +55,12 @@
                   <auc:EnergyCostIndex>123</auc:EnergyCostIndex>
                 </auc:AllResourceTotal>
               </auc:AllResourceTotals>
-
               <auc:LinkedPremises>
                 <auc:Building>
-                  <auc:LinkedBuildingID IDref="BuildingA"></auc:LinkedBuildingID>
+                  <auc:LinkedBuildingID IDref="BuildingA"/>
                 </auc:Building>
               </auc:LinkedPremises>
             </auc:Scenario>
-
             <auc:Scenario ID="ScenarioB">
               <!-- 5.2.3.3 -->
               <auc:ScenarioType>
@@ -82,7 +77,7 @@
               </auc:ScenarioType>
               <auc:LinkedPremises>
                 <auc:Building>
-                  <auc:LinkedBuildingID IDref="BuildingA"></auc:LinkedBuildingID>
+                  <auc:LinkedBuildingID IDref="BuildingA"/>
                 </auc:Building>
               </auc:LinkedPremises>
             </auc:Scenario>

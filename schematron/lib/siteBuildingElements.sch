@@ -22,9 +22,12 @@
       <assert test="($allCityCount = 1 and $allStateCount = 1 and $allClimateZoneCount &lt;= 1) or ($allCityCount &lt;= 1 and $allStateCount &lt;= 1 and $allClimateZoneCount = 1)" role="WARNING">
         elements 'auc:City' and 'auc:State' or element 'auc:ClimateZoneType//auc:ClimateZone' are RECOMMENDED EXACTLY ONCE at either the 'auc:Site' or 'auc:Building' level.
       </assert>
-      <assert test="false()" role="INFO">Number of 'auc:City' elements defined at the 'auc:Site' = <value-of select="$siteCityCount"/>, 'auc:Building' = <value-of select="$allCityCount - $siteCityCount"/></assert>
-      <assert test="false()" role="INFO">Number of 'auc:State' elements defined at the 'auc:Site' = <value-of select="$siteStateCount"/>, 'auc:Building' = <value-of select="$allStateCount - $siteStateCount"/></assert>
-      <assert test="false()" role="INFO">Number of 'auc:ClimateZoneType//auc:ClimateZone' elements defined at the 'auc:Site' = <value-of select="$siteClimateZoneCount"/>, 'auc:Building' = <value-of select="$allClimateZoneCount - $siteClimateZoneCount"/></assert>
+      <assert test="false()" role="INFO">Number of 'auc:City' elements defined at the 'auc:Site' = <value-of select="$siteCityCount"/>, 'auc:Building' = <value-of select="$allCityCount - $siteCityCount"/>
+      </assert>
+      <assert test="false()" role="INFO">Number of 'auc:State' elements defined at the 'auc:Site' = <value-of select="$siteStateCount"/>, 'auc:Building' = <value-of select="$allStateCount - $siteStateCount"/>
+      </assert>
+      <assert test="false()" role="INFO">Number of 'auc:ClimateZoneType//auc:ClimateZone' elements defined at the 'auc:Site' = <value-of select="$siteClimateZoneCount"/>, 'auc:Building' = <value-of select="$allClimateZoneCount - $siteClimateZoneCount"/>
+      </assert>
     </rule>
   </pattern>
 </schema>

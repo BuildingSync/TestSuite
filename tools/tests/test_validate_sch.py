@@ -183,7 +183,7 @@ class TestValidateSchematron:
         </sch:schema>'''
 
         # -- Act, Assert
-        with pytest.raises(Exception) as e:
+        with pytest.raises(Exception):
             validate_schematron(sch, doc, phase='bogus_phase_id')
 
     def test_when_using_strict_context_it_returns_failures_for_unfired_rules(self):
