@@ -44,5 +44,5 @@ repos:
     -   id: format-xml
         name: format xml and sch files
         language: system
-        entry: python buildingsch.py clean_all
+        entry: python buildingsch.py clean
         files: ^.*.(xml|sch)$

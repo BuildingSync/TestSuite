@@ -59,8 +59,9 @@ def generate_all_schematron(args):
     sys.exit(0)
 
 
-def _clean_file(args):
-    clean_files(args.filename)
+def _clean_files(args):
+    for filename in args.filenames:
+        clean_files(filename)
 
 
 def clean_all_files(args):
@@ -175,14 +176,15 @@ parser_generate.add_argument(
 parser_generate.set_defaults(func=generate_all_schematron)
 
 # Clean command
-parser_clean_file = subparsers.add_parser('clean', description='Command for formatting a single *.xml or *.sch file')
-parser_generate.add_argument(
-    'filename',
-    metavar='filename',
+parser_clean_files = subparsers.add_parser('clean', description='Command for formatting one ore more *.xml or *.sch files')
+parser_clean_files.add_argument(
+    'filenames',
+    metavar='filenames',
     type=str,
-    help='File to clean',
+    help='File(s) to clean',
+    nargs='+'
 )
-parser_clean_file.set_defaults(func=_clean_file)
+parser_clean_files.set_defaults(func=_clean_files)
 
 # Clean all command
 parser_clean_all_files = subparsers.add_parser('clean_all', description='Command for formatting all *.xml and *.sch files')
