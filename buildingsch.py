@@ -59,6 +59,10 @@ def generate_all_schematron(args):
     sys.exit(0)
 
 
+def _clean_file(args):
+    clean_files(args.filename)
+
+
 def clean_all_files(args):
     """
     Cleans all *.sch and *.xml files in the schematron directory.  Cleaning consists of:
@@ -79,10 +83,7 @@ def clean_all_files(args):
 
     for file_ in updated_files:
         print(file_)
-    #
-    # if args.dry_run and len(updated_files) > 0:
-    #     print('Expected no files to be modified after generating Schematron. Update the Schematron by running `./buildingsch.py generate_all`')
-    #     sys.exit(1)
+
     sys.exit(0)
 
 
@@ -173,6 +174,17 @@ parser_generate.add_argument(
 )
 parser_generate.set_defaults(func=generate_all_schematron)
 
+# Clean command
+parser_clean_file = subparsers.add_parser('clean', description='Command for formatting a single *.xml or *.sch file')
+parser_generate.add_argument(
+    'filename',
+    metavar='filename',
+    type=str,
+    help='File to clean',
+)
+parser_clean_file.set_defaults(func=_clean_file)
+
+# Clean all command
 parser_clean_all_files = subparsers.add_parser('clean_all', description='Command for formatting all *.xml and *.sch files')
 parser_clean_all_files.set_defaults(func=clean_all_files)
 
