@@ -26,9 +26,12 @@
       <let name="numContacts" value="count(auc:Contact)"/>
       <let name="numAuditors" value="count(auc:Contact/auc:ContactRoles/auc:ContactRole[text()='Energy Auditor'])"/>
       <let name="numOwners" value="count(auc:Contact/auc:ContactRoles/auc:ContactRole[text()='Owner'])"/>
-      <assert test="$numContacts &gt;= 2" role="ERROR">element 'auc:Contact' is REQUIRED AT LEAST TWICE for: '<name/>’. Current number of occurrences: <value-of select="$numContacts"/></assert>
-      <assert test="$numAuditors &gt;= 1" role="ERROR">element 'auc:Contact' with child element 'auc:ContactRoles/auc:ContactRole' with value 'Energy Auditor' is REQUIRED AT LEAST ONCE for: '<name/>’. Current number of occurrences: <value-of select="$numAuditors"/></assert>
-      <assert test="$numOwners &gt;= 1" role="ERROR">element 'auc:Contact' with child element 'auc:ContactRoles/auc:ContactRole' with value 'Owner' is REQUIRED AT LEAST ONCE for: '<name/>’. Current number of occurrences: <value-of select="$numOwners"/></assert>
+      <assert test="$numContacts &gt;= 2" role="ERROR">element 'auc:Contact' is REQUIRED AT LEAST TWICE for: '<name/>&#8217;. Current number of occurrences: <value-of select="$numContacts"/>
+      </assert>
+      <assert test="$numAuditors &gt;= 1" role="ERROR">element 'auc:Contact' with child element 'auc:ContactRoles/auc:ContactRole' with value 'Energy Auditor' is REQUIRED AT LEAST ONCE for: '<name/>&#8217;. Current number of occurrences: <value-of select="$numAuditors"/>
+      </assert>
+      <assert test="$numOwners &gt;= 1" role="ERROR">element 'auc:Contact' with child element 'auc:ContactRoles/auc:ContactRole' with value 'Owner' is REQUIRED AT LEAST ONCE for: '<name/>&#8217;. Current number of occurrences: <value-of select="$numOwners"/>
+      </assert>
     </rule>
   </pattern>
   <!--

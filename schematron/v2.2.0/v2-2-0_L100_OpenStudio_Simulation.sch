@@ -63,14 +63,14 @@
     <active pattern="sec.fa.oneOfMechType"/>
     <active pattern="sec.fa.mechTypeChecks"/>
     <active pattern="sec.occ.typUsage.haveUnitsAndValue"/>
-<!--    TypicalOccupantUsage='Hours per week' for each Section -->
+    <!--    TypicalOccupantUsage='Hours per week' for each Section -->
     <active pattern="sec.occ.oneOfType.hoursPerWeek"/>
     <!--    TypicalOccupantUsage='Weeks per year' for each Section -->
     <active pattern="sec.occ.oneOfType.weeksPerYear"/>
     <active pattern="sec.occ.levels.haveQuantityAndType"/>
-<!--    OccupancyLevel='Peak Total Occupants' for each Section-->
+    <!--    OccupancyLevel='Peak Total Occupants' for each Section-->
     <active pattern="sec.occ.levels.hasPeak"/>
-<!--    Section level system checks: PrimaryHVACSystemType, PrimaryLightingSystemType, PlugLoad-->
+    <!--    Section level system checks: PrimaryHVACSystemType, PrimaryLightingSystemType, PlugLoad-->
     <active pattern="sec.primarySystems.L100"/>
   </phase>
   <include href="../../../lib/id.sch#id.facility"/>
@@ -132,12 +132,12 @@
   <include href="../../../lib/sectionElements.sch#sec.primarySystems.L100"/>
   <!--  Instantiate abstract patterns for L100 use case -->
   <!--  START FLOOR AREA CHECKS -->
-<!--  Ensure there is maximum one of each FloorAreaType in a FloorAreas -->
+  <!--  Ensure there is maximum one of each FloorAreaType in a FloorAreas -->
   <pattern id="all.fa.maxOneOfEachType" is-a="fa.maxOneOfEachType">
     <param name="parent" value="auc:FloorAreas"/>
     <!-- auc:FloorAreas is the intended effect, checks Buildings, Sections, etc. -->
   </pattern>
-<!--  Don't use 'Heated' or 'Cooled' in any of the FloorAreaType text -->
+  <!--  Don't use 'Heated' or 'Cooled' in any of the FloorAreaType text -->
   <pattern id="all.fa.dontUse" is-a="fa.dontUse">
     <param name="parent" value="auc:FloorAreas"/>
     <!-- auc:FloorAreas is the intended effect, checks Buildings, Sections, etc. -->
@@ -146,7 +146,7 @@
   <pattern id="all.fa.haveTypeAndValue" is-a="fa.haveTypeAndValue">
     <param name="parent" value="auc:FloorAreas/auc:FloorArea"/>
   </pattern>
-<!--  Site or Building element to have a City and State or Climate Zone.-->
+  <!--  Site or Building element to have a City and State or Climate Zone.-->
   <pattern id="sbe.sbe.cityStateOrClimateZone" is-a="sbe.cityStateOrClimateZone">
     <param name="parent" value="auc:Sites/auc:Site"/>
   </pattern>
@@ -176,10 +176,9 @@
   <pattern id="be.fa.mechTypeChecks" is-a="fa.mechTypeChecks">
     <param name="parent" value="auc:Building/auc:FloorAreas"/>
   </pattern>
-
   <!--  END FLOOR AREA CHECKS -->
   <!--  START SPACE FUNCTION CHECKS -->
-<!--  Check that auc:OccupancyClassification is specified for all Space function -->
+  <!--  Check that auc:OccupancyClassification is specified for all Space function -->
   <pattern id="sec.sec.mainDetails.L100.sim" is-a="sec.mainDetails.L100.sim">
     <param name="parent" value="auc:Section[auc:SectionType='Space function']"/>
   </pattern>

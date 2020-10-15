@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schema xmlns="http://purl.oclc.org/dsdl/schematron">
   <ns prefix="auc" uri="http://buildingsync.net/schemas/bedes-auc/2019"/>
-<!-- Require every element of the following type to have and ID:
+  <!-- Require every element of the following type to have and ID:
     Premises:
      - Facility - T
      - Site - T
@@ -47,7 +47,7 @@
      - Tenant
 
 -->
-<!--  Premises -->
+  <!--  Premises -->
   <!--
   Facility has ID
   <severity> error
@@ -92,7 +92,7 @@
       </assert>
     </rule>
   </pattern>
-<!--  Systems -->
+  <!--  Systems -->
   <!--
   HVACSystem has ID
   <severity> error
@@ -357,7 +357,7 @@
       </assert>
     </rule>
   </pattern>
-<!--  Schedules & Measures -->
+  <!--  Schedules & Measures -->
   <!--
   Schedule has ID
   <severity> error
@@ -380,7 +380,7 @@
       </assert>
     </rule>
   </pattern>
-<!--  Reports-->
+  <!--  Reports-->
   <!--
   Report has ID
   <severity> error
@@ -437,7 +437,7 @@
       </assert>
     </rule>
   </pattern>
-<!--  Contacts -->
+  <!--  Contacts -->
   <!--
   Contact has ID
   <severity> error

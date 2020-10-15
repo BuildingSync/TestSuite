@@ -57,8 +57,8 @@
       <sch:assert test="count(./auc:ResourceUses/auc:ResourceUse[auc:EnergyResource=&quot;Natural gas&quot;]/auc:AnnualFuelUseConsistentUnits) = 1" role="WARNING">element "/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Scenarios/auc:Scenario/auc:ResourceUses/auc:ResourceUse[auc:EnergyResource="Natural gas"]/auc:AnnualFuelUseConsistentUnits" is RECOMMENDED</sch:assert>
       <sch:assert test="count(./auc:ScenarioType/auc:PackageOfMeasures/auc:CalculationMethod/auc:Modeled) = 1" role="WARNING">element "/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Scenarios/auc:Scenario/auc:ScenarioType/auc:PackageOfMeasures/auc:CalculationMethod/auc:Modeled" is RECOMMENDED</sch:assert>
       <sch:assert test="count(./auc:ScenarioType/auc:PackageOfMeasures/auc:MeasureIDs) = 1" role="WARNING">element "/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Scenarios/auc:Scenario/auc:ScenarioType/auc:PackageOfMeasures/auc:MeasureIDs" is RECOMMENDED</sch:assert>
-      <sch:assert test="count(./auc:ResourceUses/auc:ResourceUse) > 0" role="WARNING">element "/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Scenarios/auc:Scenario/auc:ResourceUses/auc:ResourceUse" is RECOMMENDED</sch:assert>
-      <sch:assert test="count(./auc:TimeSeriesData/auc:TimeSeries) > 0" role="WARNING">element "/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Scenarios/auc:Scenario/auc:TimeSeriesData/auc:TimeSeries" is RECOMMENDED</sch:assert>
+      <sch:assert test="count(./auc:ResourceUses/auc:ResourceUse) &gt; 0" role="WARNING">element "/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Scenarios/auc:Scenario/auc:ResourceUses/auc:ResourceUse" is RECOMMENDED</sch:assert>
+      <sch:assert test="count(./auc:TimeSeriesData/auc:TimeSeries) &gt; 0" role="WARNING">element "/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Scenarios/auc:Scenario/auc:TimeSeriesData/auc:TimeSeries" is RECOMMENDED</sch:assert>
     </sch:rule>
   </sch:pattern>
 </sch:schema>
