@@ -132,7 +132,7 @@ class TestL200AuditEnvelopeSystems(AssertFailureRolesMixin):
         footprint_elem = footprint_elem[0]
         footprint_elem.text = footprint_shape
 
-        replace_element(section_elem, 'auc:Sides', _sides_factory(footprint_shape))
+        replace_element(section_elem, 'auc:Sides', _sides_factory(footprint_shape, window_id='Window-A-Original'))
 
         # make sure it's valid with substituted elements
         failures = validate_schematron(self.schematron, tree)
