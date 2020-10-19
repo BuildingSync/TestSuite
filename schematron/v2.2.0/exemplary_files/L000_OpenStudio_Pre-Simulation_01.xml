@@ -7,7 +7,6 @@
           <auc:Buildings>
             <auc:Building ID="Willis_Tower">
               <auc:PremisesName>Willis Tower</auc:PremisesName>
-
               <!-- Specify either City/State, Climate Zone, or Lat/Long -->
               <auc:Address>
                 <auc:City>Chicago</auc:City>
@@ -31,7 +30,6 @@
           <auc:Scenarios>
             <auc:Scenario ID="Baseline-Modeled">
               <auc:ScenarioName>Baseline</auc:ScenarioName>
-
               <!--
                 Declaring the ScenarioType in this way is used by the BuildingSync-gem to create
                 the 'Baseline' model of the building.  It is intended to be interpreted as: 'Create
@@ -46,7 +44,6 @@
                   </auc:CalculationMethod>
                 </auc:CurrentBuilding>
               </auc:ScenarioType>
-
               <!--
                 Link the Scenario back to the Building so as to specify for which building
                 the model is being created.

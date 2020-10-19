@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <auc:BuildingSync xmlns:auc="http://buildingsync.net/schemas/bedes-auc/2019" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://buildingsync.net/schemas/bedes-auc/2019 https://raw.githubusercontent.com/BuildingSync/schema/v2.2.0/BuildingSync.xsd" version="2.2.0">
   <auc:Facilities>
     <auc:Facility ID="Facility-69916113180740">
@@ -7,7 +7,6 @@
           <auc:Buildings>
             <auc:Building ID="BuildingType-69916112909060">
               <auc:PremisesName>L100_Instance1</auc:PremisesName>
-
               <!-- Specify either City/State, Climate Zone, or Lat/Long -->
               <auc:Address>
                 <auc:StreetAddressDetail>
@@ -25,7 +24,6 @@
               <auc:FloorsBelowGrade>0</auc:FloorsBelowGrade>
               <auc:ConditionedFloorsAboveGrade>2</auc:ConditionedFloorsAboveGrade>
               <auc:ConditionedFloorsBelowGrade>0</auc:ConditionedFloorsBelowGrade>
-
               <!--
                 Although multiple FloorAreaTypes can be declared, the BuildingSync-gem
                 does not change how the HVAC systems are modeled.  Two scenarios:
@@ -52,7 +50,6 @@
               </auc:FloorAreas>
               <auc:YearOfConstruction>2016</auc:YearOfConstruction>
               <auc:Sections>
-
                 <!--
                   Sections of SectionType 'Space function' are used to indicate portions
                   of a building with a specific OccupancyClassification
@@ -62,7 +59,6 @@
                   <auc:OccupancyClassification>Retail</auc:OccupancyClassification>
                   <auc:OccupancyLevels>
                     <auc:OccupancyLevel>
-
                       <!--
                         Defining an OccupancyLevel with 'Peak total occupants' indicates, for this
                         specific section of the building, the design peak occupancy.  This is used
@@ -72,8 +68,7 @@
                       <auc:OccupantQuantity>371</auc:OccupantQuantity>
                     </auc:OccupancyLevel>
                   </auc:OccupancyLevels>
-
-                    <!--
+                  <!--
                       The following two fields (Hours per week and Weeks per year) are used to
                       modify the schedules in the OSM for the Section.
                     -->
@@ -134,7 +129,6 @@
         </auc:Site>
       </auc:Sites>
       <auc:Systems>
-
         <!--
           The BuildingSync-gem maps a PrincipalHVACSystemType to a CBECS Standard type via:
            BuildingSync.HVACSystem.map_primary_hvac_system_type_to_cbecs_system_type
@@ -157,7 +151,6 @@
             </auc:LinkedPremises>
           </auc:HVACSystem>
         </auc:HVACSystems>
-
         <!--
           The BuildingSync-gem will read in a LampType and LampLabel, and will associate
            them to a Section, but does not use them to change any of the underlying
@@ -190,7 +183,6 @@
           </auc:LightingSystem>
         </auc:LightingSystems>
         <auc:PlugLoads>
-
           <!--
             The BuildingSync-gem uses the PlugLoad definition to modify the EPD of the Section
           -->
@@ -216,7 +208,6 @@
       </auc:Systems>
       <auc:Measures>
         <auc:Measure ID="Measure-1">
-
           <!--
             The BuildingSync-gem uses the SystemCategoryAffected in the worfklow_maker.json file
           -->
@@ -224,7 +215,6 @@
           <auc:TechnologyCategories>
             <auc:TechnologyCategory>
               <auc:LightingImprovements>
-
                 <!--
                   The BuildingSync-gem uses the MeasureName in the worfklow_maker.json file
                 -->
@@ -239,7 +229,6 @@
           <auc:Scenarios>
             <auc:Scenario ID="Baseline-Modeled">
               <auc:ScenarioName>Baseline</auc:ScenarioName>
-
               <!--
                 Declaring the ScenarioType in this way is used by the BuildingSync-gem to create
                 the 'Baseline' model of the building.  It is intended to be interpreted as: 'Create
@@ -254,21 +243,19 @@
                   </auc:CalculationMethod>
                 </auc:CurrentBuilding>
               </auc:ScenarioType>
-
               <!--
                 Link the Scenario back to the Building so as to specify for which building
                 the model is being created.
               -->
               <auc:LinkedPremises>
                 <auc:Building>
-                  <auc:LinkedBuildingID IDref="BuildingType-69916112909060"></auc:LinkedBuildingID>
+                  <auc:LinkedBuildingID IDref="BuildingType-69916112909060"/>
                 </auc:Building>
               </auc:LinkedPremises>
             </auc:Scenario>
             <auc:Scenario ID="Package-1">
               <auc:ScenarioType>
-
-              <!--
+                <!--
                 Declaring the ScenarioType in this way is used by the BuildingSync-gem to create
                 a derivative model of the building based.  It uses the 'ReferenceCase' as the 'seed'
                 model.  Depending on the Measures declared, it then applies these measures on top of
@@ -286,14 +273,13 @@
                   </auc:CalculationMethod>
                 </auc:PackageOfMeasures>
               </auc:ScenarioType>
-
               <!--
                 Link the Scenario back to the Building so as to specify for which building
                 the model is being created.
               -->
               <auc:LinkedPremises>
                 <auc:Building>
-                  <auc:LinkedBuildingID IDref="BuildingType-69916112909060"></auc:LinkedBuildingID>
+                  <auc:LinkedBuildingID IDref="BuildingType-69916112909060"/>
                 </auc:Building>
               </auc:LinkedPremises>
             </auc:Scenario>
