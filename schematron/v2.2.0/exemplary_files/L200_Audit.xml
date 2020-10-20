@@ -190,7 +190,7 @@
                         </auc:WallID>
                       </auc:WallIDs>
                       <auc:WindowIDs>
-                        <auc:WindowID IDref="Window-A">
+                        <auc:WindowID IDref="Window-A-Original">
                           <auc:FenestrationArea>123</auc:FenestrationArea>
                         </auc:WindowID>
                       </auc:WindowIDs>
@@ -208,7 +208,7 @@
                         </auc:WallID>
                       </auc:WallIDs>
                       <auc:WindowIDs>
-                        <auc:WindowID IDref="Window-A">
+                        <auc:WindowID IDref="Window-A-Original">
                           <auc:FenestrationArea>123</auc:FenestrationArea>
                         </auc:WindowID>
                       </auc:WindowIDs>
@@ -226,7 +226,7 @@
                         </auc:WallID>
                       </auc:WallIDs>
                       <auc:WindowIDs>
-                        <auc:WindowID IDref="Window-A">
+                        <auc:WindowID IDref="Window-A-Original">
                           <auc:FenestrationArea>123</auc:FenestrationArea>
                         </auc:WindowID>
                       </auc:WindowIDs>
@@ -244,7 +244,7 @@
                         </auc:WallID>
                       </auc:WallIDs>
                       <auc:WindowIDs>
-                        <auc:WindowID IDref="Window-A">
+                        <auc:WindowID IDref="Window-A-Original">
                           <auc:FenestrationArea>123</auc:FenestrationArea>
                         </auc:WindowID>
                       </auc:WindowIDs>
@@ -427,12 +427,12 @@
               <auc:Section>
                 <auc:LinkedSectionID IDref="Section-Space-A">
                   <auc:LinkedScheduleIDs>
-                    <auc:LinkedScheduleID IDref="LightingSchedule"/>
+                    <auc:LinkedScheduleID IDref="LightingSchedule-Original"/>
                   </auc:LinkedScheduleIDs>
                 </auc:LinkedSectionID>
                 <auc:LinkedSectionID IDref="Section-Space-B">
                   <auc:LinkedScheduleIDs>
-                    <auc:LinkedScheduleID IDref="LightingSchedule"/>
+                    <auc:LinkedScheduleID IDref="LightingSchedule-Original"/>
                   </auc:LinkedScheduleIDs>
                 </auc:LinkedSectionID>
               </auc:Section>
@@ -468,14 +468,25 @@
           </auc:RoofSystem>
         </auc:RoofSystems>
         <auc:FenestrationSystems>
-          <auc:FenestrationSystem ID="Window-A">
+          <auc:FenestrationSystem ID="Window-A-Original">
+            <auc:FenestrationType>
+              <auc:Window/>
+            </auc:FenestrationType>
+            <auc:FenestrationFrameMaterial>Steel</auc:FenestrationFrameMaterial>
+            <auc:GlassType>Clear uncoated</auc:GlassType>
+            <auc:FenestrationGlassLayers>Single pane</auc:FenestrationGlassLayers>
+            <auc:FenestrationUFactor>1.25</auc:FenestrationUFactor>
+            <auc:SolarHeatGainCoefficient>0.5</auc:SolarHeatGainCoefficient>
+            <auc:VisibleTransmittance>0.5</auc:VisibleTransmittance>
+          </auc:FenestrationSystem>
+          <auc:FenestrationSystem ID="Window-A-New">
             <auc:FenestrationType>
               <auc:Window/>
             </auc:FenestrationType>
             <auc:FenestrationFrameMaterial>Steel</auc:FenestrationFrameMaterial>
             <auc:GlassType>Low e</auc:GlassType>
-            <auc:FenestrationGlassLayers>Single pane</auc:FenestrationGlassLayers>
-            <auc:FenestrationRValue>0.5</auc:FenestrationRValue>
+            <auc:FenestrationGlassLayers>Triple pane</auc:FenestrationGlassLayers>
+            <auc:FenestrationUFactor>0.25</auc:FenestrationUFactor>
             <auc:SolarHeatGainCoefficient>0.5</auc:SolarHeatGainCoefficient>
             <auc:VisibleTransmittance>0.5</auc:VisibleTransmittance>
           </auc:FenestrationSystem>
@@ -614,7 +625,7 @@
             </auc:Section>
           </auc:LinkedPremises>
         </auc:Schedule>
-        <auc:Schedule ID="LightingSchedule">
+        <auc:Schedule ID="LightingSchedule-Original">
           <auc:ScheduleDetails>
             <auc:ScheduleDetail>
               <auc:DayType>Weekday</auc:DayType>
@@ -636,6 +647,36 @@
               <auc:DayStartTime>09:00:00</auc:DayStartTime>
               <auc:DayEndTime>17:00:00</auc:DayEndTime>
               <auc:PartialOperationPercentage>80</auc:PartialOperationPercentage>
+            </auc:ScheduleDetail>
+          </auc:ScheduleDetails>
+          <auc:LinkedPremises>
+            <auc:Building>
+              <auc:LinkedBuildingID IDref="Building-A"/>
+            </auc:Building>
+          </auc:LinkedPremises>
+        </auc:Schedule>
+        <auc:Schedule ID="LightingSchedule-New">
+          <auc:ScheduleDetails>
+            <auc:ScheduleDetail>
+              <auc:DayType>Weekday</auc:DayType>
+              <auc:ScheduleCategory>Lighting</auc:ScheduleCategory>
+              <auc:DayStartTime>09:00:00</auc:DayStartTime>
+              <auc:DayEndTime>17:00:00</auc:DayEndTime>
+              <auc:PartialOperationPercentage>40</auc:PartialOperationPercentage>
+            </auc:ScheduleDetail>
+            <auc:ScheduleDetail>
+              <auc:DayType>Weekend</auc:DayType>
+              <auc:ScheduleCategory>Lighting</auc:ScheduleCategory>
+              <auc:DayStartTime>09:00:00</auc:DayStartTime>
+              <auc:DayEndTime>12:00:00</auc:DayEndTime>
+              <auc:PartialOperationPercentage>40</auc:PartialOperationPercentage>
+            </auc:ScheduleDetail>
+            <auc:ScheduleDetail>
+              <auc:DayType>Holiday</auc:DayType>
+              <auc:ScheduleCategory>Lighting</auc:ScheduleCategory>
+              <auc:DayStartTime>09:00:00</auc:DayStartTime>
+              <auc:DayEndTime>17:00:00</auc:DayEndTime>
+              <auc:PartialOperationPercentage>0</auc:PartialOperationPercentage>
             </auc:ScheduleDetail>
           </auc:ScheduleDetails>
           <auc:LinkedPremises>
@@ -709,15 +750,15 @@
         <!-- Low cost measure -->
         <auc:Measure ID="Measure-LowCost-A">
           <auc:TypeOfMeasure>
-            <auc:Additions>
-              <auc:Addition>
-                <auc:ExistingScheduleAffected IDref="PlugLoadSchedule"/>
-                <auc:ModifiedSchedule IDref="PlugLoadSchedule"/>
-              </auc:Addition>
-            </auc:Additions>
+            <auc:ModificationRetrocommissions>
+              <auc:ModificationRetrocommissioning>
+                <auc:ExistingScheduleAffected IDref="LightingSchedule-Original"/>
+                <auc:ModifiedSchedule IDref="LightingSchedule-New"/>
+              </auc:ModificationRetrocommissioning>
+            </auc:ModificationRetrocommissions>
           </auc:TypeOfMeasure>
           <!-- 6.1.5.b -->
-          <auc:SystemCategoryAffected>Air Distribution</auc:SystemCategoryAffected>
+          <auc:SystemCategoryAffected>Lighting</auc:SystemCategoryAffected>
           <auc:TechnologyCategories>
             <auc:TechnologyCategory>
               <auc:LightingImprovements>
@@ -727,9 +768,9 @@
           </auc:TechnologyCategories>
           <auc:MeasureScaleOfApplication>Individual system</auc:MeasureScaleOfApplication>
           <!-- 6.1.5.a (only required if auc:TechnologyCategory/*/auc:MeasureName is Other) -->
-          <auc:CustomMeasureName>Low Cost Measure Name</auc:CustomMeasureName>
+          <auc:CustomMeasureName>Update lighting schedules</auc:CustomMeasureName>
           <!-- 6.1.5.a -->
-          <auc:LongDescription>This measure does something cheap</auc:LongDescription>
+          <auc:LongDescription>The current lighting schedule is set to be at 80% output during weekdays, weekends, and holidays from 9am - 5pm.  This measure would implement a modified schedule to reduce default output to 40%, reducing scheduled on-period on weekends to 9am - 12pm, and having no required schedule on holidays.</auc:LongDescription>
           <auc:UsefulLife>1</auc:UsefulLife>
           <auc:MeasureInstallationCost>123</auc:MeasureInstallationCost>
           <auc:MeasureMaterialCost>123</auc:MeasureMaterialCost>
@@ -740,28 +781,24 @@
         <!-- Capital measure -->
         <auc:Measure ID="Measure-Capital-A">
           <auc:TypeOfMeasure>
-            <auc:Additions>
-              <auc:Addition>
-                <auc:ExistingScheduleAffected IDref="PlugLoadSchedule"/>
-                <auc:ModifiedSchedule IDref="PlugLoadSchedule"/>
-              </auc:Addition>
-            </auc:Additions>
+            <auc:Replacements>
+              <auc:Replacement>
+                <auc:ExistingSystemReplaced IDref="Window-A-Original"/>
+                <auc:AlternativeSystemReplacement IDref="Window-A-New"/>
+              </auc:Replacement>
+            </auc:Replacements>
           </auc:TypeOfMeasure>
           <!-- 6.1.6.b -->
-          <auc:SystemCategoryAffected>Air Distribution</auc:SystemCategoryAffected>
+          <auc:SystemCategoryAffected>Fenestration</auc:SystemCategoryAffected>
           <auc:TechnologyCategories>
             <auc:TechnologyCategory>
-              <auc:AdvancedMeteringSystems>
-                <auc:MeasureName>Install advanced metering systems</auc:MeasureName>
-              </auc:AdvancedMeteringSystems>
+              <auc:BuildingEnvelopeModifications>
+                <auc:MeasureName>Replace windows</auc:MeasureName>
+              </auc:BuildingEnvelopeModifications>
             </auc:TechnologyCategory>
           </auc:TechnologyCategories>
-          <auc:MeasureScaleOfApplication>Individual system</auc:MeasureScaleOfApplication>
-          <!-- 6.1.6.a (only required if auc:TechnologyCategory/*/auc:MeasureName is Other) -->
-          <auc:CustomMeasureName>Capital Measure</auc:CustomMeasureName>
-          <!-- 6.1.6.a -->
-          <auc:LongDescription>This measure does something expensive</auc:LongDescription>
-          <auc:UsefulLife>1</auc:UsefulLife>
+          <auc:MeasureScaleOfApplication>Entire building</auc:MeasureScaleOfApplication>
+          <auc:UsefulLife>20</auc:UsefulLife>
           <auc:MeasureInstallationCost>123</auc:MeasureInstallationCost>
           <auc:MeasureMaterialCost>123</auc:MeasureMaterialCost>
           <auc:Recommended>true</auc:Recommended>
