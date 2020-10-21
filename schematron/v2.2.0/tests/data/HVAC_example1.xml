@@ -185,6 +185,8 @@
                       <auc:FurnaceType>Warm air</auc:FurnaceType>
                     </auc:Furnace>
                   </auc:HeatingSourceType>
+                  <auc:AnnualHeatingEfficiencyValue>123</auc:AnnualHeatingEfficiencyValue>
+                  <auc:AnnualHeatingEfficiencyUnits>COP</auc:AnnualHeatingEfficiencyUnits>
                   <auc:InputCapacity>123</auc:InputCapacity>
                   <auc:Capacity>123</auc:Capacity>
                   <auc:CapacityUnits>gpm</auc:CapacityUnits>
@@ -205,8 +207,12 @@
                     <auc:HeatPump>
                       <auc:HeatPumpType>Packaged Terminal</auc:HeatPumpType>
                       <auc:HeatPumpBackupSystemFuel>Unknown</auc:HeatPumpBackupSystemFuel>
+                      <auc:HeatPumpBackupAFUE>123</auc:HeatPumpBackupAFUE>
+                      <auc:CoolingSourceID IDref="CoolingSource-A"/>
                     </auc:HeatPump>
                   </auc:HeatingSourceType>
+                  <auc:AnnualHeatingEfficiencyValue>123</auc:AnnualHeatingEfficiencyValue>
+                  <auc:AnnualHeatingEfficiencyUnits>COP</auc:AnnualHeatingEfficiencyUnits>
                   <auc:InputCapacity>123</auc:InputCapacity>
                   <auc:Capacity>123</auc:Capacity>
                   <auc:CapacityUnits>gpm</auc:CapacityUnits>
@@ -232,6 +238,8 @@
                       <auc:CompressorStaging>Modulating</auc:CompressorStaging>
                     </auc:DX>
                   </auc:CoolingSourceType>
+                  <auc:AnnualCoolingEfficiencyValue>123</auc:AnnualCoolingEfficiencyValue>
+                  <auc:AnnualCoolingEfficiencyUnits>COP</auc:AnnualCoolingEfficiencyUnits>
                   <auc:Capacity>123</auc:Capacity>
                   <auc:CapacityUnits>gpm</auc:CapacityUnits>
                   <auc:CoolingSourceCondition>Good</auc:CoolingSourceCondition>
@@ -252,6 +260,8 @@
                       <auc:EvaporativeCoolingType>Direct</auc:EvaporativeCoolingType>
                     </auc:EvaporativeCooler>
                   </auc:CoolingSourceType>
+                  <auc:AnnualCoolingEfficiencyValue>123</auc:AnnualCoolingEfficiencyValue>
+                  <auc:AnnualCoolingEfficiencyUnits>COP</auc:AnnualCoolingEfficiencyUnits>
                   <auc:Capacity>123</auc:Capacity>
                   <auc:CapacityUnits>gpm</auc:CapacityUnits>
                   <auc:CoolingSourceCondition>Good</auc:CoolingSourceCondition>

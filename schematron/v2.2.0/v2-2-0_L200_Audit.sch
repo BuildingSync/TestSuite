@@ -694,6 +694,8 @@
     </sch:rule>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:HeatingAndCoolingSystems/auc:HeatingSources/auc:HeatingSource">
       <sch:assert test="auc:HeatingSourceType/*" role="">auc:HeatingSourceType/*</sch:assert>
+      <sch:assert test="(auc:AnnualHeatingEfficiencyValue and not(auc:HeatingSourceType/auc:HeatingPlantID)) or (not(auc:AnnualHeatingEfficiencyValue) and auc:HeatingSourceType/auc:HeatingPlantID)" role="">auc:HeatingSource must provide auc:AnnualHeatingEfficiencyValue or be linked to an auc:HeatingPlant</sch:assert>
+      <sch:assert test="(auc:AnnualHeatingEfficiencyUnits and not(auc:HeatingSourceType/auc:HeatingPlantID)) or (not(auc:AnnualHeatingEfficiencyUnits) and auc:HeatingSourceType/auc:HeatingPlantID)" role="">auc:HeatingSource must provide auc:AnnualHeatingEfficiencyUnits or be linked to an auc:HeatingPlant</sch:assert>
     </sch:rule>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:HeatingAndCoolingSystems/auc:HeatingSources/auc:HeatingSource/auc:HeatingSourceType/auc:Furnace">
       <sch:assert test="auc:FurnaceType" role="">auc:FurnaceType</sch:assert>
@@ -701,9 +703,13 @@
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:HeatingAndCoolingSystems/auc:HeatingSources/auc:HeatingSource/auc:HeatingSourceType/auc:HeatPump">
       <sch:assert test="auc:HeatPumpType" role="">auc:HeatPumpType</sch:assert>
       <sch:assert test="auc:HeatPumpBackupSystemFuel" role="">auc:HeatPumpBackupSystemFuel</sch:assert>
+      <sch:assert test="auc:HeatPumpBackupAFUE" role="">auc:HeatPumpBackupAFUE</sch:assert>
+      <sch:assert test="auc:CoolingSourceID/@IDref = ancestor::auc:HeatingAndCoolingSystems/auc:CoolingSources/auc:CoolingSource[auc:CoolingSourceType/auc:DX]/@ID" role="">An auc:HeatPump's auc:CoolingSourceID must point to an auc:CoolingSource[auc:CoolingSourceType/auc:DX]</sch:assert>
     </sch:rule>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:HeatingAndCoolingSystems/auc:CoolingSources/auc:CoolingSource">
       <sch:assert test="auc:CoolingSourceType/*" role="">auc:CoolingSourceType/*</sch:assert>
+      <sch:assert test="(auc:AnnualCoolingEfficiencyValue and not(auc:CoolingSourceType/auc:CoolingPlantID)) or (not(auc:AnnualCoolingEfficiencyValue) and auc:CoolingSourceType/auc:CoolingPlantID)" role="">auc:CoolingSource must provide auc:AnnualCoolingEfficiencyValue or be linked to an auc:CoolingPlant</sch:assert>
+      <sch:assert test="(auc:AnnualCoolingEfficiencyUnits and not(auc:CoolingSourceType/auc:CoolingPlantID)) or (not(auc:AnnualCoolingEfficiencyUnits) and auc:CoolingSourceType/auc:CoolingPlantID)" role="">auc:CoolingSource must provide auc:AnnualCoolingEfficiencyUnits or be linked to an auc:CoolingPlant</sch:assert>
     </sch:rule>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:HeatingAndCoolingSystems/auc:CoolingSources/auc:CoolingSource/auc:CoolingSourceType/auc:DX">
       <sch:assert test="auc:DXSystemType" role="">auc:DXSystemType</sch:assert>
