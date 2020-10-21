@@ -1051,7 +1051,8 @@
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Scenarios/auc:Scenario[auc:ScenarioType/auc:CurrentBuilding/auc:CalculationMethod/auc:Measured]/auc:ResourceUses/auc:ResourceUse[not(auc:UtilityIDs/auc:UtilityID)]">
       <sch:assert test="auc:EnergyResource" role="">auc:EnergyResource</sch:assert>
       <sch:assert test="auc:EndUse" role="">auc:EndUse</sch:assert>
-      <sch:assert test="auc:PercentResource" role="">auc:PercentResource</sch:assert>
+      <sch:assert test="auc:AnnualFuelUseConsistentUnits" role="">auc:AnnualFuelUseConsistentUnits</sch:assert>
+      <sch:assert test="auc:AnnualFuelUseNativeUnits" role="">auc:AnnualFuelUseNativeUnits</sch:assert>
       <sch:assert test="//auc:ResourceUses/auc:ResourceUse[@ID = current()/auc:ParentResourceUseID/@IDref]" role="">ParentResourceUseID must point to a valid resource use</sch:assert>
     </sch:rule>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Scenarios/auc:Scenario[auc:ScenarioType/auc:CurrentBuilding/auc:CalculationMethod/auc:Measured]/auc:TimeSeriesData/auc:TimeSeries">
@@ -1161,13 +1162,13 @@
     <sch:title>Annual Energy Use</sch:title>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Scenarios/auc:Scenario[auc:ScenarioType/auc:CurrentBuilding]/auc:AllResourceTotals/auc:AllResourceTotal">
       <sch:let name="epsilonPct" value="0.05"/>
-      <sch:let name="calculatedOnsiteEnergyProductionConsistentUnits" value="sum(//auc:ResourceUse/auc:EnergyResource['generated' = substring(text(), string-length(text()) - string-length('generated') + 1 )]/../auc:AnnualFuelUseConsistentUnits/text())"/>
+      <sch:let name="calculatedOnsiteEnergyProductionConsistentUnits" value="sum(//auc:ResourceUse[auc:UtilityIDs/auc:UtilityID]/auc:EnergyResource['generated' = substring(text(), string-length(text()) - string-length('generated') + 1 )]/../auc:AnnualFuelUseConsistentUnits/text())"/>
       <sch:let name="calculatedOnsiteEnergyProductionConsistentUnitsEpsilon" value="auc:OnsiteEnergyProductionConsistentUnits * $epsilonPct"/>
       <sch:let name="calculatedOnsiteEnergyProductionConsistentUnitsDelta" value="translate(auc:OnsiteEnergyProductionConsistentUnits - $calculatedOnsiteEnergyProductionConsistentUnits, '-', '')"/>
-      <sch:let name="calculatedExportedEnergyConsistentUnits" value="sum(//auc:ResourceUse/auc:EnergyResource['exported' = substring(text(), string-length(text()) - string-length('exported') + 1 )]/../auc:AnnualFuelUseConsistentUnits/text())"/>
+      <sch:let name="calculatedExportedEnergyConsistentUnits" value="sum(//auc:ResourceUse[auc:UtilityIDs/auc:UtilityID]/auc:EnergyResource['exported' = substring(text(), string-length(text()) - string-length('exported') + 1 )]/../auc:AnnualFuelUseConsistentUnits/text())"/>
       <sch:let name="calculatedExportedEnergyConsistentUnitsEpsilon" value="auc:ExportedEnergyConsistentUnits * $epsilonPct"/>
       <sch:let name="calculatedExportedEnergyConsistentUnitsDelta" value="translate(auc:ExportedEnergyConsistentUnits - $calculatedExportedEnergyConsistentUnits, '-', '')"/>
-      <sch:let name="calculatedImportedEnergyConsistentUnits" value="sum(//auc:ResourceUse/auc:AnnualFuelUseConsistentUnits/text()) - $calculatedOnsiteEnergyProductionConsistentUnits - $calculatedExportedEnergyConsistentUnits"/>
+      <sch:let name="calculatedImportedEnergyConsistentUnits" value="sum(//auc:ResourceUse[auc:UtilityIDs/auc:UtilityID]/auc:AnnualFuelUseConsistentUnits/text()) - $calculatedOnsiteEnergyProductionConsistentUnits - $calculatedExportedEnergyConsistentUnits"/>
       <sch:let name="calculatedImportedEnergyConsistentUnitsEpsilon" value="auc:ImportedEnergyConsistentUnits * $epsilonPct"/>
       <sch:let name="calculatedImportedEnergyConsistentUnitsDelta" value="translate(auc:ImportedEnergyConsistentUnits - $calculatedImportedEnergyConsistentUnits, '-', '')"/>
       <sch:let name="calculatedSiteEnergyUse" value="1000 * (number(auc:ImportedEnergyConsistentUnits/text()) - number(auc:ExportedEnergyConsistentUnits/text()) - number(auc:NetIncreaseInStoredEnergyConsistentUnits))"/>

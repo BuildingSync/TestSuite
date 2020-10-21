@@ -927,20 +927,23 @@
                 <!-- submeter examples -->
                 <auc:ResourceUse ID="ResourceUse-Electricity-Lighting-Submeter">
                   <auc:EnergyResource>Electricity</auc:EnergyResource>
-                  <auc:PercentResource>50</auc:PercentResource>
                   <auc:EndUse>Total lighting</auc:EndUse>
+                  <auc:AnnualFuelUseNativeUnits>123</auc:AnnualFuelUseNativeUnits>
+                  <auc:AnnualFuelUseConsistentUnits>123</auc:AnnualFuelUseConsistentUnits>
                   <auc:ParentResourceUseID IDref="ResourceUse-Electricity"/>
                 </auc:ResourceUse>
                 <auc:ResourceUse ID="ResourceUse-Electricity-Heating-Submeter">
                   <auc:EnergyResource>Electricity</auc:EnergyResource>
-                  <auc:PercentResource>25</auc:PercentResource>
                   <auc:EndUse>Heating</auc:EndUse>
+                  <auc:AnnualFuelUseNativeUnits>123</auc:AnnualFuelUseNativeUnits>
+                  <auc:AnnualFuelUseConsistentUnits>123</auc:AnnualFuelUseConsistentUnits>
                   <auc:ParentResourceUseID IDref="ResourceUse-Electricity"/>
                 </auc:ResourceUse>
                 <auc:ResourceUse ID="ResourceUse-Electricity-Cooling-Submeter">
                   <auc:EnergyResource>Electricity</auc:EnergyResource>
-                  <auc:PercentResource>25</auc:PercentResource>
                   <auc:EndUse>Cooling</auc:EndUse>
+                  <auc:AnnualFuelUseNativeUnits>123</auc:AnnualFuelUseNativeUnits>
+                  <auc:AnnualFuelUseConsistentUnits>123</auc:AnnualFuelUseConsistentUnits>
                   <auc:ParentResourceUseID IDref="ResourceUse-Electricity"/>
                 </auc:ResourceUse>
               </auc:ResourceUses>
