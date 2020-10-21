@@ -68,7 +68,7 @@
   </sch:phase>
   <sch:phase id="hvac_distribution_system_delivery_type_air_delivery" see="ASHRAE 211 6.2.1.3 (c)">
     <sch:active pattern="delivery_type"/>
-    <sch:active pattern="central_fan"/>
+    <sch:active pattern="central_air_distribution_delivery"/>
     <sch:active pattern="zone_equipment"/>
   </sch:phase>
   <sch:phase id="hvac_distribution_system_delivery_type_water_delivery" see="ASHRAE 211 6.2.1.3 (c)">
@@ -726,9 +726,9 @@
       <sch:assert test="auc:ReheatSource/text() != 'Heating plant' or auc:ReheatPlantID" role="">auc:ReheatSource/text() != 'Heating plant' or auc:ReheatPlantID</sch:assert>
     </sch:rule>
   </sch:pattern>
-  <sch:pattern see="" id="central_fan">
-    <sch:title>Central Fan</sch:title>
-    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:HeatingAndCoolingSystems/auc:Deliveries/auc:Delivery/auc:DeliveryType/auc:CentralAirDistribution[auc:AirDeliveryType/text() = 'Central fan']">
+  <sch:pattern see="" id="central_air_distribution_delivery">
+    <sch:title>Central Air Distribution Delivery</sch:title>
+    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:HeatingAndCoolingSystems/auc:Deliveries/auc:Delivery/auc:DeliveryType/auc:CentralAirDistribution">
       <sch:let name="deliveryID" value="current()/ancestor::auc:Delivery/@ID"/>
       <sch:assert test="//auc:Systems/auc:FanSystems/auc:FanSystem[auc:LinkedSystemIDs/auc:LinkedSystemID/@IDref = $deliveryID]" role="">auc:Delivery ID must be linked to a valid auc:FanSystem</sch:assert>
       <sch:assert test="ancestor::auc:HVACSystem/auc:DuctSystems/auc:DuctSystem[auc:HeatingDeliveryID/@IDref = $deliveryID or auc:CoolingDeliveryID/@IDref = $deliveryID]" role="">auc:Delivery ID must be linked to an auc:DuctSystem through auc:HeatingDeliveryID or auc:CoolingDeliveryID</sch:assert>
