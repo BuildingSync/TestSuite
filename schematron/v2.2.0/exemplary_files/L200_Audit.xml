@@ -352,8 +352,6 @@
                   </auc:DeliveryType>
                   <auc:HeatingSourceID IDref="HeatingSource-A"/>
                   <auc:CoolingSourceID IDref="CoolingSource-A"/>
-                  <auc:Capacity>123</auc:Capacity>
-                  <auc:CapacityUnits>gpm</auc:CapacityUnits>
                   <auc:Controls>
                     <auc:Control>
                       <auc:OtherControlTechnology>

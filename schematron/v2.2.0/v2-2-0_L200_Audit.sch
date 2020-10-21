@@ -578,10 +578,6 @@
       <sch:assert test="auc:Capacity" role="">auc:Capacity</sch:assert>
       <sch:assert test="auc:CapacityUnits" role="">auc:CapacityUnits</sch:assert>
     </sch:rule>
-    <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:HeatingAndCoolingSystems/auc:Deliveries/auc:Delivery">
-      <sch:assert test="auc:Capacity" role="">auc:Capacity</sch:assert>
-      <sch:assert test="auc:CapacityUnits" role="">auc:CapacityUnits</sch:assert>
-    </sch:rule>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:HeatingAndCoolingSystems/auc:CoolingSources/auc:CoolingSource[not(auc:CoolingSourceType/auc:CoolingPlantID)]">
       <sch:assert test="auc:Capacity" role="">auc:Capacity</sch:assert>
       <sch:assert test="auc:CapacityUnits" role="">auc:CapacityUnits</sch:assert>

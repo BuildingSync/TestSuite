@@ -462,7 +462,6 @@ class TestL200AuditHvacSystems(AssertFailureRolesMixin):
         ('//auc:HeatingPlant/auc:Boiler/auc:InputCapacity', 'auc:InputCapacity'),
         ('//auc:HeatingPlant/auc:DistrictHeating/auc:Capacity', 'auc:Capacity'),
         ('//auc:HeatingPlant/auc:SolarThermal/auc:Capacity', 'auc:Capacity'),
-        ('//auc:HeatingAndCoolingSystems/auc:Deliveries/auc:Delivery[1]/auc:Capacity', 'auc:Capacity'),
         ('//auc:HeatingAndCoolingSystems/auc:CoolingSources/auc:CoolingSource[not(auc:CoolingSourceType/auc:CoolingPlantID)][1]/auc:Capacity', 'auc:Capacity'),
         ('//auc:HeatingAndCoolingSystems/auc:HeatingSources/auc:HeatingSource[not(auc:HeatingSourceType/auc:HeatingPlantID)][1]/auc:Capacity', 'auc:Capacity'),
         ('//auc:CondenserPlants/auc:CondenserPlant[1]/*/auc:Capacity', 'auc:Capacity'),
