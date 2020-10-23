@@ -440,6 +440,50 @@
             </auc:LinkedPremises>
           </auc:LightingSystem>
         </auc:LightingSystems>
+        <auc:DomesticHotWaterSystems>
+          <auc:DomesticHotWaterSystem ID="DHW-A">
+            <auc:DomesticHotWaterType>
+              <auc:HeatExchanger/>
+            </auc:DomesticHotWaterType>
+            <auc:DomesticHotWaterSystemNotes>Notes</auc:DomesticHotWaterSystemNotes>
+            <auc:Recirculation>
+              <auc:RecirculationLoopCount>1</auc:RecirculationLoopCount>
+              <auc:RecirculationFlowRate>123</auc:RecirculationFlowRate>
+              <auc:RecirculationControlType>Continuous</auc:RecirculationControlType>
+              <auc:PipeInsulationThickness>123</auc:PipeInsulationThickness>
+              <auc:RecirculationEnergyLossRate>123</auc:RecirculationEnergyLossRate>
+            </auc:Recirculation>
+            <auc:HotWaterDistributionType>Looped</auc:HotWaterDistributionType>
+            <auc:WaterHeaterEfficiencyType>COP</auc:WaterHeaterEfficiencyType>
+            <auc:WaterHeaterEfficiency>123</auc:WaterHeaterEfficiency>
+            <auc:DailyHotWaterDraw>123</auc:DailyHotWaterDraw>
+            <auc:HotWaterSetpointTemperature>123</auc:HotWaterSetpointTemperature>
+            <auc:ParasiticFuelConsumptionRate>123</auc:ParasiticFuelConsumptionRate>
+            <auc:Capacity>123</auc:Capacity>
+            <auc:CapacityUnits>gpm</auc:CapacityUnits>
+            <auc:Controls>
+              <auc:Control>
+                <auc:Manual>
+                  <auc:ControlSystemType>
+                    <auc:Other/>
+                  </auc:ControlSystemType>
+                </auc:Manual>
+              </auc:Control>
+            </auc:Controls>
+            <auc:PrimaryFuel>Electricity</auc:PrimaryFuel>
+            <auc:DomesticHotWaterSystemCondition>Excellent</auc:DomesticHotWaterSystemCondition>
+            <auc:LinkedPremises>
+              <auc:Building>
+                <auc:LinkedBuildingID IDref="Building-A"/>
+              </auc:Building>
+              <auc:Section>
+                <auc:LinkedSectionID IDref="Section-Space-A"/>
+                <auc:LinkedSectionID IDref="Section-Space-B"/>
+              </auc:Section>
+            </auc:LinkedPremises>
+            <auc:Quantity>123</auc:Quantity>
+          </auc:DomesticHotWaterSystem>
+        </auc:DomesticHotWaterSystems>
         <auc:PumpSystems>
           <auc:PumpSystem ID="PumpSystem-B">
             <auc:PumpEfficiency>123</auc:PumpEfficiency>
