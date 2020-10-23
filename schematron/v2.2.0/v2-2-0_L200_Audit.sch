@@ -735,6 +735,9 @@
     </sch:rule>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:FanSystems/auc:FanSystem">
       <sch:assert test="auc:FanControlType" role="">auc:FanControlType</sch:assert>
+      <sch:assert test="auc:FanEfficiency" role="">auc:FanEfficiency</sch:assert>
+      <sch:assert test="auc:FanSize" role="">auc:FanSize</sch:assert>
+      <sch:assert test="auc:InstalledFlowRate" role="WARNING">auc:InstalledFlowRate</sch:assert>
     </sch:rule>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:HVACSystems/auc:HVACSystem/auc:DuctSystems/auc:DuctSystem">
       <sch:assert test="auc:DuctConfiguration" role="">auc:DuctConfiguration</sch:assert>
@@ -772,6 +775,9 @@
     </sch:rule>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:PumpSystems/auc:PumpSystem">
       <sch:assert test="auc:PumpControlType" role="">auc:PumpControlType</sch:assert>
+      <sch:assert test="auc:PumpEfficiency" role="">auc:PumpEfficiency</sch:assert>
+      <sch:assert test="auc:PumpMaximumFlowRate" role="">auc:PumpMaximumFlowRate</sch:assert>
+      <sch:assert test="auc:PumpInstalledFlowRate" role="WARNING">auc:PumpInstalledFlowRate</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern see="" id="central_air_distribution">

@@ -372,6 +372,7 @@
                 <auc:DuctConfiguration>Single</auc:DuctConfiguration>
                 <auc:DuctInsulationCondition>Excellent</auc:DuctInsulationCondition>
                 <auc:HeatingDeliveryID IDref="Delivery-A"/>
+                <auc:CoolingDeliveryID IDref="Delivery-A"/>
               </auc:DuctSystem>
             </auc:DuctSystems>
             <auc:HVACControlSystemTypes>
@@ -441,6 +442,9 @@
         </auc:LightingSystems>
         <auc:PumpSystems>
           <auc:PumpSystem ID="PumpSystem-B">
+            <auc:PumpEfficiency>123</auc:PumpEfficiency>
+            <auc:PumpMaximumFlowRate>123</auc:PumpMaximumFlowRate>
+            <auc:PumpInstalledFlowRate>123</auc:PumpInstalledFlowRate>
             <auc:PumpControlType>Constant Volume</auc:PumpControlType>
             <auc:LinkedSystemIDs>
               <auc:LinkedSystemID IDref="CoolingPlant-A"/>
@@ -449,6 +453,9 @@
         </auc:PumpSystems>
         <auc:FanSystems>
           <auc:FanSystem ID="FanSystem-A">
+            <auc:FanEfficiency>123</auc:FanEfficiency>
+            <auc:FanSize>123</auc:FanSize>
+            <auc:InstalledFlowRate>123</auc:InstalledFlowRate>
             <auc:FanControlType>Stepped</auc:FanControlType>
             <auc:LinkedSystemIDs>
               <auc:LinkedSystemID IDref="Delivery-A"/>

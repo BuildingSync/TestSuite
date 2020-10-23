@@ -405,48 +405,72 @@
         </auc:HVACSystems>
         <auc:PumpSystems>
           <auc:PumpSystem ID="PumpSystem-A">
+            <auc:PumpEfficiency>123</auc:PumpEfficiency>
+            <auc:PumpMaximumFlowRate>123</auc:PumpMaximumFlowRate>
+            <auc:PumpInstalledFlowRate>123</auc:PumpInstalledFlowRate>
             <auc:PumpControlType>Constant Volume</auc:PumpControlType>
             <auc:LinkedSystemIDs>
               <auc:LinkedSystemID IDref="HeatingPlant-A"/>
             </auc:LinkedSystemIDs>
           </auc:PumpSystem>
           <auc:PumpSystem ID="PumpSystem-B">
+            <auc:PumpEfficiency>123</auc:PumpEfficiency>
+            <auc:PumpMaximumFlowRate>123</auc:PumpMaximumFlowRate>
+            <auc:PumpInstalledFlowRate>123</auc:PumpInstalledFlowRate>
             <auc:PumpControlType>Constant Volume</auc:PumpControlType>
             <auc:LinkedSystemIDs>
               <auc:LinkedSystemID IDref="HeatingPlant-B"/>
             </auc:LinkedSystemIDs>
           </auc:PumpSystem>
           <auc:PumpSystem ID="PumpSystem-C">
+            <auc:PumpEfficiency>123</auc:PumpEfficiency>
+            <auc:PumpMaximumFlowRate>123</auc:PumpMaximumFlowRate>
+            <auc:PumpInstalledFlowRate>123</auc:PumpInstalledFlowRate>
             <auc:PumpControlType>Constant Volume</auc:PumpControlType>
             <auc:LinkedSystemIDs>
               <auc:LinkedSystemID IDref="HeatingPlant-C"/>
             </auc:LinkedSystemIDs>
           </auc:PumpSystem>
           <auc:PumpSystem ID="PumpSystem-D">
+            <auc:PumpEfficiency>123</auc:PumpEfficiency>
+            <auc:PumpMaximumFlowRate>123</auc:PumpMaximumFlowRate>
+            <auc:PumpInstalledFlowRate>123</auc:PumpInstalledFlowRate>
             <auc:PumpControlType>Constant Volume</auc:PumpControlType>
             <auc:LinkedSystemIDs>
               <auc:LinkedSystemID IDref="CoolingPlant-A"/>
             </auc:LinkedSystemIDs>
           </auc:PumpSystem>
           <auc:PumpSystem ID="PumpSystem-E">
+            <auc:PumpEfficiency>123</auc:PumpEfficiency>
+            <auc:PumpMaximumFlowRate>123</auc:PumpMaximumFlowRate>
+            <auc:PumpInstalledFlowRate>123</auc:PumpInstalledFlowRate>
             <auc:PumpControlType>Constant Volume</auc:PumpControlType>
             <auc:LinkedSystemIDs>
               <auc:LinkedSystemID IDref="CoolingPlant-B"/>
             </auc:LinkedSystemIDs>
           </auc:PumpSystem>
           <auc:PumpSystem ID="PumpSystem-F">
+            <auc:PumpEfficiency>123</auc:PumpEfficiency>
+            <auc:PumpMaximumFlowRate>123</auc:PumpMaximumFlowRate>
+            <auc:PumpInstalledFlowRate>123</auc:PumpInstalledFlowRate>
             <auc:PumpControlType>Constant Volume</auc:PumpControlType>
             <auc:LinkedSystemIDs>
               <auc:LinkedSystemID IDref="CondenserPlant-A"/>
             </auc:LinkedSystemIDs>
           </auc:PumpSystem>
           <auc:PumpSystem ID="PumpSystem-G">
+            <auc:PumpEfficiency>123</auc:PumpEfficiency>
+            <auc:PumpMaximumFlowRate>123</auc:PumpMaximumFlowRate>
+            <auc:PumpInstalledFlowRate>123</auc:PumpInstalledFlowRate>
             <auc:PumpControlType>Constant Volume</auc:PumpControlType>
             <auc:LinkedSystemIDs>
               <auc:LinkedSystemID IDref="CondenserPlant-B"/>
             </auc:LinkedSystemIDs>
           </auc:PumpSystem>
           <auc:PumpSystem ID="PumpSystem-H">
+            <auc:PumpEfficiency>123</auc:PumpEfficiency>
+            <auc:PumpMaximumFlowRate>123</auc:PumpMaximumFlowRate>
+            <auc:PumpInstalledFlowRate>123</auc:PumpInstalledFlowRate>
             <auc:PumpControlType>Constant Volume</auc:PumpControlType>
             <auc:LinkedSystemIDs>
               <auc:LinkedSystemID IDref="CondenserPlant-C"/>
@@ -455,6 +479,9 @@
         </auc:PumpSystems>
         <auc:FanSystems>
           <auc:FanSystem ID="FanSystem-A">
+            <auc:FanEfficiency>123</auc:FanEfficiency>
+            <auc:FanSize>123</auc:FanSize>
+            <auc:InstalledFlowRate>123</auc:InstalledFlowRate>
             <auc:FanControlType>Stepped</auc:FanControlType>
             <auc:LinkedSystemIDs>
               <auc:LinkedSystemID IDref="Delivery-A"/>
