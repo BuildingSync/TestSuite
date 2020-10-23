@@ -142,7 +142,7 @@
                   <auc:ThermalZoneLayout>Single zone</auc:ThermalZoneLayout>
                 </auc:Section>
                 <auc:Section ID="Section-Space-B">
-                  <auc:SectionType>Component</auc:SectionType>
+                  <auc:SectionType>Space function</auc:SectionType>
                   <auc:OccupancyClassification>Multifamily with commercial</auc:OccupancyClassification>
                   <auc:OriginalOccupancyClassification>Other</auc:OriginalOccupancyClassification>
                   <!-- 6.1.1.1.g/5.3.4.d -->
@@ -622,6 +622,7 @@
           <auc:LinkedPremises>
             <auc:Section>
               <auc:LinkedSectionID IDref="Section-Space-A"/>
+              <auc:LinkedSectionID IDref="Section-Space-B"/>
             </auc:Section>
           </auc:LinkedPremises>
         </auc:Schedule>
