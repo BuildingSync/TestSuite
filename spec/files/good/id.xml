@@ -120,7 +120,7 @@
         <auc:Contact ID="Contact1"/>
       </auc:Contacts>
       <auc:Tenants>
-        <auc:Tenant ID="Tenant1"></auc:Tenant>
+        <auc:Tenant ID="Tenant1"/>
       </auc:Tenants>
     </auc:Facility>
   </auc:Facilities>

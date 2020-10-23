@@ -60,7 +60,7 @@
       <assert test="auc:Address/auc:StreetAddressDetail/auc:Simplified/auc:StreetAddress" role="ERROR">element 'auc:StreetAddress' within element 'auc:Address/auc:StreetAddressDetail/auc:Simplified' is REQUIRED EXACTLY ONCE for: '<name/>'</assert>
     </rule>
   </pattern>
-<!--  Check for Lat and Long at the building level-->
+  <!--  Check for Lat and Long at the building level-->
   <pattern id="be.latLong">
     <rule context="auc:Buildings/auc:Building">
       <assert test="auc:Latitude" role="ERROR">element 'auc:Latitude' within element 'auc:Address' is REQUIRED EXACTLY ONCE for: '<name/>'</assert>

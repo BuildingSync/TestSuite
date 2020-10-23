@@ -5,6 +5,7 @@ import sys
 
 from tools.validate_sch import validate_schematron, print_failure
 from tools.generate_sch import generate_sch
+from tools.clean_xml import clean_files
 
 
 def validate_schematrons(args):
@@ -55,6 +56,35 @@ def generate_all_schematron(args):
     if args.dry_run and len(updated_files) > 0:
         print('Expected no files to be modified after generating Schematron. Update the Schematron by running `./buildingsch.py generate_all`')
         sys.exit(1)
+    sys.exit(0)
+
+
+def _clean_files(args):
+    for filename in args.filenames:
+        clean_files(filename)
+
+
+def clean_all_files(args):
+    """
+    Cleans all *.sch and *.xml files in the schematron directory.  Cleaning consists of:
+    - Removing blank lines
+    - Two space indentation
+    - Serializing with doctype = '<?xml version="1.0" encoding="UTF-8"?>
+    """
+    base_dir = 'schematron/'
+    updated_files = []
+    for root, _, files in os.walk(base_dir):
+        for name in files:
+            if not name.endswith('.xml') and not name.endswith('.sch'):
+                continue
+            filename = os.path.join(root, name)
+            updated = clean_files(filename)
+            if updated:
+                updated_files.append(filename)
+
+    for file_ in updated_files:
+        print(file_)
+
     sys.exit(0)
 
 
@@ -144,6 +174,21 @@ parser_generate.add_argument(
     help='Does not modify files, but list files and exits with non-zero if files would have been modified'
 )
 parser_generate.set_defaults(func=generate_all_schematron)
+
+# Clean command
+parser_clean_files = subparsers.add_parser('clean', description='Command for formatting one ore more *.xml or *.sch files')
+parser_clean_files.add_argument(
+    'filenames',
+    metavar='filenames',
+    type=str,
+    help='File(s) to clean',
+    nargs='+'
+)
+parser_clean_files.set_defaults(func=_clean_files)
+
+# Clean all command
+parser_clean_all_files = subparsers.add_parser('clean_all', description='Command for formatting all *.xml and *.sch files')
+parser_clean_all_files.set_defaults(func=clean_all_files)
 
 # command with no sub-commands should just print help
 parser.set_defaults(func=lambda _: parser.print_help())

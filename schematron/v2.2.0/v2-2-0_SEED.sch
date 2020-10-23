@@ -134,10 +134,10 @@
       <sch:assert test="count(./auc:ScenarioType/auc:PackageOfMeasures/auc:MeasureIDs) = 1">
         [WARNING] element "/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Scenarios/auc:Scenario/auc:ScenarioType/auc:PackageOfMeasures/auc:MeasureIDs" is RECOMMENDED
       </sch:assert>
-      <sch:assert test="count(./auc:ResourceUses/auc:ResourceUse) > 0">
+      <sch:assert test="count(./auc:ResourceUses/auc:ResourceUse) &gt; 0">
         [WARNING] element "/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Scenarios/auc:Scenario/auc:ResourceUses/auc:ResourceUse" is RECOMMENDED
       </sch:assert>
-      <sch:assert test="count(./auc:TimeSeriesData/auc:TimeSeries) > 0">
+      <sch:assert test="count(./auc:TimeSeriesData/auc:TimeSeries) &gt; 0">
         [WARNING] element "/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Scenarios/auc:Scenario/auc:TimeSeriesData/auc:TimeSeries" is RECOMMENDED
       </sch:assert>
     </sch:rule>
