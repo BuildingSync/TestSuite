@@ -862,15 +862,15 @@ class TestL200AuditSectionSystems(AssertFailureRolesMixin):
     @pytest.mark.parametrize("section_occupancy_classification,expected_errors", [
         ('Manufactured home', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required']}),
         ('Single family', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required']}),
-        ('Multifamily', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required']}),
-        ('Multifamily with commercial', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required']}),
-        ('Multifamily individual unit', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required']}),
-        ('Public housing', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required']}),
+        ('Multifamily', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required'], 'WARNING': ['A linked auc:DomesticHotWaterSystem is recommended']}),
+        ('Multifamily with commercial', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required'], 'WARNING': ['A linked auc:DomesticHotWaterSystem is recommended']}),
+        ('Multifamily individual unit', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required'], 'WARNING': ['A linked auc:DomesticHotWaterSystem is recommended']}),
+        ('Public housing', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required'], 'WARNING': ['A linked auc:DomesticHotWaterSystem is recommended']}),
         ('Residential', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required']}),
         ('Health care-Pharmacy', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required'], 'WARNING': ['A linked auc:RefrigerationSystem is recommended', 'A linked auc:ProcessLoad is recommended']}),
-        ('Health care-Skilled nursing facility', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required'], 'WARNING': ['A linked auc:RefrigerationSystem is recommended', 'A linked auc:ProcessLoad is recommended']}),
-        ('Health care-Residential treatment center', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required'], 'WARNING': ['A linked auc:RefrigerationSystem is recommended', 'A linked auc:ProcessLoad is recommended']}),
-        ('Health care-Inpatient hospital', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required'], 'WARNING': ['A linked auc:RefrigerationSystem is recommended', 'A linked auc:ProcessLoad is recommended']}),
+        ('Health care-Skilled nursing facility', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required'], 'WARNING': ['A linked auc:RefrigerationSystem is recommended', 'A linked auc:DomesticHotWaterSystem is recommended', 'A linked auc:CookingSystem is recommended', 'A linked auc:ProcessLoad is recommended', 'A linked auc:LaundrySystem is recommended']}),
+        ('Health care-Residential treatment center', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required'], 'WARNING': ['A linked auc:RefrigerationSystem is recommended', 'A linked auc:DomesticHotWaterSystem is recommended', 'A linked auc:CookingSystem is recommended', 'A linked auc:ProcessLoad is recommended']}),
+        ('Health care-Inpatient hospital', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required', 'A linked auc:DomesticHotWaterSystem is required', 'A linked auc:CookingSystem is required'], 'WARNING': ['A linked auc:RefrigerationSystem is recommended', 'A linked auc:ProcessLoad is recommended', 'A linked auc:LaundrySystem is recommended']}),
         ('Health care-Outpatient rehabilitation', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required'], 'WARNING': ['A linked auc:RefrigerationSystem is recommended', 'A linked auc:ProcessLoad is recommended']}),
         ('Health care-Diagnostic center', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required'], 'WARNING': ['A linked auc:RefrigerationSystem is recommended', 'A linked auc:ProcessLoad is recommended']}),
         ('Health care-Outpatient facility', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required'], 'WARNING': ['A linked auc:RefrigerationSystem is recommended', 'A linked auc:ProcessLoad is recommended']}),
@@ -878,30 +878,30 @@ class TestL200AuditSectionSystems(AssertFailureRolesMixin):
         ('Health care-Outpatient surgical', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required'], 'WARNING': ['A linked auc:RefrigerationSystem is recommended', 'A linked auc:ProcessLoad is recommended']}),
         ('Health care-Veterinary', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required'], 'WARNING': ['A linked auc:RefrigerationSystem is recommended', 'A linked auc:ProcessLoad is recommended']}),
         ('Health care-Morgue or mortuary', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required'], 'WARNING': ['A linked auc:RefrigerationSystem is recommended', 'A linked auc:ProcessLoad is recommended']}),
-        ('Health care', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required'], 'WARNING': ['A linked auc:RefrigerationSystem is recommended', 'A linked auc:ProcessLoad is recommended']}),
+        ('Health care', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required'], 'WARNING': ['A linked auc:RefrigerationSystem is recommended', 'A linked auc:DomesticHotWaterSystem is recommended', 'A linked auc:CookingSystem is recommended', 'A linked auc:ProcessLoad is recommended', 'A linked auc:LaundrySystem is recommended']}),
         ('Gas station', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required'], 'WARNING': ['A linked auc:RefrigerationSystem is recommended']}),
         ('Convenience store', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required'], 'WARNING': ['A linked auc:RefrigerationSystem is recommended']}),
-        ('Food sales-Grocery store', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required'], 'WARNING': ['A linked auc:RefrigerationSystem is recommended']}),
+        ('Food sales-Grocery store', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required'], 'WARNING': ['A linked auc:RefrigerationSystem is recommended', 'A linked auc:DomesticHotWaterSystem is recommended', 'A linked auc:CookingSystem is recommended']}),
         ('Food sales', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required'], 'WARNING': ['A linked auc:RefrigerationSystem is recommended']}),
         ('Laboratory-Testing', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required'], 'WARNING': ['A linked auc:RefrigerationSystem is recommended', 'A linked auc:ProcessLoad is recommended']}),
         ('Laboratory-Medical', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required'], 'WARNING': ['A linked auc:RefrigerationSystem is recommended', 'A linked auc:ProcessLoad is recommended']}),
         ('Laboratory', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required'], 'WARNING': ['A linked auc:RefrigerationSystem is recommended', 'A linked auc:ProcessLoad is recommended']}),
         ('Vivarium', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required']}),
-        ('Zoo', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required']}),
-        ('Office-Financial', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required']}),
-        ('Office', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required']}),
+        ('Zoo', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required'], 'WARNING': ['A linked auc:DomesticHotWaterSystem is recommended', 'A linked auc:CookingSystem is recommended', 'A linked auc:ProcessLoad is recommended']}),
+        ('Office-Financial', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required'], 'WARNING': ['A linked auc:DomesticHotWaterSystem is recommended']}),
+        ('Office', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required'], 'WARNING': ['A linked auc:DomesticHotWaterSystem is recommended']}),
         ('Bank', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required']}),
         ('Courthouse', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required']}),
         ('Public safety station-Fire', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required']}),
-        ('Public safety station-Police', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required']}),
+        ('Public safety station-Police', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required'], 'WARNING': ['A linked auc:DomesticHotWaterSystem is recommended', 'A linked auc:CookingSystem is recommended']}),
         ('Public safety station', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required']}),
-        ('Public safety-Detention center', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required']}),
-        ('Public safety-Correctional facility', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required']}),
+        ('Public safety-Detention center', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required', 'A linked auc:DomesticHotWaterSystem is required', 'A linked auc:CookingSystem is required'], 'WARNING': ['A linked auc:LaundrySystem is recommended']}),
+        ('Public safety-Correctional facility', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required', 'A linked auc:DomesticHotWaterSystem is required', 'A linked auc:CookingSystem is required'], 'WARNING': ['A linked auc:LaundrySystem is recommended']}),
         ('Public safety', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required']}),
-        ('Warehouse-Refrigerated', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:RefrigerationSystem is required'], 'WARNING': ['A linked auc:PlugLoad is recommended']}),
-        ('Warehouse-Unrefrigerated', {'WARNING': ['A linked auc:HVACSystem is recommended', 'A linked auc:PlugLoad is recommended'], 'ERROR': ['A linked auc:LightingSystem is required']}),
-        ('Warehouse-Self-storage', {'INFO': ['No linked auc:HVACSystem found', 'No linked auc:PlugLoad found'], 'ERROR': ['A linked auc:LightingSystem is required']}),
-        ('Warehouse', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required'], 'WARNING': ['A linked auc:PlugLoad is recommended']}),
+        ('Warehouse-Refrigerated', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:RefrigerationSystem is required'], 'WARNING': ['A linked auc:PlugLoad is recommended', 'A linked auc:ProcessLoad is recommended']}),
+        ('Warehouse-Unrefrigerated', {'WARNING': ['A linked auc:HVACSystem is recommended', 'A linked auc:PlugLoad is recommended', 'A linked auc:ProcessLoad is recommended'], 'ERROR': ['A linked auc:LightingSystem is required']}),
+        ('Warehouse-Self-storage', {'INFO': ['No linked auc:HVACSystem found', 'No linked auc:PlugLoad found'], 'ERROR': ['A linked auc:LightingSystem is required'], 'WARNING': ['A linked auc:RefrigerationSystem is recommended']}),
+        ('Warehouse', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required'], 'WARNING': ['A linked auc:PlugLoad is recommended', 'A linked auc:ProcessLoad is recommended']}),
         ('Assembly-Religious', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required']}),
         ('Assembly-Cultural entertainment', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required']}),
         ('Assembly-Social entertainment', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required']}),
@@ -913,30 +913,30 @@ class TestL200AuditSectionSystems(AssertFailureRolesMixin):
         ('Assembly-Stadium (closed)', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required']}),
         ('Assembly-Stadium (open)', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required']}),
         ('Assembly-Public', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required']}),
-        ('Recreation-Pool', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:ProcessLoad is required'], 'WARNING': ['A linked auc:PlugLoad is recommended']}),
-        ('Recreation-Bowling alley', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required'], 'WARNING': ['A linked auc:PlugLoad is recommended', 'A linked auc:ProcessLoad is recommended']}),
-        ('Recreation-Fitness center', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required'], 'WARNING': ['A linked auc:PlugLoad is recommended', 'A linked auc:ProcessLoad is recommended']}),
-        ('Recreation-Ice rink', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:RefrigerationSystem is required'], 'WARNING': ['A linked auc:PlugLoad is recommended']}),
-        ('Recreation-Roller rink', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required'], 'WARNING': ['A linked auc:PlugLoad is recommended']}),
+        ('Recreation-Pool', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:ProcessLoad is required'], 'WARNING': ['A linked auc:PlugLoad is recommended', 'A linked auc:DomesticHotWaterSystem is recommended', 'A linked auc:CookingSystem is recommended', 'A linked auc:LaundrySystem is recommended']}),
+        ('Recreation-Bowling alley', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required'], 'WARNING': ['A linked auc:PlugLoad is recommended', 'A linked auc:CookingSystem is recommended', 'A linked auc:ProcessLoad is recommended']}),
+        ('Recreation-Fitness center', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required'], 'WARNING': ['A linked auc:PlugLoad is recommended', 'A linked auc:DomesticHotWaterSystem is recommended', 'A linked auc:CookingSystem is recommended', 'A linked auc:ProcessLoad is recommended', 'A linked auc:LaundrySystem is recommended']}),
+        ('Recreation-Ice rink', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:RefrigerationSystem is required'], 'WARNING': ['A linked auc:PlugLoad is recommended', 'A linked auc:CookingSystem is recommended']}),
+        ('Recreation-Roller rink', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required'], 'WARNING': ['A linked auc:PlugLoad is recommended', 'A linked auc:CookingSystem is recommended']}),
         ('Recreation-Indoor sport', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required'], 'WARNING': ['A linked auc:PlugLoad is recommended']}),
         ('Recreation', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required']}),
-        ('Education-Adult', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required']}),
-        ('Education-Higher', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required']}),
-        ('Education-Secondary', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required']}),
-        ('Education-Primary', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required']}),
-        ('Education-Preschool or daycare', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required']}),
-        ('Education-Vocational', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required']}),
-        ('Education', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required']}),
+        ('Education-Adult', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required'], 'WARNING': ['A linked auc:DomesticHotWaterSystem is recommended']}),
+        ('Education-Higher', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required'], 'WARNING': ['A linked auc:DomesticHotWaterSystem is recommended']}),
+        ('Education-Secondary', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required'], 'WARNING': ['A linked auc:DomesticHotWaterSystem is recommended']}),
+        ('Education-Primary', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required'], 'WARNING': ['A linked auc:DomesticHotWaterSystem is recommended']}),
+        ('Education-Preschool or daycare', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required'], 'WARNING': ['A linked auc:DomesticHotWaterSystem is recommended']}),
+        ('Education-Vocational', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required'], 'WARNING': ['A linked auc:DomesticHotWaterSystem is recommended']}),
+        ('Education', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required'], 'WARNING': ['A linked auc:DomesticHotWaterSystem is recommended', 'A linked auc:CookingSystem is recommended']}),
         ('Food service-Fast', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required', 'A linked auc:CookingSystem is required']}),
         ('Food service-Full', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required', 'A linked auc:CookingSystem is required']}),
         ('Food service-Limited', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required', 'A linked auc:CookingSystem is required']}),
         ('Food service-Institutional', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required', 'A linked auc:CookingSystem is required']}),
         ('Food service', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required', 'A linked auc:CookingSystem is required']}),
-        ('Lodging-Barracks', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required']}),
-        ('Lodging-Institutional', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required']}),
-        ('Lodging with extended amenities', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required']}),
-        ('Lodging with limited amenities', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required']}),
-        ('Lodging', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required']}),
+        ('Lodging-Barracks', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required'], 'WARNING': ['A linked auc:DomesticHotWaterSystem is recommended', 'A linked auc:LaundrySystem is recommended']}),
+        ('Lodging-Institutional', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required'], 'WARNING': ['A linked auc:DomesticHotWaterSystem is recommended', 'A linked auc:LaundrySystem is recommended']}),
+        ('Lodging with extended amenities', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required'], 'WARNING': ['A linked auc:DomesticHotWaterSystem is recommended', 'A linked auc:LaundrySystem is recommended']}),
+        ('Lodging with limited amenities', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required'], 'WARNING': ['A linked auc:DomesticHotWaterSystem is recommended', 'A linked auc:LaundrySystem is recommended']}),
+        ('Lodging', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required'], 'WARNING': ['A linked auc:DomesticHotWaterSystem is recommended', 'A linked auc:LaundrySystem is recommended']}),
         ('Retail-Automobile dealership', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required']}),
         ('Retail-Mall', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required']}),
         ('Retail-Strip mall', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required']}),
@@ -961,7 +961,7 @@ class TestL200AuditSectionSystems(AssertFailureRolesMixin):
         ('Utility', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required', 'A linked auc:ProcessLoad is required']}),
         ('Industrial', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required', 'A linked auc:ProcessLoad is required']}),
         ('Agricultural estate', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required', 'A linked auc:ProcessLoad is required']}),
-        ('Mixed-use commercial', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required']}),
+        ('Mixed-use commercial', {'ERROR': ['A linked auc:HVACSystem is required', 'A linked auc:LightingSystem is required', 'A linked auc:PlugLoad is required'], 'WARNING': ['A linked auc:DomesticHotWaterSystem is recommended']}),
         ('Parking', {'WARNING': ['A linked auc:HVACSystem is recommended', 'A linked auc:PlugLoad is recommended'], 'ERROR': ['A linked auc:LightingSystem is required'], 'INFO': ['No linked auc:ProcessLoad found']}),
         ('Attic', {'INFO': ['No linked auc:HVACSystem found', 'No linked auc:LightingSystem found', 'No linked auc:PlugLoad found']}),
         ('Basement', {'INFO': ['No linked auc:HVACSystem found', 'No linked auc:LightingSystem found', 'No linked auc:PlugLoad found']}),
@@ -1018,38 +1018,13 @@ class TestL200AuditSectionSystems(AssertFailureRolesMixin):
         assert len(occ_classification_elem) == 1
         occ_classification_elem = occ_classification_elem[0]
         occ_classification_elem.text = section_occupancy_classification
-
         # verify it's valid initially
         failures = validate_schematron(self.schematron, tree, phase='section_systems')
         self.assert_failure_messages(failures, {})
-
         # change the ID of the section to "unlink" the systems and create errors
         section_elem = occ_classification_elem.getparent()
         section_elem.attrib['ID'] = 'Unlinked-Section'
-
         # -- Act
         failures = validate_schematron(self.schematron, tree, phase='section_systems')
-
         # -- Assert
         self.assert_failure_messages(failures, expected_errors)
-
-
-class TestL200AuditSubmeter(AssertFailureRolesMixin):
-    schematron = os.path.join(v2_2_0_SCH_DIR, 'v2-2-0_L200_Audit.sch')
-    exemplary_file = os.path.join(v2_2_0_SCH_DIR, 'exemplary_files', 'L200_Audit.xml')
-
-    def test_is_invalid_when_submeter_not_linked_to_parent(self):
-        # -- Setup
-        tree = etree.parse(self.exemplary_file)
-
-        # remove the link to parent resource
-        remove_xpath = '/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Scenarios/auc:Scenario[auc:ScenarioType/auc:CurrentBuilding/auc:CalculationMethod/auc:Measured]/auc:ResourceUses/auc:ResourceUse[auc:ParentResourceUseID][1]/auc:ParentResourceUseID'
-        remove_element(tree, remove_xpath)
-
-        # -- Act
-        failures = validate_schematron(self.schematron, tree)
-
-        # -- Assert
-        self.assert_failure_messages(failures, {
-            'ERROR': ['ParentResourceUseID must point to a valid resource use']
-        })

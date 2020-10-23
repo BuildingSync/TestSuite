@@ -1291,21 +1291,25 @@
       <sch:assert test="//auc:HVACSystems/auc:HVACSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:HVACSystem is required</sch:assert>
       <sch:assert test="//auc:LightingSystems/auc:LightingSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:LightingSystem is required</sch:assert>
       <sch:assert test="//auc:PlugLoads/auc:PlugLoad/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:PlugLoad is required</sch:assert>
+      <sch:assert test="//auc:DomesticHotWaterSystems/auc:DomesticHotWaterSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="WARNING">A linked auc:DomesticHotWaterSystem is recommended</sch:assert>
     </sch:rule>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType/text() != &quot;Whole building&quot; and auc:OccupancyClassification/text() = &quot;Multifamily with commercial&quot;]">
       <sch:assert test="//auc:HVACSystems/auc:HVACSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:HVACSystem is required</sch:assert>
       <sch:assert test="//auc:LightingSystems/auc:LightingSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:LightingSystem is required</sch:assert>
       <sch:assert test="//auc:PlugLoads/auc:PlugLoad/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:PlugLoad is required</sch:assert>
+      <sch:assert test="//auc:DomesticHotWaterSystems/auc:DomesticHotWaterSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="WARNING">A linked auc:DomesticHotWaterSystem is recommended</sch:assert>
     </sch:rule>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType/text() != &quot;Whole building&quot; and auc:OccupancyClassification/text() = &quot;Multifamily individual unit&quot;]">
       <sch:assert test="//auc:HVACSystems/auc:HVACSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:HVACSystem is required</sch:assert>
       <sch:assert test="//auc:LightingSystems/auc:LightingSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:LightingSystem is required</sch:assert>
       <sch:assert test="//auc:PlugLoads/auc:PlugLoad/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:PlugLoad is required</sch:assert>
+      <sch:assert test="//auc:DomesticHotWaterSystems/auc:DomesticHotWaterSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="WARNING">A linked auc:DomesticHotWaterSystem is recommended</sch:assert>
     </sch:rule>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType/text() != &quot;Whole building&quot; and auc:OccupancyClassification/text() = &quot;Public housing&quot;]">
       <sch:assert test="//auc:HVACSystems/auc:HVACSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:HVACSystem is required</sch:assert>
       <sch:assert test="//auc:LightingSystems/auc:LightingSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:LightingSystem is required</sch:assert>
       <sch:assert test="//auc:PlugLoads/auc:PlugLoad/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:PlugLoad is required</sch:assert>
+      <sch:assert test="//auc:DomesticHotWaterSystems/auc:DomesticHotWaterSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="WARNING">A linked auc:DomesticHotWaterSystem is recommended</sch:assert>
     </sch:rule>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType/text() != &quot;Whole building&quot; and auc:OccupancyClassification/text() = &quot;Residential&quot;]">
       <sch:assert test="//auc:HVACSystems/auc:HVACSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:HVACSystem is required</sch:assert>
@@ -1324,13 +1328,18 @@
       <sch:assert test="//auc:LightingSystems/auc:LightingSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:LightingSystem is required</sch:assert>
       <sch:assert test="//auc:PlugLoads/auc:PlugLoad/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:PlugLoad is required</sch:assert>
       <sch:assert test="//auc:RefrigerationSystems/auc:RefrigerationSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="WARNING">A linked auc:RefrigerationSystem is recommended</sch:assert>
+      <sch:assert test="//auc:DomesticHotWaterSystems/auc:DomesticHotWaterSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="WARNING">A linked auc:DomesticHotWaterSystem is recommended</sch:assert>
+      <sch:assert test="//auc:CookingSystems/auc:CookingSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="WARNING">A linked auc:CookingSystem is recommended</sch:assert>
       <sch:assert test="//auc:ProcessLoads/auc:ProcessLoad/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="WARNING">A linked auc:ProcessLoad is recommended</sch:assert>
+      <sch:assert test="//auc:LaundrySystems/auc:LaundrySystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="WARNING">A linked auc:LaundrySystem is recommended</sch:assert>
     </sch:rule>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType/text() != &quot;Whole building&quot; and auc:OccupancyClassification/text() = &quot;Health care-Residential treatment center&quot;]">
       <sch:assert test="//auc:HVACSystems/auc:HVACSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:HVACSystem is required</sch:assert>
       <sch:assert test="//auc:LightingSystems/auc:LightingSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:LightingSystem is required</sch:assert>
       <sch:assert test="//auc:PlugLoads/auc:PlugLoad/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:PlugLoad is required</sch:assert>
       <sch:assert test="//auc:RefrigerationSystems/auc:RefrigerationSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="WARNING">A linked auc:RefrigerationSystem is recommended</sch:assert>
+      <sch:assert test="//auc:DomesticHotWaterSystems/auc:DomesticHotWaterSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="WARNING">A linked auc:DomesticHotWaterSystem is recommended</sch:assert>
+      <sch:assert test="//auc:CookingSystems/auc:CookingSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="WARNING">A linked auc:CookingSystem is recommended</sch:assert>
       <sch:assert test="//auc:ProcessLoads/auc:ProcessLoad/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="WARNING">A linked auc:ProcessLoad is recommended</sch:assert>
     </sch:rule>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType/text() != &quot;Whole building&quot; and auc:OccupancyClassification/text() = &quot;Health care-Inpatient hospital&quot;]">
@@ -1338,7 +1347,10 @@
       <sch:assert test="//auc:LightingSystems/auc:LightingSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:LightingSystem is required</sch:assert>
       <sch:assert test="//auc:PlugLoads/auc:PlugLoad/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:PlugLoad is required</sch:assert>
       <sch:assert test="//auc:RefrigerationSystems/auc:RefrigerationSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="WARNING">A linked auc:RefrigerationSystem is recommended</sch:assert>
+      <sch:assert test="//auc:DomesticHotWaterSystems/auc:DomesticHotWaterSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:DomesticHotWaterSystem is required</sch:assert>
+      <sch:assert test="//auc:CookingSystems/auc:CookingSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:CookingSystem is required</sch:assert>
       <sch:assert test="//auc:ProcessLoads/auc:ProcessLoad/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="WARNING">A linked auc:ProcessLoad is recommended</sch:assert>
+      <sch:assert test="//auc:LaundrySystems/auc:LaundrySystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="WARNING">A linked auc:LaundrySystem is recommended</sch:assert>
     </sch:rule>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType/text() != &quot;Whole building&quot; and auc:OccupancyClassification/text() = &quot;Health care-Outpatient rehabilitation&quot;]">
       <sch:assert test="//auc:HVACSystems/auc:HVACSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:HVACSystem is required</sch:assert>
@@ -1394,7 +1406,10 @@
       <sch:assert test="//auc:LightingSystems/auc:LightingSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:LightingSystem is required</sch:assert>
       <sch:assert test="//auc:PlugLoads/auc:PlugLoad/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:PlugLoad is required</sch:assert>
       <sch:assert test="//auc:RefrigerationSystems/auc:RefrigerationSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="WARNING">A linked auc:RefrigerationSystem is recommended</sch:assert>
+      <sch:assert test="//auc:DomesticHotWaterSystems/auc:DomesticHotWaterSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="WARNING">A linked auc:DomesticHotWaterSystem is recommended</sch:assert>
+      <sch:assert test="//auc:CookingSystems/auc:CookingSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="WARNING">A linked auc:CookingSystem is recommended</sch:assert>
       <sch:assert test="//auc:ProcessLoads/auc:ProcessLoad/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="WARNING">A linked auc:ProcessLoad is recommended</sch:assert>
+      <sch:assert test="//auc:LaundrySystems/auc:LaundrySystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="WARNING">A linked auc:LaundrySystem is recommended</sch:assert>
     </sch:rule>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType/text() != &quot;Whole building&quot; and auc:OccupancyClassification/text() = &quot;Gas station&quot;]">
       <sch:assert test="//auc:HVACSystems/auc:HVACSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:HVACSystem is required</sch:assert>
@@ -1413,6 +1428,8 @@
       <sch:assert test="//auc:LightingSystems/auc:LightingSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:LightingSystem is required</sch:assert>
       <sch:assert test="//auc:PlugLoads/auc:PlugLoad/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:PlugLoad is required</sch:assert>
       <sch:assert test="//auc:RefrigerationSystems/auc:RefrigerationSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="WARNING">A linked auc:RefrigerationSystem is recommended</sch:assert>
+      <sch:assert test="//auc:DomesticHotWaterSystems/auc:DomesticHotWaterSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="WARNING">A linked auc:DomesticHotWaterSystem is recommended</sch:assert>
+      <sch:assert test="//auc:CookingSystems/auc:CookingSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="WARNING">A linked auc:CookingSystem is recommended</sch:assert>
     </sch:rule>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType/text() != &quot;Whole building&quot; and auc:OccupancyClassification/text() = &quot;Food sales&quot;]">
       <sch:assert test="//auc:HVACSystems/auc:HVACSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:HVACSystem is required</sch:assert>
@@ -1450,16 +1467,21 @@
       <sch:assert test="//auc:HVACSystems/auc:HVACSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:HVACSystem is required</sch:assert>
       <sch:assert test="//auc:LightingSystems/auc:LightingSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:LightingSystem is required</sch:assert>
       <sch:assert test="//auc:PlugLoads/auc:PlugLoad/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:PlugLoad is required</sch:assert>
+      <sch:assert test="//auc:DomesticHotWaterSystems/auc:DomesticHotWaterSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="WARNING">A linked auc:DomesticHotWaterSystem is recommended</sch:assert>
+      <sch:assert test="//auc:CookingSystems/auc:CookingSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="WARNING">A linked auc:CookingSystem is recommended</sch:assert>
+      <sch:assert test="//auc:ProcessLoads/auc:ProcessLoad/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="WARNING">A linked auc:ProcessLoad is recommended</sch:assert>
     </sch:rule>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType/text() != &quot;Whole building&quot; and auc:OccupancyClassification/text() = &quot;Office-Financial&quot;]">
       <sch:assert test="//auc:HVACSystems/auc:HVACSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:HVACSystem is required</sch:assert>
       <sch:assert test="//auc:LightingSystems/auc:LightingSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:LightingSystem is required</sch:assert>
       <sch:assert test="//auc:PlugLoads/auc:PlugLoad/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:PlugLoad is required</sch:assert>
+      <sch:assert test="//auc:DomesticHotWaterSystems/auc:DomesticHotWaterSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="WARNING">A linked auc:DomesticHotWaterSystem is recommended</sch:assert>
     </sch:rule>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType/text() != &quot;Whole building&quot; and auc:OccupancyClassification/text() = &quot;Office&quot;]">
       <sch:assert test="//auc:HVACSystems/auc:HVACSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:HVACSystem is required</sch:assert>
       <sch:assert test="//auc:LightingSystems/auc:LightingSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:LightingSystem is required</sch:assert>
       <sch:assert test="//auc:PlugLoads/auc:PlugLoad/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:PlugLoad is required</sch:assert>
+      <sch:assert test="//auc:DomesticHotWaterSystems/auc:DomesticHotWaterSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="WARNING">A linked auc:DomesticHotWaterSystem is recommended</sch:assert>
     </sch:rule>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType/text() != &quot;Whole building&quot; and auc:OccupancyClassification/text() = &quot;Bank&quot;]">
       <sch:assert test="//auc:HVACSystems/auc:HVACSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:HVACSystem is required</sch:assert>
@@ -1480,6 +1502,8 @@
       <sch:assert test="//auc:HVACSystems/auc:HVACSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:HVACSystem is required</sch:assert>
       <sch:assert test="//auc:LightingSystems/auc:LightingSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:LightingSystem is required</sch:assert>
       <sch:assert test="//auc:PlugLoads/auc:PlugLoad/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:PlugLoad is required</sch:assert>
+      <sch:assert test="//auc:DomesticHotWaterSystems/auc:DomesticHotWaterSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="WARNING">A linked auc:DomesticHotWaterSystem is recommended</sch:assert>
+      <sch:assert test="//auc:CookingSystems/auc:CookingSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="WARNING">A linked auc:CookingSystem is recommended</sch:assert>
     </sch:rule>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType/text() != &quot;Whole building&quot; and auc:OccupancyClassification/text() = &quot;Public safety station&quot;]">
       <sch:assert test="//auc:HVACSystems/auc:HVACSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:HVACSystem is required</sch:assert>
@@ -1490,11 +1514,17 @@
       <sch:assert test="//auc:HVACSystems/auc:HVACSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:HVACSystem is required</sch:assert>
       <sch:assert test="//auc:LightingSystems/auc:LightingSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:LightingSystem is required</sch:assert>
       <sch:assert test="//auc:PlugLoads/auc:PlugLoad/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:PlugLoad is required</sch:assert>
+      <sch:assert test="//auc:DomesticHotWaterSystems/auc:DomesticHotWaterSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:DomesticHotWaterSystem is required</sch:assert>
+      <sch:assert test="//auc:CookingSystems/auc:CookingSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:CookingSystem is required</sch:assert>
+      <sch:assert test="//auc:LaundrySystems/auc:LaundrySystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="WARNING">A linked auc:LaundrySystem is recommended</sch:assert>
     </sch:rule>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType/text() != &quot;Whole building&quot; and auc:OccupancyClassification/text() = &quot;Public safety-Correctional facility&quot;]">
       <sch:assert test="//auc:HVACSystems/auc:HVACSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:HVACSystem is required</sch:assert>
       <sch:assert test="//auc:LightingSystems/auc:LightingSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:LightingSystem is required</sch:assert>
       <sch:assert test="//auc:PlugLoads/auc:PlugLoad/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:PlugLoad is required</sch:assert>
+      <sch:assert test="//auc:DomesticHotWaterSystems/auc:DomesticHotWaterSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:DomesticHotWaterSystem is required</sch:assert>
+      <sch:assert test="//auc:CookingSystems/auc:CookingSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:CookingSystem is required</sch:assert>
+      <sch:assert test="//auc:LaundrySystems/auc:LaundrySystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="WARNING">A linked auc:LaundrySystem is recommended</sch:assert>
     </sch:rule>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType/text() != &quot;Whole building&quot; and auc:OccupancyClassification/text() = &quot;Public safety&quot;]">
       <sch:assert test="//auc:HVACSystems/auc:HVACSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:HVACSystem is required</sch:assert>
@@ -1506,21 +1536,25 @@
       <sch:assert test="//auc:LightingSystems/auc:LightingSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:LightingSystem is required</sch:assert>
       <sch:assert test="//auc:PlugLoads/auc:PlugLoad/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="WARNING">A linked auc:PlugLoad is recommended</sch:assert>
       <sch:assert test="//auc:RefrigerationSystems/auc:RefrigerationSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:RefrigerationSystem is required</sch:assert>
+      <sch:assert test="//auc:ProcessLoads/auc:ProcessLoad/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="WARNING">A linked auc:ProcessLoad is recommended</sch:assert>
     </sch:rule>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType/text() != &quot;Whole building&quot; and auc:OccupancyClassification/text() = &quot;Warehouse-Unrefrigerated&quot;]">
       <sch:assert test="//auc:HVACSystems/auc:HVACSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="WARNING">A linked auc:HVACSystem is recommended</sch:assert>
       <sch:assert test="//auc:LightingSystems/auc:LightingSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:LightingSystem is required</sch:assert>
       <sch:assert test="//auc:PlugLoads/auc:PlugLoad/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="WARNING">A linked auc:PlugLoad is recommended</sch:assert>
+      <sch:assert test="//auc:ProcessLoads/auc:ProcessLoad/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="WARNING">A linked auc:ProcessLoad is recommended</sch:assert>
     </sch:rule>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType/text() != &quot;Whole building&quot; and auc:OccupancyClassification/text() = &quot;Warehouse-Self-storage&quot;]">
       <sch:assert test="//auc:HVACSystems/auc:HVACSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="INFO">No linked auc:HVACSystem found</sch:assert>
       <sch:assert test="//auc:LightingSystems/auc:LightingSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:LightingSystem is required</sch:assert>
       <sch:assert test="//auc:PlugLoads/auc:PlugLoad/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="INFO">No linked auc:PlugLoad found</sch:assert>
+      <sch:assert test="//auc:RefrigerationSystems/auc:RefrigerationSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="WARNING">A linked auc:RefrigerationSystem is recommended</sch:assert>
     </sch:rule>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType/text() != &quot;Whole building&quot; and auc:OccupancyClassification/text() = &quot;Warehouse&quot;]">
       <sch:assert test="//auc:HVACSystems/auc:HVACSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:HVACSystem is required</sch:assert>
       <sch:assert test="//auc:LightingSystems/auc:LightingSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:LightingSystem is required</sch:assert>
       <sch:assert test="//auc:PlugLoads/auc:PlugLoad/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="WARNING">A linked auc:PlugLoad is recommended</sch:assert>
+      <sch:assert test="//auc:ProcessLoads/auc:ProcessLoad/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="WARNING">A linked auc:ProcessLoad is recommended</sch:assert>
     </sch:rule>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType/text() != &quot;Whole building&quot; and auc:OccupancyClassification/text() = &quot;Assembly-Religious&quot;]">
       <sch:assert test="//auc:HVACSystems/auc:HVACSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:HVACSystem is required</sch:assert>
@@ -1581,30 +1615,39 @@
       <sch:assert test="//auc:HVACSystems/auc:HVACSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:HVACSystem is required</sch:assert>
       <sch:assert test="//auc:LightingSystems/auc:LightingSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:LightingSystem is required</sch:assert>
       <sch:assert test="//auc:PlugLoads/auc:PlugLoad/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="WARNING">A linked auc:PlugLoad is recommended</sch:assert>
+      <sch:assert test="//auc:DomesticHotWaterSystems/auc:DomesticHotWaterSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="WARNING">A linked auc:DomesticHotWaterSystem is recommended</sch:assert>
+      <sch:assert test="//auc:CookingSystems/auc:CookingSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="WARNING">A linked auc:CookingSystem is recommended</sch:assert>
       <sch:assert test="//auc:ProcessLoads/auc:ProcessLoad/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:ProcessLoad is required</sch:assert>
+      <sch:assert test="//auc:LaundrySystems/auc:LaundrySystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="WARNING">A linked auc:LaundrySystem is recommended</sch:assert>
     </sch:rule>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType/text() != &quot;Whole building&quot; and auc:OccupancyClassification/text() = &quot;Recreation-Bowling alley&quot;]">
       <sch:assert test="//auc:HVACSystems/auc:HVACSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:HVACSystem is required</sch:assert>
       <sch:assert test="//auc:LightingSystems/auc:LightingSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:LightingSystem is required</sch:assert>
       <sch:assert test="//auc:PlugLoads/auc:PlugLoad/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="WARNING">A linked auc:PlugLoad is recommended</sch:assert>
+      <sch:assert test="//auc:CookingSystems/auc:CookingSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="WARNING">A linked auc:CookingSystem is recommended</sch:assert>
       <sch:assert test="//auc:ProcessLoads/auc:ProcessLoad/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="WARNING">A linked auc:ProcessLoad is recommended</sch:assert>
     </sch:rule>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType/text() != &quot;Whole building&quot; and auc:OccupancyClassification/text() = &quot;Recreation-Fitness center&quot;]">
       <sch:assert test="//auc:HVACSystems/auc:HVACSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:HVACSystem is required</sch:assert>
       <sch:assert test="//auc:LightingSystems/auc:LightingSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:LightingSystem is required</sch:assert>
       <sch:assert test="//auc:PlugLoads/auc:PlugLoad/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="WARNING">A linked auc:PlugLoad is recommended</sch:assert>
+      <sch:assert test="//auc:DomesticHotWaterSystems/auc:DomesticHotWaterSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="WARNING">A linked auc:DomesticHotWaterSystem is recommended</sch:assert>
+      <sch:assert test="//auc:CookingSystems/auc:CookingSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="WARNING">A linked auc:CookingSystem is recommended</sch:assert>
       <sch:assert test="//auc:ProcessLoads/auc:ProcessLoad/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="WARNING">A linked auc:ProcessLoad is recommended</sch:assert>
+      <sch:assert test="//auc:LaundrySystems/auc:LaundrySystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="WARNING">A linked auc:LaundrySystem is recommended</sch:assert>
     </sch:rule>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType/text() != &quot;Whole building&quot; and auc:OccupancyClassification/text() = &quot;Recreation-Ice rink&quot;]">
       <sch:assert test="//auc:HVACSystems/auc:HVACSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:HVACSystem is required</sch:assert>
       <sch:assert test="//auc:LightingSystems/auc:LightingSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:LightingSystem is required</sch:assert>
       <sch:assert test="//auc:PlugLoads/auc:PlugLoad/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="WARNING">A linked auc:PlugLoad is recommended</sch:assert>
       <sch:assert test="//auc:RefrigerationSystems/auc:RefrigerationSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:RefrigerationSystem is required</sch:assert>
+      <sch:assert test="//auc:CookingSystems/auc:CookingSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="WARNING">A linked auc:CookingSystem is recommended</sch:assert>
     </sch:rule>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType/text() != &quot;Whole building&quot; and auc:OccupancyClassification/text() = &quot;Recreation-Roller rink&quot;]">
       <sch:assert test="//auc:HVACSystems/auc:HVACSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:HVACSystem is required</sch:assert>
       <sch:assert test="//auc:LightingSystems/auc:LightingSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:LightingSystem is required</sch:assert>
       <sch:assert test="//auc:PlugLoads/auc:PlugLoad/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="WARNING">A linked auc:PlugLoad is recommended</sch:assert>
+      <sch:assert test="//auc:CookingSystems/auc:CookingSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="WARNING">A linked auc:CookingSystem is recommended</sch:assert>
     </sch:rule>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType/text() != &quot;Whole building&quot; and auc:OccupancyClassification/text() = &quot;Recreation-Indoor sport&quot;]">
       <sch:assert test="//auc:HVACSystems/auc:HVACSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:HVACSystem is required</sch:assert>
@@ -1620,36 +1663,44 @@
       <sch:assert test="//auc:HVACSystems/auc:HVACSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:HVACSystem is required</sch:assert>
       <sch:assert test="//auc:LightingSystems/auc:LightingSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:LightingSystem is required</sch:assert>
       <sch:assert test="//auc:PlugLoads/auc:PlugLoad/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:PlugLoad is required</sch:assert>
+      <sch:assert test="//auc:DomesticHotWaterSystems/auc:DomesticHotWaterSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="WARNING">A linked auc:DomesticHotWaterSystem is recommended</sch:assert>
     </sch:rule>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType/text() != &quot;Whole building&quot; and auc:OccupancyClassification/text() = &quot;Education-Higher&quot;]">
       <sch:assert test="//auc:HVACSystems/auc:HVACSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:HVACSystem is required</sch:assert>
       <sch:assert test="//auc:LightingSystems/auc:LightingSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:LightingSystem is required</sch:assert>
       <sch:assert test="//auc:PlugLoads/auc:PlugLoad/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:PlugLoad is required</sch:assert>
+      <sch:assert test="//auc:DomesticHotWaterSystems/auc:DomesticHotWaterSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="WARNING">A linked auc:DomesticHotWaterSystem is recommended</sch:assert>
     </sch:rule>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType/text() != &quot;Whole building&quot; and auc:OccupancyClassification/text() = &quot;Education-Secondary&quot;]">
       <sch:assert test="//auc:HVACSystems/auc:HVACSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:HVACSystem is required</sch:assert>
       <sch:assert test="//auc:LightingSystems/auc:LightingSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:LightingSystem is required</sch:assert>
       <sch:assert test="//auc:PlugLoads/auc:PlugLoad/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:PlugLoad is required</sch:assert>
+      <sch:assert test="//auc:DomesticHotWaterSystems/auc:DomesticHotWaterSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="WARNING">A linked auc:DomesticHotWaterSystem is recommended</sch:assert>
     </sch:rule>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType/text() != &quot;Whole building&quot; and auc:OccupancyClassification/text() = &quot;Education-Primary&quot;]">
       <sch:assert test="//auc:HVACSystems/auc:HVACSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:HVACSystem is required</sch:assert>
       <sch:assert test="//auc:LightingSystems/auc:LightingSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:LightingSystem is required</sch:assert>
       <sch:assert test="//auc:PlugLoads/auc:PlugLoad/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:PlugLoad is required</sch:assert>
+      <sch:assert test="//auc:DomesticHotWaterSystems/auc:DomesticHotWaterSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="WARNING">A linked auc:DomesticHotWaterSystem is recommended</sch:assert>
     </sch:rule>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType/text() != &quot;Whole building&quot; and auc:OccupancyClassification/text() = &quot;Education-Preschool or daycare&quot;]">
       <sch:assert test="//auc:HVACSystems/auc:HVACSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:HVACSystem is required</sch:assert>
       <sch:assert test="//auc:LightingSystems/auc:LightingSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:LightingSystem is required</sch:assert>
       <sch:assert test="//auc:PlugLoads/auc:PlugLoad/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:PlugLoad is required</sch:assert>
+      <sch:assert test="//auc:DomesticHotWaterSystems/auc:DomesticHotWaterSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="WARNING">A linked auc:DomesticHotWaterSystem is recommended</sch:assert>
     </sch:rule>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType/text() != &quot;Whole building&quot; and auc:OccupancyClassification/text() = &quot;Education-Vocational&quot;]">
       <sch:assert test="//auc:HVACSystems/auc:HVACSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:HVACSystem is required</sch:assert>
       <sch:assert test="//auc:LightingSystems/auc:LightingSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:LightingSystem is required</sch:assert>
       <sch:assert test="//auc:PlugLoads/auc:PlugLoad/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:PlugLoad is required</sch:assert>
+      <sch:assert test="//auc:DomesticHotWaterSystems/auc:DomesticHotWaterSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="WARNING">A linked auc:DomesticHotWaterSystem is recommended</sch:assert>
     </sch:rule>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType/text() != &quot;Whole building&quot; and auc:OccupancyClassification/text() = &quot;Education&quot;]">
       <sch:assert test="//auc:HVACSystems/auc:HVACSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:HVACSystem is required</sch:assert>
       <sch:assert test="//auc:LightingSystems/auc:LightingSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:LightingSystem is required</sch:assert>
       <sch:assert test="//auc:PlugLoads/auc:PlugLoad/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:PlugLoad is required</sch:assert>
+      <sch:assert test="//auc:DomesticHotWaterSystems/auc:DomesticHotWaterSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="WARNING">A linked auc:DomesticHotWaterSystem is recommended</sch:assert>
+      <sch:assert test="//auc:CookingSystems/auc:CookingSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="WARNING">A linked auc:CookingSystem is recommended</sch:assert>
     </sch:rule>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType/text() != &quot;Whole building&quot; and auc:OccupancyClassification/text() = &quot;Food service-Fast&quot;]">
       <sch:assert test="//auc:HVACSystems/auc:HVACSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:HVACSystem is required</sch:assert>
@@ -1685,26 +1736,36 @@
       <sch:assert test="//auc:HVACSystems/auc:HVACSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:HVACSystem is required</sch:assert>
       <sch:assert test="//auc:LightingSystems/auc:LightingSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:LightingSystem is required</sch:assert>
       <sch:assert test="//auc:PlugLoads/auc:PlugLoad/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:PlugLoad is required</sch:assert>
+      <sch:assert test="//auc:DomesticHotWaterSystems/auc:DomesticHotWaterSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="WARNING">A linked auc:DomesticHotWaterSystem is recommended</sch:assert>
+      <sch:assert test="//auc:LaundrySystems/auc:LaundrySystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="WARNING">A linked auc:LaundrySystem is recommended</sch:assert>
     </sch:rule>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType/text() != &quot;Whole building&quot; and auc:OccupancyClassification/text() = &quot;Lodging-Institutional&quot;]">
       <sch:assert test="//auc:HVACSystems/auc:HVACSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:HVACSystem is required</sch:assert>
       <sch:assert test="//auc:LightingSystems/auc:LightingSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:LightingSystem is required</sch:assert>
       <sch:assert test="//auc:PlugLoads/auc:PlugLoad/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:PlugLoad is required</sch:assert>
+      <sch:assert test="//auc:DomesticHotWaterSystems/auc:DomesticHotWaterSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="WARNING">A linked auc:DomesticHotWaterSystem is recommended</sch:assert>
+      <sch:assert test="//auc:LaundrySystems/auc:LaundrySystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="WARNING">A linked auc:LaundrySystem is recommended</sch:assert>
     </sch:rule>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType/text() != &quot;Whole building&quot; and auc:OccupancyClassification/text() = &quot;Lodging with extended amenities&quot;]">
       <sch:assert test="//auc:HVACSystems/auc:HVACSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:HVACSystem is required</sch:assert>
       <sch:assert test="//auc:LightingSystems/auc:LightingSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:LightingSystem is required</sch:assert>
       <sch:assert test="//auc:PlugLoads/auc:PlugLoad/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:PlugLoad is required</sch:assert>
+      <sch:assert test="//auc:DomesticHotWaterSystems/auc:DomesticHotWaterSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="WARNING">A linked auc:DomesticHotWaterSystem is recommended</sch:assert>
+      <sch:assert test="//auc:LaundrySystems/auc:LaundrySystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="WARNING">A linked auc:LaundrySystem is recommended</sch:assert>
     </sch:rule>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType/text() != &quot;Whole building&quot; and auc:OccupancyClassification/text() = &quot;Lodging with limited amenities&quot;]">
       <sch:assert test="//auc:HVACSystems/auc:HVACSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:HVACSystem is required</sch:assert>
       <sch:assert test="//auc:LightingSystems/auc:LightingSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:LightingSystem is required</sch:assert>
       <sch:assert test="//auc:PlugLoads/auc:PlugLoad/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:PlugLoad is required</sch:assert>
+      <sch:assert test="//auc:DomesticHotWaterSystems/auc:DomesticHotWaterSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="WARNING">A linked auc:DomesticHotWaterSystem is recommended</sch:assert>
+      <sch:assert test="//auc:LaundrySystems/auc:LaundrySystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="WARNING">A linked auc:LaundrySystem is recommended</sch:assert>
     </sch:rule>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType/text() != &quot;Whole building&quot; and auc:OccupancyClassification/text() = &quot;Lodging&quot;]">
       <sch:assert test="//auc:HVACSystems/auc:HVACSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:HVACSystem is required</sch:assert>
       <sch:assert test="//auc:LightingSystems/auc:LightingSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:LightingSystem is required</sch:assert>
       <sch:assert test="//auc:PlugLoads/auc:PlugLoad/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:PlugLoad is required</sch:assert>
+      <sch:assert test="//auc:DomesticHotWaterSystems/auc:DomesticHotWaterSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="WARNING">A linked auc:DomesticHotWaterSystem is recommended</sch:assert>
+      <sch:assert test="//auc:LaundrySystems/auc:LaundrySystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="WARNING">A linked auc:LaundrySystem is recommended</sch:assert>
     </sch:rule>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType/text() != &quot;Whole building&quot; and auc:OccupancyClassification/text() = &quot;Retail-Automobile dealership&quot;]">
       <sch:assert test="//auc:HVACSystems/auc:HVACSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:HVACSystem is required</sch:assert>
@@ -1847,6 +1908,7 @@
       <sch:assert test="//auc:HVACSystems/auc:HVACSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:HVACSystem is required</sch:assert>
       <sch:assert test="//auc:LightingSystems/auc:LightingSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:LightingSystem is required</sch:assert>
       <sch:assert test="//auc:PlugLoads/auc:PlugLoad/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="ERROR">A linked auc:PlugLoad is required</sch:assert>
+      <sch:assert test="//auc:DomesticHotWaterSystems/auc:DomesticHotWaterSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="WARNING">A linked auc:DomesticHotWaterSystem is recommended</sch:assert>
     </sch:rule>
     <sch:rule context="/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Sections/auc:Section[auc:SectionType/text() != &quot;Whole building&quot; and auc:OccupancyClassification/text() = &quot;Parking&quot;]">
       <sch:assert test="//auc:HVACSystems/auc:HVACSystem/auc:LinkedPremises/auc:Section/auc:LinkedSectionID[@IDref = current()/@ID]" role="WARNING">A linked auc:HVACSystem is recommended</sch:assert>
