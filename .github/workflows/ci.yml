@@ -31,7 +31,9 @@ jobs:
       -
         name: Set up Poetry
         run: |
+          # NOTE: Poetry won't be in PATH until following steps
           echo "$HOME/.poetry/bin" >> $GITHUB_PATH
+          $HOME/.poetry/bin/poetry install
       -
         name: Print Environment
         run: poetry --version
