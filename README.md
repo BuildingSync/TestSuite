@@ -4,17 +4,20 @@ This repo contains a collection of example BuildingSync files and tools for writ
 
 ## Command line validation
 ### Setup
-Python 3 must be installed before continuing. Check your version with `python --version`.
+#### Install from pypi
+TODO
+#### Install from source
+[Poetry](https://python-poetry.org/) is required to install testsuite.
 ```bash
 # Copy repo
 git clone https://github.com/BuildingSync/TestSuite.git
 
-# Install dependencies
+# install the package
 cd TestSuite
-python -m pip install -r requirements.txt
+poetry install
 
 # Test that it works, you should see a message describing the usage
-./buildingsch.py
+poetry run testsuite
 ```
 
 ## Development
@@ -29,12 +32,12 @@ Hierarchy is implied by the lack of text in a column. If no phase data is added 
 
 The generator expects a "exemplary" xml file which should pass the validation. This is used to make sure all rules are applied (schematron will skip rules if the rule context doesn't match or if it only matches nodes that have already been matched within that pattern). If no exemplary file is provided no rule context checks will be made.
 ```bash
-./buildingsch.py generate path_to_csv [path_to_exemplary_xml]
+poetry run testsuite generate path_to_csv [path_to_exemplary_xml]
 ```
 
 Generate all schematron files by using the following command
 ```bash
-./buildingsch.py generate_all
+poetry run testsuite generate_all
 ```
 
 ### Testing
