@@ -3,9 +3,9 @@ import argparse
 import os
 import sys
 
-from tools.validate_sch import validate_schematron, print_failure
-from tools.generate_sch import generate_sch
-from tools.clean_xml import clean_files
+from testsuite.validate_sch import validate_schematron, print_failure
+from testsuite.generate_sch import generate_sch
+from testsuite.clean_xml import clean_files
 
 
 def validate_schematrons(args):

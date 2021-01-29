@@ -1,7 +1,7 @@
 import os
 
-from tools.constants import BSYNC_NSMAP
-from tools.validate_sch import validate_schematron
+from testsuite.constants import BSYNC_NSMAP
+from testsuite.validate_sch import validate_schematron
 from schematron.conftest import AssertFailureRolesMixin, exemplary_tree, remove_element, v2_2_0_SCH_DIR
 
 
