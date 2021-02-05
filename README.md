@@ -20,6 +20,33 @@ poetry install
 poetry run testsuite
 ```
 
+## Usage
+### Python
+```python
+from testsuite.validate_sch import validate_schematron
+
+# run basic validation
+# returns an array of testsuite.validate_sch.Failures
+failures = validate_schematron('my_schematron.sch', 'my_xml.xml')
+
+# save the svrl result file
+failures = validate_schematron('my_schematron.sch', 'my_xml.xml', result_path='validation_result.svrl')
+
+# run a specific phase in schematron
+failures = validate_schematron('my_schematron.sch', 'my_xml.xml', phase='MyPhaseID')
+
+# report unfired rules as errors
+failures = validate_schematron('my_schematron.sch', 'my_xml.xml', strict_context=True)
+```
+
+### CLI
+```bash
+testsuite validate my_schematron.sch my_xml.xml
+
+# see all options
+testsuite validate --help
+```
+
 ## Development
 ### Generate Schematron
 First create a CSV file that meets the required structure:
