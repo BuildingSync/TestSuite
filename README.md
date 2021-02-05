@@ -45,34 +45,6 @@ poetry run testsuite generate_all
 tox
 ```
 
-## Ruby tests and validation
-We are currently migrating from Ruby to Python, so there is still some remaining Ruby code.
-### System Requirements
-
-In order to run the OpenStudio simulation tests you must have a stable version of the following:
-* `OpenStudio>2.0`
-* `Ruby v2.2.4` via an `rbenv` environment
-* `Bundler v1.17.2`
-
-### Setup
-Place a file called `openstudio.rb` into the the directory of your `Ruby2.2.4` installation `/foo/bar/.rbenv/versions/2.2.4/lib/ruby/2.2.4`
-
-The `openstudio.rb` file should contain one line referencing the location of the Ruby folder of your OpenStudio installation:
-```
-require '/Applications/OpenStudio-2.9.1/Ruby/openstudio.rb'
-```
-___Note - your version of OpenStudio may be different___
-
-Due to dependency issues, there are currently two Gemfiles available in the repo.  Refer to the linked sections for specifics on how to use.
-1. `Gemfile` - Use this for running Rake tasks for [running simulation tests](#running-simulation-tests)
-1. `Gemfile-sch` - Use this for running Rake tasks for [schematron tests](#schematron-tests)
-
-__Note - there is no need to `rm -rf .bundle/` when switching between the above two scenarios.  Just run the below commands and then proceed as described in the linked sections__
-```
-$ bundle install --gemfile Gemfile --path .bundle/install
-$ bundle install --gemfile Gemfile-sch --path .bundle/install
-```
-
 ## Use Cases, Model View Definitions, and Modeling Level of Detail Definitions
 As BuildingSync has grown in its ability to represent information about buildings, it is able to define aspects of buildings at varying levels of abstraction.  Additionally, while originally designed to capture energy audit data, data stored in BuildingSync can be used for other purposes as well. Working with data for different purposes and at varying levels of abstraction in a schema is not something new to BuildingSync.  This is a similar problem faced by the building information modeling (BIM) community, where different informational requirements are necessary at different project stages and many different stakeholders are involved in projects. BIM uses the Industry Foundation Classes (IFC) schema for transferring data between applications.  The BuildingSync team utilizes two concepts introduced by the BIM world for refining data expectations needed by different users of the schema: Level of Development (LOD) and Model View Definitions (MVD).
 
@@ -102,45 +74,6 @@ The formal definitions for each use case is defined using Schematron files, whic
 
 
 The `lib` directory provides a library of general purpose Schematron functions used within the individual Schematron documents.  These functions are designed to be used by others with use cases outside of the Levels defined above.  Narrative overviews for the different levels can be found in `docs`.
-
-# Rakefile
-Rake tasks are currently used for two purposes:
-1. Tests
-1. Running Simulations
-
-## Schematron Tests
-RSpec is used for running tests.  The tests are written around the following:
-1. Testing individual Schematron functions within `lib/` are working correctly. In Progress.
-1. Testing that Schematron is working against Level Definition files.  In Progress.
-
-```
-$ bundle install --gemfile Gemfile-sch --path .bundle/install # if not previously run
-$ BUNDLE_GEMFILE=Gemfile-sch bundle exec rake spec
-$ BUNDLE_GEMFILE=Gemfile-sch bundle exec rake spec SPEC=spec/lib/scenario_elements_spec.rb # run tests in single file
-```
-
-More information on developing Schematron functions (and the required tests!) can be found in the `docs/Contributions and Schematron.md` document.
-
-## Running Simulation Tests
-
-Tests are also written for OpenStudio Simulation files.  Examples for how to use the BuildingSync-gem and the Translator class to run OpenStudio simulations using a BuildingSync XML file can be found in the `spec/simulations/**_spec.rb` files.  Since running all of the files through a simulation can be computationally expensive, tests are separated into two scenarios:
-1. Translation of BuildingSync XML file into the OSM / OSW.
-1. Simulation of the OSW.
-
-By default, all of the files are removed after the translation/simulation occurs.  This can be overriden by passing the `REMOVE_FILES=false` environment variable.  Tests can be run as follows:
-
-__Test that simulation files are translated (files will be removed after test)__
-```
-$ BUNDLE_GEMFILE=Gemfile bundle exec rake translate
-```
-
-__Test that simulation files can be simulated (files will remain after test)__
-```
-$ BUNDLE_GEMFILE=Gemfile bundle exec rake simulate REMOVE_FILES=false
-```
-
-### Outputs
-Output directories will be created after running either the translation or simulation tests and are located in `spec/simulations/[schema-version]/[sim-file]/`.
 
 # Examples
 ## HVAC System Examples
