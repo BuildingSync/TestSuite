@@ -1,8 +1,8 @@
 
 from lxml import etree
 
-from tools.constants import SCH_NSMAP, SCH_NS
-from tools.generate_sch import make_pattern_for_testing_contexts, qname, add_assert_description
+from testsuite.constants import SCH_NSMAP, SCH_NS
+from testsuite.generate_sch import make_pattern_for_testing_contexts, qname, add_assert_description
 
 
 class TestMakePatternForStructure:

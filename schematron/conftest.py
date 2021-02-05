@@ -4,7 +4,7 @@ import pprint
 
 from lxml import etree
 
-from tools.constants import BSYNC_NSMAP
+from testsuite.constants import BSYNC_NSMAP
 
 SCH_LIB_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'lib')
 v2_0_0_SCH_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'v2.0.0')

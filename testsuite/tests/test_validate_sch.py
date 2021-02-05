@@ -2,7 +2,7 @@ import os
 
 import pytest
 
-from tools.validate_sch import validate_schematron
+from testsuite.validate_sch import validate_schematron
 
 
 @pytest.fixture

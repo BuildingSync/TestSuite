@@ -44,5 +44,5 @@ repos:
     -   id: format-xml
         name: format xml and sch files
         language: system
-        entry: python buildingsch.py clean
+        entry: poetry run testsuite clean
         files: ^.*.(xml|sch)$

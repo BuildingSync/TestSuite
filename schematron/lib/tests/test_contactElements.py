@@ -3,7 +3,7 @@ import os
 from lxml import etree
 import pytest
 
-from tools.validate_sch import validate_schematron
+from testsuite.validate_sch import validate_schematron
 from schematron.conftest import AssertFailureRolesMixin, sch_from_imported_abstract_pattern, remove_element
 
 DATA_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'data')

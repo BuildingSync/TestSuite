@@ -6,7 +6,7 @@ import re
 
 from lxml import etree
 
-from tools.constants import SCH_NS, SCH_NSMAP, BSYNC_NSMAP
+from testsuite.constants import SCH_NS, SCH_NSMAP, BSYNC_NSMAP
 
 
 # global variable for tracking visited nodes in the exemplary xml

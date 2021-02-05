@@ -1,7 +1,7 @@
 import os
 
 
-from tools.validate_sch import validate_schematron
+from testsuite.validate_sch import validate_schematron
 from schematron.conftest import AssertFailureRolesMixin, v2_0_0_SCH_DIR
 
 

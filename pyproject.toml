@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "testsuite"
+version = "0.1.0"
+description = ""
+authors = ["Nick Long <nicholas.long@nrel.gov>"]
+
+[tool.poetry.dependencies]
+python = "^3.6"
+lxml = "4.6.2"
+
+[tool.poetry.dev-dependencies]
+pytest = "5.4.3"
+pytest-cov = "2.8.1"
+tox = "3.14.4"
+
+[tool.poetry.scripts]
+testsuite = 'testsuite.console:main'
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"

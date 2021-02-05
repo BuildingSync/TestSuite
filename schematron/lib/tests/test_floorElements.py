@@ -3,8 +3,8 @@ from copy import deepcopy
 
 from lxml import etree
 
-from tools.validate_sch import validate_schematron
-from tools.constants import BSYNC_NSMAP
+from testsuite.validate_sch import validate_schematron
+from testsuite.constants import BSYNC_NSMAP
 from schematron.conftest import AssertFailureRolesMixin, sch_from_imported_abstract_pattern
 
 DATA_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'data')

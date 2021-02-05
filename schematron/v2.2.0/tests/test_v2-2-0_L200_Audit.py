@@ -3,8 +3,8 @@ import os
 from lxml import etree
 import pytest
 
-from tools.constants import BSYNC_NSMAP, BSYNC_NS
-from tools.validate_sch import validate_schematron
+from testsuite.constants import BSYNC_NSMAP, BSYNC_NS
+from testsuite.validate_sch import validate_schematron
 
 from schematron.conftest import AssertFailureRolesMixin, v2_2_0_SCH_DIR, exemplary_tree, replace_element, remove_element
 
