@@ -19,10 +19,11 @@ jobs:
           python-version: 3.6
       - name: Install poetry
         uses: abatilo/actions-poetry@v2.0.0
-        run: poetry install
       -
         name: Print Environment
-        run: poetry --version
+        run: |
+          poetry install
+          poetry --version
       -
         name: Tox ${{ matrix.test_env }}
         run: poetry run tox -e ${{ matrix.test_env }}
