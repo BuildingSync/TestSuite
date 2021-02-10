@@ -5,7 +5,9 @@ This repo contains a collection of example BuildingSync files and tools for writ
 ## Command line validation
 ### Setup
 #### Install from pypi
-TODO
+```bash
+pip install testsuite
+```
 #### Install from source
 [Poetry](https://python-poetry.org/) is required to install testsuite.
 ```bash
