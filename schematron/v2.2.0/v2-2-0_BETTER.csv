@@ -1,0 +1,7 @@
+phase title,phase see,pattern title,pattern see,rule title,rule context,generate context test,assert test,assert description,assert severity,notes
+BETTER Building Information,Based on BETTER analysis inputs,Basic Building Info,,Basic Building Info,/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building,TRUE,auc:Address or auc:ClimateZoneType or auc:WeatherDataStationID or (auc:Latitude and auc:Longitude),,,
+,,,,,,,auc:PremisesName,,,
+,,,,,,,auc:OccupancyClassification,,,
+,,,,,,,auc:FloorAreas/auc:FloorArea[auc:FloorAreaType='Gross']/auc:FloorAreaValue,,,
+,,,,Address Requirements,/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:Address,FALSE,auc:City and auc:State and auc:PostalCode,,,
+,,Scenario Requirements,,Link Scenario to Building,/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report/auc:Scenarios/auc:Scenario,TRUE,auc:LinkedPremises/auc:Building/auc:LinkedBuildingID/@IDref,All Scenarios should be linked to a Building,,
