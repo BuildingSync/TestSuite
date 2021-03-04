@@ -27,3 +27,5 @@ jobs:
       -
         name: Tox ${{ matrix.test_env }}
         run: poetry run tox -e ${{ matrix.test_env }}
+      - name: Run Pre-Commit
+        run: poetry run pre-commit run --all-files
