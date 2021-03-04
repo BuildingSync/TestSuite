@@ -1,12 +1,6 @@
-from copy import deepcopy
 import os
 
-import pytest
-from lxml import etree
-
-from tools.constants import BSYNC_NSMAP, BSYNC_NS
-from tools.validate_sch import validate_schematron
-
+from testsuite.validate_sch import validate_schematron
 from schematron.conftest import AssertFailureRolesMixin, v2_2_0_SCH_DIR
 
 class TestL100AuditBSyncr(AssertFailureRolesMixin):
