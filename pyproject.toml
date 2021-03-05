@@ -5,13 +5,14 @@ description = ""
 authors = ["Nick Long <nicholas.long@nrel.gov>"]
 
 [tool.poetry.dependencies]
-python = "^3.6"
+python = "^3.6.1"
 lxml = "4.6.2"
 
 [tool.poetry.dev-dependencies]
 pytest = "5.4.3"
 pytest-cov = "2.8.1"
 tox = "3.14.4"
+pre-commit = "^2.10.1"
 
 [tool.poetry.scripts]
 testsuite = 'testsuite.console:main'
