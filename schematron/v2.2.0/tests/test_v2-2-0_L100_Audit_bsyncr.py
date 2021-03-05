@@ -20,5 +20,3 @@ class TestL100Auditbsyncr(AssertFailureRolesMixin):
 
         # -- Assert
         self.assert_failure_messages(failures, {})
-
- 

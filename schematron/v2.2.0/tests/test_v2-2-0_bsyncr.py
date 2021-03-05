@@ -13,5 +13,3 @@ class Testbsyncr(AssertFailureRolesMixin):
 
         # -- Assert
         self.assert_failure_messages(failures, {})
-
- 

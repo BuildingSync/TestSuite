@@ -20,5 +20,3 @@ class TestL000AuditL100Simulation(AssertFailureRolesMixin):
 
         # -- Assert
         self.assert_failure_messages(failures, {})
-
- 
