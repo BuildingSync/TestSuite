@@ -1,8 +1,25 @@
 [tool.poetry]
 name = "testsuite"
-version = "0.1.0"
-description = ""
-authors = ["Nick Long <nicholas.long@nrel.gov>"]
+version = "0.1.1"
+description = "Example BuildingSync files and tools for writing and validating BuildingSync use cases as schematron files."
+authors = ["Ted Summer <ted@devetry.com>"]
+
+readme = "README.md"
+
+homepage = "https://buildingsync.net"
+repository = "https://github.com/BuildingSync/TestSuite"
+documentation = "https://github.com/BuildingSync/TestSuite"
+keywords = ["BuildingSync", "Building Data Exchange", "Schematron"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+]
 
 [tool.poetry.dependencies]
 python = "^3.6.1"
