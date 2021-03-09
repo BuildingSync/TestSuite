@@ -1,7 +1,4 @@
-"""
-*********************************************************************************************************
-:copyright (c) BuildingSync®, Copyright (c) 2015-2021, Alliance for Sustainable Energy, LLC,
-and other contributors.
+BuildingSync®, Copyright (c) 2015-2021, Alliance for Sustainable Energy, LLC, and other contributors.
 
 All rights reserved.
 
@@ -31,23 +28,3 @@ DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVI
 OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
 STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-*********************************************************************************************************
-"""
-
-import os
-
-
-from testsuite.validate_sch import validate_schematron
-from schematron.conftest import AssertFailureRolesMixin, v2_0_0_SCH_DIR
-
-
-class TestV200BricrSeed(AssertFailureRolesMixin):
-    schematron = os.path.join(v2_0_0_SCH_DIR, 'v2-0-0_BRICR_SEED.sch')
-    example_file = os.path.join(v2_0_0_SCH_DIR, 'examples', 'SEED_01.xml')
-
-    def test_example_file_1_is_valid_with_info_messages(self):
-        # -- Act
-        failures = validate_schematron(self.schematron, self.example_file)
-
-        # -- Assert
-        self.assert_failure_messages(failures, {})

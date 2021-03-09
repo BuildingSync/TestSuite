@@ -2,7 +2,7 @@
 This document provides documentation for elements described within the `auc:Systems` element context.
 
 # L100 Primary Systems
-Per the [Level 100](https://github.com/BuildingSync/TestSuite/blob/master/docs/Level%20Definitions.md#level-100) definitions, for every `auc:Section` element defined, it is expected that there is *exactly one* of each of the following elements:
+Per the [Level 100](https://github.com/BuildingSync/TestSuite/blob/main/docs/Level%20Definitions.md#level-100) definitions, for every `auc:Section` element defined, it is expected that there is *exactly one* of each of the following elements:
 - `auc:HVACSystem`
 - `auc:LightingSystem`
 - `auc:PlugLoad`

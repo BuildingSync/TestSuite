@@ -16,7 +16,7 @@ jobs:
         name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: 3.6
+          python-version: 3.6.7
       - name: Install poetry
         uses: abatilo/actions-poetry@v2.0.0
       -
@@ -27,3 +27,8 @@ jobs:
       -
         name: Tox ${{ matrix.test_env }}
         run: poetry run tox -e ${{ matrix.test_env }}
+
+      - name: Install and Run Pre-Commit
+        run: |
+          poetry run pre-commit install
+          poetry run pre-commit run --all-files

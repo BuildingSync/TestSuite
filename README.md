@@ -1,5 +1,9 @@
 # Overview
 
+[![PyPI version](https://badge.fury.io/py/testsuite.svg)](https://badge.fury.io/py/testsuite)
+
+![example workflow](https://github.com/buildingsync/testsuite/actions/workflows/ci.yml/badge.svg?branch=develop)
+
 This repo contains a collection of example BuildingSync files and tools for writing and validating BuildingSync use cases as schematron files.
 
 ## Command line validation
