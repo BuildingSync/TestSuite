@@ -9,6 +9,7 @@ from testsuite.constants import BSYNC_NSMAP
 SCH_LIB_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'lib')
 v2_0_0_SCH_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'v2.0.0')
 v2_2_0_SCH_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'v2.2.0')
+v2_3_0_SCH_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'v2.3.0')
 
 
 class AssertFailureRolesMixin:
