@@ -1,7 +1,5 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<auc:BuildingSync xmlns:auc="http://buildingsync.net/schemas/bedes-auc/2019"
-  xsi:schemaLocation="http://buildingsync.net/schemas/bedes-auc/2019 https://raw.githubusercontent.com/BuildingSync/schema/v2.0-pr2/BuildingSync.xsd"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<?xml version="1.0" encoding="utf-8"?>
+<auc:BuildingSync xmlns:auc="http://buildingsync.net/schemas/bedes-auc/2019" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://buildingsync.net/schemas/bedes-auc/2019 https://raw.githubusercontent.com/BuildingSync/schema/v2.0-pr2/BuildingSync.xsd">
   <auc:Facilities>
     <auc:Facility ID="Facility-1">
       <auc:Sites>
@@ -56,7 +54,7 @@
                       <auc:FloorAreaType>Heated and Cooled</auc:FloorAreaType>
                       <auc:FloorAreaValue>24566.0</auc:FloorAreaValue>
                     </auc:FloorArea>
-                    <auc:FloorArea></auc:FloorArea>
+                    <auc:FloorArea/>
                   </auc:FloorAreas>
                 </auc:Section>
               </auc:Sections>
@@ -76,7 +74,7 @@
               <auc:HeatingSources>
                 <auc:HeatingSource ID="HeatingSource-1">
                   <auc:HeatingSourceType>
-                    <auc:Furnace></auc:Furnace>
+                    <auc:Furnace/>
                   </auc:HeatingSourceType>
                   <auc:AnnualHeatingEfficiencyValue>80.0</auc:AnnualHeatingEfficiencyValue>
                   <auc:AnnualHeatingEfficiencyUnits>AFUE</auc:AnnualHeatingEfficiencyUnits>
@@ -151,17 +149,17 @@
             </auc:HeatingAndCoolingSystems>
             <auc:LinkedPremises>
               <auc:Building>
-                <auc:LinkedBuildingID IDref="Building-1"></auc:LinkedBuildingID>
+                <auc:LinkedBuildingID IDref="Building-1"/>
               </auc:Building>
               <auc:Section>
-                <auc:LinkedSectionID IDref=></auc:LinkedSectionID>
+                <auc:LinkedSectionID/>
               </auc:Section>
             </auc:LinkedPremises>
           </auc:HVACSystem>
         </auc:HVACSystems>
       </auc:Systems>
       <auc:Schedules>
-        <auc:Schedule></auc:Schedule>
+        <auc:Schedule/>
       </auc:Schedules>
     </auc:Facility>
   </auc:Facilities>
