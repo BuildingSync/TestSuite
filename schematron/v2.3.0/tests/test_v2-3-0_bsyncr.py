@@ -37,12 +37,12 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 import os
 
 from testsuite.validate_sch import validate_schematron
-from schematron.conftest import AssertFailureRolesMixin, v2_2_0_SCH_DIR
+from schematron.conftest import AssertFailureRolesMixin, v2_3_0_SCH_DIR
 
 
 class Testbsyncr(AssertFailureRolesMixin):
-    schematron = os.path.join(v2_2_0_SCH_DIR, 'v2-2-0_bsyncr.sch')
-    exemplary_file = os.path.join(v2_2_0_SCH_DIR, 'exemplary_files', 'bsyncr.xml')
+    schematron = os.path.join(v2_3_0_SCH_DIR, 'v2-2-0_bsyncr.sch')
+    exemplary_file = os.path.join(v2_3_0_SCH_DIR, 'exemplary_files', 'bsyncr.xml')
 
     def test_exemplary_file_is_valid(self):
         # -- Act
