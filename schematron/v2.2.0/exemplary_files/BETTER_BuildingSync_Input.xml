@@ -19,6 +19,7 @@
                         <auc:Building ID="Building-A">
                             <auc:PremisesName>Bsync Test Building</auc:PremisesName>
                             <auc:OccupancyClassification>Lodging</auc:OccupancyClassification>
+                            <auc:eGRIDRegionCode>RMPA</auc:eGRIDRegionCode>
                             <auc:Address>
                                 <auc:City>Denver</auc:City>
                                 <auc:State>CO</auc:State>
