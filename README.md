@@ -68,11 +68,6 @@ The generator expects a "exemplary" xml file which should pass the validation. T
 poetry run testsuite generate path_to_csv [path_to_exemplary_xml]
 ```
 
-Generate all schematron files by using the following command
-```bash
-poetry run testsuite generate_all
-```
-
 ### Testing
 ```bash
 tox

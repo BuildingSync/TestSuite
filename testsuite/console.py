@@ -38,7 +38,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
 import argparse
-import os
+from pathlib import Path
 import sys
 
 from testsuite.validate_sch import validate_schematron, print_failure
@@ -72,31 +72,6 @@ def generate_schematron(args):
     generate_sch(args.source_csv, args.output, args.exemplary_xml, schema_version=args.schema_version)
 
 
-def generate_all_schematron(args):
-    """
-    Runs generator for all CSVs it can find under schematron/ and prints out the
-    names of CSVs that resulted in new schematron files.
-    """
-    base_dir = 'schematron/'
-    updated_files = []
-    for root, _, files in os.walk(base_dir):
-        for name in files:
-            if not name.endswith('.csv'):
-                continue
-            filename = os.path.join(root, name)
-            updated = generate_sch(filename, dry_run=args.dry_run)
-            if updated:
-                updated_files.append(filename)
-
-    for file_ in updated_files:
-        print(file_)
-
-    if args.dry_run and len(updated_files) > 0:
-        print('Expected no files to be modified after generating Schematron. Update the Schematron by running `testsuite generate_all`')
-        sys.exit(1)
-    sys.exit(0)
-
-
 def _clean_files(args):
     for filename in args.filenames:
         clean_files(filename)
@@ -109,19 +84,12 @@ def clean_all_files(args):
     - Two space indentation
     - Serializing with doctype = '<?xml version="1.0" encoding="UTF-8"?>
     """
-    base_dir = 'schematron/'
-    updated_files = []
-    for root, _, files in os.walk(base_dir):
-        for name in files:
-            if not name.endswith('.xml') and not name.endswith('.sch'):
-                continue
-            filename = os.path.join(root, name)
-            updated = clean_files(filename)
-            if updated:
-                updated_files.append(filename)
-
-    for file_ in updated_files:
-        print(file_)
+    schematron_files = Path(args.directory).rglob('*.sch')
+    xml_files = Path(args.directory).rglob('*.xml')
+    for filename in list(schematron_files) + list(xml_files):
+        updated = clean_files(str(filename))
+        if updated:
+            print(filename)
 
     sys.exit(0)
 
@@ -211,16 +179,6 @@ def main():
     )
     parser_generate.set_defaults(func=generate_schematron)
 
-    # Generate all command
-    parser_generate = subparsers.add_parser('generate_all', description='Command for generating Schematron files for all CSV files under schematron/')
-    parser_generate.add_argument(
-        '-d',
-        '--dry-run',
-        action='store_true',
-        help='Does not modify files, but list files and exits with non-zero if files would have been modified'
-    )
-    parser_generate.set_defaults(func=generate_all_schematron)
-
     # Clean command
     parser_clean_files = subparsers.add_parser('clean', description='Command for formatting one ore more *.xml or *.sch files')
     parser_clean_files.add_argument(
@@ -234,6 +192,12 @@ def main():
 
     # Clean all command
     parser_clean_all_files = subparsers.add_parser('clean_all', description='Command for formatting all *.xml and *.sch files')
+    parser_clean_all_files.add_argument(
+        '-d',
+        '--directory',
+        default=Path(),
+        help='path to location to clean files'
+    )
     parser_clean_all_files.set_defaults(func=clean_all_files)
 
     # command with no sub-commands should just print help
