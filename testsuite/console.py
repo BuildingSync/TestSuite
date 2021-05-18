@@ -69,7 +69,7 @@ def validate_schematrons(args):
 def generate_schematron(args):
     if args.exemplary_xml is None:
         print('INFO: No exemplary xml file provided - will not be able to check for potential unfired rule contexts')
-    generate_sch(args.source_csv, args.output, args.exemplary_xml)
+    generate_sch(args.source_csv, args.output, args.exemplary_xml, schema_version=args.schema_version)
 
 
 def generate_all_schematron(args):
@@ -201,6 +201,13 @@ def main():
         type=str,
         default=None,
         help='path to file to save generated schematron'
+    )
+    parser_generate.add_argument(
+        '-v',
+        '--schema-version',
+        type=str,
+        default='',
+        help='Value for sch:schema@schemaVersion'
     )
     parser_generate.set_defaults(func=generate_schematron)
 
