@@ -4,7 +4,8 @@
 
 ![example workflow](https://github.com/buildingsync/testsuite/actions/workflows/ci.yml/badge.svg?branch=develop)
 
-A tool for writing and validating BuildingSync use cases as schematron files.
+A tool for writing and validating BuildingSync use cases as Schematron files.
+See the [BuildingSync use-cases](https://github.com/BuildingSync/use-cases) repository for current Schematron and example files for particular use cases.
 
 ## Command line validation
 ### Setup
