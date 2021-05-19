@@ -6,9 +6,6 @@ on:
 jobs:
   tests:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        test_env: [python, generated_sch]
     steps:
       -
         uses: actions/checkout@v2
@@ -25,8 +22,8 @@ jobs:
           poetry install
           poetry --version
       -
-        name: Tox ${{ matrix.test_env }}
-        run: poetry run tox -e ${{ matrix.test_env }}
+        name: Tox
+        run: poetry run tox -e python
 
       - name: Install and Run Pre-Commit
         run: |
