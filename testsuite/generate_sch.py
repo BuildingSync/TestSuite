@@ -218,12 +218,18 @@ def generate_tests_for_rule_contexts(orig_sch_dict):
     return new_sch_dict
 
 
-def generate_sch(csv_file, output_file=None, exemplary_xml_file=None, dry_run=False):
+def generate_sch(csv_file, output_file=None, exemplary_xml_file=None, dry_run=False, schema_version=''):
     """
     Generates a schematron file from a csv file
 
     :param csv_file: str, path to csv for schematron generation
+    :param output_file: str | None, optional, location to save the result. If None, it
+        will be saved with the same name as the CSV file
     :param exemplary_xml_file: str | None, path to an xml file which should pass the schematron validation
+    :param dry_run: bool, optional, if True it will not save the result to a file
+    :param schema_version: str, optional, used for sch:schema@schemaVersion
+    :return: bool, True if the generated result is different than the existing
+        output file file. It will always return true when no output file file existed before
     """
     with open(csv_file, encoding='utf-8-sig') as f:
         rows = [{k: v for k, v in row.items()}
@@ -290,10 +296,14 @@ def generate_sch(csv_file, output_file=None, exemplary_xml_file=None, dry_run=Fa
 
         # every row must include an assert statement
         if row['assert test']:
+            role = row['assert severity']
+            if not role:
+                role = 'ERROR'
+
             new_assert = {
                 'test': row['assert test'],
                 'description': row['assert description'],
-                'role': row['assert severity']
+                'role': role
             }
             current_rule['asserts'].append(new_assert)
 
@@ -303,7 +313,7 @@ def generate_sch(csv_file, output_file=None, exemplary_xml_file=None, dry_run=Fa
     exemplary_xml = None
     if exemplary_xml_file is not None:
         exemplary_xml = etree.parse(exemplary_xml_file)
-    root = etree.Element(qname('schema'), nsmap=SCH_NSMAP)
+    root = etree.Element(qname('schema'), nsmap=SCH_NSMAP, schemaVersion=schema_version, queryBinding='xslt1')
     etree.SubElement(root, qname('ns'), prefix="auc", uri="http://buildingsync.net/schemas/bedes-auc/2019")
 
     # used to add patterns at the end of the root element after everything's finished
