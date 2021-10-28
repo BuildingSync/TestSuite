@@ -44,6 +44,13 @@ failures = validate_schematron('my_schematron.sch', 'my_xml.xml', phase='MyPhase
 
 # report unfired rules as errors
 failures = validate_schematron('my_schematron.sch', 'my_xml.xml', strict_context=True)
+
+# fetch a file from the use-cases repo and use it for validation
+import urllib.request
+schematron_url = 'https://raw.githubusercontent.com/BuildingSync/use-cases/main/SEED/schematron/SEED-1.0.0.sch'
+schematron_filename = 'local_schematron.sch'
+urllib.request.urlretrieve(schematron_url, filename=schematron_filename)
+failures = validate_schematron(schematron_filename, 'my_xml.xml')
 ```
 
 ### CLI
