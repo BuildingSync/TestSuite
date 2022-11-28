@@ -24,7 +24,7 @@ classifiers = [
 
 [tool.poetry.dependencies]
 python = "^3.6.1"
-lxml = "4.6.3"
+lxml = "4.9.1"
 
 [tool.poetry.dev-dependencies]
 pytest = "5.4.3"
