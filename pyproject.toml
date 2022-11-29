@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "testsuite"
-version = "0.1.2"
+version = "0.1.3"
 description = "Example BuildingSync files and tools for writing and validating BuildingSync use cases as schematron files."
 authors = ["Ted Summer <ted@devetry.com>"]
 license = "BSD4"
