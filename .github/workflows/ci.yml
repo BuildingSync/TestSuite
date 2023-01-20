@@ -18,9 +18,8 @@ jobs:
         run: |
           poetry install
           poetry --version
-      - name: Tox
-        run: poetry run tox -e python
-
+      - name: Run pytest
+        run: poetry run pytest
       - name: Install and Run Pre-Commit
         run: |
           poetry run pre-commit install
