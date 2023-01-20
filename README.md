@@ -78,5 +78,11 @@ poetry run testsuite generate path_to_csv [path_to_exemplary_xml]
 
 ### Testing
 ```bash
-poetry run tox -e python
+poetry run pytest
+```
+
+To autoformat and check file formats run
+
+```
+poetry run pre-commit --all-files
 ```
