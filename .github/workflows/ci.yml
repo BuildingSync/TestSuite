@@ -7,24 +7,21 @@ jobs:
   tests:
     runs-on: ubuntu-latest
     steps:
-      -
-        uses: actions/checkout@v2
-      -
-        name: Set up Python
-        uses: actions/setup-python@v2
+      - uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v4
         with:
-          python-version: 3.7.9
+          python-version: 3.10.9
       - name: Install poetry
         uses: abatilo/actions-poetry@v2.0.0
-      -
-        name: Print Environment
+        with:
+          poetry-version: 1.3.1
+      - name: Print Environment
         run: |
           poetry install
           poetry --version
-      -
-        name: Tox
-        run: poetry run tox -e python
-
+      - name: Run pytest
+        run: poetry run pytest
       - name: Install and Run Pre-Commit
         run: |
           poetry run pre-commit install
