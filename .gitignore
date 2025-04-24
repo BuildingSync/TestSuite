@@ -8,6 +8,8 @@ Gemfile-sch.lock
 .ruby-version
 .python-version
 
+node_modules
+
 # store local info used during development, but no longer needed
 archive/
 ~$*.xlsx
