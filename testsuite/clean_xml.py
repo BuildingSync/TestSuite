@@ -50,7 +50,9 @@ def clean_files(file_name):
         print(f"Syntax Error, file not updated: {file_name}")
         return False
     etree.indent(tree)
-    output = etree.tostring(tree, doctype='<?xml version="1.0" encoding="UTF-8"?>', pretty_print=True)
-    with open(file_name, 'wb') as f:
+    output = etree.tostring(
+        tree, doctype='<?xml version="1.0" encoding="UTF-8"?>', pretty_print=True
+    )
+    with open(file_name, "wb") as f:
         f.write(output)
     return output
