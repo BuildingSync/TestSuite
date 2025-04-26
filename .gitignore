@@ -7,6 +7,7 @@ Gemfile-sch.lock
 .idea
 .ruby-version
 .python-version
+.ruff_cache
 
 node_modules
 
