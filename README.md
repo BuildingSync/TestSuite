@@ -101,3 +101,15 @@ To autoformat and check file formats run
 ```bash
 poetry run pre-commit --all-files
 ```
+
+## Releasing
+
+- Create a branch with the prepared release change log.
+- Update version in `pyproject.toml`
+- Create CHANGELOG in GitHub, paste in updates into CHANGELOG.md
+- Run `pre-commit` locally, and commit back changes
+- Test as needed
+- Merge release prep PR to develop
+- To release, from the command line merge latest develop into latest main: :code:`git merge --ff-only origin develop`. This will point the HEAD of main to latest develop. Then push the main branch to GitHub with :code:`git push`, which may require a developer with elevated privileges to push to main.
+- Back on GitHub create a new tag in GitHub against main and copy the change log notes into the tag description.
+- Tag on GitHub, copy over the correct version (format vX.Y.Z) and CHANGELOG content.
