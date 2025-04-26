@@ -1,10 +1,6 @@
 exclude: |
   (?x)(
-    ^docs|
-    ^examples|
-    ^.bundle|
-    ^archive|
-    .csv$
+    ^data/
   )
 
 repos:
@@ -27,9 +23,7 @@ repos:
       - id: check-executables-have-shebangs
       - id: check-merge-conflict
       - id: check-xml
-      - id: check-yaml
       - id: debug-statements
-      - id: end-of-file-fixer
       - id: mixed-line-ending
       - id: pretty-format-json
         args: ["--autofix", "--no-sort-keys"]
@@ -40,7 +34,7 @@ repos:
       - id: prettier
         types_or: [yaml, markdown]
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.11.6
+    rev: v0.11.7
     hooks:
       - id: ruff
         args: [--fix, --exit-non-zero-on-fix, --output-format=full]

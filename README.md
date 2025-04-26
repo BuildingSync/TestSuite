@@ -98,6 +98,6 @@ poetry run pytest
 
 To autoformat and check file formats run
 
-```
+```bash
 poetry run pre-commit --all-files
 ```
