@@ -2,7 +2,7 @@
 
 [![PyPI version](https://badge.fury.io/py/testsuite.svg)](https://badge.fury.io/py/testsuite)
 
-![example workflow](https://github.com/buildingsync/testsuite/actions/workflows/ci.yml/badge.svg?branch=develop)
+![CI workflow](https://github.com/BuildingSync/TestSuite/actions/workflows/ci.yml/badge.svg?branch=develop)
 
 A tool for writing and validating BuildingSync use cases as Schematron files.
 See the [BuildingSync use-cases](https://github.com/BuildingSync/use-cases) repository for current Schematron and example files for particular use cases.
