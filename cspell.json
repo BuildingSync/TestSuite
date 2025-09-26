@@ -5,6 +5,7 @@
   "dictionaries": [],
   "words": [
     "Arvada",
+    "aviveiros",
     "balancepoint",
     "bsync",
     "bsyncr",
@@ -20,6 +21,7 @@
     "isdparser",
     "lubridate",
     "lxml",
+    "macintoshpie",
     "nllong",
     "NMEC",
     "nmecr",
@@ -29,7 +31,9 @@
     "rnoaa",
     "Schematron",
     "testthat",
-    "tidyr"
+    "tidyr",
+    "virtualenv",
+    "Xiong"
   ],
   "ignoreWords": [],
   "import": []
