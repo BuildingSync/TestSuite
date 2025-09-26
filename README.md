@@ -110,6 +110,7 @@ poetry run pre-commit --all-files
 - Run `pre-commit` locally, and commit back changes
 - Test as needed
 - Merge release prep PR to develop
-- To release, from the command line merge latest develop into latest main: :code:`git merge --ff-only origin develop`. This will point the HEAD of main to latest develop. Then push the main branch to GitHub with :code:`git push`, which may require a developer with elevated privileges to push to main.
+- To release, from the command line merge latest develop into latest main `git merge --ff-only origin develop`. This will point the HEAD of main to latest develop. Then push the main branch to GitHub with `git push`, which may require a developer with elevated privileges to push to main.
 - Back on GitHub create a new tag in GitHub against main and copy the change log notes into the tag description.
 - Tag on GitHub, copy over the correct version (format vX.Y.Z) and CHANGELOG content.
+- Verify the release was published to PyPI https://pypi.org/project/testsuite/

@@ -6,6 +6,7 @@
 - chore(deps-dev): bump virtualenv from 20.17.1 to 20.26.6 by @dependabot in https://github.com/BuildingSync/TestSuite/pull/84
 - Bump lxml to 5.3.0 and precommit by @nllong in https://github.com/BuildingSync/TestSuite/pull/85
 - Update license by @nllong in https://github.com/BuildingSync/TestSuite/pull/86
+- Update CHANGELOG and version for release by @nllong in https://github.com/BuildingSync/TestSuite/pull/87
 
 **Full Changelog**: https://github.com/BuildingSync/TestSuite/compare/v0.1.3...v0.1.4
 
