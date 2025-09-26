@@ -1,3 +1,16 @@
+# Version 0.1.5
+
+<!-- Release notes generated using configuration in .github/release.yml at prep-0.1.5 -->
+
+## What's Changed
+
+- Cleanup instructions by @nllong in https://github.com/BuildingSync/TestSuite/pull/89
+- deps: bump the dev-deps group with 3 updates by @dependabot[bot] in https://github.com/BuildingSync/TestSuite/pull/91
+- ci: bump the actions-deps group with 4 updates by @dependabot[bot] in https://github.com/BuildingSync/TestSuite/pull/90
+- Bump version and update changelog by @nllong in https://github.com/BuildingSync/TestSuite/pull/93
+
+**Full Changelog**: https://github.com/BuildingSync/TestSuite/compare/v0.1.4...v0.1.5
+
 # Version 0.1.4
 
 ## What's Changed
